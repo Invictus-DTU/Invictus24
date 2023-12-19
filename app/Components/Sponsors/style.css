@@ -1,15 +1,16 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&family=Press+Start+2P&display=swap');
 
 
 body {
+    background-color: #000000;
     background-image: url('./image 5.png');
     background-attachment: scroll;
     background-size: cover;
+    font-family: font-retrogaming, sans-serif;
+    font-weight: 400;
 }
 
 
