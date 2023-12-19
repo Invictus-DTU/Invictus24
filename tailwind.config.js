@@ -6,6 +6,12 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    fontFamily: {
+      hammer: ["Hammersmith", "sans-serif"],
+      retrog: ["Retro Gaming", "sans-serif"],
+      karma: ["Karmatic Arcade", "sans-serif"],
+      ticketing: ["Ticketing", "sans-serif"]
+    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
