@@ -25,3 +25,31 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+@font-face {
+  font-family: "Hammersmith";
+  src: url("../app/assets/fonts/HammersmithOne-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Retro Gaming";
+  src: url("../app/assets/fonts/Retro\ Gaming.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Karmatic Arcade";
+  src: url("../app/assets/fonts/ka1.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Ticketing";
+  src: url("../app/assets/fonts/ticketing.regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
