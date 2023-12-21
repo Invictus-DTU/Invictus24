@@ -35,15 +35,15 @@ const Home = () => {
         <div className='flex gap-[8vw]'>
           <figure>
             <img src='/foot.png' className=' max-[625px]:h-[15vw] md:h-[8vw] md:w-[8vw]' />
-            <figcaption className="text-center md:text-[1.75vw] font-ticketing leading-[2vw]">20,000+<br/>Footfall</figcaption>
+            <figcaption className="text-center lg:text-[1.75vw] font-ticketing max-[375px]:leading-[4vw] max-sm:leading-[3vw] sm:leading-[2vw]" >20,000+<br/>Footfall</figcaption>
           </figure>
           <figure>
             <img src='/grad.png' className='max-[625px]:h-[15vw] md:h-[8vw] md:w-[8vw]'/>
-            <figcaption className="text-center md:text-[1.75vw] font-ticketing leading-[2vw]">100+<br/>Colleges</figcaption>
+            <figcaption className="text-center lg:text-[1.75vw] font-ticketing max-[375px]:leading-[4vw] max-sm:leading-[3vw] sm:leading-[2vw]">100+<br/>Colleges</figcaption>
           </figure>
           <figure>
             <img src='/calendar.png' className='max-[625px]:h-[15vw] md:h-[8vw] md:w-[8vw]'/>
-            <figcaption className="text-center lg:text-[1.75vw] font-ticketing leading-[2vw]">60+<br/>Events</figcaption>
+            <figcaption className="text-center lg:text-[1.75vw] font-ticketing max-[375px]:leading-[4vw] max-sm:leading-[3vw] sm:leading-[2vw]">60+<br/>Events</figcaption>
           </figure>          
         </div>
       </div>
