@@ -6,11 +6,11 @@ import 'tailwindcss/tailwind.css';
 const Sponsors = () => {
     return (
     <>
-        <p className="font-retrog xl:text-7xl lg:text-7xl md:text-6xl sm:text-5xl max-[640px]:text-5xl flex justify-center mt-32 ">
+        <p className="font-retrog xl:text-7xl lg:text-7xl md:text-6xl sm:text-5xl max-[640px]:text-4xl flex justify-center mt-20">
             Sponsors
         </p>
 
-        <p className="font-retrog xl:text-4xl lg:text-4xl md:text-3xl sm:text-3xl max-[640px]:text-3xl text-yellow-500 flex justify-center mt-20">
+        <p className="font-retrog xl:text-4xl lg:text-4xl md:text-3xl sm:text-3xl max-[640px]:text-2xl text-yellow-500 flex justify-center mt-20">
             Gold Sponsor
         </p>
         <div className='flex justify-center mt-10'>
@@ -21,7 +21,7 @@ const Sponsors = () => {
             </div>
         </div>
 
-        <p className="font-retrog xl:text-4xl lg:text-4xl md:text-3xl sm:text-3xl max-[640px]:text-3xl text-stale-100 flex justify-center mt-20">
+        <p className="font-retrog xl:text-4xl lg:text-4xl md:text-3xl sm:text-3xl max-[640px]:text-2xl text-stale-100 flex justify-center mt-20">
             Silver Sponsors
         </p>
         <div className='flex justify-center flex-wrap mt-10'>
@@ -42,7 +42,7 @@ const Sponsors = () => {
             </div>
         </div>
 
-        <p className="font-retrog xl:text-4xl lg:text-4xl md:text-3xl sm:text-3xl max-[640px]:text-3xl text-orange-400 flex justify-center mt-20">
+        <p className="font-retrog xl:text-4xl lg:text-4xl md:text-3xl sm:text-3xl max-[640px]:text-2xl text-orange-400 flex justify-center mt-20">
             Bronze Sponsors
         </p>
         <div className='flex justify-center flex-wrap mt-10'>
@@ -74,7 +74,7 @@ const Sponsors = () => {
         </div>
         <div className='flex flex-row justify-center flex-wrap mb-32'>
         <div className='mx-20'>
-        <p className="font-retrog xl:text-4xl lg:text-4xl md:text-3xl sm:text-3xl max-[640px]:text-3xl text-orange-400 flex justify-center mt-20">
+        <p className="font-retrog xl:text-4xl lg:text-4xl md:text-3xl sm:text-3xl max-[640px]:text-2xl text-orange-400 flex justify-center mt-20">
             Food Partners
         </p>
         <div className='flex justify-center flex-wrap mt-10'>
@@ -91,7 +91,7 @@ const Sponsors = () => {
         </div>
         </div>
         <div className='mx-20'>
-        <p className="font-retrog xl:text-4xl lg:text-4xl md:text-3xl sm:text-3xl max-[640px]:text-3xl text-orange-400 flex justify-center mt-20">
+        <p className="font-retrog xl:text-4xl lg:text-4xl md:text-3xl sm:text-3xl max-[640px]:text-2xl text-orange-400 flex justify-center mt-20">
             Event Partners
         </p>
         <div className='flex justify-center flex-wrap mt-10'>
