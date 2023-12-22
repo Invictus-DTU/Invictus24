@@ -13,10 +13,8 @@ export async function GET(request, { params }) {
     const response = await User.findOne({ email: params.email });
 
     if (response) {
-      console.log('User found:', response);
       return NextResponse.json({ valid: true });
     } else {
-      console.log('User not found');
       return NextResponse.json({ valid: false });
     }
   } catch (error) {
