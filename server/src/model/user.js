@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import Event from './event';
 const userSchema = new mongoose.Schema({
     username:{
         type : String,
@@ -18,7 +19,11 @@ const userSchema = new mongoose.Schema({
         type : Number,
         required:[true,"please enter the name"],
         unique: true,
-    },    
+    },
+    event: [
+        {type: mongoose.Schema.Types.ObjectId,
+        ref:Event,
+    },]      
 });
 
 const User = mongoose.models.User || mongoose.model("User",userSchema);
