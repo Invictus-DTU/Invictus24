@@ -7,10 +7,10 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      retrog : ['Retro Gaming', 'sans-serif'],
-      hammer: ['Hammersmith', 'sans-serif'],
-      karma: ['Karmatic Arcade', 'sans-serif'],
-      ticketing: ['Ticketing', 'sans-serif']
+      hammer: ["Hammersmith", "sans-serif"],
+      retrog: ["Retro Gaming", "sans-serif"],
+      karma: ["Karmatic Arcade", "sans-serif"],
+      ticketing: ["Ticketing", "sans-serif"]
     },
     extend: {
       backgroundImage: {

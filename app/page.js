@@ -1,10 +1,13 @@
 
+import React from 'react'
+import Home from "@/Components/Home"
 
-export default function Home() {
+const page = () => {
   return (
     <>
-    Hello World
+      <Home />
     </>
-    
-  );
+  )
 }
+
+export default page
