@@ -6,8 +6,8 @@ export const authOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
     GoogleProvider({
-      clientId: "1010618076889-08tjso93glf22tik2okuvcic621u0l8k.apps.googleusercontent.com",
-      clientSecret: "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",
+      clientId: process.env.ID,
+      clientSecret: process.env.CLIENT_SECRET,
     }),
     // ...add more providers here
   ],

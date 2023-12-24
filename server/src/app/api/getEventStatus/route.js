@@ -35,7 +35,6 @@ export default async function GET() {
     }
   });
   
-  // Wait for all promises to resolve
   await Promise.all(promises);
 
   return NextResponse.json({event: event});
