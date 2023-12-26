@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
-import { connectDb } from "@/app/helpers/db";
+import connectDb from "@/server/src/helper/config";
 import Event from "@/app/models/event";
+
 
 connectDb();
 
