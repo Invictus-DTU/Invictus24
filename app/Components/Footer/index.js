@@ -1,19 +1,22 @@
 import React from 'react';
 import './style.css';
 import 'tailwindcss/tailwind.css';
+import Link from 'next/link';
 
 const Footer = () => {
     return (
         <div className='footer flex flex-row items-center justify-center bg-black/[0.25] '>
             <div className="max-[815px]:hidden flex justify-center items-center">
-                <img src="/invictuslogo.png" alt="invictus logo"  className='w-48 h-32 mr-10'/>
+                <Link href="/">
+                    <img src="/invictuslogo.png" alt="invictus logo"  className='w-48 h-32 mr-10'/>
+                </Link>
             </div>
             <div className="max-[815px]:hidden">
             <p className='text-5xl mx-10 text-white'>| </p>
             </div>
             <div className='flex flex-row max-sm:flex-col justify-center items-center'>
                 
-            <div className="text-xl font-retrog mx-6 md:8 xl:text-xl lg:text-lg md:text-md sm:text-sm max-[640px]:text-xs justify-center items-center text-white">
+            <div className="text-xl text-center font-retrog mx-6 md:8 xl:text-xl lg:text-lg md:text-md sm:text-sm max-[640px]:text-xs justify-center items-center text-white">
                 © Designed & Developed by ❤️ Invictus Team
             </div>
             <div className="">

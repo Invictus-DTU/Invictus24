@@ -3,5 +3,5 @@
     border: 30px solid transparent;
     background-color: transparent;
     padding: 5px;
-    border-image: url(../public/border.png) 49% round;
+    border-image: url(/border.png) 49% round;
   }

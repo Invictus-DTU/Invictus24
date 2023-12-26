@@ -50,7 +50,7 @@ const Navbar = () => {
                         </li>
                     </ul>
                 </div>
-                <div className='hamburger lg:hidden h-8 w-8 mt-6 absolute right-4' onClick={() => setNav(!nav)}>
+                <div className='hamburger text-[#FFFFFF] lg:hidden h-8 w-8 mt-6 absolute right-4' onClick={() => setNav(!nav)}>
                     {nav ? <FaTimes size={30} /> : <FaBars size={30} />}</div>
             </div>
             {nav && (
