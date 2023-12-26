@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import Button from './Button'
+import Carousel from './Carousel'
 
 const Home = () => {
   return (
@@ -23,7 +24,7 @@ const Home = () => {
       </div>
     </div>
 
-    <div className='w-full h-[300vh] top-0 left-0 flex flex-col justify-center items-center bg-[#05063F] py-40 '>
+    <div className='w-full h-[300vh] top-0 left-0 flex flex-col justify-center items-center bg-[#05063F] py-40'>
       <img src='/bg2.png' className=' w-full absolute h-[300vh] top-[100vh] left-0 shrink-0 object-cover opacity-30 z-2' />
       <div className='z-1 h-[100vh] flex flex-col justify-evenly absolute top-[100vh] items-center text-white '>
         <div className='font-retrog max-[640px]:text-[10vw] text-[6vw]'>
@@ -48,11 +49,17 @@ const Home = () => {
         </div>
       </div>
 
-      <div className='w-full h-[300vh] top-0 left-0'>
+      <div className='w-full h-[100vh] top-[200vh] left-0'>
+        <>Hello world</>
       </div>
       
-      <div className='w-full h-[300vh] top-0 left-0'>
-
+      <div className='z-1 h-[100vh] flex flex-col justify-evenly absolute top-[300vh] items-center text-white '>
+        <h2 className=' h-1/4 font-retrog max-[640px]:text-[10vw] text-[6vw] flex justify-center items-center'>
+          Gallery
+        </h2>
+        <div className=' w-[15vw]'>
+          <Carousel />
+        </div>
       </div>
     </div>
     
