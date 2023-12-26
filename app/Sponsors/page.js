@@ -6,7 +6,7 @@ import 'tailwindcss/tailwind.css';
 const Sponsors = () => {
     return (
     <>
-        <p className="font-retrog xl:text-7xl lg:text-7xl md:text-6xl sm:text-5xl max-[640px]:text-4xl flex justify-center mt-20">
+        <p className="font-retrog xl:text-7xl lg:text-7xl md:text-6xl sm:text-5xl max-[640px]:text-4xl flex justify-center mt-20 text-white">
             Sponsors
         </p>
 
@@ -21,7 +21,7 @@ const Sponsors = () => {
             </div>
         </div>
 
-        <p className="font-retrog xl:text-4xl lg:text-4xl md:text-3xl sm:text-3xl max-[640px]:text-2xl text-stale-100 flex justify-center mt-20">
+        <p className="font-retrog xl:text-4xl lg:text-4xl md:text-3xl sm:text-3xl max-[640px]:text-2xl text-[#C0C0C0] text-stale-100 flex justify-center mt-20">
             Silver Sponsors
         </p>
         <div className='flex justify-center flex-wrap mt-10'>

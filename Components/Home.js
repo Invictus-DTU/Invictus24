@@ -5,8 +5,8 @@ import Carousel from './Carousel'
 
 const Home = () => {
   return (
-    <main className='w-screen absolute h-screen overflow-auto'>
-    <div className='w-full h-full top-0 left-0 flex flex-col justify-center items-center bg-[#05063F]'>
+    <main className='w-full h-[400vh] overflow-auto'>
+    <div className='w-full h-screen top-0 left-0 flex flex-col justify-center items-center bg-[#05063F]'>
       <img src='/bg.png' className=' w-full absolute h-full top-0 left-0 shrink-0 object-cover opacity-50 z-2' />
       <div className='z-1 flex flex-col justify-center absolute items-center gap-16 '>
         <div className="w-fit flex flex-col gap-0">  
@@ -24,9 +24,9 @@ const Home = () => {
       </div>
     </div>
 
-    <div className='w-full h-[300vh] top-0 left-0 flex flex-col justify-center items-center bg-[#05063F] py-40'>
-      <img src='/bg2.png' className=' w-full absolute h-[300vh] top-[100vh] left-0 shrink-0 object-cover opacity-30 z-2' />
-      <div className='z-1 h-[100vh] flex flex-col justify-evenly absolute top-[100vh] items-center text-white '>
+    <div className='w-full h-[300vh] top-0 left-0 flex flex-col justify-center items-center about-events-carousel'>
+      <img src='/bg2.png' className=' w-full absolute h-[300vh] top-[100vh] left-0 shrink-0 object-cover opacity-30 z-1  ' />
+      <div className='z-1 h-[100vh] flex flex-col justify-evenly absolute top-[100vh] items-center text-white bg-[#05063F]'>
         <div className='font-retrog max-[640px]:text-[10vw] text-[6vw]'>
           About
         </div>

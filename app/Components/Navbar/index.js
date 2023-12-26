@@ -9,7 +9,7 @@ import Sponsors from '../../Sponsors/page';
 const Navbar = () => {
     const [nav, setNav] = useState(false);
     return (
-        <nav className='xl:h-[100px] lg:h-[95px] md:h-[90px] sm:h-[80px] max-[640px]:h-[80px] bg-black/[0.25] flex justify-center backdrop-blur-md sticky top-0 z-50'>
+        <nav className='xl:h-[100px] lg:h-[95px] md:h-[90px] sm:h-[80px] max-[640px]:h-[80px] bg-black/[0.25] flex flex-row justify-center backdrop-blur-md sticky top-0 z-50'>
             <div className='flex flex-row'>
                 <div className='absolute left-0  mt-2 mx-10 max-md:mx-4'>
                 <Link href="/">
