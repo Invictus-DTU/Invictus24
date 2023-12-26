@@ -1,31 +1,29 @@
 {
-  "name": "invictus24",
+  "name": "invictus",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "next dev -p 3000",
+    "build": "next build -p 3000",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "axios": "^1.6.2",
-    "dotenv": "^16.3.1",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.0.3",
     "next": "14.0.4",
+    "next-auth": "^4.24.5",
     "react": "^18",
-    "react-dom": "^18",
-    "react-icons": "^4.12.0",
-    "react-router-dom": "^6.21.0",
-    "react-slick": "^0.29.0",
-    "slick-carousel": "^1.8.1"
+    "react-dom": "^18"
   },
   "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "postcss": "^8",
-    "tailwindcss": "^3.3.7"
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
   }
 }
