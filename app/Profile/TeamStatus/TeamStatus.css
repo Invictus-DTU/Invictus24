@@ -1,0 +1,34 @@
+.TeamStatus{
+    max-height: 1020px;
+    overflow-y: scroll;
+    border-radius: 29px;
+    background: #000;
+    color: white;
+    margin: 60px;
+    font-family: Ticketing;
+}
+.heading{
+/* width: 554px;
+height: 74px; */
+text-align: center;
+font-family: Ticketing;
+font-size: 80px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.event img{
+    width: 36px;
+height: 61px;
+/* width:10%; */
+}
+.title{
+    width: 40%;
+}
+.names{
+    width: 40%;
+}
+.event{
+    display: flex;
+    margin:10px 30px;
+}
