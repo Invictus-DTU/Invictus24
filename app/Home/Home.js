@@ -2,6 +2,7 @@
 import React from 'react'
 import HomeButton from '../Components/Buttons/homeButton'
 import Carousel from '../Components/Carousel'
+import Registration from '../Components/Registration-form/Registration'
 
 const Home = () => {
   return (

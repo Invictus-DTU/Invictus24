@@ -7,3 +7,17 @@
     background-image: url(../../../public/bg2.png);
     background-size: cover;
 }
+.form-round{
+    border-radius: 65px;
+    overflow: hidden;
+}
+.box-2{
+    top: 63px;
+}
+.box-1{
+    top: 99px;
+    width: 72%;
+}
+.register-box{
+    bottom: 36px;
+}
