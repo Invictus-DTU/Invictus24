@@ -1,16 +1,15 @@
-"use client"
-import React from 'react'
-import Home from "./Home/Home"
-import { Profile } from './Profile/Profile'
-import Registration from './Components/Registration-form/Registration'
-
+"use client";
+import React from "react";
+import Home from "./Home/Home";
+// import { Profile } from "./Profile/Profile";
+import Workshop from "./Workhops,Events,OurTeam/Workshop";
 
 const page = () => {
   return (
-      <Home />
-      // <Profile/>
-      // <Registration/>
-  )
-}
+    // <Home />
+    // <Profile />
+    <Workshop />
+  );
+};
 
-export default page
+export default page;
