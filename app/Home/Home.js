@@ -1,32 +1,33 @@
 'use client'
 import React from 'react'
-import Button from './Button'
-import Carousel from './Carousel'
+import HomeButton from '../Components/Buttons/homeButton'
+import Carousel from '../Components/Carousel'
+import Registration from '../Components/Registration-form/Registration'
 
 const Home = () => {
   return (
-    <main className='w-screen absolute h-screen overflow-auto'>
-    <div className='w-full h-full top-0 left-0 flex flex-col justify-center items-center bg-[#05063F]'>
+    <main className='w-full h-[400vh] overflow-auto'>
+    <div className='w-full h-screen top-0 left-0 flex flex-col justify-center items-center bg-[#05063F]'>
       <img src='/bg.png' className=' w-full absolute h-full top-0 left-0 shrink-0 object-cover opacity-50 z-2' />
       <div className='z-1 flex flex-col justify-center absolute items-center gap-16 '>
         <div className="w-fit flex flex-col gap-0">  
-          <div className='font-retrog text-white text-[4vw] 2xl:text-[2vw]'>
+          <div className='font-retrog text-white text-[4vw] xl:text-[2vw]'>
             10th Feb ‘24
           </div>
           <div className='font-karma text-[12vw] 2xl:text-[10vw] text-white tracking-wide mx-1 text-center'>
             INVICTUS
           </div>
-          <div className='font-retrog text-white text-[4vw] 2xl:text-[2vw] text-right'>
+          <div className='font-retrog text-white text-[4vw] xl:text-[2vw] text-right'>
             Life in a Pixelated Era
           </div>
         </div>
-        <Button buttonText="Register Now" />
+        <HomeButton buttonText="Register Now" />
       </div>
     </div>
 
-    <div className='w-full h-[300vh] top-0 left-0 flex flex-col justify-center items-center bg-[#05063F] py-40'>
-      <img src='/bg2.png' className=' w-full absolute h-[300vh] top-[100vh] left-0 shrink-0 object-cover opacity-30 z-2' />
-      <div className='z-1 h-[100vh] flex flex-col justify-evenly absolute top-[100vh] items-center text-white '>
+    <div className='w-full h-[300vh] top-0 left-0 flex flex-col bg-[#05063F]'>
+      <img src='/bg2.png' className=' w-full absolute h-[300vh] top-[100vh] left-0 shrink-0 object-cover opacity-30 z-2  ' />
+      <div className='z-1 h-[100vh] flex flex-col justify-evenly absolute top-[100vh] items-center text-white'>
         <div className='font-retrog max-[640px]:text-[10vw] text-[6vw]'>
           About
         </div>
@@ -53,7 +54,7 @@ const Home = () => {
         <>Hello world</>
       </div>
       
-      <div className='z-1 h-[100vh] flex flex-col justify-evenly absolute top-[300vh] items-center text-white '>
+      <div className='z-1 w-full h-[100vh] flex flex-col justify-evenly absolute top-[300vh] items-center text-white '>
         <h2 className=' h-1/4 font-retrog max-[640px]:text-[10vw] text-[6vw] flex justify-center items-center'>
           Gallery
         </h2>
