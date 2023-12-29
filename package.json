@@ -9,11 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "axios": "^1.6.2",
+    "axios": "^1.6.3",
     "dotenv": "^16.3.1",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.0.3",
     "next": "14.0.4",
+    "next-auth": "^4.24.5",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^4.12.0",
@@ -22,10 +23,12 @@
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
+    "@types/react": "18.2.45",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "postcss": "^8",
-    "tailwindcss": "^3.3.7"
+    "tailwindcss": "^3.3.7",
+    "typescript": "5.3.3"
   }
 }
