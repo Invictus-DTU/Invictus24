@@ -4,8 +4,9 @@
 
 
 .form-box{
-    background-image: url(../../../public/bg2.png);
+    background-image: url(../../../public/bg3.png);
     background-size: cover;
+    filter: blue(8px);
 }
 .form-round{
     border-radius: 65px;
