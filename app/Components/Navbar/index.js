@@ -6,10 +6,10 @@ import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Sponsors from '../../Sponsors/page';
 
-const Navbar = () => {
+const Navbar = ({status}) => {
     const [nav, setNav] = useState(false);
     return (
-        <nav className='xl:h-[100px] lg:h-[95px] md:h-[90px] sm:h-[80px] max-[640px]:h-[80px] bg-black/[0.25] flex flex-row justify-center backdrop-blur-md sticky top-0 z-50'>
+        <nav className='xl:h-[100px] lg:h-[95px] md:h-[90px] sm:h-[80px] max-[640px]:h-[80px] bg-black/[0.25] w-screen flex justify-center backdrop-blur-md sticky top-0 z-50'>
             <div className='flex flex-row'>
                 <div className='absolute left-0  mt-2 mx-10 max-md:mx-4'>
                 <Link href="/">
@@ -18,6 +18,23 @@ const Navbar = () => {
                 </div>
                 <div className='absolute right-0 mx-4'>
                     <ul className='flex flex-row font-hammer xl:text-xl lg:text-xl max-lg:hidden text-white'>
+                        {status==="admin"?<>
+                        <li className='mx-6 mt-8 hover:text-white active:text-white focus:text-white'>
+                            <Link href="/admin/registration?status=admin">
+                                Registration
+                            </Link>
+                        </li>
+                        <li className='mx-6 mt-8 hover:text-white active:text-white'>
+                            <Link href="/admin/registeredEvents?status=admin">
+                                Registered Events
+                            </Link>
+                        </li>
+                        <li className='mx-6 mt-8 hover:text-white active:text-white'>
+                            <Link href="/admin/registeredUsers?status=admin">
+                                Registered Users
+                            </Link>
+                        </li>
+                        </>:<>
                         <li className='mx-6 mt-8 hover:text-white active:text-white focus:text-white'>
                             <Link href="/">
                                 HOME
@@ -47,16 +64,32 @@ const Navbar = () => {
                             <Link href="/profile">
                                 <img src="/profile.png" alt="profile" className='h-10 w-10'/>
                             </Link>
-                        </li>
+                        </li></>}
                     </ul>
                 </div>
-                <div className='hamburger text-[#FFFFFF] lg:hidden h-8 w-8 mt-6 absolute right-4' onClick={() => setNav(!nav)}>
+                <div className='hamburger lg:hidden h-8 w-8 mt-6 absolute right-4' onClick={() => setNav(!nav)}>
                     {nav ? <FaTimes size={30} /> : <FaBars size={30} />}</div>
             </div>
             {nav && (
                 <ul className="flex flex-col justify-center items-center absolute top-[90px] left-0 w-full h-[400px] bg-black/[0.8]  text-white text-xl font-hammer backdrop-blur-md">
                 
-                <li className='mx-6 mt-8 hover:text-white active:text-white focus:text-white'>
+                {status==="admin"?<>
+                        <li className='mx-6 mt-8 hover:text-white active:text-white focus:text-white'>
+                            <Link href="/admin/registration?status=admin">
+                                Registration
+                            </Link>
+                        </li>
+                        <li className='mx-6 mt-8 hover:text-white active:text-white'>
+                            <Link href="/admin/registeredEvents?status=admin">
+                                Registered Events
+                            </Link>
+                        </li>
+                        <li className='mx-6 mt-8 hover:text-white active:text-white'>
+                            <Link href="/admin/registeredUsers?status=admin">
+                                Registered Users
+                            </Link>
+                        </li>
+                        </>:<><li className='mx-6 mt-8 hover:text-white active:text-white focus:text-white'>
                             <Link href="/">
                                 HOME
                             </Link>
@@ -85,7 +118,7 @@ const Navbar = () => {
                             <Link href="/profile">
                                 <img src="/profile.png" alt="profile" className='h-10 w-10'/>
                             </Link>
-                        </li>
+                        </li></>}
                 
                 </ul>
             )}
