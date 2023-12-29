@@ -1,8 +1,6 @@
 "use client"
 import React from 'react'
 import Home from "./Home/Home"
-import { Profile } from './Profile/Profile'
-import Registration from './Components/Registration-form/Registration'
 
 
 const page = () => {
@@ -10,6 +8,9 @@ const page = () => {
       <Home />
       // <Profile/>
       // <Registration/>
+      // <div className='w-auto mx-64 my-10'>
+      //   <Slider slides={slides} />
+      // </div>
   )
 }
 
