@@ -2,7 +2,7 @@
 import React from "react";
 import Home from "./Home/Home";
 // import { Profile } from "./Profile/Profile";
-import Workshop from "./Workhops,Events/Workshop";
+import Workshop from "./Workhops,Events,OurTeam/Workshop";
 
 const page = () => {
   return (
