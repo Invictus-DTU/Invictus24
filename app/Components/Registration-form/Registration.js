@@ -32,7 +32,6 @@ const Registration = () => {
                         <div className=' w-3/5 h-20 bg-white text-black box-3' ></div>
                     </div>
                 </button>
-
             </form>
         </div>
     )

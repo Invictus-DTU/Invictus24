@@ -1,15 +1,12 @@
-"use client";
-import React from "react";
-import Home from "./Home/Home";
-// import { Profile } from "./Profile/Profile";
-import Workshop from "./Workhops,Events,OurTeam/Workshop";
+"use client"
+import React from 'react'
+import Home from "./Home/Home"
+
 
 const page = () => {
   return (
-    // <Home />
-    // <Profile />
-    <Workshop />
-  );
-};
+      <Home />
+  )
+}
 
 export default page;
