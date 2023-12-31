@@ -1,0 +1,18 @@
+.button2 {
+    color: black;
+    border: 30px solid transparent;
+    background-color: transparent;
+
+    padding: 5px;
+    margin-top: -20px;
+    border-image: url(/border.png) 49% round;
+    font-family: 'Ticketing';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 85px;
+    line-height: 126px;
+    text-align: center;
+
+
+}
+
