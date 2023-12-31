@@ -1,0 +1,17 @@
+
+.trophy{
+    background-image: url('./Trophy.png');
+    height: 2.5rem;
+    width: 2.5rem;
+    background-size: contain;
+}
+
+@media (max-width:768px) {
+    .main-box{
+
+        flex-wrap: wrap;
+    }
+    .image{
+        margin: auto;
+    }
+}

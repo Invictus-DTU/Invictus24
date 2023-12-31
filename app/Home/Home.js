@@ -2,9 +2,26 @@
 import React from 'react'
 import HomeButton from '../Components/Buttons/homeButton'
 import Carousel from '../Components/Carousel'
-import Registration from '../Components/Registration-form/Registration'
+import Image from 'next/image'
+import { useSession, signOut } from 'next-auth/react'
+import { useEffect, useRef } from 'react'
+import { checkUser } from '../helper'
 
 const Home = () => {
+  const { data: session } = useSession();
+
+  useEffect(() => {
+    if(!session || !session?.user) return;
+    async function auth(){
+      const res = await checkUser(session?.user?.email);
+      console.log(res);
+      if(res.error || res.message === "Doesn't exist"){
+        await signOut();
+      }
+    }
+    auth();
+  }, [session]);
+  
   return (
     <main className='w-full h-[400vh] overflow-auto'>
     <div className='w-full h-screen top-0 left-0 flex flex-col justify-center items-center bg-[#05063F]'>
@@ -21,7 +38,7 @@ const Home = () => {
             Life in a Pixelated Era
           </div>
         </div>
-        <HomeButton buttonText="Register Now" />
+        {session? "Registered" : <HomeButton buttonText="Register Now" />}
       </div>
     </div>
 

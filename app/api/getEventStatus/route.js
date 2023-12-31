@@ -16,10 +16,10 @@ export default async function GET() {
     else{
         data.status = "open";
     }
-    if (user.event.includes(data._id)) {
+    if (user?.event?.includes(data._id)) {
       try {
         data.participationStatus = "participated";
-        const getTeam = await Team.findOne({ teamLeader: user._id, event: data.eventname });
+        const getTeam = await Team.findOne({ teamLeader: user?._id, event: data.eventname });
         if(getTeam){
             data.role = "team leader";
         }

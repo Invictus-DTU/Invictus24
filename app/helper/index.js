@@ -1,21 +1,22 @@
+'use client'
 import axios from 'axios';
 require("dotenv").config();
 
-axios.defaults.baseURL = process.env.BASE_URL;
+//axios.defaults.baseURL = process.env.BASE_URL;
 export const userRegister = async(formData) => {
     try{
-        const { response } = await axios.post("/user",{formData});
-        const res = await response.json();
+        console.log(formData);
+        const  response  = await axios.post("http://localhost:3000/api/addUser",{formData},{
+            validateStatus: (status) => status >= 200 && status <= 500
+        });
         if(response.status === 400){
-            alert(res.error);
-            window.location.reload();
+            return { error: "Already registered!" };
         }
         else if(response.status === 500){
-            alert("some error occured");
-            window.location.reload();
+            return { error: "Some error occurred" };
         }
         else{
-            window.location.href = "/";
+            return { success: true, message: "Registered successfully!" };
         }
         return;
     } catch (error) {
@@ -25,12 +26,14 @@ export const userRegister = async(formData) => {
 
 export const checkUser = async(email) => {
     try{
-        const { response } = await axios.get(`/checkUser?email=${email}`);
-        const res = await response.json();
+        const response  = await axios.post(`http://localhost:3000/api/checkUser`,{email: email},{
+            validateStatus: (status) => status >= 200 && status <= 500
+        });
+        const res = response.data;
         if(response.status === 500){
             return { error: "some error occured" };
         }
-        return res.message;
+        return res;
     } catch (error) {
         return { error: "some error occured" };
     }
