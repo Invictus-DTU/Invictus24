@@ -1,12 +1,13 @@
 import React from 'react'
-import "./Form.css";
+import "./InputForm.css";
 
-export const Form = () => {
+export const InputForm = () => {
   return (
-    <div className='container'>
-    <h1> Our Profile</h1>
+    <div className='InputForm' w-100>
+    <h1 id='ourProfile' className='w-100'> Our Profile</h1>
 
-    <form action="submit_form.php" method="post" className='FormContainer'>
+    <form action="submit_form.php" method="post">
+
     <label for="name">Name</label>
     <input type="text" id="name" name="name" required/>
 
@@ -22,8 +23,9 @@ export const Form = () => {
     <label for="college">College Name</label>
     <input type="text" id="college" name="college" required/>
 
-    <div class="pixel2"><p>SUBMIT INFO</p></div>
+    <div class="pixel2"><span>SUBMIT INFO</span></div>
     </form>
     </div>
+
   )
 }

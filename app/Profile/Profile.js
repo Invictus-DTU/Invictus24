@@ -1,12 +1,11 @@
 import React from 'react'
 import { TeamStatus } from './TeamStatus/TeamStatus'
 import WorkshopCard from './EventCard/WorkshopCard'
-import { Form } from './Form/Form'
-
+import {InputForm} from "./Form/InputForm";
 export const Profile = () => {
   return (
     <>
-    <Form/>
+    <InputForm/>
     <TeamStatus/>
     {/* <WorkshopCard/> */}
     </>

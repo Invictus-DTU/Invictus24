@@ -1,6 +1,5 @@
 import React from 'react'
 import "./TeamStatus.css"
-import arrow from "../../../public/arrow.png";
 
 export const TeamStatus = () => {
   return (
@@ -8,7 +7,7 @@ export const TeamStatus = () => {
         <div className='heading'>Teams Status:</div>
         <div className='event d-flex w-100'>
             
-        <img src={arrow} />
+        <img src="/arrow.png" className='mr-5' />
         <div className='title d-flex flex-column'>
             <div>Event Name:</div>
             <div>M2M93RM39MR9393JR9</div>
@@ -22,7 +21,7 @@ export const TeamStatus = () => {
         </div>
         <div className='event d-flex w-100'>
             
-        <img src={arrow} />
+        <img src='/arrow.png' className='mr-3'/>
         <div className='title d-flex flex-column'>
             <div>Event Name:</div>
             <div>M2M93RM39MR9393JR9</div>

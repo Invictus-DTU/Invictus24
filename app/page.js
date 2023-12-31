@@ -7,8 +7,8 @@ import Registration from './Components/Registration-form/Registration'
 
 const page = () => {
   return (
-      // <Home />
-      <Profile/>
+      <Home />
+      // <Profile/>
       // <Registration/>
   )
 }
