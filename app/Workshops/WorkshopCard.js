@@ -14,7 +14,7 @@ const WorkshopCard = ({ props }) => {
         />
 
         {/* About */}
-        <div className="xl:w-3/5 lg:w-90 md:w-90  max-[768px]:w-[90%]">
+        <div className="xl:w-3/5 lg:w-90 md:w-90  max-[768px]:w-[90%] self-start">
           <div className="font-retrog lg:text-3xl  md:text-3xl sm:text-3xl text-4xl max-[640px]:flex justify-center">
             {props.title}
           </div>
@@ -25,8 +25,8 @@ const WorkshopCard = ({ props }) => {
 
         {/* Register */}
         <div className="xl:w-1/5 lg:w-90 md:w-100  max-[768px]:w-[100%] flex flex-col items-center  justify-center m-2.5">
-          <Button buttonText="Register for events"></Button>
-          <div className="location">
+          <Button buttonText="Register"></Button>
+          <div className="location mt-3">
             <div className="date font-retrog text-nowrap">{props.date}</div>
             <div className="venue font-retrog">
               {props.Venue}, {props.time}

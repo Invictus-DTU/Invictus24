@@ -112,13 +112,13 @@ const Workshop = () => {
   return (
     <>
       <div className="flex flex-col items-center w-full Workshop pb-[60px]">
-        <h1 className="font-retrog xl:text-7xl lg:text-7xl md:text-6xl sm:text-5xl max-[640px]:text-5xl flex justify-center mt-32 text-white">
+        <h1 className="font-retrog xl:text-7xl lg:text-7xl md:text-6xl sm:text-5xl max-[640px]:text-5xl flex justify-center mt-32 mb-6 text-white">
           Workshop
         </h1>
 
         {/* Filter and SearchBar */}
-        <div className="flex justify-between w-[90%]">
-          <div className="flex">
+        <div className="flex sm:justify-between max-[640px]: justify-center w-[90%] max-[640px]: flex-wrap ">
+          <div className="flex sm:w-fit max-[640px]: w-[80%] max-[480px]:w-fit sm:justify-normal max-[640px]: justify-between">
             <Button buttonText="Filter" />
             <Button buttonText="Sort By" />
           </div>
@@ -128,7 +128,7 @@ const Workshop = () => {
             </div>
             <input
               className="flex shrink h-[80%] w-[85%] font-retrog border-0 border-none"
-              placeholder="Search for Workshop"
+              placeholder="Search for Events"
             ></input>
           </div>
         </div>

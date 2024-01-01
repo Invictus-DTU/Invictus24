@@ -7,14 +7,14 @@ const EventCard = ({ props }) => {
         className="bg-[#0000004d] p-3 w-[90vw] min-h-40 flex my-[20px] mx-[5vw] text-[#f0f8ff] backdrop-blur rounded-[25px] shadow-[0px_0px_20px_#8f8f8f8f] items-center max-[768px]:flex-wrap "
         // className="main-box"
       >
-        <img
+        <img //Robo Image
           className="  bg-no-repeat  shrink-0 xl:w-[25rem] lg:w-80 md:w-60 sm:w-[25rem] w-[100%] md:mr-3 rounded-3xl"
           src="/Card-Robo.png"
           alt="Robot-Image"
         />
 
         {/* About */}
-        <div className="xl:w-3/5 lg:w-90 md:w-90  max-[768px]:w-[90%]">
+        <div className="xl:w-3/5 lg:w-90 md:w-90  max-[768px]:w-[90%] self-start">
           <div className="font-retrog lg:text-3xl  md:text-3xl sm:text-3xl text-4xl max-[640px]:flex justify-center">
             {props.title}
           </div>
@@ -24,7 +24,7 @@ const EventCard = ({ props }) => {
         </div>
 
         {/* Register */}
-        <div className="xl:w-1/5 lg:w-90 md:w-100  max-[768px]:w-100 flex flex-col items-center  justify-center m-2.5">
+        <div className="xl:w-1/5 lg:w-90 md:w-100  max-[768px]:w-[100%] flex flex-col items-center  justify-center m-2.5 ">
           <div className="flex">
             <img
               className="bg-no-repeat shrink-0 w-10 h-10"
@@ -37,11 +37,11 @@ const EventCard = ({ props }) => {
 
           <div className="location">
             <div className="date font-retrog text-nowrap">{props.date}</div>
-            <div className="venue font-retrog">
+            <div className="venue font-retrog mb-3">
               {props.Venue}, {props.time}
             </div>
           </div>
-          <Button buttonText="Register for events"></Button>
+          <Button buttonText="Register"></Button>
         </div>
       </div>
     </>

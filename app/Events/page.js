@@ -10,7 +10,7 @@ const Events = () => {
     {
       title: "title",
       detail:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, ut. Tempora omnis assumenda incidunt sequi consectetur dolore, rem enim molestias, explicabo delectus sit dignissimos hic repudiandae in repellat. Sed possimus corporis optio! Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus non blanditiis cupiditate fuga inventore rem animi, necessitatibus ratione tempore, totam quasi magnam fugit quisquam provident. Voluptatem temporibus atque corrupti, explicabo quos ad totam illum possimus! Eius modi quas ipsum esse molestias iusto nihil obcaecati voluptates ullam? Id similique, consequatur provident dolorem sunt ad commodi hic error.",
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi maxime repellat, error mollitia optio dolore iusto eos ullam voluptas asperiores!",
       date: "date",
       prize: "Prize",
       time: "time",
@@ -18,8 +18,7 @@ const Events = () => {
     },
     {
       title: "title",
-      detail:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, ut. Tempora omnis assumenda incidunt sequi consectetur dolore, rem enim molestias, explicabo delectus sit dignissimos hic repudiandae in repellat. Sed possimus corporis optio! Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus non blanditiis cupiditate fuga inventore rem animi, necessitatibus ratione tempore, totam quasi magnam fugit quisquam provident. Voluptatem temporibus atque corrupti, explicabo quos ad totam illum possimus! Eius modi quas ipsum esse molestias iusto nihil obcaecati voluptates ullam? Id similique, consequatur provident dolorem sunt ad commodi hic error.",
+      detail: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
       date: "date",
       prize: "Prize",
       time: "time",
@@ -112,13 +111,13 @@ const Events = () => {
   return (
     <>
       <div className="flex flex-col items-center w-full Events pb-[60px]">
-        <h1 className="font-retrog xl:text-7xl lg:text-7xl md:text-6xl sm:text-5xl max-[640px]:text-5xl flex justify-center mt-32 text-white">
+        <h1 className="font-retrog xl:text-7xl lg:text-7xl md:text-6xl sm:text-5xl max-[640px]:text-5xl flex justify-center mt-32 mb-6 text-white">
           Events
         </h1>
 
         {/* Filter and SearchBar */}
-        <div className="flex justify-between w-[90%]">
-          <div className="flex">
+        <div className="flex sm:justify-between max-[640px]: justify-center w-[90%] max-[640px]: flex-wrap ">
+          <div className="flex sm:w-fit max-[640px]: w-[80%] max-[480px]:w-fit sm:justify-normal max-[640px]: justify-between">
             <Button buttonText="Filter" />
             <Button buttonText="Sort By" />
           </div>
