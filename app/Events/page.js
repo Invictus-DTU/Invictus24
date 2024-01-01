@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Button from "../Components/Buttons/eventButton";
 import EventCard from "./EventCard";
 
-const Workshop = () => {
+const Events = () => {
   const itemsPerPage = 4;
 
   const arr = [
@@ -165,4 +165,4 @@ const Workshop = () => {
   );
 };
 
-export default Workshop;
+export default Events;
