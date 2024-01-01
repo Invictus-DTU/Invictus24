@@ -3,11 +3,14 @@ import React from 'react';
 import 'tailwindcss/tailwind.css';
 import Link from 'next/link';
 import { useState } from "react";
+import { useSession, signOut } from 'next-auth/react'
 import { FaBars, FaTimes } from "react-icons/fa";
 import Sponsors from '../../Sponsors/page';
+import SigninButton from '../../Components/Buttons/singinButton'
 
 const Navbar = ({status}) => {
     const [nav, setNav] = useState(false);
+    const { data: session } = useSession();
     return (
         <nav className='xl:h-[100px] lg:h-[95px] md:h-[90px] sm:h-[80px] max-[640px]:h-[80px] bg-black/[0.25] w-full flex justify-center backdrop-blur-md sticky top-0 z-50'>
             <div className='flex flex-row'>
@@ -61,9 +64,13 @@ const Navbar = ({status}) => {
                             </Link>
                         </li>
                         <li className='mx-6 mt-6 hover:text-white active:text-white'>
+                            { (!session || !session?.user) ?
+                            <SigninButton buttonText="Sign In" />
+                            :
                             <Link href="/profile">
                                 <img src="/profile.png" alt="profile" className='h-10 w-10'/>
                             </Link>
+                            }
                         </li></>}
                     </ul>
                 </div>
@@ -115,9 +122,13 @@ const Navbar = ({status}) => {
                             </Link>
                         </li>
                         <li className='mx-6 mt-6 hover:text-white active:text-white'>
+                        { (!session || !session?.user) ?
+                            <SigninButton buttonText="Sign In" />
+                            :
                             <Link href="/profile">
                                 <img src="/profile.png" alt="profile" className='h-10 w-10'/>
                             </Link>
+                            }
                         </li></>}
                 
                 </ul>
