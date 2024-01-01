@@ -1,13 +1,12 @@
 "use client";
 import React from "react";
 import Home from "./Home/Home";
-import Profile from "./Profile/page";
-import Registration from "./Components/Registration-form/Registration";
+// import { Profile } from "./Profile/Profile";
 
 const page = () => {
   return (
-    <Home />
-    // <Profile />
+    // <Home />
+    <Profile />
     // <Workshop />
     // <Registration/>
   );

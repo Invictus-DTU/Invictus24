@@ -12,7 +12,8 @@
 height: 74px; */
 text-align: center;
 font-family: Ticketing;
-font-size: 6vw;
+font-size: 5vw;
+
 font-style: normal;
 font-weight: 400;
 line-height: normal;
@@ -31,4 +32,10 @@ height: 25px;
 .event{
     display: flex;
     margin:10px 30px;
+}
+
+@media only screen and (max-width: 750px) {
+    .event{
+        flex-direction: column;
+    }
 }
