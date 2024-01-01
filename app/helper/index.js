@@ -41,7 +41,9 @@ export const checkUser = async(email) => {
 
 export const getEvents = async() => {
     try{
-        const { response } = await axios.get("/getEventStatus");
+        const { response } = await axios.get("http://localhost:3000/api/getEventStatus",{
+            validateStatus: (status) => status >= 200 && status <= 500
+        });
         const res = await response.json();
         if(response.status === 500){
             return { error: "some error occured" };

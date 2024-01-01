@@ -34,6 +34,9 @@ const eventSchema = new mongoose.Schema({
     registrationEndDate: {
         type: Date,
         required: true
+    },
+    image: {
+        type: String,
     }
 });
 

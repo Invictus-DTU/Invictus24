@@ -1,5 +1,9 @@
 import { NextResponse } from "next/server";
+<<<<<<< HEAD
 import connectDb from "@/app/helper/config";
+=======
+import connectDb from "@/server/src/helper/config";
+>>>>>>> 5c8358acd17d94ff9a670ecb1bf5339dbd386f19
 import Team from "@/app/models/team";
 import User from "@/app/models/user";
 import Event from "@/app/models/event";

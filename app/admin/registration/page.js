@@ -2,6 +2,8 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
+import Base64 from '../../Components/Base64';
+
 const EventForm = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -13,6 +15,7 @@ const EventForm = () => {
     prize: 0,
     venue: '',
     registrationEndDate: '',
+    image: ''
   });
 
   const handleChange = (e) => {
@@ -36,8 +39,18 @@ const EventForm = () => {
         toast.error(error.response.data.error);
       });
     console.log(formData);
-    // You might want to send this data to a server or perform other actions.
   };
+
+  async function handleFileUpload(e) {
+      let file;
+      if(e.target.files){
+          file= e.target.files[0];
+      }
+          const base64= await Base64(file);
+      if(e.target.files && e.target.files[0]){
+          setFormData({...formData, image: base64});
+      }
+  }
 
   return (
     
@@ -142,6 +155,19 @@ const EventForm = () => {
             className="block w-full border-gray-300 rounded-md mt-1 focus:ring-indigo-500 focus:border-indigo-500"
           />
         </label>
+
+        <label htmlFor="profileImage" className="block mb-4">
+          Profile Image
+        <input
+          id="profileImage"
+          name="profileImage"
+          type="file"
+          accept="image/jpg image/jpeg"
+          onChange={handleFileUpload}
+          className="mt-1 p-2 w-full rounded-md border border-gray-300 bg-white text-gray-900"
+          required
+        />
+          </label>
 
         <button
           type="submit"

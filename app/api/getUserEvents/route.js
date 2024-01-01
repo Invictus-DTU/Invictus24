@@ -1,6 +1,6 @@
 import Event from '../../../model/event';
 import { cookies } from 'next/headers';
-import { getUser } from '../../../../../app/services/auth';
+import { getUser } from '../../services/auth';
 
 export default async function GET() {
   try {

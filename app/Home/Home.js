@@ -1,11 +1,11 @@
 'use client'
 import React from 'react'
 import HomeButton from '../Components/Buttons/homeButton'
-import Carousel from '../Components/Carousel'
-import Image from 'next/image'
 import { useSession, signOut } from 'next-auth/react'
 import { useEffect, useRef } from 'react'
 import { checkUser } from '../helper'
+import Slider from '../Components/Swiper/Swiper'
+import slides from '../Components/Swiper/images.json'
 
 const Home = () => {
   const { data: session } = useSession();
@@ -26,7 +26,7 @@ const Home = () => {
     <main className='w-full h-[400vh] overflow-auto'>
     <div className='w-full h-screen top-0 left-0 flex flex-col justify-center items-center bg-[#05063F]'>
       <img src='/bg.png' className=' w-full absolute h-full top-0 left-0 shrink-0 object-cover opacity-50 z-2' />
-      <div className='z-1 flex flex-col justify-center absolute items-center gap-16 '>
+      <div className='z-1 flex flex-col py-24 justify-around h-screen absolute top-0 items-center'>
         <div className="w-fit flex flex-col gap-0">  
           <div className='font-retrog text-white text-[4vw] xl:text-[2vw]'>
             10th Feb ‘24
@@ -71,12 +71,12 @@ const Home = () => {
         <>Hello world</>
       </div>
       
-      <div className='z-1 w-full h-[100vh] flex flex-col justify-evenly absolute top-[300vh] items-center text-white '>
+      <div className='z-1 w-full h-[100vh] flex flex-col justify-center absolute top-[300vh] items-center text-white '>
         <h2 className=' h-1/4 font-retrog max-[640px]:text-[10vw] text-[6vw] flex justify-center items-center'>
           Gallery
         </h2>
-        <div className=' w-[15vw]'>
-          <Carousel />
+        <div className=' w-[50vw] h-[50vh]'>
+          <Slider slides={slides} />
         </div>
       </div>
     </div>

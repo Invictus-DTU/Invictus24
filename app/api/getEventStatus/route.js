@@ -1,9 +1,9 @@
 import { cookies } from 'next/headers'
-import { getUser } from '../../../../../app/services/auth'
-import Event from '../../../model/event';
-import Team from '../../../model/team';
+import { getUser } from '../../services/auth'
+import Event from '../../models/event';
+import Team from '../../models/team';
  
-export default async function GET() {
+export async function GET() {
   const cookieStore = cookies();
   const token = cookieStore.get('token');
   const user = getUser(token);

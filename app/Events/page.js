@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./Background.css";
 import Butt from "./Button";
 import EventCard from "./EventCard";
@@ -9,8 +9,8 @@ import { getEvents } from "../helper/index";
 import { useSession } from "next-auth/react";
 
 const Events = () => {
- 
-  var arr = [
+  const [event, setEvent] = useState([]);
+/*  var event = [
     {
       title: "title",
       detail: "details",
@@ -47,14 +47,14 @@ const Events = () => {
       Venue: "Venue",
     },
   ];
-
-/*
+*/
   useEffect(()=>{
     async function get(){
-      arr = await getEvents();
+      const arr = await getEvents();
+      setEvent(arr);
     }
     get();
-  },[])*/
+  },[])
 
   return (
     <>
@@ -79,7 +79,7 @@ const Events = () => {
           </div>
         </div>
 
-        {arr && arr.map((item, i) => {
+        {event && event.map((item, i) => {
           return <EventCard props={item} key={i} />;
         })}
       </div>

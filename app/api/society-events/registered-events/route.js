@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import Event from "../../../models/event";
 import connectDb from "../../../helper/config";
-
-
 connectDb();
 
 export async function GET(req) {
