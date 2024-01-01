@@ -1,18 +1,15 @@
 import React from "react";
-import Button from "./Button";
-import Image from "next/image";
-import Robo from "./Card-Robo.png";
-const WorkshopCard = ({ props }) => {
-  console.log(props);
+import Button from "../Components/Buttons/eventButton";
+const EventCard = ({ props }) => {
   return (
     <>
       <div
         className="bg-[#0000004d] p-3 w-[90vw] min-h-40 flex my-[20px] mx-[5vw] text-[#f0f8ff] backdrop-blur rounded-[25px] shadow-[0px_0px_20px_#8f8f8f8f] items-center max-[768px]:flex-wrap "
         // className="main-box"
       >
-        <Image
+        <img
           className="  bg-no-repeat  shrink-0 xl:w-[25rem] lg:w-80 md:w-60 sm:w-[25rem] w-[100%] md:mr-3 rounded-3xl"
-          src={Robo}
+          src="/Card-Robo.png"
           alt="Robot-Image"
         />
 
@@ -28,27 +25,38 @@ const WorkshopCard = ({ props }) => {
 
         {/* Register */}
         <div className="xl:w-1/5 lg:w-90 md:w-100  max-[768px]:w-100 flex flex-col items-center  justify-center m-2.5">
+          <div className="flex">
+            <img
+              className="bg-no-repeat shrink-0 w-10 h-10"
+              src="./Trophy.png"
+              alt="Trophy"
+              height="100%"
+            />
+            <div className="text-4xl font-retrog">{props.prize}</div>
+          </div>
+
           <div className="location">
-            <Button title="Register"></Button>
             <div className="date font-retrog text-nowrap">{props.date}</div>
             <div className="venue font-retrog">
               {props.Venue}, {props.time}
             </div>
           </div>
+          <Button buttonText="Register for events"></Button>
         </div>
       </div>
     </>
   );
 };
-WorkshopCard.prototype = {};
-// WorkshopCard.defaultProps = {
+// EventCard.prototype = {};
+// EventCard.defaultProps = {
 //   name: "Event Name",
 //   detail:
 //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, ut. Tempora omnis assumenda incidunt sequi consectetur dolore, rem enim molestias, explicabo delectus sit dignissimos hic repudiandae in repellat. Sed possimus corporis optio! Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus non blanditiis cupiditate fuga inventore rem animi, necessitatibus ratione tempore, totam quasi magnam fugit quisquam provident. Voluptatem temporibus atque corrupti, explicabo quos ad totam illum possimus! Eius modi quas ipsum esse molestias iusto nihil obcaecati voluptates ullam? Id similique, consequatur provident dolorem sunt ad commodi hic error.",
 //   time: " 4 PM",
 //   // photo: Robo,
+//   prize: "20K",
 //   date: "4th Feb 2024",
 // };
-// default
+// // default
 
-export default WorkshopCard;
+export default EventCard;

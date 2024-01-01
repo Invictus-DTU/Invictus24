@@ -1,18 +1,16 @@
 import React from "react";
-import Image from "next/image";
-import "./Background.css";
 import CouncilCard from "./CouncilCard";
 const Council = () => {
   //   return <Image src="/Council.png" alt="photo" width={500} height={300} />;
   return (
     <>
-      <div className="Council h-full w-full absolute">
-        {/* <body className="Council"> */}
+      {/* <body className="Council"> */}
+      <div className="Council w-full pb-[60px] pt-[80px]">
         <p className="font-retrog xl:text-7xl lg:text-7xl md:text-6xl sm:text-5xl max-[640px]:text-5xl flex justify-center mt-32 text-white">
           Our Team
         </p>
 
-        <p className="font-retrog xl:text-4xl lg:text-4xl md:text-3xl sm:text-3xl max-[640px]:text-3xl text-fuchsia-600 flex justify-center mt-20">
+        <p className="font-retrog xl:text-4xl lg:text-4xl md:text-3xl sm:text-3xl max-[640px]:text-3xl text-fuchsia-600 flex justify-center mt-20 text-center">
           Technical Council
         </p>
         <div className="flex flex-wrap justify-center mt-10">
@@ -48,7 +46,7 @@ const Council = () => {
           </div>
 
           <div className="flex flex-col mx-16 my-3 items-center">
-            <p className="font-retrog text-2xl text-fuchsia-600">
+            <p className="font-retrog text-2xl text-fuchsia-600 text-center">
               Public Relation
             </p>
             <p className="font-retrog text-1.5xl text-white">Nikil Kumar</p>
@@ -62,7 +60,7 @@ const Council = () => {
           </div>
 
           <div className="flex flex-col mx-16 my-3 items-center">
-            <p className="font-retrog text-2xl text-fuchsia-600">
+            <p className="font-retrog text-2xl text-fuchsia-600 text-center">
               SM & Content
             </p>
             <p className="font-retrog text-1.5xl text-white">Nikil Kumar</p>
@@ -106,7 +104,7 @@ const Council = () => {
           </div>
 
           <div className="flex flex-col mx-16 my-3 items-center">
-            <p className="font-retrog text-2xl text-fuchsia-600">
+            <p className="font-retrog text-2xl text-fuchsia-600 text-center">
               Public Relation
             </p>
             <p className="font-retrog text-1.5xl text-white">Nikil Kumar</p>
@@ -120,7 +118,7 @@ const Council = () => {
           </div>
 
           <div className="flex flex-col mx-16 my-3 items-center">
-            <p className="font-retrog text-2xl text-fuchsia-600">
+            <p className="font-retrog text-2xl text-fuchsia-600 text-center">
               SM & Content
             </p>
             <p className="font-retrog text-1.5xl text-white">Nikil Kumar</p>
