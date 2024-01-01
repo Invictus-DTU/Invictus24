@@ -3,7 +3,7 @@ import React from "react";
 import "tailwindcss/tailwind.css";
 import Link from "next/link";
 import { useState } from "react";
-import { useSession, signOut } from 'next-auth/react'
+// import { useSession, signOut } from 'next-auth/react'
 import { FaBars, FaTimes } from "react-icons/fa";
 
 import Sponsors from "../../Sponsors/page";
