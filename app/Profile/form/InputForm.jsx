@@ -5,7 +5,11 @@ export const InputForm = () => {
   return (
     <div className='InputForm' w-100>
     <h1 id='ourProfile' className='w-100'> Our Profile</h1>
-
+    <div className='btnDiv w-100'>
+      <div className="editBtn">
+        <img src="/Pen.png" alt="" /><span>edit</span>
+      </div>
+    </div>
     <form action="submit_form.php" method="post">
 
     <label for="name">Name</label>

@@ -7,7 +7,7 @@
     color: #FFF;
 text-align: center;
 font-family: Retro Gaming;
-font-size: 3rem;
+font-size: 5.5vw;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
@@ -18,7 +18,7 @@ line-height: normal;
 }
 label{
     font-family: Retro Gaming;
-font-size: 30px;
+font-size: 3vw;
 font-style: normal;
 font-weight: 400;
 }
@@ -105,4 +105,22 @@ input{
     z-index: 2;
     text-align: center;
     /* padding-left: 0; */
+  }
+  .editBtn{
+    border-radius: 14px;
+background: #FFF;
+display: flex;
+color: black;
+justify-content: center;
+align-items: center;
+width: 80px;
+height: 35px;
+
+  }
+  .editBtn:hover{
+    cursor: pointer;
+  }
+  .btnDiv{
+    display: flex;
+    justify-content: end;
   }
