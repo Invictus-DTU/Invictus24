@@ -30,7 +30,7 @@ input{
     border-radius: 10px;
 }
 
-.pixel2 {
+/* .pixel2 {
     font-size: 25px;
     color: white;
     height: auto;
@@ -97,12 +97,14 @@ input{
   }
   
   .pixel2 {
-    /* padding-left: 75px; */
     position: relative;
     background: rgb(255, 255, 255);
     width: auto;
     width: 250px;
     z-index: 2;
     text-align: center;
-    /* padding-left: 0; */
+  } */
+
+  input{
+    color: black;
   }

@@ -7,11 +7,12 @@ import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 import Sponsors from "../../Sponsors/page";
+import Profile from "../../Profile/page"
 
 const Navbar = ({ status }) => {
   const [nav, setNav] = useState(false);
   return (
-    <nav className="xl:h-[100px] lg:h-[95px] md:h-[90px] sm:h-[80px] max-[640px]:h-[80px] bg-black/[0.25] w-screen flex justify-center backdrop-blur-md fixed top-0 z-50">
+    <nav className="xl:h-[100px] lg:h-[95px] md:h-[90px] sm:h-[80px] max-[640px]:h-[80px] bg-black/[0.25] w-full flex justify-center backdrop-blur-md fixed top-0 z-50">
       <div className="flex flex-row">
         <div className="absolute left-0  mt-2 mx-10 max-md:mx-4">
           <Link href="/">
@@ -62,7 +63,7 @@ const Navbar = ({ status }) => {
                   <Link href="/OurTeam">OUR TEAM</Link>
                 </li>
                 <li className="mx-6 mt-6 hover:text-white active:text-white">
-                  <Link href="/profile">
+                  <Link href="/Profile" children={<Profile/>}>
                     <img
                       src="/profile.png"
                       alt="profile"
@@ -75,7 +76,7 @@ const Navbar = ({ status }) => {
           </ul>
         </div>
         <div
-          className="hamburger lg:hidden h-8 w-8 mt-6 absolute right-4"
+          className="hamburger lg:hidden h-8 w-8 mt-6 absolute right-4 text-white"
           onClick={() => setNav(!nav)}
         >
           {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
@@ -119,7 +120,7 @@ const Navbar = ({ status }) => {
                 <Link href="/OurTeam">OUR TEAM</Link>
               </li>
               <li className="mx-6 mt-6 hover:text-white active:text-white">
-                <Link href="/profile">
+                <Link href="/Profile">
                   <img src="/profile.png" alt="profile" className="h-10 w-10" />
                 </Link>
               </li>
