@@ -30,22 +30,21 @@ const EventsPage = () => {
       toast.error(error.response.data.error);
     }
   };
-  useEffect(() => {
-    fetchEvents();
-  }, []);
 
   const handleUpdate = async (eventToUpdate) => {
     
     
     try {
       await axios.post("http://localhost:3000/api/society-events/update-event",eventToUpdate);
-      fetchEvents();
       toast.success('Event updated successfully.');
     } catch (error) {
       console.error('Error deleting event:', error);
       toast.error(error.response.data.error);
     }
   };
+  useEffect(() => {
+    fetchEvents();
+  }, [handleUpdate]);
 
   return (
     <div className="min-h-screen">

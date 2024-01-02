@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import connectDb from "@/server/src/helper/config";
 import User from "@/app/models/user";
+import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 
 dotenv.config(); 
