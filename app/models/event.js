@@ -26,7 +26,8 @@ const eventSchema = new mongoose.Schema({
         default: 1 
     },
     prize: {
-        type: String
+        type: String,
+        default: 0
     },
     venue: {
         type: String

@@ -1,5 +1,8 @@
 const jwt=require("jsonwebtoken");
-const secret= "kakbgga%$#@kjab";
+import dotenv from "dotenv"
+dotenv.config();
+const secret= process.env.SECRET;
+
 
 function setUser(user){
     if(!user) return null;

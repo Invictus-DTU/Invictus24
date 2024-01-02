@@ -2,7 +2,7 @@ import React from 'react'
 import { TeamStatus } from './TeamStatus/TeamStatus'
 import WorkshopCard from './EventCard/WorkshopCard'
 import {InputForm} from "./Form/InputForm";
-export const Profile = () => {
+const Profile = () => {
   return (
     <>
     <InputForm/>
@@ -11,3 +11,5 @@ export const Profile = () => {
     </>
   )
 }
+
+export default Profile;

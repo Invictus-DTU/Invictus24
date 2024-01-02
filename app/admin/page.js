@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
-import Base64 from '../../Components/Base64';
+import Base64 from '../Components/Base64';
 
 const EventForm = () => {
   const [formData, setFormData] = useState({

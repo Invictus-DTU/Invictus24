@@ -37,3 +37,49 @@
   padding: 5px;
   border-image: url(../public/border.png) 49% round;
 }
+.Workshop{
+    background-image: url("../public/Workshop.png");
+    /* position: absolute; */
+    background-attachment: scroll;
+    background-size: 100% 100% ;
+    background-repeat: repeat-y;
+    
+    /* background-size: cover; */
+    /* height: 500px; */
+    /* height: 800px; */
+
+}
+.Events{
+    background-image: url("../public/Events.png");
+    /* position: absolute; */
+    background-attachment: scroll;
+    background-size: 100% 100% ;
+    background-repeat: repeat-y;
+}
+.Council{
+
+    background-image: url("../public/OurTeam.png");
+    /* position: absolute; */
+    background-attachment: scroll;
+    background-size: 100% 100% ;
+    background-repeat: repeat-y;
+}
+.Sponsors {
+  background-color: #000000;
+  background-image: url('../public/Sponsors.png');
+  /* position: absolute; */
+    background-attachment: scroll;
+    background-size: 100% 100% ;
+    background-repeat: repeat-y;
+  font-family: font-retrogaming, sans-serif;
+  font-weight: 400;
+}
+.pagination button{
+  background-color: aliceblue;
+  color: #000000;
+  border-radius: 9999px;
+  padding: 5px;
+  margin: 5px;
+  width: 40px;
+  height: 40px;
+}

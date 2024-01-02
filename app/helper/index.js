@@ -5,10 +5,14 @@ require("dotenv").config();
 //axios.defaults.baseURL = process.env.BASE_URL;
 export const userRegister = async(formData) => {
     try{
-        console.log(formData);
-        const  response  = await axios.post("http://localhost:3000/api/addUser",{formData},{
-            validateStatus: (status) => status >= 200 && status <= 500
+        const  response  = await axios.post("http://localhost:3000/api/users",{formData},{
+            validateStatus: (status) => status >= 200 && status <= 500,
+            headers: {
+                "Content-Type": "application/json",
+                "customToken": window.localStorage.getItem("customToken")
+              },
         });
+        const res = response.data;
         if(response.status === 400){
             return { error: "Already registered!" };
         }
@@ -41,14 +45,14 @@ export const checkUser = async(email) => {
 
 export const getEvents = async() => {
     try{
-        const { response } = await axios.get("http://localhost:3000/api/getEventStatus",{
+        const  response  = await axios.get("http://localhost:3000/api/getEventStatus",{
             validateStatus: (status) => status >= 200 && status <= 500
         });
-        const res = await response.json();
+        const res =  response.data.event;
         if(response.status === 500){
             return { error: "some error occured" };
         }
-        return res.event;
+        return res;
     } catch (error) {
         return { error: "some error occured" };
     }

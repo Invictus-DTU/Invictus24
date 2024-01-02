@@ -1,55 +1,51 @@
-import Team from '../../../model/team';
+import Team from "../../models/team";
+import User from "../../models/user";
+import Event from "../../models/event"
 import { cookies } from 'next/headers';
-<<<<<<< HEAD
-import { getUser } from '../../../../../app/services/auth';
-=======
-import { getUser } from '../../services/auth';
->>>>>>> 5c8358acd17d94ff9a670ecb1bf5339dbd386f19
+import { NextResponse } from "next/server";
+import dotenv from "dotenv";
+import jwt from "jsonwebtoken";
+dotenv.config();
 
-export default async function GET() {
+export async function GET(req) {
   try {
     const cookieStore = cookies();
     const token = cookieStore.get('token');
-    const user = getUser(token);
-
-    if (!user || !user._id) {
+    //console.log(token);
+    const user = jwt.verify(token.value, process.env.SECRET);
+    //console.log(user);
+    if (!user || !user.id) {
       console.error('Invalid user data');
-<<<<<<< HEAD
       return NextResponse.error('Unauthorized', { status: 400 });
-=======
-      return NextResponse.error('Unauthorized', { status: 401 });
->>>>>>> 5c8358acd17d94ff9a670ecb1bf5339dbd386f19
     }
 
-    const userId = user._id;
+    const userId = user.id;
+   // console.log(userId);
 
-<<<<<<< HEAD
-    const teams = await Team.find({}).populate('teamLeader').populate('eventName').populate('members');
-=======
-    const teams = await Team.find({}).populate('User');
->>>>>>> 5c8358acd17d94ff9a670ecb1bf5339dbd386f19
+    const teams = await Team.find({ member: { $in: [userId] } }).populate('teamLeader').populate('eventName').populate('member');
+    // //console.log(teams[0].member[0]);
+    // console.log(x);
 
-    const promises = teams.map(async (data) => {
-      if (data.member.includes(userId)) {
-        try {
-          return data;
-        } catch (error) {
-          console.error(`Error fetching team for event ${data.eventname}: ${error.message}`);
-        }
-      } else {
-        data.participationStatus = 'not participated';
-        console.log(`Event ${data.eventname} is not present in the array.`);
-      }
-    });
+    // const promises = teams.map(async (data) => {
+    //   if (data?.member?.find((val) => {
+    //     console.log(val._id);
+    //     return val?._id === userId;
+    //   })) {
+    //     console.log(data)
+    //     try {
+    //       return data;
+    //     } catch (error) {
+    //       console.error(`Error fetching team for event ${data.eventName}: ${error.message}`);
+    //     }
+    //   } else {
+    //     data.participationStatus = 'not participated';
+    //     console.log(`Event ${data.eventName} is not present in the array.`);
+    //   }
+    // });
 
-    // Wait for all promises to resolve
-    const teamDetails = await Promise.all(promises);
-
-<<<<<<< HEAD
-    return NextResponse.json({ team: teamDetails });
-=======
-    return NextResponse.json({ event: teamDetails });
->>>>>>> 5c8358acd17d94ff9a670ecb1bf5339dbd386f19
+    // // Wait for all promises to resolve
+    // const teamDetails = await Promise.all(promises);
+    return NextResponse.json({ team: teams });
   } catch (error) {
     console.error('Error in GET:', error);
     return NextResponse.error('Internal Server Error', { status: 500 });

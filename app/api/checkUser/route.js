@@ -10,7 +10,6 @@ export async function POST(req) {
   
   try {
     const response = await User.findOne({ email: email });
-    console.log(email, response)
     if (response) {
       return NextResponse.json({ message: "Already exist", isAdmin: response.status === 'admin' });
     } else {

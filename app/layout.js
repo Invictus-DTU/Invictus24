@@ -8,9 +8,9 @@ const inter = Inter({ subsets: ['latin'] })
 import SessionProvider from "./Components/SessionProvider";
 
 export default function RootLayout({ children }) {
-  const searchParams = useSearchParams()
-  
-  const search = searchParams.get('status')
+  const searchParams = useSearchParams();
+
+  const search = searchParams.get("status");
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -21,5 +21,5 @@ export default function RootLayout({ children }) {
         </SessionProvider>
       </body>
     </html>
-  )
+  );
 }
