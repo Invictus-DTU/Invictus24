@@ -1,18 +1,18 @@
 import { NextResponse } from "next/server";
-import config from '../../../../../../app/helper/config';
-import Team from "../../../model/team";
+import config from "../../../helper/config";
+import Team from "../../../models/team";
 config();
 
 export async function POST(req) {
     try{
         const reqBody= await req.json();
-        const {teamId, teamSizeMIN, teamSizeMAX, event} = reqBody;
-   
+        const {teamId, teamSizeMIN, teamSizeMAX} = reqBody.formData;
         const team = await Team.findOne({teamId: teamId});
-        if(!Team){
+      
+        if(!team){
             return NextResponse.json({error: "Team not present"},{status: 400});
         }
-        else if(Team.status === "submitted"){
+        else if(team.status === "submitted"){
             return NextResponse.json({error: "Team already submitted"},{status: 400});
         }
         else{

@@ -3,17 +3,26 @@ import connectDb from "../../../helper/config";
 import Team from "../../../models/team";
 import User from "../../../models/user";
 import Event from "../../../models/event";
+import { cookies } from 'next/headers'
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+
+dotenv.config();
 connectDb();
 
 export async function POST(req) {
     try {
+      
         const reqBody = await req.json();
-        const { teamname, teamId, teamLeader, eventName } = reqBody;
-
+        const { teamname, teamId, eventName } = reqBody.formData;
+        const cookieStore = cookies();
+        const token = cookieStore.get('token');
+        const tokenData = token? jwt.verify(token.value, process.env.SECRET) : "";
+        const user = tokenData? await User.findById(tokenData.id) : "";
+        const teamLeader = tokenData.id;
         const team = await Team.findOne({ teamId });
-        const user = await User.findOne({ _id: teamLeader });
         const event = await Event.findOne({ _id: eventName });
-        
+        console.log(teamname);
         if (team) {
             return NextResponse.json({ error: "Team already exists" }, { status: 400 });
         } else if (!user) {

@@ -27,12 +27,12 @@ export async function GET() {
       plainObject=  {...plainObject, status: "open"};
     }
     if (user?.eventList?.includes(plainObject._id)) {
-      console.log(plainObject);
       try {
         plainObject=  {...plainObject, participationStatus: "participated"};
         const getTeam = await Team.findOne({ teamLeader: user?._id, eventName: plainObject._id });
         if(getTeam){
           plainObject=  {...plainObject, role: "team leader"};
+          plainObject=  {...plainObject, teamId: getTeam.teamId};
           if(getTeam.status === "not-submitted"){
             plainObject=  {...plainObject, teamStatus: "not-submitted"};
           }

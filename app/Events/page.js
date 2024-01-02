@@ -7,6 +7,7 @@ import srh from "./search.png";
 import { getEvents } from "../helper/index";
 import { useSession } from "next-auth/react";
 import { Toaster, toast } from 'react-hot-toast';
+import { submitTeam } from "../helper";
 
 const Events = () => {
   const [event, setEvent] = useState([]);
@@ -15,7 +16,6 @@ const Events = () => {
     async function get() {
       try {
         const arr = await getEvents();
-        console.log(arr);
         setEvent(arr);
       } catch (error) {
         console.error('Error fetching events:', error.message);
@@ -23,6 +23,30 @@ const Events = () => {
     }
     get();
   }, []);
+
+  const handleTeamSubmit = async(props) => {
+    try{
+      const res = await submitTeam(props);
+      console.log(res);
+      if(res.error){
+        toast.error(res.error);
+      }
+      else{
+        toast.success(res.message);
+        setEvent(event.map((val)=>{
+          if(val.teamId === props.teamId){
+            val.teamStatus = "submitted"
+          }
+          return val;
+        }))
+        return;
+      }
+    }
+    catch(error){
+      console.log(error)
+      toast.error("some error occured");
+    }    
+  };
 
   return (
     <>
@@ -49,7 +73,7 @@ const Events = () => {
         </div>
 
         {event && event.map((item, i) => {
-          return <EventCard data={item} key={i} />;
+          return <EventCard data={item} key={i} handleTeamSubmit={handleTeamSubmit} />;
         })}
       </div>
     </>
