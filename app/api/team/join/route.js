@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
-import connectDb from "@/server/src/helper/config";
-import Team from "@/app/models/team";
-import User from "@/app/models/user";
-import Event from "@/app/models/event";
+import connectDb from "../../../helper/config";
+import Team from "../../../models/team";
+import User from "../../../models/user";
+import Event from "../../../models/event";
 connectDb();
 
 export async function POST(req) {

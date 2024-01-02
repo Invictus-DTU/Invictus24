@@ -30,10 +30,9 @@ const EventsPage = () => {
       toast.error(error.response.data.error);
     }
   };
+  
 
   const handleUpdate = async (eventToUpdate) => {
-    
-    
     try {
       await axios.post("http://localhost:3000/api/society-events/update-event",eventToUpdate);
       toast.success('Event updated successfully.');
@@ -42,9 +41,6 @@ const EventsPage = () => {
       toast.error(error.response.data.error);
     }
   };
-  useEffect(() => {
-    fetchEvents();
-  }, [handleUpdate]);
 
   return (
     <div className="min-h-screen">

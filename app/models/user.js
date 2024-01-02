@@ -19,6 +19,10 @@ const userSchema = new mongoose.Schema({
         required:[true,"please enter the name"],
         unique: true,
     },
+    status:{
+        type: String,
+        default: "user",
+    },
     eventList:[
         {type: mongoose.Schema.Types.ObjectId,
         ref: 'Event',

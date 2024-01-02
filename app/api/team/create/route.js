@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
-import connectDb from "@/server/src/helper/config";
-import Team from "@/app/models/team";
-import User from "@/app/models/user";
-import Event from "@/app/models/event";
+import connectDb from "../../../helper/config";
+import Team from "../../../models/team";
+import User from "../../../models/user";
+import Event from "../../../models/event";
 connectDb();
 
 export async function POST(req) {
@@ -12,7 +12,7 @@ export async function POST(req) {
 
         const team = await Team.findOne({ teamId });
         const user = await User.findOne({ _id: teamLeader });
-        const event = await Event.findOne({ name: eventName });
+        const event = await Event.findOne({ _id: eventName });
         
         if (team) {
             return NextResponse.json({ error: "Team already exists" }, { status: 400 });
