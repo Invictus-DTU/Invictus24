@@ -123,10 +123,7 @@ const Navbar = ({ status }) => {
                 <li className="mx-6 mt-8 hover:text-white active:text-white">
                   <Link href="/OurTeam">OUR TEAM</Link>
                 </li>
-                <li className="mx-6 mt-8 hover:text-white active:text-white">
-                  <button className="btn" onClick={async()=>{await sign()}}>Sign In</button>
-                </li>
-                <li className="mx-6 mt-6 hover:text-white active:text-white">
+                {session? <li className="mx-6 mt-6 hover:text-white active:text-white">
                   <Link href="/Profile" children={<Profile/>}>
                     <img
                       src="/profile.png"
@@ -135,6 +132,10 @@ const Navbar = ({ status }) => {
                     />
                   </Link>
                 </li>
+                :
+                <li className="mx-6 mt-8 hover:text-white active:text-white">
+                  <button className="btn" onClick={async()=>{await sign()}}>Sign In</button>
+                </li>}
               </>
             )}
           </ul>
@@ -183,14 +184,14 @@ const Navbar = ({ status }) => {
               <li className="mx-6 mt-8 hover:text-white active:text-white">
                 <Link href="/OurTeam">OUR TEAM</Link>
               </li>
-              <li className="mx-6 mt-8 hover:text-white active:text-white">
-                <button className="btn" onClick={sign}>Sign In</button>
-              </li>
-              <li className="mx-6 mt-6 hover:text-white active:text-white">
+              {session? <li className="mx-6 mt-6 hover:text-white active:text-white">
                 <Link href="/Profile">
                   <img src="/profile.png" alt="profile" className="h-10 w-10" />
                 </Link>
-              </li>
+              </li>:
+              <li className="mx-6 mt-8 hover:text-white active:text-white">
+                <button className="btn" onClick={sign}>Sign In</button>
+              </li>}
             </>
           )}
         </ul>

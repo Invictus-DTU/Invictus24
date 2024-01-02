@@ -3,15 +3,23 @@ import connectDb from "../../../helper/config";
 import Team from "../../../models/team";
 import User from "../../../models/user";
 import Event from "../../../models/event";
+import { cookies } from 'next/headers'
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+
+dotenv.config();
 connectDb();
 
 export async function POST(req) {
     try{
+        const cookieStore = cookies();
+        const token = cookieStore.get('token');
+        const tokenData = token? jwt.verify(token.value, process.env.SECRET) : "";
+        const user = tokenData? await User.findById(tokenData.id) : "";
         const reqBody= await req.json();
-        const {teamId,team_member} = reqBody;
+        const teamId = reqBody.teamId;
         
         const team = await Team.findOne({teamId});
-        const user = await User.findOne({_id: team_member});
 
         if(!team){
             return NextResponse.json({error: "Team not exist"},{status: 400});
@@ -31,8 +39,11 @@ export async function POST(req) {
             else if(event.teamSizeMax<=team.member.length){
                 return NextResponse.json({ error: "Team limit exceed" }, { status: 400 });
             }
+            else if(team.status === "submitted"){
+                return NextResponse.json({ error: "Team already submitted" }, { status: 400 });
+            }
             else{
-                team.member.push(team_member);
+                team.member.push(user._id);
                 await team.save();
                 user.eventList.push(event._id);
                 await user.save();

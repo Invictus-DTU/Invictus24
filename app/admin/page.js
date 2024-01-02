@@ -10,6 +10,7 @@ const EventForm = () => {
     societyName: '',
     description: '',
     date: '',
+    time: '',
     teamSizeMIN: 1,
     teamSizeMax: 1,
     prize: 0,
@@ -96,6 +97,17 @@ const EventForm = () => {
             type="date"
             name="date"
             value={formData.date}
+            onChange={handleChange}
+            className="block w-full border-gray-300 rounded-md mt-1 focus:ring-indigo-500 focus:border-indigo-500"
+          />
+        </label>
+
+        <label className="block mb-4">
+          Time:
+          <input
+            type="time"
+            name="time"
+            value={formData.time}
             onChange={handleChange}
             className="block w-full border-gray-300 rounded-md mt-1 focus:ring-indigo-500 focus:border-indigo-500"
           />

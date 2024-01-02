@@ -6,11 +6,7 @@ require("dotenv").config();
 export const userRegister = async(formData) => {
     try{
         const  response  = await axios.post("http://localhost:3000/api/users",{formData},{
-            validateStatus: (status) => status >= 200 && status <= 500,
-            headers: {
-                "Content-Type": "application/json",
-                "customToken": window.localStorage.getItem("customToken")
-              },
+            validateStatus: (status) => status >= 200 && status <= 500
         });
         const res = response.data;
         if(response.status === 400){
@@ -113,7 +109,9 @@ export const getRegisteredUsers = async() =>{
 
 export const eventRegisteration = async(formData) =>{
     try{
-        const { response } = await axios.post(`/society-events/registeration`,{formData});
+        const { response } = await axios.post(`/society-events/registeration`,{formData},{
+            validateStatus: (status) => status >= 200 && status <= 500
+        });
         const res = await response.json();
         if(response.status === 400){
             return { error: res.error};
@@ -127,17 +125,42 @@ export const eventRegisteration = async(formData) =>{
     }
 }
 
+export const joinTeam = async(teamId) =>{
+    try{
+        console.log(teamId);
+        const { response } = await axios.post(`http://localhost:3000/api/team/join`,{teamId},{
+            validateStatus: (status) => status >= 200 && status <= 500
+        })
+        console.log(response);
+        const res = response.data;
+        
+        if(response.status === 400 || response.status === 500){
+            return {error: res.error};
+        }
+        else {
+            return {message: res.message};
+        }
+    }
+    catch(err){
+        return {error: "some error occured"};
+    }
+}
+
 export const createTeam = async(formData) =>{
     try{
-        const { response } = await axios.post(`/team/create`,{formData});
-        const res = await response.json();
+        const response  = await axios.post(`http://localhost:3000/api/team/create`,{formData},{
+            validateStatus: (status) => status >= 200 && status <= 500
+        });
+        console.log(response);
+        const res = response.data;
+        
         if(response.status === 400){
             return { error: res.error};
         }
         if(response.status === 500){
             return { error: "some error occured" };
         }
-        return res.message;
+        return {message: res.message};
     } catch (error) {
         return { error: "some error occured" };
     }
@@ -145,15 +168,18 @@ export const createTeam = async(formData) =>{
 
 export const submitTeam = async(formData) =>{
     try{
-        const { response } = await axios.post(`/team/submit`,{formData});
-        const res = await response.json();
+        const  response  = await axios.post(`http://localhost:3000/api/team/submit`,{formData},{
+            validateStatus: (status) => status >= 200 && status <= 500
+        });
+        console.log(response);
+        const res = response.data;
         if(response.status === 400){
             return { error: res.error};
         }
         if(response.status === 500){
             return { error: "some error occured" };
         }
-        return res.message;
+        return {message: res.message};
     } catch (error) {
         return { error: "some error occured" };
     }
