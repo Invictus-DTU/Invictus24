@@ -1,10 +1,10 @@
-'use client'
-import { Inter } from 'next/font/google'
-import './globals.css'
-import Navbar from './Components/Navbar'
-import Footer from './Components/Footer'
-import { useSearchParams } from 'next/navigation';
-const inter = Inter({ subsets: ['latin'] })
+"use client";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import Navbar from "./Components/Navbar";
+import Footer from "./Components/Footer";
+import { useSearchParams } from "next/navigation";
+const inter = Inter({ subsets: ["latin"] });
 
 // export const metadata = {
 //   title: 'Invictus\'24',
@@ -12,16 +12,16 @@ const inter = Inter({ subsets: ['latin'] })
 // }
 
 export default function RootLayout({ children }) {
-  const searchParams = useSearchParams()
-  
-  const search = searchParams.get('status')
+  const searchParams = useSearchParams();
+
+  const search = searchParams.get("status");
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar status={search}/>
+        <Navbar status={search} />
         {children}
-        {search==="admin"?<></>:<Footer />}
+        {search === "admin" ? <></> : <Footer />}
       </body>
     </html>
-  )
+  );
 }
