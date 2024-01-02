@@ -30,6 +30,7 @@ export const userRegister = async(formData) => {
 
 export const checkUser = async(email) => {
     try{
+        console.log(email);
         const response  = await axios.post(`http://localhost:3000/api/checkUser`,{email: email},{
             validateStatus: (status) => status >= 200 && status <= 500
         });

@@ -75,7 +75,7 @@ const Home = () => {
         <h2 className=' h-1/4 font-retrog max-[640px]:text-[10vw] text-[6vw] flex justify-center items-center'>
           Gallery
         </h2>
-        <div className=' w-[50vw] h-[50vh]'>
+        <div className=' w-full'>
           <Slider slides={slides} />
         </div>
       </div>

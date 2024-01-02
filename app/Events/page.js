@@ -15,6 +15,7 @@ const Events = () => {
     async function get() {
       try {
         const arr = await getEvents();
+        console.log(arr);
         setEvent(arr);
       } catch (error) {
         console.error('Error fetching events:', error.message);
@@ -47,7 +48,7 @@ const Events = () => {
           </div>
         </div>
 
-        {event && event?.map((item, i) => {
+        {event && event.map((item, i) => {
           return <EventCard data={item} key={i} />;
         })}
       </div>

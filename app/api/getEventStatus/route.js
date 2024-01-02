@@ -5,14 +5,16 @@ import { NextResponse } from "next/server";
 import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
 import User from '../../models/user';
+import config from '../../helper/config';
 dotenv.config();
+config();
 
  
 export async function GET() {
   const cookieStore = cookies();
   const token = cookieStore.get('token');
-  const tokenData = jwt.verify(token.value, process.env.SECRET);
-  const user = await User.findById(tokenData.id);
+  const tokenData = token? jwt.verify(token.value, process.env.SECRET) : "";
+  const user = tokenData? await User.findById(tokenData.id) : "";
   console.log(user);
   let event = await Event.find({});
   const currentDate = new Date();
