@@ -5,8 +5,8 @@ import Home from "./Home/Home";
 
 const page = () => {
   return (
-    // <Home />
-    <Profile />
+    <Home />
+    // <Profile />
     // <Workshop />
     // <Registration/>
   );
