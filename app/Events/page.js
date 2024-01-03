@@ -17,7 +17,7 @@ const Events = () => {
     async function get() {
       try {
         const arr = await getEvents();
-        setEvent(arr);
+        if(arr) setEvent(arr);
       } catch (error) {
         console.error("Error fetching events:", error.message);
       }
