@@ -6,7 +6,7 @@ axios.defaults.baseURL = 'http://localhost:3000/api';
 
 export const userRegister = async(formData) => {
     try{
-        const  response  = await axios.post("/users",{formData},{
+        const  response  = await axios.post("http://localhost:3000/api/users",{formData},{
             validateStatus: (status) => status >= 200 && status <= 500
         });
         const res = response.data;
@@ -27,7 +27,8 @@ export const userRegister = async(formData) => {
 
 export const checkUser = async(email) => {
     try{
-        const response  = await axios.post("/checkUser",{email: email},{
+        console.log(email);
+        const response  = await axios.post("http://localhost:3000/api/checkUser",{email: email},{
             validateStatus: (status) => status >= 200 && status <= 500
         });
         const res = response.data;
@@ -42,7 +43,7 @@ export const checkUser = async(email) => {
 
 export const getEvents = async() => {
     try{
-        const  response  = await axios.get("/getEventStatus",{
+        const  response  = await axios.get("http://localhost:3000/api/getEventStatus",{
             validateStatus: (status) => status >= 200 && status <= 500
         });
         const res =  response.data.event;
@@ -57,7 +58,7 @@ export const getEvents = async() => {
 
 export const getUserEvents = async() => {
     try{
-        const { response } = await axios.get("/getUserEvents");
+        const { response } = await axios.get("http://localhost:3000/api/getUserEvents");
         const res = await response.json();
         if(response.status === 500){
             return { error: "some error occured" };
@@ -70,7 +71,7 @@ export const getUserEvents = async() => {
 
 export const getUserTeams = async() => {
     try{
-        const { response } = await axios.get("/getUserTeams");
+        const { response } = await axios.get("http://localhost:3000/api/getUserTeams");
         const res = await response.json();
         if(response.status === 500){
             return { error: "some error occured" };
@@ -83,7 +84,7 @@ export const getUserTeams = async() => {
 
 export const getRegisteredEvents = async() =>{
     try{
-        const { response } = await axios.get("/society-events/registered-events");
+        const { response } = await axios.get("http://localhost:3000/api/society-events/registered-events");
         const res = await response.json();
         if(response.status === 500){
             return { error: "some error occured" };
@@ -96,7 +97,7 @@ export const getRegisteredEvents = async() =>{
 
 export const getRegisteredUsers = async() =>{
     try{
-        const { response } = await axios.get(`/society-events/registered-users?Id=${id}`);
+        const { response } = await axios.get(`http://localhost:3000/api/society-events/registered-users?Id=${id}`);
         const res = await response.json();
         if(response.status === 500){
             return { error: "some error occured" };
@@ -109,7 +110,7 @@ export const getRegisteredUsers = async() =>{
 
 export const eventRegisteration = async(formData) =>{
     try{
-        const { response } = await axios.post(`/society-events/registeration`,{formData},{
+        const { response } = await axios.post(`http://localhost:3000/api/society-events/registeration`,{formData},{
             validateStatus: (status) => status >= 200 && status <= 500
         });
         const res = await response.json();
@@ -128,7 +129,7 @@ export const eventRegisteration = async(formData) =>{
 export const joinTeam = async(teamId) =>{
     try{
         console.log(teamId);
-        const response  = await axios.post(`/team/join`,{teamId},{
+        const response  = await axios.post(`http://localhost:3000/api/team/join`,{teamId},{
             validateStatus: (status) => status >= 200 && status <= 500
         })
         console.log(response);
@@ -148,7 +149,7 @@ export const joinTeam = async(teamId) =>{
 
 export const createTeam = async(formData) =>{
     try{
-        const response  = await axios.post(`/team/create`,{formData},{
+        const response  = await axios.post(`http://localhost:3000/api/team/create`,{formData},{
             validateStatus: (status) => status >= 200 && status <= 500
         });
         console.log(response);
@@ -168,7 +169,7 @@ export const createTeam = async(formData) =>{
 
 export const submitTeam = async(formData) =>{
     try{
-        const  response  = await axios.post(`/team/submit`,{formData},{
+        const  response  = await axios.post(`http://localhost:3000/api/team/submit`,{formData},{
             validateStatus: (status) => status >= 200 && status <= 500
         });
         console.log(response);
@@ -184,10 +185,3 @@ export const submitTeam = async(formData) =>{
         return { error: "some error occured" };
     }
 }
-
-
-
-
-
-
-

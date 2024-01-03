@@ -25,7 +25,7 @@ const WorkshopCard = ({ props }) => {
 
         {/* Register */}
         <div className="xl:w-1/5 lg:w-90 md:w-100  max-[768px]:w-[100%] flex flex-col items-center  justify-center m-2.5">
-          <Button title="Register for Workshop"></Button>
+          <Button title="Register "></Button>
           <div className="location">
             <div className="date font-retrog text-nowrap">{props.date}</div>
             <div className="venue font-retrog">
