@@ -1,10 +1,9 @@
-'use client'
+"use client";
 import React from "react";
 import Butt from "././../Components/Buttons/eventButton";
-import "./Card.css";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
-import { Toaster, toast } from 'react-hot-toast';
+import { Toaster, toast } from "react-hot-toast";
 import { submitTeam } from "../helper";
 import { useRouter } from "next/navigation";
 
@@ -12,12 +11,10 @@ const EventCard = (props) => {
   const { data: session } = useSession();
   const router = useRouter();
 
-  function redirect(id){
+  function redirect(id) {
     router.push(`/InputForm?event=${id}`);
     return;
   }
-
-  
 
   return (
     <>
@@ -31,9 +28,19 @@ const EventCard = (props) => {
         />
 
         {/* About */}
-        <div className="xl:w-3/5 lg:w-90 md:w-90  max-[768px]:w-[90%]">
+        <div className="xl:w-3/5 lg:w-90 md:w-90  max-[768px]:w-[90%] self-start">
           <div className="font-retrog lg:text-3xl  md:text-3xl sm:text-3xl text-4xl max-[640px]:flex justify-center">
             {props.data.name}
+          </div>
+          <div className="font-ticketing">
+            {session &&
+            props.status !== "closed" &&
+            props.data.participationStatus === "participated" &&
+            props.data.role !== "member" ? (
+              <p>TeamId: {props.data.teamId} </p>
+            ) : (
+              <></>
+            )}
           </div>
           <div className=" font-ticketing xl:text-lg sm:text-sm max-[640px]:text-base">
             {props.data.description}
@@ -41,26 +48,34 @@ const EventCard = (props) => {
         </div>
 
         {/* Register */}
-        <div className="xl:w-1/5 lg:w-90 md:w-100  max-[768px]:w-100 flex flex-col items-center  justify-center">
-          <div className="flex-col items-center  justify-center">
-            <img src="/Trophy.png" alt="T" height="100%" />
+        <div className="xl:w-1/5 lg:w-90 md:w-100  max-[768px]:w-[100%] flex flex-col items-center  justify-center m-2.5 ">
+          <div className="flex">
+            <img
+              className="bg-no-repeat shrink-0 w-10 h-10"
+              src="./Trophy.png"
+              alt="Trophy"
+              height="100%"
+            />
             <div className="text-2xl font-retrog">{props.data.prize}</div>
           </div>
 
           <div className="location">
-            <div className="date font-retrog text-nowrap">{props.data.date.substring(0,10)}</div>
-            <div className="venue font-retrog">{props.data.venue || "DTU"}, {props.data.time || "time"}</div>
+            <div className="date font-retrog text-nowrap">
+              {props.data.date.substring(0, 10)}
+            </div>
+            <div className="venue font-retrog">
+              {props.data.venue || "DTU"}, {props.data.time || "time"}
+            </div>
           </div>
           {session ? (
-            props.status === 'closed' ? (
+            props.status === "closed" ? (
               <></>
-            ) : props.data.participationStatus === 'not participated' ? (
-              <Butt title="Register for Event" action={() => redirect(props.data._id)} />
-            ) : props.data.role === 'member' ? (
-              'participated'
-            ) : props.data.teamStatus === 'not-submitted' ? (
+            ) : props.data.participationStatus === "not participated" ? (
+              <Butt title="Register " action={() => redirect(props.data._id)} />
+            ) : props.data.role === "member" ? (
+              "participated"
+            ) : props.data.teamStatus === "not-submitted" ? (
               <>
-                <p>TeamId: {props.data.teamId} </p>
                 <Butt
                   title="Submit team"
                   action={async () => {
@@ -73,14 +88,14 @@ const EventCard = (props) => {
                 />
               </>
             ) : (
-              'submitted'
+              "submitted"
             )
           ) : (
             <Butt
-              title="Register for Event"
+              title="Register"
               action={() => {
-                console.log('clicked');
-                toast.error('Please SignIn or Register');
+                console.log("clicked");
+                toast.error("Please SignIn or Register");
               }}
             />
           )}
@@ -89,6 +104,5 @@ const EventCard = (props) => {
     </>
   );
 };
-
 
 export default EventCard;

@@ -112,23 +112,24 @@ const Workshop = () => {
   return (
     <>
       <div className="flex flex-col items-center w-full Workshop pb-[60px]">
-        <h1 className="font-retrog xl:text-7xl lg:text-7xl md:text-6xl sm:text-5xl max-[640px]:text-5xl flex justify-center mt-32 text-white">
+        <h1 className="font-retrog xl:text-7xl lg:text-7xl md:text-6xl sm:text-5xl max-[640px]:text-5xl flex justify-center mt-32 mb-6 text-white">
           Workshop
         </h1>
 
         {/* Filter and SearchBar */}
-        <div className="flex justify-between w-[90%]">
-          <div className="flex">
-            <Button buttonText="Filter" />
-            <Button buttonText="Sort By" />
+        <div className="flex h-fit sm:justify-between max-[640px]: justify-center w-[90%] max-[640px]: flex-wrap ">
+          <div className="flex h-fit sm:w-fit max-[640px]: w-[80%] max-[480px]:w-fit sm:justify-normal max-[640px]: justify-between">
+            <Button title="Filter" />
+            <Button title="Sort" />
           </div>
-          <div className="lg:w-100 md:w-80 sm:w-60 flex items-center bg-white m-0 p-2 rounded-full">
+          {/* Search Bar */}
+          <div className="md: h-10 sm:h-full lg:w-100 md:w-80 sm:w-60 flex items-center bg-white m-0 max-[640px]:mt-4 p-2 rounded-full">
             <div className="h-8 w-8">
               <img src="/Search.png" alt="search" className="w-8 h-8" />
             </div>
             <input
-              className="flex shrink h-[80%] w-[85%] font-retrog border-0 border-none"
-              placeholder="Search for Workshop"
+              className="flex shrink h-[80%] w-[85%] font-retrog border-0 focus:outline-none self-center p-0 m-0"
+              placeholder="Search for Events"
             ></input>
           </div>
         </div>
