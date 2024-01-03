@@ -4,52 +4,50 @@ import "tailwindcss/tailwind.css";
 import Link from "next/link";
 import { useState, useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-
 import Sponsors from "../../Sponsors/page";
 import { signIn, useSession } from "next-auth/react";
-import { checkUser } from "../../helper";
 import Profile from "../../Profile/page"
+import SignIn from "../Buttons/signinButton";
 
 const Navbar = ({ status }) => {
   const [nav, setNav] = useState(false);
   const {data : session} = useSession();
-  const [clicked, setClicked] = useState(false);
 
 
-  const fetchData = async () => {
-    console.log("jfjpa");
-    try {
-      if (!session || !session.user) {
-        console.error("No session or user found after sign-in");
-        return;
-      }
+  // const fetchData = async () => {
+  //   console.log("jfjpa");
+  //   try {
+  //     if (!session || !session.user) {
+  //       console.error("No session or user found after sign-in");
+  //       return;
+  //     }
 
-      const res = await checkUser(session?.user?.email);
-      console.log(res);
+  //     const res = await checkUser(session?.user?.email);
+  //     console.log(res);
 
-      if (res?.error || res?.message === "Doesn't exist") {
-        window.location.href = "/Registration";
-      } else if (res?.isAdmin) {
-        window.location.href = "admin/registration?status=admin";
-      }
-      else{
-        window.location.href = "/";
-        console.log("fuahho");
-      }
-    } catch (error) {
-      console.error("Error during data fetching:", error);
-      // Handle errors as needed
-    }
-  };
+  //     if (res?.error || res?.message === "Doesn't exist") {
+  //       window.location.href = "/Registration";
+  //     } else if (res?.isAdmin) {
+  //       window.location.href = "admin?status=admin";
+  //     }
+  //     else{
+  //       window.location.href = "/";
+  //       console.log("fuahho");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error during data fetching:", error);
+  //     // Handle errors as needed
+  //   }
+  // };
 
   async function sign() {
     try {
-      console.log("signed in", session)
-      await signIn("google", { redirect: false});
-      setTimeout(()=>{
-        fetchData();
-      },2000);
-      setClicked(true);
+      await signIn("google");
+      // console.log("signed in", session)
+      // if(session && session.user) await fetchData();
+      // else{
+      //   console.log("no session");
+      // }
     } catch (error) {
       console.error("An error occurred during sign-in:", error);
     }
@@ -134,7 +132,7 @@ const Navbar = ({ status }) => {
                 </li>
                 :
                 <li className="mx-6 mt-8 hover:text-white active:text-white">
-                  <button className="btn" onClick={async()=>{await sign()}}>Sign In</button>
+                  <SignIn buttonText="Sign In" action={async()=>{await sign()}} />
                 </li>}
               </>
             )}
@@ -190,7 +188,7 @@ const Navbar = ({ status }) => {
                 </Link>
               </li>:
               <li className="mx-6 mt-8 hover:text-white active:text-white">
-                <button className="btn" onClick={sign}>Sign In</button>
+               <SignIn buttonText="Sign In" action={async()=>{await sign()}} />
               </li>}
             </>
           )}

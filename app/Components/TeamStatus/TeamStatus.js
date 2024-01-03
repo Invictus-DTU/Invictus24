@@ -1,38 +1,21 @@
-import React from 'react'
+'use client'
+import React,{useState,useEffect} from 'react'
 import "./TeamStatus.css"
+import TeamCard from "./TeamCard";
 
-export const TeamStatus = () => {
+export const TeamStatus = ({teams}) => {
+    const [team,setTeam] = useState(teams);
+    useEffect(()=>{
+        
+        setTeam(teams);
+        console.log("hi:",team);
+    },[teams])
   return (
     <div className="TeamStatus">
         <div className='heading'>Teams Status:</div>
-        <div className='event flex w-100'>
-            
-        <img src="/arrow.png" className='mr-5' />
-        <div className='title flex flex-col'>
-            <div>Event Name:</div>
-            <div>M2M93RM39MR9393JR9</div>
-            <div>(3/5)</div>
-        </div>
-        <div className='names flex flex-col'>
-            <div>Nikhil Kumar joined...</div>
-            <div>Gitansh joined...</div>
-            <div>Prashant joined...</div>
-        </div>
-        </div>
-        <div className='event flex w-100'>
-            
-        <img src='/arrow.png' className='mr-3'/>
-        <div className='title flex flex-col'>
-            <div>Event Name:</div>
-            <div>M2M93RM39MR9393JR9</div>
-            <div>(3/5)</div>
-        </div>
-        <div className='names flex flex-col'>
-            <div>Nikhil Kumar joined...</div>
-            <div>Gitansh joined...</div>
-            <div>Prashant joined...</div>
-        </div>
-        </div>
+        {team && team.map((val)=>(
+            <TeamCard property={val}/>
+        ))}
     </div>
   )
 }
