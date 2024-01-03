@@ -119,8 +119,8 @@ const Workshop = () => {
         {/* Filter and SearchBar */}
         <div className="flex justify-between w-[90%]">
           <div className="flex">
-            <Button buttonText="Filter" />
-            <Button buttonText="Sort By" />
+            <Button title="Filter" />
+            <Button title="Sort By" />
           </div>
           <div className="lg:w-100 md:w-80 sm:w-60 flex items-center bg-white m-0 p-2 rounded-full">
             <div className="h-8 w-8">

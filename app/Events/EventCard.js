@@ -1,7 +1,6 @@
 'use client'
 import React from "react";
 import Butt from "././../Components/Buttons/eventButton";
-import "./Card.css";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { Toaster, toast } from 'react-hot-toast';
@@ -51,6 +50,7 @@ const EventCard = (props) => {
             <div className="date font-retrog text-nowrap">{props.data.date.substring(0,10)}</div>
             <div className="venue font-retrog">{props.data.venue || "DTU"}, {props.data.time || "time"}</div>
           </div>
+          
           {session ? (
             props.status === 'closed' ? (
               <></>

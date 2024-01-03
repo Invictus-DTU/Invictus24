@@ -1,11 +1,12 @@
 'use client'
 import axios from 'axios';
-require("dotenv").config();
+import dotenv from "dotenv";
+dotenv.config();
+axios.defaults.baseURL = 'http://localhost:3000/api';
 
-//axios.defaults.baseURL = process.env.BASE_URL;
 export const userRegister = async(formData) => {
     try{
-        const  response  = await axios.post("http://localhost:3000/api/users",{formData},{
+        const  response  = await axios.post("/users",{formData},{
             validateStatus: (status) => status >= 200 && status <= 500
         });
         const res = response.data;
@@ -26,8 +27,7 @@ export const userRegister = async(formData) => {
 
 export const checkUser = async(email) => {
     try{
-        console.log(email);
-        const response  = await axios.post(`http://localhost:3000/api/checkUser`,{email: email},{
+        const response  = await axios.post("/checkUser",{email: email},{
             validateStatus: (status) => status >= 200 && status <= 500
         });
         const res = response.data;
@@ -42,7 +42,7 @@ export const checkUser = async(email) => {
 
 export const getEvents = async() => {
     try{
-        const  response  = await axios.get("http://localhost:3000/api/getEventStatus",{
+        const  response  = await axios.get("/getEventStatus",{
             validateStatus: (status) => status >= 200 && status <= 500
         });
         const res =  response.data.event;
@@ -128,7 +128,7 @@ export const eventRegisteration = async(formData) =>{
 export const joinTeam = async(teamId) =>{
     try{
         console.log(teamId);
-        const { response } = await axios.post(`http://localhost:3000/api/team/join`,{teamId},{
+        const response  = await axios.post(`/team/join`,{teamId},{
             validateStatus: (status) => status >= 200 && status <= 500
         })
         console.log(response);
@@ -148,7 +148,7 @@ export const joinTeam = async(teamId) =>{
 
 export const createTeam = async(formData) =>{
     try{
-        const response  = await axios.post(`http://localhost:3000/api/team/create`,{formData},{
+        const response  = await axios.post(`/team/create`,{formData},{
             validateStatus: (status) => status >= 200 && status <= 500
         });
         console.log(response);
@@ -168,7 +168,7 @@ export const createTeam = async(formData) =>{
 
 export const submitTeam = async(formData) =>{
     try{
-        const  response  = await axios.post(`http://localhost:3000/api/team/submit`,{formData},{
+        const  response  = await axios.post(`/team/submit`,{formData},{
             validateStatus: (status) => status >= 200 && status <= 500
         });
         console.log(response);

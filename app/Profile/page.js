@@ -1,6 +1,6 @@
 import React from 'react'
 import { TeamStatus } from '../Components/TeamStatus/TeamStatus'
-import InputForm from "../InputForm/inoutForm"
+import InputForm from "../InputForm/inputForm"
 
 const Profile = () => {
   return (

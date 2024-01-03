@@ -3,24 +3,33 @@ import React from 'react'
 import HomeButton from '../Components/Buttons/homeButton'
 import { useSession, signOut } from 'next-auth/react'
 import { useEffect, useRef } from 'react'
+import { useRouter } from 'next/navigation'
 import { checkUser } from '../helper'
 import Slider from '../Components/Swiper/Swiper'
 import slides from '../Components/Swiper/images.json'
 
 const Home = () => {
   const { data: session } = useSession();
-
-  useEffect(() => {
-    if(!session || !session?.user) return;
-    async function auth(){
-      const res = await checkUser(session?.user?.email);
-      console.log(res);
-      if(res.error || res.message === "Doesn't exist"){
-        await signOut();
-      }
-    }
-    auth();
-  }, [session]);
+  const router = useRouter();
+  function redirect(){
+    router.push("/Registeration");
+    return;
+  }
+  // const router = useRouter();
+  // useEffect(() => {
+  //   if(!session || !session?.user) return;
+  //   async function auth(){
+  //     const res = await checkUser(session?.user?.email);
+  //     if(res.error || res.message === "Doesn't exist"){
+  //       await signOut();
+  //       router.push('/Registeration');
+  //     }
+  //     else if(res.isAdmin){
+  //       router.push('/admin?status=admin');
+  //     }
+  //   }
+  //   auth();
+  // }, [session]);
   
   return (
     <main className='w-full h-[400vh] overflow-auto'>
@@ -38,7 +47,7 @@ const Home = () => {
             Life in a Pixelated Era
           </div>
         </div>
-        {session? "Registered" : <HomeButton buttonText="Register Now" />}
+        {session? <></> : <HomeButton buttonText="Register Now" action={redirect} />}
       </div>
     </div>
 
