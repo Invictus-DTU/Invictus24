@@ -12,6 +12,7 @@ import { submitTeam } from "../helper";
 const Events = () => {
   const [event, setEvent] = useState([]);
 
+
   useEffect(() => {
     async function get() {
       try {
@@ -50,6 +51,7 @@ const Events = () => {
 
   return (
     <>
+
       <div className="justify-center Events">
       <Toaster position="top-center" reverseOrder={false} />
         <h1 className="font-retrog xl:text-7xl lg:text-7xl md:text-6xl sm:text-5xl max-[640px]:text-5xl flex justify-center mt-32 text-white">
