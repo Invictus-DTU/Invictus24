@@ -1,0 +1,36 @@
+.InputForm{
+    color:white;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+#ourProfile{
+    color: #FFF;
+text-align: center;
+font-family: Retro Gaming;
+font-size: 3rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.FormContainer{
+    display: flex;
+    flex-direction: column;
+}
+label{
+    font-family: Retro Gaming;
+font-size: 30px;
+font-style: normal;
+font-weight: 400;
+}
+input{
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 18px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+
+input{
+  color: black;
+}

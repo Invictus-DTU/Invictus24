@@ -1,0 +1,30 @@
+.button1{
+  color: white;
+  border: 30px solid transparent;
+  background-color: transparent;
+  padding: 5px;
+  border-image: url(/border.png) 49% round;
+}
+
+.button1:hover{
+    color: black;
+    border: 30px solid transparent;
+    background-color: white;
+    background-clip:padding-box;
+
+    padding: 5px;
+    border-image: url(/border2.png) 49% round;
+    transition: 0.5s;
+  }
+
+
+.event-button{
+  color: black;
+  background-image: url("/Button2.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.event-button:hover{
+  background-image: url("/Button1.png");
+  color: white;
+}
