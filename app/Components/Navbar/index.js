@@ -6,12 +6,29 @@ import { useState, useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Sponsors from "../../Sponsors/page";
 import { signIn, useSession } from "next-auth/react";
+
 import Profile from "../../Profile/page";
+
 import SignIn from "../Buttons/signinButton";
 
 const Navbar = ({ status }) => {
   const [nav, setNav] = useState(false);
-  const { data: session } = useSession();
+
+  const {data : session} = useSession();
+
+
+  // const fetchData = async () => {
+  //   console.log("jfjpa");
+  //   try {
+  //     if (!session || !session.user) {
+  //       console.error("No session or user found after sign-in");
+  //       return;
+  //     }
+
+
+  //     const res = await checkUser(session?.user?.email);
+  //     console.log(res);
+
 
   // const fetchData = async () => {
   //   console.log("jfjpa");
@@ -23,6 +40,7 @@ const Navbar = ({ status }) => {
 
   //     const res = await checkUser(session?.user?.email);
   //     console.log(res);
+
 
   //     if (res?.error || res?.message === "Doesn't exist") {
   //       window.location.href = "/Registration";
@@ -134,6 +152,7 @@ const Navbar = ({ status }) => {
                     />
                   </li>
                 )}
+
               </>
             )}
           </ul>
@@ -180,6 +199,7 @@ const Navbar = ({ status }) => {
               <li className="mx-6 mt-8 hover:text-white active:text-white">
                 <Link href="/OurTeam">OUR TEAM</Link>
               </li>
+
               {session ? (
                 <li className="mx-6 mt-6 hover:text-white active:text-white">
                   <Link href="/Profile">
@@ -200,6 +220,7 @@ const Navbar = ({ status }) => {
                   />
                 </li>
               )}
+
             </>
           )}
         </ul>

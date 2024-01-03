@@ -6,7 +6,7 @@ connectDb();
 export async function POST(req) {
     try{
         const reqBody= await req.json();
-        console.log(reqBody);
+
         const {name,time,societyName,description,date,teamSizeMIN,teamSizeMax,prize,venue,registrationEndDate,image} = reqBody;
         
         const event = await Event.findOne({name});
