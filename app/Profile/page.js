@@ -1,7 +1,7 @@
 'use client'
 import React,{useEffect, useState} from 'react'
 import { TeamStatus } from '../Components/TeamStatus/TeamStatus'
-import InputForm from "../InputForm/page"
+import InputForm from "../InputForm/inputForm"
 import axios from 'axios';
 
 const Profile = () => {
