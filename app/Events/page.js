@@ -1,164 +1,82 @@
-"use client";
-import React, { useState } from "react";
-import Button from "../Components/Buttons/eventButton";
+'use client'
+import React, { useState, useEffect } from "react";
+import Butt from "./Button";
 import EventCard from "./EventCard";
+import Image from "next/image";
+import srh from "./search.png";
+import { getEvents } from "../helper/index";
+import { useSession } from "next-auth/react";
+import { Toaster, toast } from 'react-hot-toast';
+import { submitTeam } from "../helper";
 
 const Events = () => {
-  const itemsPerPage = 4;
+  const [event, setEvent] = useState([]);
 
-  const arr = [
-    {
-      title: "title",
-      detail:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi maxime repellat, error mollitia optio dolore iusto eos ullam voluptas asperiores!",
-      date: "date",
-      prize: "Prize",
-      time: "time",
-      Venue: "Venue",
-    },
-    {
-      title: "title",
-      detail: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
-      date: "date",
-      prize: "Prize",
-      time: "time",
-      Venue: "Venue",
-    },
-    {
-      title: "title",
-      detail:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, ut. Tempora omnis assumenda incidunt sequi consectetur dolore, rem enim molestias, explicabo delectus sit dignissimos hic repudiandae in repellat. Sed possimus corporis optio! Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus non blanditiis cupiditate fuga inventore rem animi, necessitatibus ratione tempore, totam quasi magnam fugit quisquam provident. Voluptatem temporibus atque corrupti, explicabo quos ad totam illum possimus! Eius modi quas ipsum esse molestias iusto nihil obcaecati voluptates ullam? Id similique, consequatur provident dolorem sunt ad commodi hic error.",
-      date: "date",
-      time: "time",
-      Venue: "Venue",
-      prize: "Prize",
-    },
-    {
-      title: "title",
-      detail:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, ut. Tempora omnis assumenda incidunt sequi consectetur dolore, rem enim molestias, explicabo delectus sit dignissimos hic repudiandae in repellat. Sed possimus corporis optio! Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus non blanditiis cupiditate fuga inventore rem animi, necessitatibus ratione tempore, totam quasi magnam fugit quisquam provident. Voluptatem temporibus atque corrupti, explicabo quos ad totam illum possimus! Eius modi quas ipsum esse molestias iusto nihil obcaecati voluptates ullam? Id similique, consequatur provident dolorem sunt ad commodi hic error.",
-      date: "date",
-      time: "time",
-      Venue: "Venue",
-      prize: "Prize",
-    },
-    {
-      title: "title",
-      detail:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, ut. Tempora omnis assumenda incidunt sequi consectetur dolore, rem enim molestias, explicabo delectus sit dignissimos hic repudiandae in repellat. Sed possimus corporis optio! Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus non blanditiis cupiditate fuga inventore rem animi, necessitatibus ratione tempore, totam quasi magnam fugit quisquam provident. Voluptatem temporibus atque corrupti, explicabo quos ad totam illum possimus! Eius modi quas ipsum esse molestias iusto nihil obcaecati voluptates ullam? Id similique, consequatur provident dolorem sunt ad commodi hic error.",
-      date: "date",
-      time: "time",
-      Venue: "Venue",
-      prize: "Prize",
-    },
-    {
-      title: "title",
-      detail:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, ut. Tempora omnis assumenda incidunt sequi consectetur dolore, rem enim molestias, explicabo delectus sit dignissimos hic repudiandae in repellat. Sed possimus corporis optio! Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus non blanditiis cupiditate fuga inventore rem animi, necessitatibus ratione tempore, totam quasi magnam fugit quisquam provident. Voluptatem temporibus atque corrupti, explicabo quos ad totam illum possimus! Eius modi quas ipsum esse molestias iusto nihil obcaecati voluptates ullam? Id similique, consequatur provident dolorem sunt ad commodi hic error.",
-      date: "date",
-      prize: "Prize",
-      time: "time",
-      Venue: "Venue",
-    },
-    {
-      title: "title",
-      detail:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, ut. Tempora omnis assumenda incidunt sequi consectetur dolore, rem enim molestias, explicabo delectus sit dignissimos hic repudiandae in repellat. Sed possimus corporis optio! Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus non blanditiis cupiditate fuga inventore rem animi, necessitatibus ratione tempore, totam quasi magnam fugit quisquam provident. Voluptatem temporibus atque corrupti, explicabo quos ad totam illum possimus! Eius modi quas ipsum esse molestias iusto nihil obcaecati voluptates ullam? Id similique, consequatur provident dolorem sunt ad commodi hic error.",
-      date: "date",
-      prize: "Prize",
-      time: "time",
-      Venue: "Venue",
-    },
-    {
-      title: "title",
-      detail:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, ut. Tempora omnis assumenda incidunt sequi consectetur dolore, rem enim molestias, explicabo delectus sit dignissimos hic repudiandae in repellat. Sed possimus corporis optio! Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus non blanditiis cupiditate fuga inventore rem animi, necessitatibus ratione tempore, totam quasi magnam fugit quisquam provident. Voluptatem temporibus atque corrupti, explicabo quos ad totam illum possimus! Eius modi quas ipsum esse molestias iusto nihil obcaecati voluptates ullam? Id similique, consequatur provident dolorem sunt ad commodi hic error.",
-      date: "date",
-      time: "time",
-      Venue: "Venue",
-      prize: "Prize",
-    },
-    {
-      title: "title",
-      detail:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, ut. Tempora omnis assumenda incidunt sequi consectetur dolore, rem enim molestias, explicabo delectus sit dignissimos hic repudiandae in repellat. Sed possimus corporis optio! Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus non blanditiis cupiditate fuga inventore rem animi, necessitatibus ratione tempore, totam quasi magnam fugit quisquam provident. Voluptatem temporibus atque corrupti, explicabo quos ad totam illum possimus! Eius modi quas ipsum esse molestias iusto nihil obcaecati voluptates ullam? Id similique, consequatur provident dolorem sunt ad commodi hic error.",
-      date: "date",
-      time: "time",
-      Venue: "Venue",
-      prize: "Prize",
-    },
-    {
-      title: "title",
-      detail:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, ut. Tempora omnis assumenda incidunt sequi consectetur dolore, rem enim molestias, explicabo delectus sit dignissimos hic repudiandae in repellat. Sed possimus corporis optio! Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus non blanditiis cupiditate fuga inventore rem animi, necessitatibus ratione tempore, totam quasi magnam fugit quisquam provident. Voluptatem temporibus atque corrupti, explicabo quos ad totam illum possimus! Eius modi quas ipsum esse molestias iusto nihil obcaecati voluptates ullam? Id similique, consequatur provident dolorem sunt ad commodi hic error.",
-      date: "date",
-      time: "time",
-      Venue: "Venue",
-      prize: "Prize",
-    },
-  ];
 
-  const [currentPage, setCurrentPage] = useState(1);
+  useEffect(() => {
+    async function get() {
+      try {
+        const arr = await getEvents();
+        setEvent(arr);
+      } catch (error) {
+        console.error('Error fetching events:', error.message);
+      }
+    }
+    get();
+  }, []);
 
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = arr.slice(indexOfFirstItem, indexOfLastItem);
-
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  const nextPage = () => setCurrentPage((prevPage) => prevPage + 1);
-  const prevPage = () => setCurrentPage((prevPage) => prevPage - 1);
+  const handleTeamSubmit = async(props) => {
+    try{
+      const res = await submitTeam(props);
+      console.log(res);
+      if(res.error){
+        toast.error(res.error);
+      }
+      else{
+        toast.success(res.message);
+        setEvent(event.map((val)=>{
+          if(val.teamId === props.teamId){
+            val.teamStatus = "submitted"
+          }
+          return val;
+        }))
+        return;
+      }
+    }
+    catch(error){
+      console.log(error)
+      toast.error("some error occured");
+    }    
+  };
 
   return (
     <>
-      <div className="flex flex-col items-center w-full Events pb-[60px]">
-        <h1 className="font-retrog xl:text-7xl lg:text-7xl md:text-6xl sm:text-5xl max-[640px]:text-5xl flex justify-center mt-32 mb-6 text-white">
+
+      <div className="justify-center Events">
+      <Toaster position="top-center" reverseOrder={false} />
+        <h1 className="font-retrog xl:text-7xl lg:text-7xl md:text-6xl sm:text-5xl max-[640px]:text-5xl flex justify-center mt-32 text-white">
           Events
         </h1>
 
-        {/* Filter and SearchBar */}
-        <div className="flex sm:justify-between max-[640px]: justify-center w-[90%] max-[640px]: flex-wrap ">
-          <div className="flex sm:w-fit max-[640px]: w-[80%] max-[480px]:w-fit sm:justify-normal max-[640px]: justify-between">
-            <Button buttonText="Filter" />
-            <Button buttonText="Sort By" />
+        <div className="flex justify-between">
+          <div className="flex">
+            <Butt title="Filter" />
+            <Butt title="Sort By" />
           </div>
-          <div className="lg:w-100 md:w-80 sm:w-60 flex items-center bg-white m-0 p-2 rounded-full">
-            <div className="h-8 w-8">
-              <img src="/Search.png" alt="search" className="w-8 h-8" />
+          <div className="searchbar flex  bg-white m-0 p-2 rounded-full">
+            <div className="w-8 h-8">
+              <Image src={srh} alt="search" className="w-8 h-8" />
             </div>
             <input
-              className="flex shrink h-[80%] w-[85%] font-retrog border-0 border-none"
+              className="h-8 font-retrog border-0 border-none"
               placeholder="Search for Events"
             ></input>
           </div>
         </div>
 
-        {currentItems.map((item, i) => (
-          <EventCard key={i} props={item} />
-        ))}
-
-        {/* Pagination component with Next and Previous buttons */}
-        <div className="pagination font-ticketing">
-          <button onClick={prevPage} disabled={currentPage === 1}>
-            Prev
-          </button>
-          {Array.from({ length: Math.ceil(arr.length / itemsPerPage) }).map(
-            (item, index) => (
-              <button
-                key={index}
-                onClick={() => paginate(index + 1)}
-                className={currentPage === index + 1 ? "active" : ""}
-              >
-                {index + 1}
-              </button>
-            )
-          )}
-          <button
-            onClick={nextPage}
-            disabled={currentPage === Math.ceil(arr.length / itemsPerPage)}
-          >
-            Next
-          </button>
-        </div>
+        {event && event.map((item, i) => {
+          return <EventCard data={item} key={i} handleTeamSubmit={handleTeamSubmit} />;
+        })}
       </div>
     </>
   );

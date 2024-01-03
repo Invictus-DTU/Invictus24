@@ -1,0 +1,41 @@
+.TeamStatus{
+    max-height: 1020px;
+    overflow-y: scroll;
+    border-radius: 29px;
+    background: #000;
+    color: white;
+    margin: 60px;
+    font-family: Ticketing;
+}
+.heading{
+/* width: 554px;
+height: 74px; */
+text-align: center;
+font-family: Ticketing;
+font-size: 5vw;
+
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.event img{
+    width: 15px;
+height: 25px;
+/* width:10%; */
+}
+.title{
+    width: 40%;
+}
+.names{
+    width: 40%;
+}
+.event{
+    display: flex;
+    margin:10px 30px;
+}
+
+@media only screen and (max-width: 750px) {
+    .event{
+        flex-direction: column;
+    }
+}

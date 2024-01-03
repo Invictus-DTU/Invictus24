@@ -1,11 +1,27 @@
 'use client'
 import React from 'react'
 import HomeButton from '../Components/Buttons/homeButton'
+import { useSession, signOut } from 'next-auth/react'
+import { useEffect, useRef } from 'react'
+import { checkUser } from '../helper'
 import Slider from '../Components/Swiper/Swiper'
 import slides from '../Components/Swiper/images.json'
-import Registration from '../Components/Registration-form/Registration'
 
 const Home = () => {
+  const { data: session } = useSession();
+
+  useEffect(() => {
+    if(!session || !session?.user) return;
+    async function auth(){
+      const res = await checkUser(session?.user?.email);
+      console.log(res);
+      if(res.error || res.message === "Doesn't exist"){
+        await signOut();
+      }
+    }
+    auth();
+  }, [session]);
+  
   return (
     <main className='w-full h-[400vh] overflow-auto'>
     <div className='w-full h-screen top-0 left-0 flex flex-col justify-center items-center bg-[#05063F]'>
@@ -22,7 +38,7 @@ const Home = () => {
             Life in a Pixelated Era
           </div>
         </div>
-        <HomeButton buttonText="Register Now" />
+        {session? "Registered" : <HomeButton buttonText="Register Now" />}
       </div>
     </div>
 
@@ -59,7 +75,7 @@ const Home = () => {
         <h2 className=' h-1/4 font-retrog max-[640px]:text-[10vw] text-[6vw] flex justify-center items-center'>
           Gallery
         </h2>
-        <div className=' w-[50vw] h-[50vh]'>
+        <div className=' w-full'>
           <Slider slides={slides} />
         </div>
       </div>
