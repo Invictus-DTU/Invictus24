@@ -9,7 +9,9 @@ const connectDb = async () => {
     }
 
     try {
-        const { connection } = await mongoose.connect(process.env.ATLAS_URI);
+        // const { connection } = await mongoose.connect(process.env.ATLAS_URI);
+        const { connection } = await mongoose.connect(process.env.MONGO_URI);
+
         isConnected = connection.readyState === 1; // Check if the connection is successful
         console.log("Connected to the database");
     } catch (err) {

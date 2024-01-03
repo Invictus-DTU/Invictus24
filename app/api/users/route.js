@@ -10,7 +10,6 @@ connectDb();
 export async function POST(req) {
     try{
         const reqBody= await req.json();
-        // reqBody.formData
         const {name,email,college,phone} = reqBody.formData;
         const user = await User.findOne({email: email});
         if(user){
