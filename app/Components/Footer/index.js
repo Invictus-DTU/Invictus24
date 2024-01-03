@@ -28,7 +28,7 @@ const Footer = () => {
               |{" "}
             </p>
           </div>
-          <div className="flex flex-col max-[650px]:ml-28 mx-10 max-sm:flex max-sm:justify-center">
+          <div className="flex flex-col mx-10 max-sm:flex max-sm:justify-center">
             <div className="flex flex-row">
               <div className="mx-2 my-2">
                 <a
@@ -52,7 +52,7 @@ const Footer = () => {
                 </a>
               </div>
             </div>
-            <div className="font-retrog xl:text-xl lg:text-lg md:text-md sm:text-sm text-white justify-center items-center">
+            <div className="font-retrog xl:text-xl lg:text-lg md:text-md sm:text-sm text-white justify-center items-center text-center">
               @invictus_dtu
             </div>
           </div>

@@ -16,7 +16,7 @@ const Slider = ({slides}) => {
         loop={true}
         autoplay={{
           delay: 2500,
-          disableOnInteraction: true,
+          disableOnInteraction: false,
         }}
         centeredSlides={true}
         slidesPerView={3}

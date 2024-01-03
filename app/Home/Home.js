@@ -4,10 +4,12 @@ import HomeButton from '../Components/Buttons/homeButton'
 import Slider from '../Components/Swiper/Swiper'
 import slides from '../Components/Swiper/images.json'
 import Registration from '../Components/Registration-form/Registration'
+import HomeEvents from './HomeEvents/HomeEvents'
+import Link from 'next/link'
 
 const Home = () => {
   return (
-    <main className='w-full h-[400vh] overflow-auto'>
+    <main className='w-full h-[530vh] sm:h-[400vh] overflow-auto'>
     <div className='w-full h-screen top-0 left-0 flex flex-col justify-center items-center bg-[#05063F]'>
       <img src='/bg.png' className=' w-full absolute h-full top-0 left-0 shrink-0 object-cover opacity-50 z-2' />
       <div className='z-1 flex flex-col py-24 justify-around h-screen absolute top-0 items-center'>
@@ -26,8 +28,8 @@ const Home = () => {
       </div>
     </div>
 
-    <div className='w-full h-[300vh] top-0 left-0 flex flex-col bg-[#05063F]'>
-      <img src='/bg2.png' className=' w-full absolute h-[300vh] top-[100vh] left-0 shrink-0 object-cover opacity-30 z-2  ' />
+    <div className='w-full h-[430vh] sm:h-[300vh] top-0 left-0 flex flex-col bg-[#05063F]'>
+      <img src='/bg2.png' className=' w-full absolute h-[430vh] sm:h-[300vh] top-[100vh] left-0 shrink-0 object-cover opacity-30 z-2  ' />
       <div className='z-1 h-[100vh] flex flex-col justify-evenly absolute top-[100vh] items-center text-white'>
         <div className='font-retrog max-[640px]:text-[10vw] text-[6vw]'>
           About
@@ -51,11 +53,19 @@ const Home = () => {
         </div>
       </div>
 
-      <div className='w-full h-[100vh] top-[200vh] left-0'>
-        <>Hello world</>
+      <div className='z-1 w-full h-[230vh] sm:h-[100vh] flex flex-col justify-center absolute top-[200vh] items-center text-white '>
+        <div className='font-retrog max-[640px]:text-[10vw] text-[6vw]'>
+          Events
+        </div>
+        <div className=' w-full'>
+          <HomeEvents/>
+        </div>
+        <Link href="/Events">
+          <HomeButton buttonText="Go To Events" />
+        </Link>
       </div>
       
-      <div className='z-1 w-full h-[100vh] flex flex-col justify-center absolute top-[300vh] items-center text-white '>
+      <div className='z-1 w-full h-[100vh] flex flex-col justify-center absolute top-[430vh] sm:top-[300vh] items-center text-white '>
         <h2 className=' h-1/4 font-retrog max-[640px]:text-[10vw] text-[6vw] flex justify-center items-center'>
           Gallery
         </h2>
