@@ -1,10 +1,13 @@
 "use client";
 import React from "react";
+import Butt from "././../Components/Buttons/eventButton";
 import Image from "next/image";
-import Butt from "../Components/Buttons/eventButton";
-import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
-const WorkshopCard = ( props ) => {
+import { Toaster, toast } from "react-hot-toast";
+import { submitTeam } from "../helper";
+import { useRouter } from "next/navigation";
+
+const EventCard = (props) => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -12,12 +15,10 @@ const WorkshopCard = ( props ) => {
     router.push(`/InputForm?event=${id}`);
     return;
   }
+
   return (
     <>
-      <div
-        className="bg-[#0000004d] p-3 w-[90vw] min-h-40 flex my-[20px] mx-[5vw] text-[#f0f8ff] backdrop-blur rounded-[25px] shadow-[0px_0px_20px_#8f8f8f8f] items-center max-[768px]:flex-wrap "
-        // className="main-box"
-      >
+      <div className="bg-[#0000004d] p-3 w-[90vw] min-h-40 flex my-[20px] mx-[5vw] text-[#f0f8ff] backdrop-blur rounded-[25px] shadow-[0px_0px_20px_#8f8f8f8f] items-center max-[768px]:flex-wrap ">
         <Image
           className="  bg-no-repeat  shrink-0 xl:w-[25rem] lg:w-80 md:w-60 sm:w-[25rem] w-[100%] md:mr-3 rounded-3xl"
           src={props.data.image || "/Card-Robo.png"}
@@ -26,9 +27,8 @@ const WorkshopCard = ( props ) => {
           height={50}
         />
 
-
         {/* About */}
-        <div className="xl:w-3/5 lg:w-90 md:w-90  max-[768px]:w-[90%]">
+        <div className="xl:w-3/5 lg:w-90 md:w-90  max-[768px]:w-[90%] self-start">
           <div className="font-retrog lg:text-3xl  md:text-3xl sm:text-3xl text-4xl max-[640px]:flex justify-center">
             {props.data.name}
           </div>
@@ -104,15 +104,5 @@ const WorkshopCard = ( props ) => {
     </>
   );
 };
-// WorkshopCard.prototype = {};
-// WorkshopCard.defaultProps = {
-//   name: "Event Name",
-//   detail:
-//     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, ut. Tempora omnis assumenda incidunt sequi consectetur dolore, rem enim molestias, explicabo delectus sit dignissimos hic repudiandae in repellat. Sed possimus corporis optio! Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus non blanditiis cupiditate fuga inventore rem animi, necessitatibus ratione tempore, totam quasi magnam fugit quisquam provident. Voluptatem temporibus atque corrupti, explicabo quos ad totam illum possimus! Eius modi quas ipsum esse molestias iusto nihil obcaecati voluptates ullam? Id similique, consequatur provident dolorem sunt ad commodi hic error.",
-//   time: " 4 PM",
-//   // photo: Robo,
-//   date: "4th Feb 2024",
-// };
-// default
 
-export default WorkshopCard;
+export default EventCard;

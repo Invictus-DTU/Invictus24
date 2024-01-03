@@ -6,6 +6,7 @@ import Footer from './Components/Footer'
 import { useSearchParams } from 'next/navigation';
 const inter = Inter({ subsets: ['latin'] })
 import SessionProvider from "./Components/SessionProvider";
+import Protection from "./Components/Protection";
 
 export default function RootLayout({ children }) {
   const searchParams = useSearchParams();
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <SessionProvider>
+          <Protection/>
           <Navbar status={search}/>
           {children}
           {search==="admin"?<></>:<Footer />}

@@ -22,7 +22,7 @@ const TeamPage = () => {
       else{
         toast.success(res.message);
         setJoinTeamId("");
-        router.push("/Events");
+        router.push("/");
       }
     }
     catch(error){
@@ -45,7 +45,7 @@ const TeamPage = () => {
       else{
         toast.success(res.message);
         setTeamName("");
-        router.push("/Events");
+        router.push("/");
       }
     }
     catch(error){

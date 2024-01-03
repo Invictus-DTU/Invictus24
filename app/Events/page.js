@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Butt from "../Components/Buttons/eventButton";
-import WorkshopCard from "./WorkshopCard";
+import EventCard from "./EventCard";
 import { getEvents } from "../helper/index";
 import { useSession } from "next-auth/react";
 import { Toaster, toast } from "react-hot-toast";
@@ -9,8 +9,7 @@ import { submitTeam } from "../helper";
 import { useRouter } from "next/navigation";
 import { checkUser } from "../helper/index";
 
-const Workshop = () => {
-  const itemsPerPage = 4;
+const Events = () => {
   const [event, setEvent] = useState([]);
   const { data: session } = useSession();
   const router = useRouter();
@@ -18,15 +17,44 @@ const Workshop = () => {
     async function get() {
       try {
         const arr = await getEvents();
-        setEvent(arr.filter((val)=>{
-          return (val.type==='workshop');
-        }));
+        setEvent(arr);
       } catch (error) {
         console.error("Error fetching events:", error.message);
       }
     }
     get();
   }, []);
+
+  //filter content
+  // const FilterButton = () => {
+  //   const [isOpen, setIsOpen] = useState(false);
+  //   const [selectedOption, setSelectedOption] = useState(null);
+
+  //   const handleButtonClick = () => {
+  //     setIsOpen(!isOpen);
+  //   };
+
+  //   const handleOptionClick = (option) => {
+  //     setSelectedOption(option);
+  //     setIsOpen(false);
+  //     // You can perform any filtering logic or other actions based on the selected option here
+  //   };
+
+  // useEffect(() => {
+  //   if(!session || !session?.user) return;
+  //   async function auth(){
+  //     const res = await checkUser(session?.user?.email);
+  //     if(res.error || res.message === "Doesn't exist"){
+  //       await signOut();
+  //       router.push('/Registeration');
+  //     }
+  //     else if(res.isAdmin){
+  //       router.push('/admin?status=admin');
+  //     }
+  //   }
+  //   auth();
+  // }, [session]);
+  const itemsPerPage = 4;
 
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -64,15 +92,35 @@ const Workshop = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center w-full Workshop pb-[60px]">
+      <div className="flex flex-col items-center w-full Events pb-[60px] ">
+        <Toaster position="top-center" reverseOrder={false} />
         <h1 className="font-retrog xl:text-7xl lg:text-7xl md:text-6xl sm:text-5xl max-[640px]:text-5xl flex justify-center mt-32 mb-6 text-white">
-          Workshop
+          Events
         </h1>
 
         {/* Filter and SearchBar */}
         <div className="flex h-fit sm:justify-between max-[640px]: justify-center w-[90%] max-[640px]: flex-wrap ">
           <div className="flex h-fit sm:w-fit max-[640px]: w-[80%] max-[480px]:w-fit sm:justify-normal max-[640px]: justify-between">
+            {/* <div className="filter-container">
+              <Butt title="Filter" action={handleButtonClick} />
+              {isOpen && (
+                <div className="filter-options">
+                  <div onClick={() => handleOptionClick("registered")}>
+                    Registered
+                  </div>
+                  <div onClick={() => handleOptionClick("unregistered")}>
+                    Unregistered
+                  </div>
+                </div>
+              )}
+              {selectedOption && (
+                <p>Selected option: {selectedOption}</p>
+                // You can render or perform actions based on the selected option here
+              )}
+            </div> */}
             <Butt title="Filter" />
+
+            {/* <Butt title="Filter"/> */}
             <Butt title="Sort" />
           </div>
           {/* Search Bar */}
@@ -90,7 +138,7 @@ const Workshop = () => {
         {currentItems &&
           currentItems.map((item, i) => {
             return (
-              <WorkshopCard
+              <EventCard
                 data={item}
                 key={i}
                 handleTeamSubmit={handleTeamSubmit}
@@ -126,4 +174,4 @@ const Workshop = () => {
   );
 };
 
-export default Workshop;
+export default Events;
