@@ -24,15 +24,15 @@ const EventCard = ({ event, onUpdate, onDelete }) => {
     prize,
     venue,
     registrationEndDate,
-    imageUrl,
+    image,
   } = event;
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6 mb-4 mx-4">
-      <div className="md:flex md:items-center md:justify-between">
-        {imageUrl && (
-          <div className="md:w-1/3 md:mr-6 mb-4 md:mb-0">
-            <img src={imageUrl} alt={name} className="w-full rounded-md" />
+      <div className="flex-col items-center justify-between">
+        {image && (
+          <div className="w-full mr-6 mb-4">
+            <img src={image} alt={name} className="w-full rounded-md" />
           </div>
         )}
         <div className="flex-1">

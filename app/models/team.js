@@ -17,8 +17,8 @@ const teamSchema = new mongoose.Schema({
         ref: 'Event',
     },
     status:{
-        type:Boolean,
-        default: false,
+        type:String,
+        default: "not-submitted",
     },
     member: [
         {type: mongoose.Schema.Types.ObjectId,

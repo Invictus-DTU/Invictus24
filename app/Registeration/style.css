@@ -4,7 +4,7 @@
 
 
 .form-box{
-    background-image: url(../../../public/bg3.png);
+    background-image: url('/bg3.png');
     background-size: cover;
     filter: blue(8px);
 }

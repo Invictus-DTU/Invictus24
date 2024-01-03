@@ -1,17 +1,17 @@
 import { NextResponse } from "next/server";
-import  connectDb   from "../../../helper/config";
 import Event from "../../../models/event";
-import Team from "../../../models/team";
 import User from "../../../models/user";
+import Team from "../../../models/team";
+import connectDb from "../../../helper/config";
 
 connectDb();
-// event schema -->
 export async function POST(req) {
     try{
         const reqBody= await req.json();
         const {eventName} = reqBody;
         
         const event = await Event.findOne({name: eventName});
+        console.log(event._id)
 
         if(!event){
             return NextResponse.json({error: "Event not exist"},{status: 400});

@@ -1,6 +1,6 @@
 import React from 'react'
 import "./InputForm.css";
-import EventButton from '../Buttons/eventButton';
+import EventButton from '../Components/Buttons/eventButton';
 
 const InputForm = () => {
   return (
@@ -9,7 +9,7 @@ const InputForm = () => {
 
       <form action="submit_form.php" method="post">
 
-        <label for="name">Name</label>
+        <label htmlFor="name">Name</label>
         <input type="text" id="name" name="name" required/>
 
         <label for="email">Email Address</label>
@@ -34,4 +34,4 @@ const InputForm = () => {
   )
 }
 
-export default InputForm
+export default InputForm;
