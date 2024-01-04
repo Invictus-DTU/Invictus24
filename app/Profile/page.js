@@ -1,6 +1,7 @@
 import React from 'react'
 import { TeamStatus } from '../Components/TeamStatus/TeamStatus'
 import InputForm from "../InputForm/inoutForm"
+import Events from './EventCard/Events'
 
 const Profile = () => {
   return (
@@ -10,8 +11,8 @@ const Profile = () => {
         <div className='w-full h-[300vh] absolute z-1'>
           <InputForm/>
           <TeamStatus/>
+          <Events/>
         </div>
-        {/* <WorkshopCard/> */}
     </div>
   )
 }
