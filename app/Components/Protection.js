@@ -22,6 +22,9 @@ export default function Protection(){
             }
         }
         else if(res.isAdmin){
+            if(role === "admin"){
+                return;
+            }
             router.push('/admin?status=admin');
         }
         else if(role === "admin"){

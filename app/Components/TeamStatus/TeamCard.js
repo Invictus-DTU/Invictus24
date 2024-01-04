@@ -6,7 +6,7 @@ export default function TeamCard({property}) {
             
         <img src="/arrow.png" className='mr-5' />
         <div className='title flex flex-col'>
-            <div>Event Name: {property.eventName.name}</div>
+            <div>{property.eventName?.type} Name: {property.eventName?.name}</div>
             <div>Team Name: {property.teamname}</div>
             <div>Team Id: {property.teamId}</div>
             <div>Team status: {property.status}</div>

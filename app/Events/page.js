@@ -24,8 +24,12 @@ const Events = () => {
       try {
         const arr = await getEvents();
         if(arr){
-          setEvent(arr);
-          setArr(arr);
+          setEvent(arr.filter((val)=>{
+            return (val.type==='Events');
+          }));
+          setArr(arr.filter((val)=>{
+            return (val.type==='Events');
+          }));
         }
       } catch (error) {
         console.error("Error fetching events:", error.message);
