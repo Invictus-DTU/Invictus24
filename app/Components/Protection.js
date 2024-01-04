@@ -10,13 +10,11 @@ export default function Protection(){
     const pathname = usePathname();
     const segments = pathname.split('/');
     const role = segments[1];
-    console.log(role);
     
     useEffect(() => {
         if(!session || !session?.user) return;
         async function auth(){
         const res = await checkUser(session?.user?.email);
-        console.log(res);
         if(res.error || res.message === "Doesn't exist"){
             if(role !== "Registeration"){
                await signOut();
@@ -24,6 +22,9 @@ export default function Protection(){
             }
         }
         else if(res.isAdmin){
+            if(role === "admin"){
+                return;
+            }
             router.push('/admin?status=admin');
         }
         else if(role === "admin"){

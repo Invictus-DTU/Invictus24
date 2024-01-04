@@ -12,7 +12,7 @@ const EventCard = (props) => {
   const router = useRouter();
 
   function redirect(id) {
-    router.push(`/InputForm?event=${id}`);
+    router.push(`/InputForm?event=${id}&prev=${"Events"}`);
     return;
   }
 
@@ -67,6 +67,7 @@ const EventCard = (props) => {
               {props.data.venue || "DTU"}, {props.data.time || "time"}
             </div>
           </div>
+          
           {session ? (
             props.status === "closed" ? (
               <></>

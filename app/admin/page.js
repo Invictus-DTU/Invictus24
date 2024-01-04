@@ -177,8 +177,8 @@ const EventForm = () => {
                 type="radio"
                 id="event"
                 name="type"
-                value="event"
-                checked={formData.type === 'event'}
+                value="Events"
+                checked={formData.type === 'Events'}
                 onChange={handleChange}
                 className="mt-1 p-2 w-full rounded-md border border-gray-300 bg-white text-gray-900"
                 required
@@ -190,8 +190,8 @@ const EventForm = () => {
                 type="radio"
                 id="workshop"
                 name="type"
-                value="workshop"
-                checked={formData.type === 'workshop'}
+                value="Workshops"
+                checked={formData.type === 'Workshops'}
                 onChange={handleChange}
                 className="mt-1 p-2 w-full rounded-md border border-gray-300 bg-white text-gray-900"
                 required

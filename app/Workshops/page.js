@@ -12,6 +12,12 @@ import { checkUser } from "../helper/index";
 const Workshop = () => {
   const itemsPerPage = 4;
   const [event, setEvent] = useState([]);
+  const [arr, setArr] = useState([]);
+  const [filter, setFilter] = useState({
+    filter: "",
+    search: "",
+    sort: ""
+  });
   const { data: session } = useSession();
   const router = useRouter();
   useEffect(() => {
@@ -19,8 +25,11 @@ const Workshop = () => {
       try {
         const arr = await getEvents();
         setEvent(arr.filter((val)=>{
-          return (val.type==='workshop');
+          return (val.type==='Workshops');
         }));
+        setArr(arr.filter((val)=>{
+          return (val.type==='Workshops');
+        }))
       } catch (error) {
         console.error("Error fetching events:", error.message);
       }
@@ -41,7 +50,6 @@ const Workshop = () => {
   const handleTeamSubmit = async (props) => {
     try {
       const res = await submitTeam(props);
-      console.log(res);
       if (res.error) {
         toast.error(res.error);
       } else {
@@ -62,9 +70,50 @@ const Workshop = () => {
     }
   };
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFilter({
+      filter: "",
+      search: "",
+      sort: "",
+      [name]: value,
+    });
+
+    if(name === "sort"){
+      if(value === "date"){
+        const temp = arr.slice();
+        setEvent(temp.sort((a,b) => {
+          return new Date(a.date) - new Date(b.date);
+        }));
+      }
+      else if(value === "prize"){
+        const temp = arr.slice();
+        setEvent(temp.sort((a,b) => {
+          return b.prize - a.prize;
+        }));
+      }
+      else{
+        setEvent(arr);
+      }
+    }
+    else if(name === "filter"){
+      if(value === ""){
+        setEvent(arr);
+        return;
+      }
+      const temp = arr.slice();
+      setEvent(temp.filter(data => data.participationStatus === value));
+    }
+    else{
+      const temp = arr.slice();
+      setEvent(temp.filter(event => event.name.startsWith(value)))
+    }
+  };
+
   return (
     <>
       <div className="flex flex-col items-center w-full Workshop pb-[60px]">
+        <Toaster position="top-center" reverseOrder={false} />
         <h1 className="font-retrog xl:text-7xl lg:text-7xl md:text-6xl sm:text-5xl max-[640px]:text-5xl flex justify-center mt-32 mb-6 text-white">
           Workshop
         </h1>
@@ -72,8 +121,19 @@ const Workshop = () => {
         {/* Filter and SearchBar */}
         <div className="flex h-fit sm:justify-between max-[640px]: justify-center w-[90%] max-[640px]: flex-wrap ">
           <div className="flex h-fit sm:w-fit max-[640px]: w-[80%] max-[480px]:w-fit sm:justify-normal max-[640px]: justify-between">
-            <Butt title="Filter" />
-            <Butt title="Sort" />
+            {/* <Butt title="Filter" /> */}
+            {/* <Butt title="Sort" /> */}
+            <select name="filter" id="filter" value={filter.filter} onChange={handleChange} className="event-button w-fit h-fit flex justify-center items-center font-ticketing max-[320px]:text-[6vw] max-[768px]:text-[5vw] md:text-[3vw] lg:text-[2vw]  px-5 py-1 my-1 mx-2">
+              <option value="">Filter</option>
+              <option value="participated">Registered</option>
+              <option value="not participated">Unregistered</option>
+            </select>
+
+            <select name="sort" id="sort" value={filter.sort} onChange={handleChange} className="event-button w-fit h-fit flex justify-center items-center font-ticketing max-[320px]:text-[6vw] max-[768px]:text-[5vw] md:text-[3vw] lg:text-[2vw]  px-5 py-1 my-1 mx-2">
+              <option value="">Sort By</option>
+              <option value="date">Date</option>
+              <option value="prize">Prize</option>
+            </select>
           </div>
           {/* Search Bar */}
           <div className="md: h-10 sm:h-full lg:w-100 md:w-80 sm:w-60 flex items-center bg-white m-0 max-[640px]:mt-4 p-2 rounded-full">
@@ -83,6 +143,9 @@ const Workshop = () => {
             <input
               className="flex shrink h-[80%] w-[85%] font-retrog border-0 focus:outline-none self-center p-0 m-0"
               placeholder="Search for Events"
+              name="search"
+              onChange={handleChange}
+              value={filter.search}
             ></input>
           </div>
         </div>

@@ -18,6 +18,7 @@ export async function POST(req) {
         const user = tokenData? await User.findById(tokenData.id) : "";
         const reqBody= await req.json();
         const teamId = reqBody.teamId;
+        const type = reqBody.type;
         
         const team = await Team.findOne({teamId});
 
@@ -29,9 +30,9 @@ export async function POST(req) {
             return NextResponse.json({error: "User not exist"},{status: 400});
         }
         else{
-            const event = await Event.findOne({ _id: team.eventName });
+            const event = await Event.findOne({ _id: team.eventName, type: type });
             if (!event) {
-                return NextResponse.json({ error: "Event not found" }, { status: 400 });
+                return NextResponse.json({ error: `${type} not found` }, { status: 400 });
             }
             else if (user.eventList.includes(event._id)) {
                 return NextResponse.json({ error: "User already registered in this event" }, { status: 400 });

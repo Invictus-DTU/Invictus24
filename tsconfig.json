@@ -27,7 +27,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "app/Components/SessionProvider.js"  ],
   "exclude": [
     "node_modules"
   ]

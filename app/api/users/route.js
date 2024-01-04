@@ -23,7 +23,7 @@ export async function POST(req) {
                 phone: phone
             });
             await newUser.save();
-            const tokenData = {
+            const tokenData = { 
                 id: newUser._id,
                 email: newUser.email
             }

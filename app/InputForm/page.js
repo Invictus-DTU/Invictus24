@@ -9,20 +9,23 @@ const TeamPage = () => {
   const params = useSearchParams();
   const router = useRouter();
   const eventName = params.get("event");
+  const prev = params.get("prev");
+  console.log("prev",prev);
   const [joinTeamId, setJoinTeamId] = useState('');
   const [teamName, setTeamName] = useState("");
 
   const handleJoinTeamSubmit = async(e) => {
     e.preventDefault();
     try{
-      const res = await joinTeam(joinTeamId);
+      const res = await joinTeam(joinTeamId, prev);
       if(res.error){
         toast.error(res.error);
       }
       else{
         toast.success(res.message);
         setJoinTeamId("");
-        router.push("/");
+        console.log(prev);
+        router.push(prev);
       }
     }
     catch(error){
@@ -45,7 +48,7 @@ const TeamPage = () => {
       else{
         toast.success(res.message);
         setTeamName("");
-        router.push("/");
+        router.push(prev);
       }
     }
     catch(error){

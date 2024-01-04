@@ -35,7 +35,7 @@ export async function POST(req) {
             const newTeam = new Team({ teamname, teamId, teamLeader, eventName: event._id });
             newTeam.member.push(teamLeader);
             if(event.teamSizeMax===1){
-                newTeam.status=true;
+                newTeam.status= "submitted";
             }
             await newTeam.save();
             user.eventList.push(event._id);

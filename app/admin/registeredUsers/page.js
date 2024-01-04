@@ -12,10 +12,11 @@ const EventTeamsPage = () => {
 
   const handleEventSubmit = async (e) => {
     e.preventDefault();
-
+   // console.log(e.target)
     try {
       setLoading(true);
       const response = await axios.post('http://localhost:3000/api/society-events/registered-users', { eventName });
+     // console.log(response)
       setTeams(response.data);
       setLoading(false);
     } catch (error) {
