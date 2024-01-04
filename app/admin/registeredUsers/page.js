@@ -27,7 +27,7 @@ const EventTeamsPage = () => {
 
   return (
     <div className="p-8">
-      <form onSubmit={handleEventSubmit} className="mb-4 flex flex-col">
+      <form onSubmit={handleEventSubmit} className="mb-4 flex flex-col mt-[7rem]">
         <div className='items-center justify-center'>
           <input
             type="text"
