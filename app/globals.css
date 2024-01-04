@@ -43,6 +43,7 @@
     background-attachment: scroll;
     background-size: 100% 100% ;
     background-repeat: repeat-y;
+    min-height: 95vh;
 }
 .Events{
     background-image: url("../public/Events.png");
@@ -50,6 +51,7 @@
     background-attachment: scroll;
     background-size: 100% 100% ;
     background-repeat: repeat-y;
+    min-height: 95vh;
 }
 .Council{
 
