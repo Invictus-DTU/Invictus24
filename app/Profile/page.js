@@ -1,7 +1,9 @@
 'use client'
 import React,{useEffect, useState} from 'react'
 import { TeamStatus } from '../Components/TeamStatus/TeamStatus'
-import InputForm from "../InputForm/inputForm"
+
+import InputForm from "../InputForm/inoutForm"
+import Events from './EventCard/Events'
 import axios from 'axios';
 
 const Profile = () => {
@@ -41,10 +43,11 @@ const Profile = () => {
         <img src='/bg2.png' className=' w-full absolute h-[300vh] top-0 left-0 shrink-0 object-cover opacity-30 z-2  ' />
         <div className='h-[100px]'></div>
         <div className='w-full h-[300vh] absolute z-1'>
+
+          <Events/>
           <InputForm user={user}/>
           <TeamStatus teams={team}/>
         </div>
-        {/* <WorkshopCard/> */}
     </div>
   )
 }
