@@ -48,9 +48,15 @@ const Registration = () => {
     };
 
     return (
-        <div className='flex items-center justify-center bg-transparent'>
+        <main className="w-full  overflow-auto">
+      <div className="w-full h-screen top-0 left-0 flex flex-col bg-[#05063F]"  style={{overflow:'hidden'}}>
+        <img
+          src="/bg.png"
+          className=" w-full absolute h-full top-0 left-0 shrink-0 object-cover opacity-50 z-2"
+        />
+       <div className="z-1 flex py-24 justify-center items-center h-screen relative" style={{top:'50px',overflow:'hidden', marginBottom:'0px'}}>
             <form
-                className='form-box shadow-zinc-50 shadow-2xl background-image mt-14 mb-14 box-border h-full w-6/12 p-4 border-4 form-round flex content-center flex-col bg-gray-700 md:box-content'
+                className='z-1 form-box shadow-zinc-50 shadow-2xl background-image mt-14 mb-14 box-border h-full w-6/12 p-4 border-4 form-round flex content-center flex-col bg-gray-700 md:box-content'
                 onSubmit={handleSubmit}
             >
                 <div className='text-center text-white mb-5 font-retrog text-3xl'>Registration<br /> Form</div>
@@ -106,6 +112,8 @@ const Registration = () => {
                 </button>
             </form>
         </div>
+        </div>
+        </main>
     );
 };
 
