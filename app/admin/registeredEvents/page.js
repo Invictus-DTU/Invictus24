@@ -41,11 +41,9 @@ const EventsPage = () => {
       toast.error(error.response.data.error);
     }
   };
-
   useEffect(() => {
     fetchEvents();
   }, [handleUpdate]);
-
   return (
     <div className="min-h-screen">
     <Toaster position="top-center" reverseOrder={false} />

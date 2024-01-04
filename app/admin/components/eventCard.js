@@ -25,6 +25,7 @@ const EventCard = ({ event, onUpdate, onDelete }) => {
     venue,
     registrationEndDate,
     image,
+    type
   } = event;
 
   return (
@@ -72,6 +73,9 @@ const EventCard = ({ event, onUpdate, onDelete }) => {
             )}
           </div>
           <p className="mt-4 text-gray-700">
+            Type: {type}
+          </p>
+          <p className="mt-4 text-gray-700">
             Team Size: {editMode ? (
               <>
                 <input
@@ -92,7 +96,7 @@ const EventCard = ({ event, onUpdate, onDelete }) => {
               `${teamSizeMIN} - ${teamSizeMax}`
             )}
           </p>
-          <p className="text-gray-700">Prize: {editMode ? (
+          <p className="text-gray-700 mt-4">Prize: {editMode ? (
               <input
                 type="text"
                 className="text-gray-700 border rounded-md p-2 w-full"
@@ -102,7 +106,7 @@ const EventCard = ({ event, onUpdate, onDelete }) => {
             ) : (
               prize
             )}</p>
-          <p className="text-gray-700">Venue: {editMode ? (
+          <p className="text-gray-700 mt-4">Venue: {editMode ? (
               <input
                 type="text"
                 className="text-gray-700 border rounded-md p-2 w-full"

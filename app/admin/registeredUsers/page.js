@@ -12,10 +12,11 @@ const EventTeamsPage = () => {
 
   const handleEventSubmit = async (e) => {
     e.preventDefault();
-
+   // console.log(e.target)
     try {
       setLoading(true);
       const response = await axios.post('http://localhost:3000/api/society-events/registered-users', { eventName });
+     // console.log(response)
       setTeams(response.data);
       setLoading(false);
     } catch (error) {
@@ -27,7 +28,7 @@ const EventTeamsPage = () => {
 
   return (
     <div className="p-8">
-      <form onSubmit={handleEventSubmit} className="mb-4 flex flex-col">
+      <form onSubmit={handleEventSubmit} className="mb-4 flex flex-col mt-[7rem]">
         <div className='items-center justify-center'>
           <input
             type="text"

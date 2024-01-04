@@ -7,7 +7,6 @@ import { Loader } from "./Loader/Loader"
 const page = () => {
 
   return (
-
     <Home />
     // <Profile />
     // <Loader/>

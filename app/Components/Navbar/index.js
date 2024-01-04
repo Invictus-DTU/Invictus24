@@ -4,60 +4,56 @@ import "tailwindcss/tailwind.css";
 import Link from "next/link";
 import { useState, useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-
 import Sponsors from "../../Sponsors/page";
 import { signIn, useSession } from "next-auth/react";
-import { checkUser } from "../../helper";
 import Profile from "../../Profile/page"
+import SignIn from "../Buttons/signinButton";
 
 const Navbar = ({ status }) => {
   const [nav, setNav] = useState(false);
+
   const {data : session} = useSession();
-  const [clicked, setClicked] = useState(false);
 
 
-  const fetchData = async () => {
-    console.log("jfjpa");
-    try {
-      if (!session || !session.user) {
-        console.error("No session or user found after sign-in");
-        return;
-      }
+  // const fetchData = async () => {
+  //   console.log("jfjpa");
+  //   try {
+  //     if (!session || !session.user) {
+  //       console.error("No session or user found after sign-in");
+  //       return;
+  //     }
 
-      const res = await checkUser(session?.user?.email);
-      console.log(res);
+  //     const res = await checkUser(session?.user?.email);
+  //     console.log(res);
 
-      if (res?.error || res?.message === "Doesn't exist") {
-        window.location.href = "/Registration";
-      } else if (res?.isAdmin) {
-        window.location.href = "admin/registration?status=admin";
-      }
-      else{
-        window.location.href = "/";
-        console.log("fuahho");
-      }
-    } catch (error) {
-      console.error("Error during data fetching:", error);
-      // Handle errors as needed
-    }
-  };
+  //     if (res?.error || res?.message === "Doesn't exist") {
+  //       window.location.href = "/Registration";
+  //     } else if (res?.isAdmin) {
+  //       window.location.href = "admin?status=admin";
+  //     }
+  //     else{
+  //       window.location.href = "/";
+  //       console.log("fuahho");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error during data fetching:", error);
+  //     // Handle errors as needed
+  //   }
+  // };
 
   async function sign() {
     try {
-      console.log("signed in", session)
-      await signIn("google", { redirect: false});
-      setTimeout(()=>{
-        fetchData();
-      },2000);
-      setClicked(true);
+      await signIn("google");
+      // console.log("signed in", session)
+      // if(session && session.user) await fetchData();
+      // else{
+      //   console.log("no session");
+      // }
     } catch (error) {
       console.error("An error occurred during sign-in:", error);
     }
   }
 
-  
-
-  
   // useEffect(() => {
   //   console.log("jfjpa");
   //   // if (!session || !session.user) {
@@ -71,7 +67,6 @@ const Navbar = ({ status }) => {
   //   // }
   // }, [ ]);
 
-  
   return (
     <nav className="xl:h-[100px] lg:h-[95px] md:h-[90px] sm:h-[80px] max-[640px]:h-[80px] bg-black/[0.25] w-full flex justify-center backdrop-blur-md fixed top-0 z-50">
       <div className="flex flex-row">
@@ -89,9 +84,7 @@ const Navbar = ({ status }) => {
             {status === "admin" ? (
               <>
                 <li className="mx-6 mt-8 hover:text-white active:text-white focus:text-white">
-                  <Link href="/admin?status=admin">
-                    Registration
-                  </Link>
+                  <Link href="/admin?status=admin">Registration</Link>
                 </li>
                 <li className="mx-6 mt-8 hover:text-white active:text-white">
                   <Link href="/admin/registeredEvents?status=admin">
@@ -123,19 +116,26 @@ const Navbar = ({ status }) => {
                 <li className="mx-6 mt-8 hover:text-white active:text-white">
                   <Link href="/OurTeam">OUR TEAM</Link>
                 </li>
-                {session? <li className="mx-6 mt-6 hover:text-white active:text-white">
-                  <Link href="/Profile" children={<Profile/>}>
-                    <img
-                      src="/profile.png"
-                      alt="profile"
-                      className="h-10 w-10"
+                {session ? (
+                  <li className="mx-6 mt-6 hover:text-white active:text-white">
+                    <Link href="/Profile" children={<Profile />}>
+                      <img
+                        src="/profile.png"
+                        alt="profile"
+                        className="h-10 w-10"
+                      />
+                    </Link>
+                  </li>
+                ) : (
+                  <li className="mx-6 mt-8 hover:text-white active:text-white">
+                    <SignIn
+                      buttonText="Sign In"
+                      action={async () => {
+                        await sign();
+                      }}
                     />
-                  </Link>
-                </li>
-                :
-                <li className="mx-6 mt-8 hover:text-white active:text-white">
-                  <button className="btn" onClick={async()=>{await sign()}}>Sign In</button>
-                </li>}
+                  </li>
+                )}
               </>
             )}
           </ul>
@@ -152,9 +152,7 @@ const Navbar = ({ status }) => {
           {status === "admin" ? (
             <>
               <li className="mx-6 mt-8 hover:text-white active:text-white focus:text-white">
-                <Link href="/admin?status=admin">
-                  Registration
-                </Link>
+                <Link href="/admin?status=admin">Registration</Link>
               </li>
               <li className="mx-6 mt-8 hover:text-white active:text-white">
                 <Link href="/admin/registeredEvents?status=admin">
@@ -184,14 +182,28 @@ const Navbar = ({ status }) => {
               <li className="mx-6 mt-8 hover:text-white active:text-white">
                 <Link href="/OurTeam">OUR TEAM</Link>
               </li>
-              {session? <li className="mx-6 mt-6 hover:text-white active:text-white">
-                <Link href="/Profile">
-                  <img src="/profile.png" alt="profile" className="h-10 w-10" />
-                </Link>
-              </li>:
-              <li className="mx-6 mt-8 hover:text-white active:text-white">
-                <button className="btn" onClick={sign}>Sign In</button>
-              </li>}
+
+              {session ? (
+                <li className="mx-6 mt-6 hover:text-white active:text-white">
+                  <Link href="/Profile">
+                    <img
+                      src="/profile.png"
+                      alt="profile"
+                      className="h-10 w-10"
+                    />
+                  </Link>
+                </li>
+              ) : (
+                <li className="mx-6 mt-8 hover:text-white active:text-white">
+                  <SignIn
+                    buttonText="Sign In"
+                    action={async () => {
+                      await sign();
+                    }}
+                  />
+                </li>
+              )}
+
             </>
           )}
         </ul>

@@ -16,7 +16,8 @@ const EventForm = () => {
     prize: 0,
     venue: '',
     registrationEndDate: '',
-    image: ''
+    image: '',
+    type: ''
   });
 
   const handleChange = (e) => {
@@ -57,7 +58,7 @@ const EventForm = () => {
     
     <div className="flex justify-center items-center min-h-screen bg-black">
       <Toaster position="top-center" reverseOrder={false} />
-      <form onSubmit={handleSubmit} className="max-w-md w-full bg-white p-6 rounded-md shadow-md">
+      <form onSubmit={handleSubmit} className="max-w-md w-full bg-white p-6 rounded-md shadow-md mt-[7rem]">
         <label className="block mb-4">
           Event Name:
           <input
@@ -168,6 +169,39 @@ const EventForm = () => {
           />
         </label>
 
+        <label className="block mb-4">
+          Select Event Type:
+          <div>
+            <label htmlFor="event">
+              <input
+                type="radio"
+                id="event"
+                name="type"
+                value="Events"
+                checked={formData.type === 'Events'}
+                onChange={handleChange}
+                className="mt-1 p-2 w-full rounded-md border border-gray-300 bg-white text-gray-900"
+                required
+              />
+              Event
+            </label>
+            <label htmlFor="workshop">
+              <input
+                type="radio"
+                id="workshop"
+                name="type"
+                value="Workshops"
+                checked={formData.type === 'Workshops'}
+                onChange={handleChange}
+                className="mt-1 p-2 w-full rounded-md border border-gray-300 bg-white text-gray-900"
+                required
+              />
+              Workshop
+            </label>
+          </div>
+        </label>
+
+
         <label htmlFor="profileImage" className="block mb-4">
           Profile Image
         <input
@@ -179,7 +213,7 @@ const EventForm = () => {
           className="mt-1 p-2 w-full rounded-md border border-gray-300 bg-white text-gray-900"
           required
         />
-          </label>
+        </label>
 
         <button
           type="submit"

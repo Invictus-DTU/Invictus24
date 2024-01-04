@@ -17,6 +17,10 @@ const eventSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
+    type: {
+        type: String,
+        required: true
+    },
     time: {
         type: String,
         required: true
@@ -30,7 +34,7 @@ const eventSchema = new mongoose.Schema({
         default: 1 
     },
     prize: {
-        type: String,
+        type: Number,
         default: 0
     },
     venue: {
