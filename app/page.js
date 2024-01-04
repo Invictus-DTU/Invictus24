@@ -8,8 +8,8 @@ const page = () => {
 
   return (
 
-    // <Home />
-    <Profile />
+    <Home />
+    // <Profile />
     // <Loader/>
     // <Workshop />
     // <Registration/>
