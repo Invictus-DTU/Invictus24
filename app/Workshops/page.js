@@ -16,7 +16,7 @@ const Workshop = () => {
   const [filter, setFilter] = useState({
     filter: "",
     search: "",
-    sort: ""
+    sort: "",
   });
   const { data: session } = useSession();
   const router = useRouter();
@@ -24,12 +24,16 @@ const Workshop = () => {
     async function get() {
       try {
         const arr = await getEvents();
-        setEvent(arr.filter((val)=>{
-          return (val.type==='Workshops');
-        }));
-        setArr(arr.filter((val)=>{
-          return (val.type==='Workshops');
-        }))
+        setEvent(
+          arr.filter((val) => {
+            return val.type === "Workshops";
+          })
+        );
+        setArr(
+          arr.filter((val) => {
+            return val.type === "Workshops";
+          })
+        );
       } catch (error) {
         console.error("Error fetching events:", error.message);
       }
@@ -79,34 +83,34 @@ const Workshop = () => {
       [name]: value,
     });
 
-    if(name === "sort"){
-      if(value === "date"){
+    if (name === "sort") {
+      if (value === "date") {
         const temp = arr.slice();
-        setEvent(temp.sort((a,b) => {
-          return new Date(a.date) - new Date(b.date);
-        }));
-      }
-      else if(value === "prize"){
+        setEvent(
+          temp.sort((a, b) => {
+            return new Date(a.date) - new Date(b.date);
+          })
+        );
+      } else if (value === "prize") {
         const temp = arr.slice();
-        setEvent(temp.sort((a,b) => {
-          return b.prize - a.prize;
-        }));
-      }
-      else{
+        setEvent(
+          temp.sort((a, b) => {
+            return b.prize - a.prize;
+          })
+        );
+      } else {
         setEvent(arr);
       }
-    }
-    else if(name === "filter"){
-      if(value === ""){
+    } else if (name === "filter") {
+      if (value === "") {
         setEvent(arr);
         return;
       }
       const temp = arr.slice();
-      setEvent(temp.filter(data => data.participationStatus === value));
-    }
-    else{
+      setEvent(temp.filter((data) => data.participationStatus === value));
+    } else {
       const temp = arr.slice();
-      setEvent(temp.filter(event => event.name.startsWith(value)))
+      setEvent(temp.filter((event) => event.name.startsWith(value)));
     }
   };
 
@@ -123,13 +127,25 @@ const Workshop = () => {
           <div className="flex h-fit sm:w-fit max-[640px]: w-[80%] max-[480px]:w-fit sm:justify-normal max-[640px]: justify-between">
             {/* <Butt title="Filter" /> */}
             {/* <Butt title="Sort" /> */}
-            <select name="filter" id="filter" value={filter.filter} onChange={handleChange} className="event-button w-fit h-fit flex justify-center items-center font-ticketing max-[320px]:text-[6vw] max-[768px]:text-[5vw] md:text-[3vw] lg:text-[2vw]  px-5 py-1 my-1 mx-2">
+            <select
+              name="filter"
+              id="filter"
+              value={filter.filter}
+              onChange={handleChange}
+              className="event-button bg-transparent w-fit h-fit flex justify-center items-center font-ticketing max-[320px]:text-[6vw] max-[768px]:text-[5vw] md:text-[3vw] lg:text-[2vw]  px-5 py-1 my-1 mx-2"
+            >
               <option value="">Filter</option>
               <option value="participated">Registered</option>
               <option value="not participated">Unregistered</option>
             </select>
 
-            <select name="sort" id="sort" value={filter.sort} onChange={handleChange} className="event-button w-fit h-fit flex justify-center items-center font-ticketing max-[320px]:text-[6vw] max-[768px]:text-[5vw] md:text-[3vw] lg:text-[2vw]  px-5 py-1 my-1 mx-2">
+            <select
+              name="sort"
+              id="sort"
+              value={filter.sort}
+              onChange={handleChange}
+              className="event-button bg-transparent w-fit h-fit flex justify-center items-center font-ticketing max-[320px]:text-[6vw] max-[768px]:text-[5vw] md:text-[3vw] lg:text-[2vw]  px-5 py-1 my-1 mx-2"
+            >
               <option value="">Sort By</option>
               <option value="date">Date</option>
               <option value="prize">Prize</option>
