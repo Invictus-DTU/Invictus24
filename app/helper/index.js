@@ -126,10 +126,10 @@ export const eventRegisteration = async(formData) =>{
     }
 }
 
-export const joinTeam = async(teamId, type) =>{
+export const joinTeam = async(teamId, type, event) =>{
     try{
         console.log(teamId, type);
-        const response  = await axios.post(`http://localhost:3000/api/team/join`,{teamId, type},{
+        const response  = await axios.post(`http://localhost:3000/api/team/join`,{teamId, type, event},{
             validateStatus: (status) => status >= 200 && status <= 500
         })
         console.log(response);
