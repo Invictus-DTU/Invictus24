@@ -17,9 +17,9 @@ const TeamPage = () => {
 
   const handleJoinTeamSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const res = await joinTeam(joinTeamId, prev);
-      if (res.error) {
+    try{
+      const res = await joinTeam(joinTeamId, prev, eventName);
+      if(res.error){
         toast.error(res.error);
       }
       else {

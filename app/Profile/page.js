@@ -1,10 +1,12 @@
 'use client'
 import React,{useEffect, useState} from 'react'
 import { TeamStatus } from '../Components/TeamStatus/TeamStatus'
-
-import InputForm from "../InputForm/inoutForm"
-import Events from './EventCard/Events'
+import InputForm from "../InputForm/inputForm"
 import axios from 'axios';
+import { signOut, useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import { Toaster, toast } from 'react-hot-toast';
+import EventButton from '../Components/Buttons/eventButton';
 
 const Profile = () => {
   const [user,setuser] = useState({
@@ -15,6 +17,8 @@ const Profile = () => {
     phone: 0,
   });
   const [team,setTeam] = useState([]);
+  const {data:session} = useSession();
+  const router = useRouter();
   
   useEffect(() => {
     const fetchUser = async () => {
@@ -37,18 +41,43 @@ const Profile = () => {
       }
     };
     fetchUser();
-  }, []);
-  return (
-    <div className='h-[300vh] bg-[#05063f]'>
-        <img src='/bg2.png' className=' w-full absolute h-[300vh] top-0 left-0 shrink-0 object-cover opacity-30 z-2  ' />
-        <div className='h-[100px]'></div>
-        <div className='w-full h-[300vh] absolute z-1'>
+  }, [ ]);
 
-          <Events/>
-          <InputForm user={user}/>
-          <TeamStatus teams={team}/>
-        </div>
-    </div>
+  async function deleteSession() {
+    try {
+      const response = await axios.get("http://localhost:3000/api/auth/logout");
+      const res = response.data;
+      if(res.error){
+        toast.error(res.error);
+      }
+      else{
+        await signOut();
+        if(!session){
+          toast.success(res.message);
+          router.push("/");
+        }
+      }
+    } catch (error) {
+      console.error('Error during logout:', error);
+    }
+  }
+
+  return (
+    <div className='h-[300vh] bg-[#05063f] relative'>
+    <img src='/bg2.png' className='w-full absolute h-[300vh] top-0 left-0 shrink-0 object-cover opacity-30 z-2' />
+    <div className='h-[100px]'></div>
+      <div className='flex-col items-center justify-center w-full h-[300vh] absolute z-1'>
+        <InputForm user={user} />
+        <TeamStatus teams={team} />
+        {session ? (
+          <div className="flex items-center justify-center">
+            <EventButton action={deleteSession} title="Log Out" />
+          </div>
+        ) : (
+          <></>
+        )}
+      </div>
+    </div>  
   )
 }
 

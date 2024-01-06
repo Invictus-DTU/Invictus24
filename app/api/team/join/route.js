@@ -19,8 +19,9 @@ export async function POST(req) {
         const reqBody= await req.json();
         const teamId = reqBody.teamId;
         const type = reqBody.type;
+        const eventName = reqBody.event;
         
-        const team = await Team.findOne({teamId});
+        const team = await Team.findOne({teamId , eventName});
 
         if(!team){
             return NextResponse.json({error: "Team not exist"},{status: 400});
