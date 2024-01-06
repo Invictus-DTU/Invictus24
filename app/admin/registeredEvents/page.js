@@ -45,22 +45,22 @@ const EventsPage = () => {
     fetchEvents();
   }, [handleUpdate]);
   return (
-    <div className="min-h-screen">
-    <Toaster position="top-center" reverseOrder={false} />
-    {loading ? (
-      <div className="flex justify-center items-center min-h-screen">
-      <RingLoader color={'#FFFFFF'} size={150} loading={loading} />
-      </div>
-    ) : (
-      <div className="flex justify-center items-center min-h-screen">
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {events.map((event) => (
-          <EventCard key={event._id} event={event} onUpdate={(e)=>handleUpdate(e)} onDelete={handleDelete}/>
-        ))}
-      </div>
-      </div>
-    )}
-  </div>
+    <div className="min-h-screen bg-slate-500" >
+      <Toaster position="top-center" reverseOrder={false} />
+      {loading ? (
+        <div className="flex justify-center items-center min-h-screen">
+          <RingLoader color={'#FFFFFF'} size={150} loading={loading} />
+        </div>
+      ) : (
+        <div className="flex justify-center items-center min-h-screen" >
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3" style={{ marginTop: '150px' }}>
+            {events.length > 0 && events.map((event) => (
+              <EventCard key={event._id} event={event} onUpdate={(e) => handleUpdate(e)} onDelete={handleDelete} />
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 
