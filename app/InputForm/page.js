@@ -36,12 +36,12 @@ const TeamPage = () => {
 
   const handleCreateTeamSubmit = async (e) => {
     e.preventDefault();
-    console.log(teamName);
+    
     try {
       const newTeamId = uuidv4();
       console.log('Creating a new team with ID:', newTeamId);
       const res = await createTeam({ teamname: teamName, teamId: newTeamId, eventName: eventName });
-      console.log(res);
+      console.log(res.error);
       if (res.error) {
         toast.error(res.error);
         setTeamName("");
@@ -59,6 +59,7 @@ const TeamPage = () => {
 
   return (
     <main className="w-full  overflow-auto">
+      <Toaster position="top-center" reverseOrder={false} />
       <div className="w-full h-screen top-0 left-0 flex justify-center items-center bg-[#05063F]" style={{overflow:'hidden'}}>
         <img
           src="/bg.png"
