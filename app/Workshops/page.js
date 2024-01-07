@@ -132,11 +132,17 @@ const Workshop = () => {
               id="filter"
               value={filter.filter}
               onChange={handleChange}
-              className="event-button bg-transparent w-fit h-fit flex justify-center items-center font-ticketing max-[320px]:text-[6vw] max-[768px]:text-[5vw] md:text-[3vw] lg:text-[2vw]  px-5 py-1 my-1 mx-2"
+              className="event-button bg-transparent w-fit h-fit flex justify-center items-center text-center font-ticketing max-[320px]:text-[6vw] max-[768px]:text-[5vw] md:text-[3vw] lg:text-[2vw]  px-5 py-1 my-1 mx-2"
             >
-              <option value="">Filter</option>
-              <option value="participated">Registered</option>
-              <option value="not participated">Unregistered</option>
+              <option className="Optionss" value="">
+                Filter
+              </option>
+              <option className="Optionss" value="participated">
+                Registered
+              </option>
+              <option className="Optionss" value="not participated">
+                Unregistered
+              </option>
             </select>
 
             <select
