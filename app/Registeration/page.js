@@ -15,6 +15,12 @@ const Registration = () => {
     });
     const [registered, setRegistered] = useState(false);
 
+    const validatePhoneNumber = (phoneNumber) => {
+        // Regex pattern for 10 digits
+        const phoneRegex = /^\d{10}$/;
+        return phoneRegex.test(phoneNumber);
+    };
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevFormData) => ({
@@ -27,6 +33,12 @@ const Registration = () => {
         if(!session){
            alert("please verify your email");
            return;
+        }
+        
+        
+        if (!validatePhoneNumber(phone)) {
+            alert("Please enter a valid 10-digit phone number");
+            return;
         }
         e.preventDefault();
         try {

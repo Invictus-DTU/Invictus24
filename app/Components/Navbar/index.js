@@ -96,6 +96,15 @@ const Navbar = ({ status }) => {
                     Registered Users
                   </Link>
                 </li>
+                <li className="mx-6 mt-6 hover:text-white active:text-white">
+                  <Link href="/Profile" children={<Profile />}>
+                    <img
+                      src="/profile.png"
+                      alt="profile"
+                      className="h-10 w-10"
+                    />
+                  </Link>
+                </li>
               </>
             ) : (
               <>
@@ -162,6 +171,15 @@ const Navbar = ({ status }) => {
               <li className="mx-6 mt-8 hover:text-white active:text-white">
                 <Link href="/admin/registeredUsers?status=admin">
                   Registered Users
+                </Link>
+              </li>
+              <li className="mx-6 mt-6 hover:text-white active:text-white">
+                <Link href="/Profile" children={<Profile />}>
+                  <img
+                    src="/profile.png"
+                    alt="profile"
+                    className="h-10 w-10"
+                  />
                 </Link>
               </li>
             </>
