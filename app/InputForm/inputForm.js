@@ -5,13 +5,16 @@ import EventButton from '../Components/Buttons/eventButton';
 import axios from 'axios';
 import { Toaster, toast } from 'react-hot-toast';
 
+
 const InputForm = ({user}) => {
+
   const [formData, setFormData] = useState({
     username: '',
     email: '',
     college: '',
     phone: 0,
   });
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -41,6 +44,9 @@ const InputForm = ({user}) => {
       toast.error(error.response.data.error);S
     }
   };
+
+  
+
   return (
     <div className='InputForm' w-100>
       <Toaster position="top-center" reverseOrder={false} />
@@ -83,9 +89,8 @@ const InputForm = ({user}) => {
         <div className='flex justify-center items-center'>
             <EventButton action={handleSubmit} title="Save Info"/>
         </div>
-        
-        
       </form>
+      
     </div>
   )
 }

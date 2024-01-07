@@ -80,3 +80,10 @@
   width: 40px;
   height: 40px;
 }
+/* .Optionss{
+  color: #000000;
+} */
+select Option{
+  color: #000;
+  font-family:Ticketing,sans-serif ;
+}

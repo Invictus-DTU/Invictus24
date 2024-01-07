@@ -56,7 +56,7 @@ const EventForm = () => {
 
   return (
     
-    <div className="flex justify-center items-center min-h-screen bg-black">
+    <div className="flex justify-center items-center min-h-screen bg-slate-500">
       <Toaster position="top-center" reverseOrder={false} />
       <form onSubmit={handleSubmit} className="max-w-md w-full bg-white p-6 rounded-md shadow-md mt-[7rem]">
         <label className="block mb-4">

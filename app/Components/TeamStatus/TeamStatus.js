@@ -12,7 +12,7 @@ export const TeamStatus = ({teams}) => {
     },[teams])
   return (
     <div className="TeamStatus">
-        <div className='heading'>Teams Status:</div>
+        <div className='heading'>Events Status:</div>
         {team && team.map((val)=>(
             <TeamCard property={val}/>
         ))}

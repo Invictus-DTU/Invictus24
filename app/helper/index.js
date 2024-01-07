@@ -1,8 +1,5 @@
 "use client";
 import axios from "axios";
-import dotenv from "dotenv";
-dotenv.config();
-// axios.defaults.baseURL = 'http://localhost:3000/api';
 
 export const userRegister = async (formData) => {
   try {
@@ -31,31 +28,13 @@ export const checkUser = async (email) => {
   try {
     console.log(email);
     const response = await axios.post(
-      "http://localhost:3000/api/checkUser",
+      `${process.env.NEXT_PUBLIC_BASE_URL}/checkUser`,
       { email: email },
       {
         validateStatus: (status) => status >= 200 && status <= 500,
       }
     );
     const res = response.data;
-    if (response.status === 500) {
-      return { error: "some error occured" };
-    }
-    return res;
-  } catch (error) {
-    return { error: "some error occured" };
-  }
-};
-
-export const getEvents = async () => {
-  try {
-    const response = await axios.get(
-      "http://localhost:3000/api/getEventStatus",
-      {
-        validateStatus: (status) => status >= 200 && status <= 500,
-      }
-    );
-    const res = response.data.event;
     if (response.status === 500) {
       return { error: "some error occured" };
     }
@@ -66,10 +45,28 @@ export const getEvents = async () => {
   }
 };
 
+export const getEvents = async () => {
+  try {
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/getEventStatus`,
+      {
+        validateStatus: (status) => status >= 200 && status <= 500,
+      }
+    );
+    const res = response.data.event;
+    if (response.status === 500) {
+      return { error: "some error occured" };
+    }
+    return res;
+  } catch (error) {
+    return { error: "some error occured" };
+  }
+};
+
 export const getUserEvents = async () => {
   try {
     const { response } = await axios.get(
-      "http://localhost:3000/api/getUserEvents"
+      `${process.env.NEXT_PUBLIC_BASE_URL}/getUserEvents`
     );
     const res = await response.json();
     if (response.status === 500) {
@@ -84,7 +81,7 @@ export const getUserEvents = async () => {
 export const getUserTeams = async () => {
   try {
     const { response } = await axios.get(
-      "http://localhost:3000/api/getUserTeams"
+      `${process.env.NEXT_PUBLIC_BASE_URL}/getUserTeams`
     );
     const res = await response.json();
     if (response.status === 500) {
@@ -99,7 +96,7 @@ export const getUserTeams = async () => {
 export const getRegisteredEvents = async () => {
   try {
     const { response } = await axios.get(
-      "http://localhost:3000/api/society-events/registered-events"
+      `${process.env.NEXT_PUBLIC_BASE_URL}/society-events/registered-events`
     );
     const res = await response.json();
     if (response.status === 500) {
@@ -114,7 +111,7 @@ export const getRegisteredEvents = async () => {
 export const getRegisteredUsers = async () => {
   try {
     const { response } = await axios.get(
-      `http://localhost:3000/api/society-events/registered-users?Id=${id}`
+      `${process.env.NEXT_PUBLIC_BASE_URL}/society-events/registered-users?Id=${id}`
     );
     const res = await response.json();
     if (response.status === 500) {
@@ -129,7 +126,7 @@ export const getRegisteredUsers = async () => {
 export const eventRegisteration = async (formData) => {
   try {
     const { response } = await axios.post(
-      `http://localhost:3000/api/society-events/registeration`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/society-events/registeration`,
       { formData },
       {
         validateStatus: (status) => status >= 200 && status <= 500,
@@ -148,12 +145,12 @@ export const eventRegisteration = async (formData) => {
   }
 };
 
-export const joinTeam = async (teamId, type) => {
+export const joinTeam = async (teamId, type, event) => {
   try {
     console.log(teamId, type);
     const response = await axios.post(
-      `http://localhost:3000/api/team/join`,
-      { teamId, type },
+      `${process.env.NEXT_PUBLIC_BASE_URL}/team/join`,
+      { teamId, type, event },
       {
         validateStatus: (status) => status >= 200 && status <= 500,
       }
@@ -174,7 +171,7 @@ export const joinTeam = async (teamId, type) => {
 export const createTeam = async (formData) => {
   try {
     const response = await axios.post(
-      `http://localhost:3000/api/team/create`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/team/create`,
       { formData },
       {
         validateStatus: (status) => status >= 200 && status <= 500,
@@ -198,7 +195,7 @@ export const createTeam = async (formData) => {
 export const submitTeam = async (formData) => {
   try {
     const response = await axios.post(
-      `http://localhost:3000/api/team/submit`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/team/submit`,
       { formData },
       {
         validateStatus: (status) => status >= 200 && status <= 500,
