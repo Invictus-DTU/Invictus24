@@ -3,7 +3,6 @@ import GoogleProvider from "next-auth/providers/google";
 import { checkUser } from "../../../helper/index";
 
 export const authOptions = {
-  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     GoogleProvider({
       clientId: process.env.CLIENT_ID,

@@ -18,7 +18,8 @@ const EventCard = (props) => {
 
   return (
     <>
-      <div className="bg-[#0000004d] p-3 w-[90vw] min-h-40 flex my-[20px] mx-[5vw] text-[#f0f8ff] backdrop-blur rounded-[25px] shadow-[0px_0px_20px_#8f8f8f8f] items-center max-[768px]:flex-wrap ">
+      {/* //!Main-box */}
+      <div className="bg-[#0000004d] p-3 w-[90vw] min-h-40 flex my-[20px] mx-[5vw] text-[#f0f8ff] backdrop-blur rounded-[25px] shadow-[0px_0px_20px_#8f8f8f8f] items-center max-[768px]:flex-wrap max-[768px]:justify-center">
         <Image
           className="  bg-no-repeat  shrink-0 xl:w-[25rem] lg:w-80 md:w-60 sm:w-[25rem] w-[100%] md:mr-3 rounded-3xl"
           src={props.data.image || "/Card-Robo.png"}
@@ -29,7 +30,7 @@ const EventCard = (props) => {
 
         {/* About */}
         <div className="xl:w-3/5 lg:w-90 md:w-90  max-[768px]:w-[90%] self-start">
-          <div className="font-retrog lg:text-3xl  md:text-3xl sm:text-3xl text-4xl max-[640px]:flex justify-center">
+          <div className="font-retrog lg:text-3xl  md:text-3xl sm:text-3xl text-4xl max-[768px]:flex justify-center">
             {props.data.name}
           </div>
           <div className="font-ticketing">
@@ -51,12 +52,14 @@ const EventCard = (props) => {
         <div className="xl:w-1/5 lg:w-90 md:w-100  max-[768px]:w-[100%] flex flex-col items-center  justify-center m-2.5 ">
           <div className="flex">
             <img
-              className="bg-no-repeat shrink-0 w-10 h-10"
+              className="bg-no-repeat shrink-0 w-12 h-12"
               src="./Trophy.png"
               alt="Trophy"
               height="100%"
             />
-            <div className="text-2xl font-retrog">{props.data.prize}</div>
+            <div className="lg:text-3xl  md:text-3xl sm:text-3xl text-4xl font-retrog">
+              {props.data.prize}
+            </div>
           </div>
 
           <div className="location">
@@ -67,7 +70,7 @@ const EventCard = (props) => {
               {props.data.venue || "DTU"}, {props.data.time || "time"}
             </div>
           </div>
-          
+
           {session ? (
             props.status === "closed" ? (
               <></>

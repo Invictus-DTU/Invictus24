@@ -122,9 +122,10 @@ const Workshop = () => {
           Workshop
         </h1>
 
-        {/* Filter and SearchBar */}
-        <div className="flex h-fit sm:justify-between max-[640px]: justify-center w-[90%] max-[640px]: flex-wrap ">
-          <div className="flex h-fit sm:w-fit max-[640px]: w-[80%] max-[480px]:w-fit sm:justify-normal max-[640px]: justify-between">
+        {/* Buttons and SearchBar */}
+        <div className="flex h-fit md:justify-between max-[768px]: justify-center w-[90%] max-[640px]: flex-wrap ">
+          {/* Filter and Sort buttons */}
+          <div className="flex h-fit md:w-fit max-[768px]: w-[80%] max-[480px]:w-fit md:justify-normal sm:justify-center max-[640px]: justify-between">
             {/* <Butt title="Filter" /> */}
             {/* <Butt title="Sort" /> */}
             <select
@@ -132,11 +133,17 @@ const Workshop = () => {
               id="filter"
               value={filter.filter}
               onChange={handleChange}
-              className="event-button bg-transparent w-fit h-fit flex justify-center items-center font-ticketing max-[320px]:text-[6vw] max-[768px]:text-[5vw] md:text-[3vw] lg:text-[2vw]  px-5 py-1 my-1 mx-2"
+              className="event-button bg-transparent w-fit h-fit flex justify-center items-center text-center font-ticketing max-[320px]:text-[6vw] max-[768px]:text-[5vw] md:text-[3vw] lg:text-[2vw]  px-5 py-1 my-1 mx-2"
             >
-              <option value="">Filter</option>
-              <option value="participated">Registered</option>
-              <option value="not participated">Unregistered</option>
+              <option className="Optionss" value="">
+                Filter
+              </option>
+              <option className="Optionss" value="participated">
+                Registered
+              </option>
+              <option className="Optionss" value="not participated">
+                Unregistered
+              </option>
             </select>
 
             <select
@@ -152,7 +159,7 @@ const Workshop = () => {
             </select>
           </div>
           {/* Search Bar */}
-          <div className="md: h-10 sm:h-full lg:w-100 md:w-80 sm:w-60 flex items-center bg-white m-0 max-[640px]:mt-4 p-2 rounded-full">
+          <div className="md: h-10 sm:h-full lg:w-100 md:w-80 sm:w-60 flex items-center bg-white m-0 max-[768px]:mt-4 p-2 rounded-full">
             <div className="h-8 w-8">
               <img src="/Search.png" alt="search" className="w-8 h-8" />
             </div>
