@@ -6,13 +6,14 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <footer>
-      <div className="footer flex flex-row items-center justify-center bg-black/[0.25] ">
+      <div className="footer flex flex-row items-center justify-center bg-black/[0.25] max-sm:pt-4">
         <div className="max-[815px]:hidden flex justify-center items-center">
           <Link href="/">
             <img
-              src="/invictuslogo.png"
+              src="/invictuslogo2.png"
               alt="invictus logo"
-              className="w-48 h-32 mr-10"
+              className="w-[auto] h-20 my-4 mr-4 ml-6 md:mr-10 md:ml-2"
+              // className="w-[auto] h-20 my-4 mr-10 ml-2"
             />
           </Link>
         </div>
@@ -24,11 +25,11 @@ const Footer = () => {
             © Designed & Developed by ❤️ Invictus Team
           </div>
           <div className="">
-            <p className="text-5xl mx-10 max-[815px]:hidden mt-4 text-white">
+            <p className="text-5xl mx-10 max-[815px]:hidden text-white">
               |{" "}
             </p>
           </div>
-          <div className="flex flex-col max-[650px]:ml-28 mx-10 max-sm:flex max-sm:justify-center">
+          <div className="flex flex-col max-[650px]:ml-28 mx-10 max-sm:mx-0 max-sm:flex max-sm:justify-center ">
             <div className="flex flex-row">
               <div className="mx-2 my-2">
                 <a
@@ -52,7 +53,7 @@ const Footer = () => {
                 </a>
               </div>
             </div>
-            <div className="font-retrog xl:text-xl lg:text-lg md:text-md sm:text-sm text-white justify-center items-center">
+            <div className="font-retrog xl:text-xl lg:text-lg md:text-md sm:text-sm text-white justify-center items-center max-sm:text-center max-sm:mb-6">
               @invictus_dtu
             </div>
           </div>

@@ -73,7 +73,7 @@ const Navbar = ({ status }) => {
         <div className="absolute left-0  mt-2 mx-10 max-md:mx-4">
           <Link href="/">
             <img
-              src="/invictuslogo.png"
+              src="/invictuslogo2.png"
               alt="invictus logo"
               className="xl:h-20 lg:h-20 md:h-20 sm:h-16 xl:w-32 lg:w-32 md:w-32 sm:w-28 max-[640px]:h-16 max-[640px]:w-28"
             />
