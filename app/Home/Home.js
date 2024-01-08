@@ -38,7 +38,8 @@ const Home = () => {
     <main className="w-full h-[400vh] overflow-auto">
       <div className="w-full h-screen top-0 left-0 flex flex-col justify-center items-center bg-[#05063F]">
         <img
-          src="/bg.png"
+          // src="/bg.png"
+          src="/bg_c.webp"
           className=" w-full absolute h-full top-0 left-0 shrink-0 object-cover opacity-50 z-2"
         />
         {/* //! Home Page */}
