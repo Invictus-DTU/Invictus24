@@ -24,7 +24,6 @@ const Home = () => {
         const arr = await getEvents();
         if (arr) {
           setEvent(arr);
-          console.log(arr)
         }
       } catch (error) {
         console.error("Error fetching events:", error.message);

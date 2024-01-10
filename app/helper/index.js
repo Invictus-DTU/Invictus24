@@ -4,7 +4,7 @@ import axios from "axios";
 export const userRegister = async (formData) => {
   try {
     const response = await axios.post(
-      "http://localhost:3000/api/users",
+      `${process.env.NEXT_PUBLIC_BASE_URL}/users`,
       { formData },
       {
         validateStatus: (status) => status >= 200 && status <= 500,

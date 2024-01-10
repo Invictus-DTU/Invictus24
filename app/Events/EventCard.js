@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Butt from "././../Components/Buttons/eventButton";
+import Butt from "../Components/Buttons/eventButton";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { Toaster, toast } from "react-hot-toast";

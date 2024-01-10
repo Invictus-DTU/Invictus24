@@ -43,6 +43,7 @@ const Navbar = ({ status }) => {
 
   async function sign() {
     try {
+      console.log("clicked");
       await signIn("google");
       // console.log("signed in", session)
       // if(session && session.user) await fetchData();
