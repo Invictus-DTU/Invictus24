@@ -60,13 +60,13 @@ const Registration = () => {
     };
 
     return (
-        <main className="w-full  overflow-auto">
-      <div className="w-full h-screen top-0 left-0 flex flex-col bg-[#05063F]"  style={{overflow:'hidden'}}>
+        <main className="w-full overflow-auto">
+      <div className="w-full h-full top-0 left-0 flex flex-col bg-[#05063F]"  style={{overflow:'hidden'}}>
         <img
           src="/bg.png"
           className=" w-full absolute h-full top-0 left-0 shrink-0 object-cover opacity-50 z-2"
         />
-       <div className="z-1 flex py-24 justify-center items-center h-screen relative" style={{top:'50px',overflow:'hidden', marginBottom:'0px'}}>
+       <div className="z-1 flex py-24 justify-center items-center h-full relative" style={{top:'50px',overflow:'hidden', marginBottom:'0px'}}>
             <form
                 className='z-1 form-box shadow-zinc-50 shadow-2xl background-image mt-14 mb-14 box-border h-full w-6/12 p-4 border-4 form-round flex content-center flex-col bg-gray-700 md:box-content'
                 onSubmit={handleSubmit}
@@ -84,11 +84,11 @@ const Registration = () => {
                         required
                     />
                 </div>
-                {session? <p className='text-green-400'>verified</p> : <div className="ml-6 mb-5 mr-6">
+                {session? <p className='text-black w-11/12 py-2 my-2 mx-auto bg-green-200/70 text-center rounded-lg'>Verified Email!</p> : <div className="ml-6 mb-5 mr-6">
                 <button onClick={async()=>{
                     await signIn("google");
-                }} className='text-white'>
-                    verify email
+                }} className='text-white py-2 w-full bg-black/70 rounded-lg'>
+                    Verify Email via Google
                 </button>
                 </div>}
                 <div className="ml-6 mb-5 mr-6">

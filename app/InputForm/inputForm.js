@@ -41,7 +41,7 @@ const InputForm = ({user}) => {
       toast.success('User updated successfully.');
     } catch (error) {
       console.error('Error updating user:', error);
-      toast.error(error.response.data.error);S
+      toast.error(error.response.data.error);
     }
   };
 
