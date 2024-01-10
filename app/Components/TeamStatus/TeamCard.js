@@ -12,11 +12,11 @@ export default function TeamCard({property}) {
             <div>Team status: {property.status}</div>
         </div>
         <div className='names flex flex-col'>
-            {property.member.map((val)=>{
+            {property.member.map((val, index)=>{
                 if(val._id===property.teamLeader._id){
-                    return (<div>{val.username} (Leader)</div>)
+                    return (<div key = {index}>{val.username} (Leader)</div>)
                 }
-            return (<div>{val.username} member</div>)})}
+            return (<div key = {index}>{val.username} member</div>)})}
         </div>
     </div>
   )

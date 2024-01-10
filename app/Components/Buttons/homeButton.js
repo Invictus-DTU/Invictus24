@@ -1,6 +1,5 @@
 import React from 'react'
 import './homeButton.css'
-import Link from "next/link";
 
 const HomeButton = (props) => {
 

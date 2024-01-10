@@ -13,8 +13,8 @@ export const TeamStatus = ({teams}) => {
   return (
     <div className="TeamStatus">
         <div className='heading'>Events Status:</div>
-        {team && team.map((val)=>(
-            <TeamCard property={val}/>
+        {team && team.map((val, index)=>(
+            <TeamCard key = {index} property={val}/>
         ))}
     </div>
   )

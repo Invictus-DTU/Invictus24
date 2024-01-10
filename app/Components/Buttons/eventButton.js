@@ -1,7 +1,5 @@
 import React from "react";
 import "./homeButton.css";
-import Link from "next/link";
-import { Toaster, toast } from "react-hot-toast";
 
 const EventButton = (props) => {
   return (

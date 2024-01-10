@@ -63,21 +63,6 @@ export const getEvents = async () => {
   }
 };
 
-export const getUserEvents = async () => {
-  try {
-    const { response } = await axios.get(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/getUserEvents`
-    );
-    const res = await response.json();
-    if (response.status === 500) {
-      return { error: "some error occured" };
-    }
-    return res.event;
-  } catch (error) {
-    return { error: "some error occured" };
-  }
-};
-
 export const getUserTeams = async () => {
   try {
     const { response } = await axios.get(
