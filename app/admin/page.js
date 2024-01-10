@@ -31,7 +31,7 @@ const EventForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:3000/api/society-events/registration', formData)
+    axios.post('/api/society-events/registration', formData)
       .then((response) => {
         toast.success('Event registered successfully');
         window.location.reload();

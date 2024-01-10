@@ -16,7 +16,7 @@ const EventTeamsPage = () => {
         try {
             setLoading(true);
             const response = await axios.post(
-                "http://localhost:3000/api/society-events/registered-users",
+                "/api/society-events/registered-users",
                 { eventName },
                 {
                     validateStatus: (status) => status >= 200 && status <= 500,
@@ -35,7 +35,7 @@ const EventTeamsPage = () => {
     async function downloadFile() {
         try {
             const response = await axios.post(
-                "http://localhost:3000/api/society-events/download",
+                "/api/society-events/download",
                 {
                     name: eventName,
                 },
