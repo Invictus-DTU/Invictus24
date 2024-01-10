@@ -1,7 +1,10 @@
 import { NextResponse } from "next/server";
-import config from '../../../helper/config';
-import Team from "../../../model/team";
+import config from '@/helper/config';
+import Team from "@/models/team";
 config();
+
+
+
 
 export async function POST(req) {
     try{
