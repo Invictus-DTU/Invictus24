@@ -6,7 +6,7 @@ import { useState, useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Sponsors from "../../Sponsors/page";
 import { signIn, useSession } from "next-auth/react";
-import Profile from "../../Profile/page"
+import Profile from "../../Profile/page";
 import SignIn from "../Buttons/signinButton";
 
 const Navbar = ({ status }) => {
@@ -97,7 +97,7 @@ const Navbar = ({ status }) => {
                   </Link>
                 </li>
                 <li className="mx-6 mt-6 hover:text-white active:text-white">
-                  <Link href="/Profile" children={<Profile />}>
+                  <Link href="/Profile?status=admin" children={<Profile />}>
                     <img
                       src="/profile.png"
                       alt="profile"
@@ -174,7 +174,7 @@ const Navbar = ({ status }) => {
                 </Link>
               </li>
               <li className="mx-6 mt-6 hover:text-white active:text-white">
-                <Link href="/Profile" children={<Profile />}>
+                <Link href="/Profile?status=admin" children={<Profile />}>
                   <img
                     src="/profile.png"
                     alt="profile"

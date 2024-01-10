@@ -21,7 +21,7 @@ const EventCard = (props) => {
       <div className="bg-[#0000004d] p-3 w-[90vw] min-h-40 flex my-[20px] mx-[5vw] text-[#f0f8ff] backdrop-blur rounded-[25px] shadow-[0px_0px_20px_#8f8f8f8f] items-center max-[768px]:flex-wrap ">
         <Image
           className="  bg-no-repeat  shrink-0 xl:w-[25rem] lg:w-80 md:w-60 sm:w-[25rem] w-[100%] md:mr-3 rounded-3xl"
-          src={props.data.image || "/Card-Robo.png"}
+          src={props.data?.image || "/Card-Robo.png"}
           alt="event image"
           width={50}
           height={50}
@@ -30,20 +30,20 @@ const EventCard = (props) => {
         {/* About */}
         <div className="xl:w-3/5 lg:w-90 md:w-90  max-[768px]:w-[90%] self-start">
           <div className="font-retrog lg:text-3xl  md:text-3xl sm:text-3xl text-4xl max-[640px]:flex justify-center">
-            {props.data.name}
+            {props.data?.name}
           </div>
           <div className="font-ticketing">
             {session &&
             props.status !== "closed" &&
-            props.data.participationStatus === "participated" &&
-            props.data.role !== "member" ? (
-              <p>TeamId: {props.data.teamId} </p>
+            props.data?.participationStatus === "participated" &&
+            props.data?.role !== "member" ? (
+              <p>TeamId: {props.data?.teamId} </p>
             ) : (
               <></>
             )}
           </div>
           <div className=" font-ticketing xl:text-lg sm:text-sm max-[640px]:text-base">
-            {props.data.description}
+            {props.data?.description}
           </div>
         </div>
 
@@ -56,26 +56,26 @@ const EventCard = (props) => {
               alt="Trophy"
               height="100%"
             />
-            <div className="text-2xl font-retrog">{props.data.prize}</div>
+            <div className="text-2xl font-retrog">{props.data?.prize}</div>
           </div>
 
           <div className="location">
             <div className="date font-retrog text-nowrap">
-              {props.data.date.substring(0, 10)}
+              {props.data?.date.substring(0, 10)}
             </div>
             <div className="venue font-retrog">
-              {props.data.venue || "DTU"}, {props.data.time || "time"}
+              {props.data?.venue || "DTU"}, {props.data?.time || "time"}
             </div>
           </div>
           
           {session ? (
             props.status === "closed" ? (
               <></>
-            ) : props.data.participationStatus === "not participated" ? (
-              <Butt title="Register " action={() => redirect(props.data._id)} />
-            ) : props.data.role === "member" ? (
+            ) : props.data?.participationStatus === "not participated" ? (
+              <Butt title="Register " action={() => redirect(props.data?._id)} />
+            ) : props.data?.role === "member" ? (
               "participated"
-            ) : props.data.teamStatus === "not-submitted" ? (
+            ) : props.data?.teamStatus === "not-submitted" ? (
               <>
                 <Butt
                   title="Submit team"
