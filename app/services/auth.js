@@ -23,7 +23,4 @@ function getUser(token){
     return res;
 }
 
-module.exports = {
-    setUser,
-    getUser
-}
+export {setUser,getUser}

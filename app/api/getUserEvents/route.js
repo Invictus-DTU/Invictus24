@@ -1,4 +1,4 @@
-import Event from '../../../model/event';
+import Event from '../../models/event';
 import { cookies } from 'next/headers';
 import { getUser } from '../../services/auth';
 
@@ -13,7 +13,10 @@ export default async function GET() {
       return e;
     });
 
+    console.log(eventDetailsPromises);
+
     const eventDetails = await Promise.all(eventDetailsPromises);
+    console.log(eventDetails);
 
     return NextResponse.json({ event: eventDetails });
   } catch (error) {
