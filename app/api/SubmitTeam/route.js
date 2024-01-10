@@ -3,6 +3,9 @@ import config from '../../../helper/config';
 import Team from "../../../model/team";
 config();
 
+
+
+
 export async function POST(req) {
     try{
         const reqBody= await req.json();

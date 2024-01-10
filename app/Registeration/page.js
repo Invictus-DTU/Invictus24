@@ -60,12 +60,8 @@ const Registration = () => {
     };
 
     return (
-        <main className="w-full overflow-auto">
-      <div className="w-full h-full top-0 left-0 flex flex-col bg-[#05063F]"  style={{overflow:'hidden'}}>
-        <img
-          src="/bg.png"
-          className=" w-full absolute h-full top-0 left-0 shrink-0 object-cover opacity-50 z-2"
-        />
+        <main className="w-full h-full">
+      <div className="w-full h-full top-0 left-0 flex flex-col bg-[#05063F] bg-[url('/bg.png')] bg-cover bg-no-repeat bg-center">
        <div className="z-1 flex py-24 justify-center items-center h-full relative" style={{top:'50px',overflow:'hidden', marginBottom:'0px'}}>
             <form
                 className='z-1 form-box shadow-zinc-50 shadow-2xl background-image mt-14 mb-14 box-border h-full w-6/12 p-4 border-4 form-round flex content-center flex-col bg-gray-700 md:box-content'
