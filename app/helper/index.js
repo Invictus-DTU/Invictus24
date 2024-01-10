@@ -63,6 +63,7 @@ export const getEvents = async () => {
   }
 };
 
+/*
 export const getUserEvents = async () => {
   try {
     const { response } = await axios.get(
@@ -77,6 +78,7 @@ export const getUserEvents = async () => {
     return { error: "some error occured" };
   }
 };
+*/
 
 export const getUserTeams = async () => {
   try {

@@ -3,8 +3,7 @@ import React from "react";
 import Butt from "../Components/Buttons/eventButton";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
-import { Toaster, toast } from "react-hot-toast";
-import { submitTeam } from "../helper";
+import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
 const EventCard = (props) => {

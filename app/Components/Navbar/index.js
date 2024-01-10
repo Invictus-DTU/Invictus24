@@ -1,8 +1,8 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import "tailwindcss/tailwind.css";
 import Link from "next/link";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Sponsors from "../../Sponsors/page";
 import { signIn, useSession } from "next-auth/react";
