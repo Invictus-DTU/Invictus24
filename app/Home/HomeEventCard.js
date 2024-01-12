@@ -1,21 +1,23 @@
 import React from "react";
 import Image from "next/image";
 const EventCard = (props) => {
-
   return (
     <>
       <div
         className="bg-[#0000004d] h-full flex text-[#f0f8ff] justify-center items-center backdrop-blur rounded-[25px] shadow-[0px_0px_20px_#8f8f8f8f] flex-col "
         // className="main-box"
       >
-        <div className=" h-1/2 flex justify-center items-center mb-2"> 
-          <img src={props.data?.image || "/Card-Robo.png"} className=" h-full w-full "  /> 
+        <div className=" h-1/2 flex justify-center items-center mb-2">
+          <img
+            src={props.data?.image || "/Card-Robo.png"}
+            className=" h-full w-full "
+          />
         </div>
 
-        <div className="flex w-full justify-around">
-            <div className="font-retrog lg:text-3xl items-center text-center  md:text-3xl sm:text-3xl text-4xl max-[640px]:flex justify-center">
-              {props.data?.name}
-            </div>
+        <div className="flex flex-col w-full ">
+          <div className="font-retrog text-wrap lg:text-3xl items-center text-center  md:text-3xl sm:text-3xl text-4xl max-[640px]:flex justify-center">
+            {props.data?.name}
+          </div>
 
           <div className="flex gap-2">
             <img
@@ -29,14 +31,15 @@ const EventCard = (props) => {
         </div>
 
         <div className="location text-center ">
-            <div className="date font-retrog text-nowrap">{props.data?.date?.substring(0, 10)}</div>
-            <div className="venue font-retrog">
-              {props.data?.venue || "DTU"}, {props.data?.time || "time"}
-            </div>
+          <div className="date font-retrog text-nowrap">
+            {props.data?.date?.substring(0, 10)}
+          </div>
+          <div className="venue font-retrog">
+            {props.data?.venue || "DTU"}, {props.data?.time || "time"}
+          </div>
         </div>
-        
+
         {/* Register */}
-        
       </div>
     </>
   );
