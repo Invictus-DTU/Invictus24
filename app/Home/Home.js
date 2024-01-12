@@ -44,8 +44,9 @@ const Home = () => {
   }
 
   return (
-    <main className="w-full h-[400vh] ">
-      <div className="w-full h-screen top-0 left-0 flex flex-col justify-center items-center bg-[#05063F]">
+    <main className="w-full h-[400vh] overflow-auto max-sm:h-[360vh]">
+      <div className="bg-[#05063F] absolute z-[-1] w-full h-full"></div>
+      <div className="w-full h-screen top-0 left-0 flex flex-col justify-center items-center">
         <img
           src="/bg.png"
           className=" w-full absolute h-full top-0 left-0 shrink-0 object-cover opacity-50 z-2"
@@ -75,10 +76,11 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="w-full h-[300vh] top-0 left-0 flex flex-col bg-[#05063F]">
+      <div className="bg-[#05063F] absolute z-[-10] h-[100vh] w-full"></div>
+      <div className="w-full h-[300vh] top-0 left-0 flex flex-col max-sm:h-[280vh]">
         <img
           src="/bg2.png"
-          className=" w-full absolute h-[300vh] top-[100vh] left-0 shrink-0 object-cover opacity-30 z-2  "
+          className=" w-full absolute h-[300vh] top-[100vh] max-sm:h-[280vh] left-0 shrink-0 object-cover opacity-30 z-2 "
         />
         <div className="z-1 h-[100vh] flex flex-col justify-evenly absolute top-[100vh] items-center text-white">
           <div className="font-retrog max-[640px]:text-[10vw] text-[6vw]">
@@ -88,9 +90,9 @@ const Home = () => {
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
             commodo ligula eget dolor. Aenean massa. Cum sociis natoque
             penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-            Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
-            aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,
+            Donec quam felis, ultricies nec, pellentesque eu, pretium quis,
+            sem. Nulla consequat massa quis enim. Donec pede justo, fringilla
+            vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,
             imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede
             mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum
             semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula,
@@ -133,22 +135,24 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="z-1 w-full h-[100vh] flex flex-col justify-start absolute top-[200vh] items-center text-white ">
-          <div className="font-retrog max-[640px]:text-[10vw] text-[6vw]">
+        <div className='z-1 w-full h-[100vh] sm:h-[100vh] flex flex-col justify-center absolute top-[200vh] items-center text-white max-md:top-[200vh] max-sm:top-[200vh]'>
+          <div className="bg-[#05063F]  absolute z-[-10] h-[100vh] w-full"></div>
+          <div className='font-retrog max-[640px]:text-[10vw] text-[6vw]'>
             Events
           </div>
-          <div className=" w-full">
+          <div className='w-full max-md:w-[1000px]'>
             <Swiper
-              effect={"coverflow"}
+              effect={'cards'}
               grabCursor={true}
               loop={true}
-              autoplay={{
-                delay: 2500,
-                disableOnInteraction: true,
-              }}
+              // autoplay={{
+              //   delay: 2500,
+              //   disableOnInteraction: true,
+              // }}
               centeredSlides={true}
               slidesPerView={3}
               // navigation
+              spaceBetween={"5%"}
               coverflowEffect={{
                 rotate: 50,
                 stretch: 0,
@@ -160,21 +164,21 @@ const Home = () => {
               modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
               className="mySwiper"
             >
-              {event.length > 0 &&
-                event.map((slide, idx) => (
-                  <SwiperSlide key={idx}>
-                    <HomeEventCard data={slide} />
-                  </SwiperSlide>
-                ))}
+              {event.length > 0 && event.map((slide, idx) => (
+                <SwiperSlide key={idx} >
+                  <HomeEventCard data={slide} />
+                </SwiperSlide>
+              ))}
             </Swiper>
           </div>
         </div>
 
-        <div className="z-1 w-full h-[100vh] flex flex-col justify-center absolute top-[300vh] items-center text-white ">
+        <div className="z-1 w-full h-[80vh] flex flex-col justify-center absolute top-[310vh] items-center text-white max-sm:top-[290vh] max-sm:h-[80vh]">
+          <div className="bg-[#05063F]  absolute z-[-10] h-[100vh] max-sm:h-[80vh] w-full"></div>
           <h2 className=" h-1/4 font-retrog max-[640px]:text-[10vw] text-[6vw] flex justify-center items-center">
             Gallery
           </h2>
-          <div className=" w-full">
+          <div className=" w-full gap-[90px]">
             <Slider slides={slides} />
           </div>
         </div>
