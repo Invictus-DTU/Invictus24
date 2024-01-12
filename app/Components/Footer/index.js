@@ -6,7 +6,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <footer>
-      <div className="footer flex flex-row items-center justify-center bg-black/[0.25] max-sm:pt-4">
+      <div className="footer flex relative flex-row items-center justify-center bg-black/[0.75] max-sm:pt-4 h-[20vh]">
         <div className="max-[815px]:hidden flex justify-center items-center">
           <Link href="/">
             <img

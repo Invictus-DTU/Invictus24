@@ -1,7 +1,7 @@
 import React from "react";
 
 const Sponsors = () => {
-  return (
+  return ( 
     <div className="w-full Sponsors pb-[60px] pt-[80px]">
       <p className="font-retrog xl:text-7xl lg:text-7xl md:text-6xl sm:text-5xl max-[640px]:text-4xl flex justify-center mt-20 text-white">
         Sponsors
