@@ -1,62 +1,34 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import "tailwindcss/tailwind.css";
 import Link from "next/link";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Sponsors from "../../Sponsors/page";
 import { signIn, useSession } from "next-auth/react";
 import Profile from "../../Profile/page";
 import SignIn from "../Buttons/signinButton";
-import { useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
     const [nav, setNav] = useState(false);
 
     const { data: session } = useSession();
 
-    const searchParams = useSearchParams();
-    const status = searchParams.get("status");
-
-    // const fetchData = async () => {
-    //   console.log("jfjpa");
-    //   try {
-    //     if (!session || !session.user) {
-    //       console.error("No session or user found after sign-in");
-    //       return;
-    //     }
-
-    //     const res = await checkUser(session?.user?.email);
-    //     console.log(res);
-
-    //     if (res?.error || res?.message === "Doesn't exist") {
-    //       window.location.href = "/Registration";
-    //     } else if (res?.isAdmin) {
-    //       window.location.href = "admin?status=admin";
-    //     }
-    //     else{
-    //       window.location.href = "/";
-    //       console.log("fuahho");
-    //     }
-    //   } catch (error) {
-    //     console.error("Error during data fetching:", error);
-    //     // Handle errors as needed
-    //   }
-    // };
-
-    async function sign() {
-        try {
-            await signIn("google");
-            // console.log("signed in", session)
-            // if(session && session.user) await fetchData();
-            // else{
-            //   console.log("no session");
-            // }
-        } catch (error) {
-            console.error("An error occurred during sign-in:", error);
-        }
+    const path = usePathname();
+    const role = path.split('/')[1];
+  async function sign() {
+    try {
+      await signIn("google");
+      // console.log("signed in", session)
+      // if(session && session.user) await fetchData();
+      // else{
+      //   console.log("no session");
+      // }
+    } catch (error) {
+      console.error("An error occurred during sign-in:", error);
     }
-
+  }
     // useEffect(() => {
     //   console.log("jfjpa");
     //   // if (!session || !session.user) {
@@ -84,33 +56,21 @@ const Navbar = () => {
                 </div>
                 <div className="absolute right-0 mx-4">
                     <ul className="flex flex-row font-hammer xl:text-xl lg:text-xl max-lg:hidden text-white">
-                        {status === "admin" ? (
+                        {role === "admin" ? (
                             <>
                                 <li className="mx-6 mt-8 hover:text-white active:text-white focus:text-white">
-                                    <Link href="/admin?status=admin">
+                                    <Link href="/admin">
                                         Registration
                                     </Link>
                                 </li>
                                 <li className="mx-6 mt-8 hover:text-white active:text-white">
-                                    <Link href="/admin/registeredEvents?status=admin">
+                                    <Link href="/admin/registeredEvents">
                                         Registered Events
                                     </Link>
                                 </li>
                                 <li className="mx-6 mt-8 hover:text-white active:text-white">
-                                    <Link href="/admin/registeredUsers?status=admin">
+                                    <Link href="/admin/registeredUsers">
                                         Registered Users
-                                    </Link>
-                                </li>
-                                <li className="mx-6 mt-6 hover:text-white active:text-white">
-                                    <Link
-                                        href="/Profile"
-                                        children={<Profile />}
-                                    >
-                                        <img
-                                            src="/profile.png"
-                                            alt="profile"
-                                            className="h-10 w-10"
-                                        />
                                     </Link>
                                 </li>
                             </>
@@ -172,20 +132,20 @@ const Navbar = () => {
             </div>
             {nav && (
                 <ul className="flex flex-col justify-center items-center absolute top-[90px] left-0 w-full h-[400px] bg-black/[0.8]  text-white text-xl font-hammer backdrop-blur-md">
-                    {status === "admin" ? (
+                    {role === "admin" ? (
                         <>
                             <li className="mx-6 mt-8 hover:text-white active:text-white focus:text-white">
-                                <Link href="/admin?status=admin">
+                                <Link href="/admin">
                                     Registration
                                 </Link>
                             </li>
                             <li className="mx-6 mt-8 hover:text-white active:text-white">
-                                <Link href="/admin/registeredEvents?status=admin">
+                                <Link href="/admin/registeredEvents">
                                     Registered Events
                                 </Link>
                             </li>
                             <li className="mx-6 mt-8 hover:text-white active:text-white">
-                                <Link href="/admin/registeredUsers?status=admin">
+                                <Link href="/admin/registeredUsers">
                                     Registered Users
                                 </Link>
                             </li>
