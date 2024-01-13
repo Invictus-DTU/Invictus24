@@ -27,22 +27,13 @@ export async function POST(req) {
         id: newUser._id,
         email: newUser.email,
       };
-      const token = await jwt.sign(tokenData, process.env.SECRET);
-      // res.setHeader('Set-Cookie', `token=${token}; HttpOnly`);
-      //     return NextResponse.json({
-      //     message: "User Created successfully",
-      // });
+      const token = jwt.sign(tokenData, process.env.SECRET);
       const res = NextResponse.json({
         message: "User Created successfully",
       });
-
       res.cookies.set("token", token, {
         httpOnly: true,
       });
-      // return  NextResponse.json({
-      //     message: "User Created successfully",
-      //     customToken: token,
-      // });
       return res;
     }
   } catch (err) {

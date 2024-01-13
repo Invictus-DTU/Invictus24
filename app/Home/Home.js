@@ -17,6 +17,7 @@ import {
 import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";
 import "./swiper.css";
+import EventButton from "../Components/Buttons/eventButton";
 
 const Home = () => {
   const { data: session } = useSession();
@@ -29,7 +30,6 @@ const Home = () => {
         const arr = await getEvents();
         if (arr) {
           setEvent(arr);
-          console.log(arr);
         }
       } catch (error) {
         console.error("Error fetching events:", error.message);
@@ -40,6 +40,11 @@ const Home = () => {
 
   function redirect() {
     router.push("/Registeration");
+    return;
+  }
+
+  function GoToEvents() {
+    router.push("/Events");
     return;
   }
 
@@ -140,7 +145,7 @@ const Home = () => {
           <div className='font-retrog max-[640px]:text-[10vw] text-[6vw]'>
             Events
           </div>
-          <div className='w-full max-md:w-[1000px]'>
+          <div className='w-full'>
             <Swiper
               effect={'cards'}
               grabCursor={true}
@@ -171,6 +176,7 @@ const Home = () => {
               ))}
             </Swiper>
           </div>
+          <HomeButton buttonText="Go To Events" action={GoToEvents} />
         </div>
 
         <div className="z-1 w-full h-[80vh] flex flex-col justify-center absolute top-[310vh] items-center text-white max-sm:top-[290vh] max-sm:h-[80vh]">

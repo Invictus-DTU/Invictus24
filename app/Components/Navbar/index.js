@@ -5,43 +5,45 @@ import Link from "next/link";
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Sponsors from "../../Sponsors/page";
-import { signIn, useSession } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
 import Profile from "../../Profile/page";
 import SignIn from "../Buttons/signinButton";
 import { usePathname } from "next/navigation";
+import axios from 'axios';
 
 const Navbar = () => {
     const [nav, setNav] = useState(false);
-
     const { data: session } = useSession();
-
     const path = usePathname();
     const role = path.split('/')[1];
-  async function sign() {
-    try {
-      await signIn("google");
-      // console.log("signed in", session)
-      // if(session && session.user) await fetchData();
-      // else{
-      //   console.log("no session");
-      // }
-    } catch (error) {
-      console.error("An error occurred during sign-in:", error);
+
+    async function sign() {
+        try {
+        await signIn("google");
+        } catch (error) {
+        console.error("An error occurred during sign-in:", error);
+        }
     }
-  }
-    // useEffect(() => {
-    //   console.log("jfjpa");
-    //   // if (!session || !session.user) {
-    //   //   console.error("No session or user found after sign-in");
-    //   //   return;
-    //   // }
 
-    //   // if(clicked){
-    //   //   fetchData();
-    //   //   setClicked(false);
-    //   // }
-    // }, [ ]);
-
+    async function deleteSession() {
+        try {
+          const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/auth/logout`);
+          const res = response.data;
+          if(res.error){
+            toast.error(res.error);
+          }
+          else{
+            await signOut();
+            if(!session){
+              toast.success(res.message);
+              window.location.href = "/";
+            }
+          }
+        } catch (error) {
+          console.error('Error during logout:', error);
+        }
+    }
+    
     return (
         <nav className="xl:h-[100px] lg:h-[95px] md:h-[90px] sm:h-[80px] max-[640px]:h-[80px] bg-black/[0.25] w-full flex justify-center backdrop-blur-md fixed top-0 z-50">
             <div className="flex flex-row">
@@ -72,6 +74,21 @@ const Navbar = () => {
                                     <Link href="/admin/registeredUsers">
                                         Registered Users
                                     </Link>
+                                </li>
+                                <li className="mx-6 mt-8 hover:text-white active:text-white">
+                                {session ? (
+                                    <SignIn
+                                        buttonText="Sign Out"
+                                        action={deleteSession}
+                                    />
+                                    ) : (
+                                    <SignIn
+                                        buttonText="Sign In"
+                                        action={async () => {
+                                            await sign();
+                                        }}
+                                    />
+                                )}
                                 </li>
                             </>
                         ) : (
@@ -149,14 +166,20 @@ const Navbar = () => {
                                     Registered Users
                                 </Link>
                             </li>
-                            <li className="mx-6 mt-6 hover:text-white active:text-white">
-                                <Link href="/Profile" children={<Profile />}>
-                                    <img
-                                        src="/profile.png"
-                                        alt="profile"
-                                        className="h-10 w-10"
-                                    />
-                                </Link>
+                            <li className="mx-6 mt-8 hover:text-white active:text-white">
+                            {session ? (
+                                <SignIn
+                                    buttonText="Sign Out"
+                                    action={deleteSession}
+                                />
+                                ) : (
+                                <SignIn
+                                    buttonText="Sign In"
+                                    action={async () => {
+                                        await sign();
+                                    }}
+                                />
+                            )}
                             </li>
                         </>
                     ) : (
