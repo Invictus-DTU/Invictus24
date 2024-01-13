@@ -56,26 +56,26 @@ const Navbar = () => {
                         />
                     </Link>
                 </div>
-                <div className="absolute right-0 mx-4">
-                    <ul className="flex flex-row font-hammer xl:text-xl lg:text-xl max-lg:hidden text-white">
+                <div className="absolute right-0 h-full">
+                    <ul className="flex flex-row h-full items-center font-hammer xl:text-xl lg:text-xl max-lg:hidden text-white">
                         {role === "admin" ? (
                             <>
-                                <li className="mx-6 mt-8 hover:text-white active:text-white focus:text-white">
+                                <li className="mx-6 hover:text-white active:text-white focus:text-white">
                                     <Link href="/admin">
                                         Registration
                                     </Link>
                                 </li>
-                                <li className="mx-6 mt-8 hover:text-white active:text-white">
+                                <li className="mx-6 hover:text-white active:text-white">
                                     <Link href="/admin/registeredEvents">
                                         Registered Events
                                     </Link>
                                 </li>
-                                <li className="mx-6 mt-8 hover:text-white active:text-white">
+                                <li className="mx-6 hover:text-white active:text-white">
                                     <Link href="/admin/registeredUsers">
                                         Registered Users
                                     </Link>
                                 </li>
-                                <li className="mx-6 mt-8 hover:text-white active:text-white">
+                                <li className="mx-6 hover:text-white active:text-white">
                                 {session ? (
                                     <SignIn
                                         buttonText="Sign Out"
@@ -93,16 +93,16 @@ const Navbar = () => {
                             </>
                         ) : (
                             <>
-                                <li className="mx-6 mt-8 hover:text-white active:text-white focus:text-white">
+                                <li className="mx-6 hover:text-white active:text-white focus:text-white">
                                     <Link href="/">HOME</Link>
                                 </li>
-                                <li className="mx-6 mt-8 hover:text-white active:text-white">
+                                <li className="mx-6 hover:text-white active:text-white">
                                     <Link href="/Events">EVENTS</Link>
                                 </li>
-                                <li className="mx-6 mt-8 hover:text-white active:text-white">
+                                <li className="mx-6 hover:text-white active:text-white">
                                     <Link href="/Workshops">WORKSHOPS</Link>
                                 </li>
-                                <li className="mx-6 mt-8 hover:text-white active:text-white">
+                                <li className="mx-6 hover:text-white active:text-white">
                                     <Link
                                         href="/Sponsors"
                                         children={<Sponsors />}
@@ -110,11 +110,11 @@ const Navbar = () => {
                                         SPONSORS
                                     </Link>
                                 </li>
-                                <li className="mx-6 mt-8 hover:text-white active:text-white">
+                                <li className="mx-6 hover:text-white active:text-white">
                                     <Link href="/OurTeam">OUR TEAM</Link>
                                 </li>
                                 {session ? (
-                                    <li className="mx-6 mt-6 hover:text-white active:text-white">
+                                    <li className="mx-6 hover:text-white active:text-white">
                                         <Link
                                             href="/Profile"
                                             children={<Profile />}
@@ -127,7 +127,7 @@ const Navbar = () => {
                                         </Link>
                                     </li>
                                 ) : (
-                                    <li className="mx-6 mt-8 hover:text-white active:text-white">
+                                    <li className="mx-6 hover:text-white active:text-white">
                                         <SignIn
                                             buttonText="Sign In"
                                             action={async () => {
@@ -148,7 +148,7 @@ const Navbar = () => {
                 </div>
             </div>
             {nav && (
-                <ul className="flex flex-col justify-center items-center absolute top-[90px] left-0 w-full h-[400px] bg-black/[0.8]  text-white text-xl font-hammer backdrop-blur-md">
+                <ul className="flex flex-col lg:hidden justify-center items-center absolute top-[90px] left-0 w-full h-[400px] bg-black/[0.8]  text-white text-xl font-hammer backdrop-blur-md">
                     {role === "admin" ? (
                         <>
                             <li className="mx-6 mt-8 hover:text-white active:text-white focus:text-white">
@@ -166,7 +166,7 @@ const Navbar = () => {
                                     Registered Users
                                 </Link>
                             </li>
-                            <li className="mx-6 mt-8 hover:text-white active:text-white">
+                            <li className="mx-6 mt-8 w-[90%] hover:text-white active:text-white">
                             {session ? (
                                 <SignIn
                                     buttonText="Sign Out"
@@ -211,7 +211,7 @@ const Navbar = () => {
                                     </Link>
                                 </li>
                             ) : (
-                                <li className="mx-6 mt-8 hover:text-white active:text-white">
+                                <li className="mx-6 mt-8 w-[90%] hover:text-white active:text-white">
                                     <SignIn
                                         buttonText="Sign In"
                                         action={async () => {

@@ -8,6 +8,20 @@ import { useRouter } from "next/navigation";
 
 const EventCard = (props) => {
   const { data: session } = useSession();
+  const month = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dev",
+  ];
   const router = useRouter();
 
   function redirect(id) {
@@ -62,7 +76,13 @@ const EventCard = (props) => {
 
             <div className="flex flex-col justify-center items-center">
               <div className="date font-retrog w-fit text-nowrap">
-                {props.data?.date.substring(0, 10)}
+                {/* Date */}
+                {props.data?.date.substring(0, 10).split("-")[2]} {/* Month */}
+                {
+                  month[props.data?.date.substring(0, 10).split("-")[1] - 1]
+                }{" "}
+                {/* Year */}
+                {props.data?.date.substring(0, 10).split("-")[0]}
               </div>
               <div className="venue font-retrog">
                 {props.data?.venue || "DTU"}, {props.data?.time || "time"}
