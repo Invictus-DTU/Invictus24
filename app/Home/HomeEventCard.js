@@ -13,18 +13,18 @@ const EventCard = (props) => {
         </div>
 
         <div className="flex w-full justify-around ">
-          <div className="pb-2 font-retrog lg:text-3xl items-center text-center  md:text-2xl sm:text-3xl max-[640px]:flex justify-center max-md:text-xl">
+          <div className="pb-2 font-retrog lg:text-3xl items-center text-center  md:text-2xl sm:text-3xl max-[640px]:flex justify-center max-md:text-xl max-md:">
             {props.data?.name}
           </div>
         </div>
           <div className="flex gap-2 max-xl:hidden">
             <img
-              className="h-12 max-md:h-10 max-sm:h-6"
+              className="h-10 max-md:h-10 max-sm:h-6"
               src="./Trophy.png"
               alt="Trophy"
               height="100%"
             />
-            <div className="text-3xl font-retrog">{props.data?.prize || 0}</div>
+            <div className="text-2xl max-md:text-xl font-retrog">{props.data?.prize || 0}</div>
           </div>
         <div className="flex gap-2 xl:hidden">
           <img
@@ -33,7 +33,7 @@ const EventCard = (props) => {
             alt="Trophy"
             height="100%"
           />
-          <div className="text-3xl max-md:text-xl font-retrog">{props.data?.prize || 0}</div>
+          <div className="text-2xl max-md:text-xl font-retrog">{props.data?.prize || 0}</div>
         </div>
 
         <div className="location text-center max-md:text-sm ">
