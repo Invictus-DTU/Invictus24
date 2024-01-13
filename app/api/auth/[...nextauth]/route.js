@@ -5,8 +5,8 @@ import { checkUser } from "../../../helper/index";
 export const authOptions = {
   providers: [
     GoogleProvider({
-      clientId: process.env.CLIENT_ID,
-      clientSecret: process.env.CLIENT_SECRET,
+      clientId: process.env.NEXT_PUBLIC_CLIENT_ID,
+      clientSecret: process.env.NEXT_PUBLIC_CLIENT_SECRET,
     }),
     // ...add more providers here
   ],

@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import "tailwindcss/tailwind.css";
 import "./style.css";
-import { userRegister } from "../helper";
+import { userRegister } from "../helper/index";
 import { signIn, signOut, useSession } from "next-auth/react";
 
 const Registration = () => {
@@ -18,7 +18,7 @@ const Registration = () => {
   const validatePhoneNumber = (phoneNumber) => {
     // Regex pattern for 10 digits
     const phoneRegex = /^\d{10}$/;
-    return phoneRegex.test(phoneNumber);
+    return phoneRegex.test(phoneNumber);;
   };
 
   const handleChange = (e) => {
@@ -35,7 +35,7 @@ const Registration = () => {
       return;
     }
 
-    if (!validatePhoneNumber(phone)) {
+    if (!validatePhoneNumber(formData.phone)) {
       alert("Please enter a valid 10-digit phone number");
       return;
     }
@@ -46,6 +46,7 @@ const Registration = () => {
         email: session?.user?.email,
       });
 
+      console.log(session.user.email, result.success);
       if (result.success) {
         alert(result.message);
         setRegistered(true);

@@ -12,7 +12,7 @@ const EventsPage = () => {
 
   const handleDelete = async (eventId) => {
     try {
-      await axios.post("/api/society-events/delete-event",{eventId});
+      await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/society-events/delete-event`,{eventId});
       setEvents(events.filter((event) => event._id !== eventId));
       toast.success('Event deleted successfully.');
     } catch (error) {
@@ -22,7 +22,7 @@ const EventsPage = () => {
   };
   const fetchEvents = async () => {
     try {
-      const response = await axios.get('/api/society-events/registered-events');
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/society-events/registered-events`);
       setEvents(response.data);
       setLoading(false);
     } catch (error) {
@@ -34,7 +34,7 @@ const EventsPage = () => {
 
   const handleUpdate = async (eventToUpdate) => {
     try {
-      await axios.post("/api/society-events/update-event",eventToUpdate);
+      await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/society-events/update-event`,eventToUpdate);
       toast.success('Event updated successfully.');
     } catch (error) {
       console.error('Error deleting event:', error);

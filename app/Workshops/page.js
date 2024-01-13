@@ -1,13 +1,11 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Butt from "../Components/Buttons/eventButton";
 import WorkshopCard from "./WorkshopCard";
 import { getEvents } from "../helper/index";
 import { useSession } from "next-auth/react";
 import { Toaster, toast } from "react-hot-toast";
 import { submitTeam } from "../helper";
 import { useRouter } from "next/navigation";
-import { checkUser } from "../helper/index";
 
 const Workshop = () => {
   const itemsPerPage = 4;

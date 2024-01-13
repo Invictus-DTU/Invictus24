@@ -35,14 +35,9 @@ export async function POST(req) {
       const res = NextResponse.json({
         message: "User Created successfully",
       });
-
       res.cookies.set("token", token, {
         httpOnly: true,
       });
-      // return  NextResponse.json({
-      //     message: "User Created successfully",
-      //     customToken: token,
-      // });
       return res;
     }
   } catch (err) {

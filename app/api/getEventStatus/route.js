@@ -11,52 +11,50 @@ config();
 
  
 export async function GET() {
+  try {
   const cookieStore = cookies();
   const token = cookieStore.get('token');
-  const tokenData = token? jwt.verify(token.value, process.env.SECRET) : "";
+  const tokenData = token? jwt.verify(token.value, process.env.NEXT_PUBLIC_SECRET) : "";
   const user = tokenData? await User.findById(tokenData.id) : "";
-  console.log(user);
+ 
   let event = await Event.find({});
   const currentDate = new Date();
   const promises = event.map(async (data, idx) => {
     let plainObject = data.toObject();
-    if(plainObject.date > currentDate){
+    const date = new Date(plainObject.registrationEndDate);
+    
+    if(currentDate > date){
       plainObject=  {...plainObject, status: "closed"};
     }
     else{
       plainObject=  {...plainObject, status: "open"};
     }
     if (user?.eventList?.includes(plainObject._id)) {
-      try {
-        plainObject=  {...plainObject, participationStatus: "participated"};
-        const getTeam = await Team.findOne({ teamLeader: user?._id, eventName: plainObject._id });
-        if(getTeam){
-          plainObject=  {...plainObject, role: "team leader"};
-          plainObject=  {...plainObject, teamId: getTeam.teamId};
-          if(getTeam.status === "not-submitted"){
-            plainObject=  {...plainObject, teamStatus: "not-submitted"};
-          }
-          else{
-            plainObject=  {...plainObject, teamStatus: "submitted"};
-          }
+      plainObject=  {...plainObject, participationStatus: "participated"};
+      const getTeam = await Team.findOne({ teamLeader: user?._id, eventName: plainObject._id });
+      if(getTeam){
+        plainObject=  {...plainObject, role: "team leader"};
+        plainObject=  {...plainObject, teamId: getTeam.teamId};
+        if(getTeam.status === "not-submitted"){
+          plainObject=  {...plainObject, teamStatus: "not-submitted"};
         }
         else{
-          plainObject=  {...plainObject, role: "member"};
+          plainObject=  {...plainObject, teamStatus: "submitted"};
         }
-      } catch (error) {
-        console.error(`Error fetching team for event ${data.eventname}: ${error.message}`);
+      }
+      else{
+        plainObject=  {...plainObject, role: "member"};
       }
     } else {
         plainObject=  {...plainObject, participationStatus: "not participated"};
-       // console.log(`Event ${plainObject.name} is not present in the array.`);
     }
     return plainObject;
   });
-  
- try {
-    const updatedEvents = await Promise.all(promises);
-    event = updatedEvents;
-    return NextResponse.json({ event: event });
+
+  const updatedEvents = await Promise.all(promises);
+  event = updatedEvents;
+  return NextResponse.json({ event: event });
+
   } catch (error) {
     console.error(`Error processing events: ${error.message}`);
     return NextResponse.json({ error: error.message }, { status: 500 });

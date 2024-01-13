@@ -4,27 +4,27 @@ import axios from "axios";
 export const userRegister = async (formData) => {
   try {
     const response = await axios.post(
-      "/api/users",
+      `${process.env.NEXT_PUBLIC_BASE_URL}/users`,
       { formData },
       {
         validateStatus: (status) => status >= 200 && status <= 500,
-      },
+      }
     );
+    const res = response.data;
     if (response.status === 400) {
       return { error: "Already registered!" };
     } else if (response.status === 500) {
       return { error: "Some error occurred" };
     } else {
       return { success: true, message: "Registered successfully!" };
+    }}
+    catch (error) {
+        return { error: "error" };
     }
-  } catch (error) {
-    return { error: "error" };
-  }
 };
 
 export const checkUser = async (email) => {
   try {
-    console.log(email);
     const response = await axios.post(
       `${process.env.NEXT_PUBLIC_BASE_URL}/checkUser`,
       { email: email },
@@ -36,7 +36,6 @@ export const checkUser = async (email) => {
     if (response.status === 500) {
       return { error: "some error occured" };
     }
-    console.log(res);
     return res;
   } catch (error) {
     return { error: "some error occured" };
@@ -60,6 +59,7 @@ export const getEvents = async () => {
     return { error: "some error occured" };
   }
 };
+
 
 export const getUserTeams = async () => {
   try {
@@ -130,7 +130,6 @@ export const eventRegisteration = async (formData) => {
 
 export const joinTeam = async (teamId, type, event) => {
   try {
-    console.log(teamId, type);
     const response = await axios.post(
       `${process.env.NEXT_PUBLIC_BASE_URL}/team/join`,
       { teamId, type, event },
@@ -138,7 +137,6 @@ export const joinTeam = async (teamId, type, event) => {
         validateStatus: (status) => status >= 200 && status <= 500,
       },
     );
-    console.log(response);
     const res = response.data;
 
     if (response.status === 400 || response.status === 500) {
@@ -160,7 +158,7 @@ export const createTeam = async (formData) => {
         validateStatus: (status) => status >= 200 && status <= 500,
       },
     );
-    console.log(response);
+
     const res = response.data;
 
     if (response.status === 400) {
@@ -184,7 +182,7 @@ export const submitTeam = async (formData) => {
         validateStatus: (status) => status >= 200 && status <= 500,
       },
     );
-    console.log(response);
+
     const res = response.data;
     if (response.status === 400) {
       return { error: res.error };

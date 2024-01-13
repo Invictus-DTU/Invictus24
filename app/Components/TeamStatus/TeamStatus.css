@@ -1,11 +1,14 @@
 .TeamStatus{
     max-height: 500px;
-    overflow-y: scroll;
+    overflow: auto; /* Use 'auto' instead of 'scroll' to hide the scrollbar when not needed */
     border-radius: 29px;
     background: #000;
     color: white;
     margin: 60px;
     font-family: Ticketing;
+}
+.TeamStatus::-webkit-scrollbar {
+    width: 0px;
 }
 .heading{
 /* width: 554px;

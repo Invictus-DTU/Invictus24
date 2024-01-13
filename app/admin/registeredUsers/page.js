@@ -16,7 +16,7 @@ const EventTeamsPage = () => {
         try {
             setLoading(true);
             const response = await axios.post(
-                "/api/society-events/registered-users",
+                `${process.env.NEXT_PUBLIC_BASE_URL}/society-events/registered-users`,
                 { eventName },
                 {
                     validateStatus: (status) => status >= 200 && status <= 500,
@@ -33,9 +33,10 @@ const EventTeamsPage = () => {
     };
 
     async function downloadFile() {
+        setLoading(true);
         try {
             const response = await axios.post(
-                "/api/society-events/download",
+                `${process.env.NEXT_PUBLIC_BASE_URL}/society-events/download`,
                 {
                     name: eventName,
                 },
@@ -72,6 +73,7 @@ const EventTeamsPage = () => {
             console.error("Error downloading file:", error);
             toast.error("some error occured!");
         }
+        setLoading(false);
     }
 
     return (
