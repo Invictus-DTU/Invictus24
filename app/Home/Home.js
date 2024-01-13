@@ -155,9 +155,9 @@ const Home = () => {
               //   disableOnInteraction: true,
               // }}
               centeredSlides={true}
-              slidesPerView={3}
+              slidesPerView={4}
               // navigation
-              spaceBetween={"5%"}
+              spaceBetween={"2%"}
               coverflowEffect={{
                 rotate: 50,
                 stretch: 0,

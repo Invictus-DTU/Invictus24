@@ -3,11 +3,13 @@ import React from "react";
 import Home from "./Home/Home";
 import Profile from "./Profile/page";
 import { Loader } from "./Loader/Loader"
-
+import Head from "next/head";
 const page = () => {
 
   return (
-    <Home />
+    <>
+      <Home />
+    </>
     // <Profile />
     // <Loader/>
     // <Workshop />
