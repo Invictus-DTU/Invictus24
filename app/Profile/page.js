@@ -5,7 +5,7 @@ import InputForm from "../InputForm/inputForm"
 import axios from 'axios';
 import { signOut, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { Toaster, toast } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 import EventButton from '../Components/Buttons/eventButton';
 
 const Profile = () => {
@@ -23,8 +23,8 @@ const Profile = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/getUser');
-        const teams = await axios.get('http://localhost:3000/api/getUserTeams');
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/getUser`);
+        const teams = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/getUserTeams`);
         console.log(teams);
         setTeam(teams.data.team);
         setuser({
@@ -45,7 +45,7 @@ const Profile = () => {
 
   async function deleteSession() {
     try {
-      const response = await axios.get("http://localhost:3000/api/auth/logout");
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/auth/logout`);
       const res = response.data;
       if(res.error){
         toast.error(res.error);
@@ -54,7 +54,7 @@ const Profile = () => {
         await signOut();
         if(!session){
           toast.success(res.message);
-          router.push("/");
+          window.location.href = "/";
         }
       }
     } catch (error) {

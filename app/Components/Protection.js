@@ -18,14 +18,14 @@ export default function Protection(){
         if(res.error || res.message === "Doesn't exist"){
             if(role !== "Registeration"){
                await signOut();
-               router.push('/Registeration');
+               window.location.href= "/Registeration";
             }
         }
         else if(res.isAdmin){
             if(role === "admin"){
                 return;
             }
-            router.push('/admin?status=admin');
+            router.push('/admin');
         }
         else if(role === "admin"){
             router.push('/');

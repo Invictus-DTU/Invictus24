@@ -36,7 +36,7 @@ const InputForm = ({user}) => {
     try {
       e.preventDefault();
       const {username,email,college,phone}=formData;
-      await axios.post("http://localhost:3000/api/updateUser",{_id: user._id,username,email,college,phone});
+      await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/updateUser`,{_id: user._id,username,email,college,phone});
       setFormData({username,email,college,phone});
       toast.success('User updated successfully.');
     } catch (error) {

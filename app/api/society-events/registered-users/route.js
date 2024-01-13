@@ -18,7 +18,7 @@ export async function POST(req) {
         }
         else{
             const teams = await Team.find({eventName: event._id, status:'submitted'}).populate('teamLeader').populate('eventName').populate('member');
-
+            console.log(teams);
             return NextResponse.json(teams);
         }
     }

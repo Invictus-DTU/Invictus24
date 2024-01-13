@@ -1,13 +1,14 @@
 import Team from "../../models/team";
-import User from "../../models/user";
-import Event from "../../models/event"
 import { cookies } from 'next/headers';
 import { NextResponse } from "next/server";
 import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
+
 dotenv.config();
 
-export async function GET(req) {
+export const dynamic = 'force-dynamic';
+
+export async function GET() {
   try {
     const cookieStore = cookies();
     const token = cookieStore.get('token');
