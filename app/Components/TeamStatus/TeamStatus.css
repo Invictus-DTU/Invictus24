@@ -7,6 +7,9 @@
     margin: 60px;
     font-family: Ticketing;
 }
+.TeamStatus::-webkit-scrollbar {
+    width: 0px;
+}
 .heading{
 /* width: 554px;
 height: 74px; */
