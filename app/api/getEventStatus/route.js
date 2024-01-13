@@ -14,7 +14,7 @@ export async function GET() {
   try {
   const cookieStore = cookies();
   const token = cookieStore.get('token');
-  const tokenData = token? jwt.verify(token.value, process.env.NEXT_PUBLIC_SECRET) : "";
+  const tokenData = token? jwt.verify(token.value, process.env.SECRET) : "";
   const user = tokenData? await User.findById(tokenData.id) : "";
  
   let event = await Event.find({});

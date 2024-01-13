@@ -1,7 +1,7 @@
 const jwt=require("jsonwebtoken");
 import dotenv from "dotenv"
 dotenv.config();
-const secret= process.env.NEXT_PUBLIC_SECRET;
+const secret= process.env.SECRET;
 
 
 function setUser(user){

@@ -26,7 +26,7 @@ export async function POST(req) {
           email: response.email
         }
 
-        const token = await jwt.sign(tokenData,process.env.NEXT_PUBLIC_SECRET);
+        const token = await jwt.sign(tokenData,process.env.SECRET);
 
         res.cookies.set("token",token,{
           httpOnly:true
