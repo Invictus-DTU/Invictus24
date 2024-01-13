@@ -157,7 +157,7 @@ const Home = () => {
               centeredSlides={true}
               slidesPerView={4}
               // navigation
-              spaceBetween={"2%"}
+              spaceBetween={"1.8%"}
               coverflowEffect={{
                 rotate: 50,
                 stretch: 0,
