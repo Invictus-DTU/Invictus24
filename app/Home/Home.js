@@ -145,7 +145,7 @@ const Home = () => {
           <div className='font-retrog max-[640px]:text-[10vw] text-[6vw]'>
             Events
           </div>
-          <div className='w-full max-md:w-[1000px]'>
+          <div className='w-full'>
             <Swiper
               effect={'cards'}
               grabCursor={true}

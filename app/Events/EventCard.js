@@ -68,13 +68,13 @@ const EventCard = (props) => {
             </div>
           </div>
 
-          {session ? (
-            props.status === "closed" ? (
-              <></>
+          {session ? 
+            props.data.status === "closed" ? (
+              <Butt title="closed" />
             ) : props.data?.participationStatus === "not participated" ? (
               <Butt title="Register " action={() => redirect(props.data?._id)} />
             ) : props.data?.role === "member" ? (
-              "participated"
+              <Butt title="participated" />
             ) : props.data?.teamStatus === "not-submitted" ? (
               <>
                 <Butt
@@ -89,13 +89,12 @@ const EventCard = (props) => {
                 />
               </>
             ) : (
-              "submitted"
+              <Butt title="submitted" />
             )
-          ) : (
+            : (
             <Butt
               title="Register"
               action={() => {
-                console.log("clicked");
                 toast.error("Please SignIn or Register");
               }}
             />

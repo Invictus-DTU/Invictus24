@@ -1,11 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import EventCard from "./EventCard";
-import { getEvents } from "../helper/index";
-import { useSession } from "next-auth/react";
 import { Toaster, toast } from "react-hot-toast";
-import { submitTeam } from "../helper";
-import { useRouter } from "next/navigation";
+import { submitTeam, getEvents } from "../helper/index";
 
 const Events = () => {
   const [event, setEvent] = useState([]);
@@ -15,8 +12,7 @@ const Events = () => {
     search: "",
     sort: "",
   });
-  const { data: session } = useSession();
-  const router = useRouter();
+  
   useEffect(() => {
     async function get() {
       try {

@@ -11,7 +11,6 @@ connectDb();
 export async function POST(req) {
   try {
     const reqBody = await req.json();
-    console.log(reqBody);
     const { name, email, college, phone } = reqBody.formData;
     const user = await User.findOne({ email: email });
     if (user) {
@@ -28,23 +27,13 @@ export async function POST(req) {
         id: newUser._id,
         email: newUser.email,
       };
-      console.log(newUser);
       const token = jwt.sign(tokenData, process.env.SECRET);
-      // res.setHeader('Set-Cookie', `token=${token}; HttpOnly`);
-      //     return NextResponse.json({
-      //     message: "User Created successfully",
-      // });
       const res = NextResponse.json({
         message: "User Created successfully",
       });
-      console.log(token);
       res.cookies.set("token", token, {
         httpOnly: true,
       });
-      // return  NextResponse.json({
-      //     message: "User Created successfully",
-      //     customToken: token,
-      // });
       return res;
     }
   } catch (err) {

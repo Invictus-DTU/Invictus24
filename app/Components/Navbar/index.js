@@ -9,7 +9,6 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import Profile from "../../Profile/page";
 import SignIn from "../Buttons/signinButton";
 import { usePathname } from "next/navigation";
-import EventButton from "../Buttons/eventButton";
 import axios from 'axios';
 
 const Navbar = () => {
@@ -121,7 +120,7 @@ const Navbar = () => {
                                             children={<Profile />}
                                         >
                                             <img
-                                                src="/Profile.png"
+                                                src="/profile.png"
                                                 alt="profile"
                                                 className="h-10 w-10"
                                             />
@@ -205,7 +204,7 @@ const Navbar = () => {
                                 <li className="mx-6 mt-6 hover:text-white active:text-white">
                                     <Link href="/Profile">
                                         <img
-                                            src="/Profile.png"
+                                            src="/profile.png"
                                             alt="profile"
                                             className="h-10 w-10"
                                         />

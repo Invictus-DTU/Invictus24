@@ -33,6 +33,7 @@ const EventTeamsPage = () => {
     };
 
     async function downloadFile() {
+        setLoading(true);
         try {
             const response = await axios.post(
                 `${process.env.NEXT_PUBLIC_BASE_URL}/society-events/download`,
@@ -72,6 +73,7 @@ const EventTeamsPage = () => {
             console.error("Error downloading file:", error);
             toast.error("some error occured!");
         }
+        setLoading(false);
     }
 
     return (
