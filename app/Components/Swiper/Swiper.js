@@ -32,8 +32,8 @@ const Slider = ({slides}) => {
         modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
         className="mySwiper"
       >
-        {slides.map( (slide) => (
-            <SwiperSlide key={slide.image}>
+        {slides.map( (slide,ind) => (
+            <SwiperSlide key={ind}>
                 <img className='slider-image' src={slide.image} alt={slide.title}/>
             </SwiperSlide>
         ) )}

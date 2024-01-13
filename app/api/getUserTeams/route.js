@@ -13,7 +13,7 @@ export async function GET() {
     const cookieStore = cookies();
     const token = cookieStore.get('token');
     //console.log(token);
-    const user = jwt.verify(token.value, process.env.SECRET);
+    const user = jwt.verify(token.value, process.env.NEXT_PUBLIC_SECRET);
     //console.log(user);
     if (!user || !user.id) {
       console.error('Invalid user data');

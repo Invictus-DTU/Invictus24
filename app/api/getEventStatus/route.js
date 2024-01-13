@@ -13,7 +13,7 @@ config();
 export async function GET() {
   const cookieStore = cookies();
   const token = cookieStore.get('token');
-  const tokenData = token? jwt.verify(token.value, process.env.SECRET) : "";
+  const tokenData = token? jwt.verify(token.value, process.env.NEXT_PUBLIC_SECRET) : "";
   const user = tokenData? await User.findById(tokenData.id) : "";
   console.log(user);
   let event = await Event.find({});
