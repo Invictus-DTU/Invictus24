@@ -70,11 +70,12 @@ const Registration = () => {
           style={{ top: "50px", overflow: "hidden", marginBottom: "0px" }}
         >
           <form
-            className="z-1 form-box shadow-zinc-50 shadow-2xl background-image mt-14 mb-14 box-border h-full w-6/12 p-4 border-4 form-round flex content-center flex-col bg-gray-700 md:box-content"
+            className="z-1 form-box shadow-zinc-50 shadow-2xl background-image mt-14 mb-14 box-border h-full xl:w-[600px] md:w-6/12 sm:w-3/5 max-[640px]:w-4/5  p-4 border-4 form-round flex content-center flex-col bg-gray-700 "
             onSubmit={handleSubmit}
           >
             <div className="text-center text-white mb-5 font-retrog text-3xl">
-              Registration<br /> Form
+              Registration
+              <br /> Form
             </div>
             <div className="ml-6 mb-5 mr-6">
               <label
@@ -93,24 +94,22 @@ const Registration = () => {
                 required
               />
             </div>
-            {session
-              ? (
-                <p className="text-black w-11/12 py-2 my-2 mx-auto bg-green-200/70 text-center rounded-lg">
-                  Verified Email!
-                </p>
-              )
-              : (
-                <div className="ml-6 mb-5 mr-6">
-                  <button
-                    onClick={async () => {
-                      await signIn("google");
-                    }}
-                    className="text-white py-2 w-full bg-black/70 rounded-lg"
-                  >
-                    Verify Email via Google
-                  </button>
-                </div>
-              )}
+            {session ? (
+              <p className="text-black w-11/12 py-2 my-2 mx-auto bg-green-200/70 text-center rounded-lg">
+                Verified Email!
+              </p>
+            ) : (
+              <div className="ml-6 mb-5 mr-6">
+                <button
+                  onClick={async () => {
+                    await signIn("google");
+                  }}
+                  className="text-white py-2 w-full bg-black/70 rounded-lg"
+                >
+                  Verify Email via Google
+                </button>
+              </div>
+            )}
             <div className="ml-6 mb-5 mr-6">
               <label
                 htmlFor="phoneNo"

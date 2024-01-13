@@ -25,7 +25,6 @@ export const userRegister = async (formData) => {
 
 export const checkUser = async (email) => {
   try {
-    console.log(email);
     const response = await axios.post(
       `${process.env.NEXT_PUBLIC_BASE_URL}/checkUser`,
       { email: email },
@@ -37,7 +36,6 @@ export const checkUser = async (email) => {
     if (response.status === 500) {
       return { error: "some error occured" };
     }
-    console.log(res);
     return res;
   } catch (error) {
     return { error: "some error occured" };
@@ -132,7 +130,6 @@ export const eventRegisteration = async (formData) => {
 
 export const joinTeam = async (teamId, type, event) => {
   try {
-    console.log(teamId, type);
     const response = await axios.post(
       `${process.env.NEXT_PUBLIC_BASE_URL}/team/join`,
       { teamId, type, event },
@@ -140,7 +137,6 @@ export const joinTeam = async (teamId, type, event) => {
         validateStatus: (status) => status >= 200 && status <= 500,
       },
     );
-    console.log(response);
     const res = response.data;
 
     if (response.status === 400 || response.status === 500) {
@@ -162,7 +158,7 @@ export const createTeam = async (formData) => {
         validateStatus: (status) => status >= 200 && status <= 500,
       },
     );
-    console.log(response);
+
     const res = response.data;
 
     if (response.status === 400) {
@@ -186,7 +182,7 @@ export const submitTeam = async (formData) => {
         validateStatus: (status) => status >= 200 && status <= 500,
       },
     );
-    console.log(response);
+
     const res = response.data;
     if (response.status === 400) {
       return { error: res.error };
