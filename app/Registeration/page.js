@@ -144,7 +144,7 @@ const Registration = () => {
                 required
               />
             </div>
-            <button className="event-button transition-all duration-200 h-fit flex justify-center items-center font-ticketing w-1/2 min-w-fit text-3xl  px-5 py-1 my-1 mx-auto">
+            <button className="event-button transition-all duration-200 sm:h-20 max-sm:h-16 flex justify-center items-center font-ticketing w-1/2 min-w-fit text-3xl  px-5 py-1 my-1 mx-auto">
               Register Now
             </button>
           </form>
