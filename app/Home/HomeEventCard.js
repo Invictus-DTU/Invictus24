@@ -1,15 +1,37 @@
-"use client"
+"use client";
 import React from "react";
 
 const EventCard = (props) => {
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dev",
+  ];
   return (
     <>
       <div
         className="bg-[#0000004d] h-full flex text-[#f0f8ff] justify-center items-center backdrop-blur rounded-[25px] shadow-[0px_0px_20px_#8f8f8f8f] flex-col lg:w-[100%]  "
-      // className="main-box"
+        // className="main-box"
       >
         <div className=" h-1/2 flex justify-center items-center mb-2 w-auto">
-          <img src={props.data?.image && !props.data?.image.startsWith("https://drive.google.com") ? props.data?.image : "/Card-Robo.png"} className=" h-full w-auto overflow-x-hidden cardhomeimage " />
+          <img
+            src={
+              props.data?.image &&
+              !props.data?.image.startsWith("https://drive.google.com")
+                ? props.data?.image
+                : "/Card-Robo.png"
+            }
+            className=" h-full w-auto overflow-x-hidden cardhomeimage "
+          />
         </div>
 
         <div className="flex w-full justify-around ">
@@ -17,34 +39,44 @@ const EventCard = (props) => {
             {props.data?.name}
           </div>
         </div>
-          <div className="flex gap-2 max-xl:hidden">
-            <img
-              className="h-10 max-md:h-10 max-sm:h-6"
-              src="./Trophy.png"
-              alt="Trophy"
-              height="100%"
-            />
-            <div className="text-2xl max-md:text-xl font-retrog">{props.data?.prize || 0}</div>
+        <div className="flex items-center gap-2 max-xl:hidden">
+          <img
+            className="h-10 max-md:h-10 max-sm:h-6"
+            src="./Trophy.png"
+            alt="Trophy"
+            height="100%"
+          />
+          <div className="text-2xl max-md:text-xl font-retrog">
+            {props.data?.prize || 0}
           </div>
-        <div className="flex gap-2 xl:hidden">
+        </div>
+        <div className="flex items-center gap-2 xl:hidden">
           <img
             className="h-12 max-md:h-10 max-sm:h-8"
             src="./Trophy.png"
             alt="Trophy"
             height="100%"
           />
-          <div className="text-2xl max-md:text-xl font-retrog">{props.data?.prize || 0}</div>
+          <div className="text-2xl max-md:text-xl font-retrog">
+            {props.data?.prize || 0}
+          </div>
         </div>
 
         <div className="location text-center max-md:text-sm ">
-          <div className="date font-retrog text-nowrap">{props.data?.date?.substring(0, 10)}</div>
+          <div className="date font-retrog w-fit text-nowrap">
+            {/* Date */}
+            {props.data?.date.substring(0, 10).split("-")[2] + " "}{" "}
+            {/* Month */}
+            {months[props.data?.date.substring(0, 10).split("-")[1] - 1] + " "}
+            {/* Year */}
+            {props.data?.date.substring(0, 10).split("-")[0]}
+          </div>
           <div className="venue font-retrog">
             {props.data?.venue || "DTU"}, {props.data?.time || "time"}
           </div>
         </div>
 
         {/* Register */}
-
       </div>
     </>
   );
