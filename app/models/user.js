@@ -3,7 +3,6 @@ const userSchema = new mongoose.Schema({
     username:{
         type : String,
         required:[true,"please enter the name"],
-        unique: true,
     },
     email:{
         type : String,
