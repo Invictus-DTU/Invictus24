@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import EventCard from "./EventCard";
 import { Toaster, toast } from "react-hot-toast";
 import { submitTeam, getEvents } from "../helper/index";
@@ -19,16 +19,8 @@ const Events = () => {
       try {
         const arr = await getEvents();
         if (arr) {
-          setEvent(
-            arr.filter((val) => {
-              return val.type === "Events";
-            })
-          );
-          setArr(
-            arr.filter((val) => {
-              return val.type === "Events";
-            })
-          );
+          setEvent(arr?.filter((val) => val.type === "Events"));
+          setArr(arr?.filter((val) => val.type === "Events"));
         }
       } catch (error) {
         console.error("Error fetching events:", error.message);
@@ -62,7 +54,7 @@ const Events = () => {
               val.teamStatus = "submitted";
             }
             return val;
-          })
+          }),
         );
         return;
       }
@@ -87,14 +79,14 @@ const Events = () => {
         setEvent(
           temp.sort((a, b) => {
             return new Date(a.date) - new Date(b.date);
-          })
+          }),
         );
       } else if (value === "prize") {
         const temp = arr.slice();
         setEvent(
           temp.sort((a, b) => {
             return b.prize - a.prize;
-          })
+          }),
         );
       } else {
         setEvent(arr);
@@ -114,7 +106,7 @@ const Events = () => {
             event.name.toLowerCase().includes(value.toLowerCase()) ||
             event.description.toLowerCase().includes(value.toLowerCase())
           );
-        })
+        }),
       );
     }
   };
@@ -204,7 +196,7 @@ const Events = () => {
               >
                 {index + 1}
               </button>
-            )
+            ),
           )}
           <button
             onClick={nextPage}

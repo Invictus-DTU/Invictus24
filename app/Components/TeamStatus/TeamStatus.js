@@ -10,7 +10,7 @@ export const TeamStatus = ({teams}) => {
   },[teams])
   
   return (
-    <div className="TeamStatus md:w-4/5 max-md:w-full mx-auto my-16">
+    <div className="TeamStatus md:w-4/5 max-md:w-full py-4 mx-auto my-16">
       <div className="heading text-5xl">Events Status</div>
       {team &&
         team.map((val, index) => <TeamCard key={index} property={val} />)}

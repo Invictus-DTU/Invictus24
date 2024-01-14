@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import User from "../../models/user";
 import connectDb from "../../helper/config";
-import { cookies } from 'next/headers';
+import { cookies } from "next/headers";
 import jwt from "jsonwebtoken";
 require("dotenv").config();
 
@@ -31,8 +31,7 @@ export async function GET() {
         else{
             return NextResponse.json(person,{status: 200});
         }
-    }
-    catch(err){
-        return NextResponse.json({error: err.message},{status:500});
-    }
+  } catch (err) {
+    return NextResponse.json({ error: err.message }, { status: 500 });
+  }
 }

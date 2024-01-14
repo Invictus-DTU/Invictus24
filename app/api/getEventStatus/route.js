@@ -1,15 +1,14 @@
-import { cookies } from 'next/headers'
-import Event from '../../models/event';
-import Team from '../../models/team';
+import { cookies } from "next/headers";
+import Event from "../../models/event";
+import Team from "../../models/team";
 import { NextResponse } from "next/server";
 import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
-import User from '../../models/user';
-import config from '../../helper/config';
+import User from "../../models/user";
+import config from "../../helper/config";
 dotenv.config();
 config();
 
- 
 export async function GET() {
   try {
   const cookieStore = cookies();
@@ -52,12 +51,12 @@ export async function GET() {
     return plainObject;
   });
 
-  const updatedEvents = await Promise.all(promises);
-  event = updatedEvents;
-  return NextResponse.json({ event: event });
-
+    const updatedEvents = await Promise.all(promises);
+    event = updatedEvents;
+    return NextResponse.json({ event: event });
   } catch (error) {
     console.error(`Error processing events: ${error.message}`);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
+
