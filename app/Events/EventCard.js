@@ -29,16 +29,21 @@ const EventCard = (props) => {
     return;
   }
 
+  function Location(){
+    window.open(props.data.location, '_blank');
+    return;
+  }
+
   return (
     <>
-      {/* //!Main-box */}
+      {/* !Main-box */}
       <div className="bg-[#0000004d] p-3 w-[90vw] min-h-40 flex my-[20px] mx-[5vw] text-[#f0f8ff] backdrop-blur rounded-[25px] shadow-[0px_0px_20px_#8f8f8f8f] items-center max-[768px]:flex-wrap max-[768px]:justify-center">
         <img
           className="  bg-no-repeat  shrink-0 xl:w-[25rem] lg:w-80 md:w-60 sm:w-[25rem] w-[100%] md:mr-3 rounded-3xl"
           src={props.data.image || "/Card-Robo.png"}
           alt="event image"
           width={50}
-          height={50}
+          height={50} 
         /> 
 
         {/* About */}
@@ -89,6 +94,8 @@ const EventCard = (props) => {
               </div>
             </div>
           </div>
+
+          <Butt title="Location" action={Location}/>
 
           {session ? (
             props.data.status === "closed" ? (

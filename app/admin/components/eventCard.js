@@ -28,7 +28,7 @@ const EventCard = ({ event, onUpdate, onDelete }) => {
     image,
     type
   } = event;
-
+  
   return (
     <div className="bg-white rounded-lg shadow-md p-6 mb-4 mx-4">
       <div className="flex-col items-center justify-between">
