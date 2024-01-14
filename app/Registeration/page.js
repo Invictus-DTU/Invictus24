@@ -45,14 +45,13 @@ const Registration = () => {
         ...formData,
         email: session?.user?.email,
       });
-
       console.log(session.user.email, result.success);
       if (result.success) {
         alert(result.message);
         setRegistered(true);
         window.location.href = "/";
       } else {
-        alert(result.error);
+        alert(result.error + " Maybe you have already used that phoneNo?");
         await signOut();
         window.location.reload();
       }

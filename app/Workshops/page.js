@@ -23,12 +23,12 @@ const Workshop = () => {
       try {
         const arr = await getEvents();
         setEvent(
-          arr.filter((val) => {
+          arr?.filter((val) => {
             return val.type === "Workshops";
           })
         );
         setArr(
-          arr.filter((val) => {
+          arr?.filter((val) => {
             return val.type === "Workshops";
           })
         );
