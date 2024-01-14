@@ -113,7 +113,7 @@ const Events = () => {
 
   return (
     <>
-      {arr.length !== 0 ? (
+      {arr.length === 0 ? (
         <Loader />
       ) : (
         <div className="flex flex-col items-center w-full Events pb-[60px] ">
