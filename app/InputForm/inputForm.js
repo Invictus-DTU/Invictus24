@@ -86,7 +86,7 @@ const InputForm = ({user}) => {
           value={formData.college}
           onChange={handleChange}
         />
-        <div className='flex justify-center items-center'>
+        <div className='flex justify-center items-center m-auto w-[50%]'>
             <EventButton action={handleSubmit} title="Save Info"/>
         </div>
       </form>

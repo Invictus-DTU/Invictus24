@@ -10,21 +10,24 @@ import Protection from "./Components/Protection";
 import { Suspense } from "react";
 
 export default function RootLayout({ children }) {
-    return (
-        <html lang="en">
-            <title>Invictus DTU</title>
-            <meta name='description' content='india Largest Annual TechFest, Delhi Technological University 2024' />
-            <link rel="icon" type="image/x-icon" href="static/favicon.ico"></link>
-            <body className={inter.className}>
-                <SessionProvider>
-                    <Protection />
-                    <Suspense fallback={<div>Loading...</div>}>
-                        <Navbar />
-                    </Suspense>
-                    {children}
-                    <Footer />
-                </SessionProvider>
-            </body>
-        </html>
-    );
+  return (
+    <html lang="en">
+      <title>Invictus DTU</title>
+      <meta
+        name="description"
+        content="india Largest Annual TechFest, Delhi Technological University 2024"
+      />
+      <link rel="icon" type="image/x-icon" href="static/favicon.ico"></link>
+      <body className={inter.className}>
+        <SessionProvider>
+          <Protection />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Navbar />
+          </Suspense>
+          {children}
+          <Footer />
+        </SessionProvider>
+      </body>
+    </html>
+  );
 }

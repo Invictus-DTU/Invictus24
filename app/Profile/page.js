@@ -70,7 +70,7 @@ const Profile = () => {
         <InputForm user={user} />
         <TeamStatus teams={team} />
         {session ? (
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center m-auto w-[50%]">
             <EventButton action={deleteSession} title="Log Out" />
           </div>
         ) : (
