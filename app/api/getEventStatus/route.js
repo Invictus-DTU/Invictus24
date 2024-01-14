@@ -16,7 +16,7 @@ export async function GET() {
     const tokenData = token ? jwt.verify(token.value, process.env.SECRET) : "";
     const user = tokenData ? await User.findById(tokenData.id) : "";
 
-    let event = await Event.find({image: 0});
+    let event = await Event.find();
     const currentDate = new Date();
     const promises = event.map(async (data) => {
       let plainObject = data.toObject();
