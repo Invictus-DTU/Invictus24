@@ -9,7 +9,7 @@ const EventCard = (props) => {
       // className="main-box"
       >
         <div className=" h-1/2 flex justify-center items-center mb-2 w-auto">
-          <img src={props.data?.image || "/Card-Robo.png"} className=" h-full w-auto overflow-x-hidden cardhomeimage " />
+          <img src={props.data?.image && !props.data?.image.startsWith("https://drive.google.com") ? props.data?.image : "/Card-Robo.png"} className=" h-full w-auto overflow-x-hidden cardhomeimage " />
         </div>
 
         <div className="flex w-full justify-around ">
