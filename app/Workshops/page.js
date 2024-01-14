@@ -2,10 +2,9 @@
 import React, { useState, useEffect } from "react";
 import WorkshopCard from "./WorkshopCard";
 import { getEvents } from "../helper/index";
-import { useSession } from "next-auth/react";
 import { Toaster, toast } from "react-hot-toast";
 import { submitTeam } from "../helper";
-import { useRouter } from "next/navigation";
+import { Loader } from "../Loader/Loader";
 
 const Workshop = () => {
   const itemsPerPage = 4;
@@ -16,8 +15,7 @@ const Workshop = () => {
     search: "",
     sort: "",
   });
-  const { data: session } = useSession();
-  const router = useRouter();
+
   useEffect(() => {
     async function get() {
       try {
@@ -121,6 +119,8 @@ const Workshop = () => {
 
   return (
     <>
+    {arr.length === 0? <Loader />
+      :
       <div className="flex flex-col items-center w-full Workshop pb-[60px]">
         <Toaster position="top-center" reverseOrder={false} />
         <h1 className="font-retrog xl:text-7xl lg:text-7xl md:text-6xl sm:text-5xl max-[640px]:text-5xl flex justify-center mt-32 mb-6 text-white">
@@ -208,7 +208,7 @@ const Workshop = () => {
             Next
           </button>
         </div>
-      </div>
+      </div>}
     </>
   );
 };

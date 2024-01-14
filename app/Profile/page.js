@@ -1,12 +1,11 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import { TeamStatus } from "../Components/TeamStatus/TeamStatus";
+'use client'
+import {useEffect, useState} from 'react';
+import { TeamStatus } from '../Components/TeamStatus/TeamStatus';
 import InputForm from "../InputForm/inputForm";
-import axios from "axios";
-import { signOut, useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { toast } from "react-hot-toast";
-import EventButton from "../Components/Buttons/eventButton";
+import axios from 'axios';
+import { signOut, useSession } from 'next-auth/react';
+import { toast } from 'react-hot-toast';
+import EventButton from '../Components/Buttons/eventButton';
 
 const Profile = () => {
   const [user, setuser] = useState({
@@ -16,20 +15,23 @@ const Profile = () => {
     college: "",
     phone: 0,
   });
-  const [team, setTeam] = useState([]);
-  const { data: session } = useSession();
-  const router = useRouter();
-
+  const [team,setTeam] = useState([]);
+  const {data:session} = useSession();
+  
   useEffect(() => {
+    if(!session) return ;
     const fetchUser = async () => {
       try {
-        const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/getUser`
-        );
-        const teams = await axios.get(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/getUserTeams`
-        );
-        console.log(teams);
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/getUser`,{
+          validateStatus: (status) => status >= 200 && status <= 500,
+        });
+        const teams = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/getUserTeams`,{
+          validateStatus: (status) => status >= 200 && status <= 500,
+        });
+
+        if(response.error || teams.error){
+          return;
+        }
         setTeam(teams.data.team);
         setuser({
           _id: response.data._id,
@@ -38,14 +40,12 @@ const Profile = () => {
           college: response.data.college,
           phone: response.data.phone,
         });
-        console.log(response.data);
-        console.log(user);
       } catch (error) {
         console.error("Error fetching user:", error);
       }
     };
     fetchUser();
-  }, []);
+  }, [session]);
 
   async function deleteSession() {
     try {
