@@ -28,6 +28,15 @@ const EventForm = () => {
     });
   };
 
+  const imageUpload = (e) =>{
+    const { name, value } = e.target;
+    const url = "https://drive.google.com/thumbnail?id=" + value.match(/\/d\/([^\/]+)\/view/)[1]
+    setFormData({
+      ...formData,
+      image: url
+    })
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/society-events/registration`, formData)
@@ -206,7 +215,7 @@ const EventForm = () => {
           type="text"
           name="image"
           value={formData.image}
-          onChange={handleChange}
+          onChange={imageUpload}
           className="block w-full border-gray-300 rounded-md mt-1 focus:ring-indigo-500 focus:border-indigo-500"
         />
         </label>

@@ -21,7 +21,6 @@ export async function GET() {
   const promises = event.map(async (data, idx) => {
     let plainObject = data.toObject();
     const date = new Date(plainObject.registrationEndDate);
-    plainObject= {...plainObject, image: "https://drive.google.com/thumbnail?id=" + plainObject.image.match(/\/d\/([^\/]+)\/view/)[1]}
     
     if(currentDate > date){
       plainObject=  {...plainObject, status: "closed"};
