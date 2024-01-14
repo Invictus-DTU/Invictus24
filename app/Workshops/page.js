@@ -166,7 +166,7 @@ const Workshop = () => {
 
               <div className="w-[95%]">
                 <input
-                  className="font-retrog outline-none p-3"
+                  className="font-retrog outline-none p-3 !mb-0"
                   placeholder="Search for Workshops"
                   name="search"
                   onChange={handleChange}
