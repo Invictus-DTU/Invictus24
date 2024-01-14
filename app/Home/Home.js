@@ -49,7 +49,7 @@ const Home = () => {
   }
 
   return (
-    <main className="w-full h-[400vh] overflow-auto max-sm:h-[360vh]">
+    <main className="w-full sm:h-[400vh] overflow-auto max-sm:h-[300vh]">
       <div className="bg-[#05063F] absolute z-[-1] w-full h-full"></div>
       <div className="w-full h-screen top-0 left-0 flex flex-col justify-center items-center">
         <img
@@ -57,7 +57,7 @@ const Home = () => {
           className=" w-full absolute h-full top-0 left-0 shrink-0 object-cover opacity-50 z-2"
         />
         {/* //! Home Page */}
-        <div className="z-1 flex flex-col py-24 h-screen absolute top-0 items-center justify-center">
+        <div className="z-1 mt-10 flex flex-col py-24 h-screen absolute top-0 items-center justify-center">
           {/*  justify around->center*/}
           {/* //! invictus */}
           <div className="w-fit flex flex-col gap-0 lg:mb-20 max-[1024px]:mb-10">
@@ -82,10 +82,10 @@ const Home = () => {
       </div>
 
       <div className="bg-[#05063F] absolute z-[-10] h-[100vh] w-full"></div>
-      <div className="w-full h-[300vh] top-0 left-0 flex flex-col max-sm:h-[280vh]">
+      <div className="w-full sm:h-[300vh] top-0 left-0 flex flex-col max-sm:h-[200vh]">
         <img
           src="/bg2.png"
-          className=" w-full absolute h-[300vh] top-[100vh] max-sm:h-[280vh] left-0 shrink-0 object-cover opacity-30 z-2 "
+          className=" w-full absolute sm:h-[300vh] top-[100vh] max-sm:h-[200vh] left-0 shrink-0 object-cover opacity-30 z-2 "
         />
         <div className="z-1 h-[100vh] flex flex-col justify-evenly absolute top-[100vh] items-center text-white">
           <div className="font-retrog max-[640px]:text-[10vw] text-[6vw]">
@@ -95,9 +95,9 @@ const Home = () => {
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
             commodo ligula eget dolor. Aenean massa. Cum sociis natoque
             penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            Donec quam felis, ultricies nec, pellentesque eu, pretium quis,
-            sem. Nulla consequat massa quis enim. Donec pede justo, fringilla
-            vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,
+            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+            Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
+            aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,
             imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede
             mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum
             semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula,
@@ -140,14 +140,14 @@ const Home = () => {
           </div>
         </div>
 
-        <div className='z-1 w-full h-[100vh] sm:h-[100vh] flex flex-col justify-center absolute top-[200vh] items-center text-white max-md:top-[200vh] max-sm:top-[200vh]'>
+        <div className="z-1 w-full h-[100vh] sm:h-[100vh] flex flex-col justify-center absolute top-[200vh] items-center text-white max-md:top-[200vh] max-sm:top-[200vh]">
           <div className="bg-[#05063F]  absolute z-[-10] h-[100vh] w-full"></div>
-          <div className='font-retrog max-[640px]:text-[10vw] text-[6vw]'>
+          <div className="font-retrog max-[640px]:text-[10vw] text-[6vw]">
             Events
           </div>
-          <div className='w-full'>
+          <div className="w-full max-md:hidden">
             <Swiper
-              effect={'cards'}
+              effect={"cards"}
               grabCursor={true}
               loop={true}
               // autoplay={{
@@ -157,7 +157,7 @@ const Home = () => {
               centeredSlides={true}
               slidesPerView={4}
               // navigation
-              spaceBetween={"2%"}
+              spaceBetween={"1.8%"}
               coverflowEffect={{
                 rotate: 50,
                 stretch: 0,
@@ -169,17 +169,125 @@ const Home = () => {
               modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
               className="mySwiper"
             >
-              {event.length > 0 && event.map((slide, idx) => (
-                <SwiperSlide key={idx} >
-                  <HomeEventCard data={slide} />
-                </SwiperSlide>
-              ))}
+              {event.length > 0 &&
+                event.map((slide, idx) => (
+                  <SwiperSlide key={idx}>
+                    <HomeEventCard data={slide} />
+                  </SwiperSlide>
+                ))}
             </Swiper>
           </div>
+
+          {/* for small screen */}
+          <div className="w-full">
+            <div className=" w-full overflow-x-hidden max-sm:hidden md:hidden">
+              <Swiper
+                effect={"cards"}
+                grabCursor={true}
+                loop={true}
+                // autoplay={{
+                //   delay: 2500,
+                //   disableOnInteraction: true,
+                // }}
+                centeredSlides={true}
+                slidesPerView={2}
+                // navigation
+                spaceBetween={"5%"}
+                coverflowEffect={{
+                  rotate: 50,
+                  stretch: 0,
+                  depth: 100,
+                  modifier: 1,
+                  slideShadows: false,
+                }}
+                // pagination={{clickable: true,}}
+                modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
+                className="mySwiper"
+              >
+                {event.length > 0 &&
+                  event.map((slide, idx) => (
+                    <SwiperSlide key={idx}>
+                      <HomeEventCard data={slide} />
+                    </SwiperSlide>
+                  ))}
+              </Swiper>
+            </div>
+          </div>
+
+          <div className="w-full">
+            <div className="w-full overflow-x-hidden sm:hidden hidesms">
+              <Swiper
+                effect={"cards"}
+                grabCursor={true}
+                loop={true}
+                // autoplay={{
+                //   delay: 2500,
+                //   disableOnInteraction: true,
+                // }}
+                centeredSlides={true}
+                slidesPerView={2}
+                // navigation
+                spaceBetween={"5%"}
+                coverflowEffect={{
+                  rotate: 50,
+                  stretch: 0,
+                  depth: 100,
+                  modifier: 1,
+                  slideShadows: false,
+                }}
+                // pagination={{clickable: true,}}
+                modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
+                className="mySwiper"
+              >
+                {event.length > 0 &&
+                  event.map((slide, idx) => (
+                    <SwiperSlide key={idx}>
+                      <HomeEventCard data={slide} />
+                    </SwiperSlide>
+                  ))}
+              </Swiper>
+            </div>
+          </div>
+
+          <div className="w-full">
+            <div className="w-full overflow-x-hidden sm:hidden showsms">
+              <Swiper
+                effect={"cards"}
+                grabCursor={true}
+                loop={true}
+                // autoplay={{
+                //   delay: 2500,
+                //   disableOnInteraction: true,
+                // }}
+                centeredSlides={true}
+                slidesPerView={1.5}
+                // navigation
+                spaceBetween={"5%"}
+                coverflowEffect={{
+                  rotate: 50,
+                  stretch: 0,
+                  depth: 100,
+                  modifier: 1,
+                  slideShadows: false,
+                }}
+                // pagination={{clickable: true,}}
+                modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
+                className="mySwiper"
+              >
+                {event.length > 0 &&
+                  event.map((slide, idx) => (
+                    <SwiperSlide key={idx}>
+                      <HomeEventCard data={slide} />
+                    </SwiperSlide>
+                  ))}
+              </Swiper>
+            </div>
+          </div>
+
           <HomeButton buttonText="Go To Events" action={GoToEvents} />
         </div>
 
-        <div className="z-1 w-full h-[80vh] flex flex-col justify-center absolute top-[310vh] items-center text-white max-sm:top-[290vh] max-sm:h-[80vh]">
+        <div className="z-1 w-full  flex flex-col justify-center absolute top-[310vh] items-center text-white sm:h-[80vh] max-sm:hidden">
           <div className="bg-[#05063F]  absolute z-[-10] h-[100vh] max-sm:h-[80vh] w-full"></div>
           <h2 className=" h-1/4 font-retrog max-[640px]:text-[10vw] text-[6vw] flex justify-center items-center">
             Gallery

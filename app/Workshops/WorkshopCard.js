@@ -27,8 +27,8 @@ const WorkshopCard = (props) => {
         />
 
         {/* About */}
-        <div className="xl:w-3/5 lg:w-90 md:w-90  max-[768px]:w-[90%] self-start">
-          <div className="font-retrog lg:text-3xl  md:text-3xl sm:text-3xl text-4xl max-[768px]:flex justify-center">
+        <div className="w-3/5 lg:w-90 md:w-90  max-[768px]:w-[90%] self-start">
+          <div className="font-retrog lg:text-3xl  max-[768px]:my-2 md:text-3xl sm:text-3xl text-4xl max-[768px]:flex justify-center">
             {props.data.name}
           </div>
           <div className="font-ticketing">
@@ -49,7 +49,7 @@ const WorkshopCard = (props) => {
         {/* //! Register Box */}
         <div className="xl:w-1/5 lg:w-90 md:w-100  max-[768px]:w-[100%] flex flex-col items-center  justify-center m-2.5 ">
           {/* Prize is hidden */}
-          <div className="flex hidden">
+          <div className="hidden">
             <img
               className="bg-no-repeat shrink-0 w-10 h-10"
               src="./Trophy.png"
@@ -58,8 +58,17 @@ const WorkshopCard = (props) => {
             />
             <div className="text-2xl font-retrog">{props.data.prize}</div>
           </div>
+          {/* //! Location */}
+          <div className="flex flex-col justify-center items-center max-[768px]:flex-row max-[768px]:justify-between max-[768px]:w-full max-[768px]:my-3">
+            <div className="date font-retrog text-nowrap">
+              {props.data.date.substring(0, 10)}
+            </div>
+            <div className="venue font-retrog">
+              {props.data.venue || "DTU"}, {props.data.time || "time"}
+            </div>
+          </div>
           {/* //* Registration */}
-          {session ? 
+          {session ? (
             props.data.status === "closed" ? (
               <Butt title="closed" />
             ) : props.data.participationStatus === "not participated" ? (
@@ -82,7 +91,7 @@ const WorkshopCard = (props) => {
             ) : (
               <Butt title="submitted" />
             )
-           : (
+          ) : (
             <Butt
               title="Register"
               action={() => {
@@ -90,16 +99,6 @@ const WorkshopCard = (props) => {
               }}
             />
           )}
-
-          {/* //! Location */}
-          <div className="location">
-            <div className="date font-retrog text-nowrap">
-              {props.data.date.substring(0, 10)}
-            </div>
-            <div className="venue font-retrog">
-              {props.data.venue || "DTU"}, {props.data.time || "time"}
-            </div>
-          </div>
         </div>
       </div>
     </>
