@@ -162,7 +162,7 @@ const Events = () => {
               <img src="/Search.png" alt="search" className="w-[5%]" />
               <div className="w-[95%]">
                 <input
-                  className="font-retrog outline-none p-3"
+                  className="font-retrog outline-none p-3 !mb-0"
                   placeholder="Search for Events"
                   name="search"
                   onChange={handleChange}
