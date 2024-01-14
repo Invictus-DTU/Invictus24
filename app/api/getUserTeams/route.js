@@ -15,7 +15,7 @@ export async function GET() {
     if(!token){
       return NextResponse.json({error: "User not exist"},{status: 400});
     }
-    const user = jwt.verify(token.value, process.env.SECRET);
+    const user = jwt.verify(token.value, process.env.NEXT_PUBLIC_SECRET);
     
     if (!user || !user.id) {
       console.error('Invalid user data');

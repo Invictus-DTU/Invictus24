@@ -14,7 +14,7 @@ export async function GET() {
   try {
   const cookieStore = cookies();
   const token = cookieStore.get('token');
-  const tokenData = token? jwt.verify(token.value, process.env.SECRET) : "";
+  const tokenData = token? jwt.verify(token.value, process.env.NEXT_PUBLIC_SECRET) : "";
   const user = tokenData? await User.findById(tokenData.id) : "";
  
   let event = await Event.find({});
@@ -22,6 +22,7 @@ export async function GET() {
   const promises = event.map(async (data, idx) => {
     let plainObject = data.toObject();
     const date = new Date(plainObject.registrationEndDate);
+    plainObject= {...plainObject, image: "https://drive.google.com/thumbnail?id=" + plainObject.image.match(/\/d\/([^\/]+)\/view/)[1]}
     
     if(currentDate > date){
       plainObject=  {...plainObject, status: "closed"};

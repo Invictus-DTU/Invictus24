@@ -14,7 +14,7 @@ export async function POST(req) {
     try{
         const cookieStore = cookies();
         const token = cookieStore.get('token');
-        const tokenData = token? jwt.verify(token.value, process.env.SECRET) : "";
+        const tokenData = token? jwt.verify(token.value, process.env.NEXT_PUBLIC_SECRET) : "";
         const user = tokenData? await User.findById(tokenData.id) : "";
         const reqBody= await req.json();
         const teamId = reqBody.teamId;

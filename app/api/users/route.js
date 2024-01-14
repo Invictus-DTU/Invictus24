@@ -12,6 +12,7 @@ export async function POST(req) {
   try {
     const reqBody = await req.json();
     const { name, email, college, phone } = reqBody.formData;
+    console.log(name);
     const user = await User.findOne({ email: email });
     if (user) {
       return NextResponse.json({ error: "Already exist" }, { status: 400 });
@@ -27,7 +28,7 @@ export async function POST(req) {
         id: newUser._id,
         email: newUser.email,
       };
-      const token = jwt.sign(tokenData, process.env.SECRET);
+      const token = jwt.sign(tokenData, process.env.NEXT_PUBLIC_SECRET);
       // res.setHeader('Set-Cookie', `token=${token}; HttpOnly`);
       //     return NextResponse.json({
       //     message: "User Created successfully",

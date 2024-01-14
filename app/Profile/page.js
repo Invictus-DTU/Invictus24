@@ -8,11 +8,11 @@ import { toast } from 'react-hot-toast';
 import EventButton from '../Components/Buttons/eventButton';
 
 const Profile = () => {
-  const [user,setuser] = useState({
-    _id: '',
-    username: '',
-    email: '',
-    college: '',
+  const [user, setuser] = useState({
+    _id: "",
+    username: "",
+    email: "",
+    college: "",
     phone: 0,
   });
   const [team,setTeam] = useState([]);
@@ -41,7 +41,7 @@ const Profile = () => {
           phone: response.data.phone,
         });
       } catch (error) {
-        console.error('Error fetching user:', error);
+        console.error("Error fetching user:", error);
       }
     };
     fetchUser();
@@ -49,28 +49,32 @@ const Profile = () => {
 
   async function deleteSession() {
     try {
-      const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/auth/logout`);
+      const response = await axios.get(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/auth/logout`
+      );
       const res = response.data;
-      if(res.error){
+      if (res.error) {
         toast.error(res.error);
-      }
-      else{
+      } else {
         await signOut();
-        if(!session){
+        if (!session) {
           toast.success(res.message);
           window.location.href = "/";
         }
       }
     } catch (error) {
-      console.error('Error during logout:', error);
+      console.error("Error during logout:", error);
     }
   }
 
   return (
-    <div className='h-[300vh] bg-[#05063f] relative'>
-    <img src='/bg2.png' className='w-full absolute h-[300vh] top-0 left-0 shrink-0 object-cover opacity-30 z-2' />
-    <div className='h-[100px]'></div>
-      <div className='flex-col items-center justify-center w-full h-[300vh] absolute z-1'>
+    <div className="h-[300vh] bg-[#05063f] relative">
+      <img
+        src="/bg2.png"
+        className="w-full absolute h-[300vh] top-0 left-0 shrink-0 object-cover opacity-30 z-2"
+      />
+      <div className="h-[100px]"></div>
+      <div className="flex flex-col items-center w-full h-[300vh] absolute z-1">
         <InputForm user={user} />
         <TeamStatus teams={team} />
         {session ? (
@@ -81,8 +85,8 @@ const Profile = () => {
           <></>
         )}
       </div>
-    </div>  
-  )
-}
+    </div>
+  );
+};
 
 export default Profile;
