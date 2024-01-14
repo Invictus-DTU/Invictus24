@@ -4,7 +4,6 @@
     border-radius: 29px;
     background: #000;
     color: white;
-    margin: 60px;
     font-family: Ticketing;
 }
 .TeamStatus::-webkit-scrollbar {
@@ -15,7 +14,7 @@
 height: 74px; */
 text-align: center;
 font-family: Ticketing;
-font-size: 5vw;
+/* font-size: 5vw; */
 
 font-style: normal;
 font-weight: 400;
@@ -29,16 +28,16 @@ height: 25px;
 .title{
     width: 40%;
 }
-.names{
+/* .names{
     width: 40%;
-}
-.event{
+} */
+/* .event{
     display: flex;
     margin:10px 30px;
-}
+} */
 
-@media only screen and (max-width: 750px) {
+/* @media only screen and (max-width: 750px) {
     .event{
         flex-direction: column;
     }
-}
+} */
