@@ -1,10 +1,9 @@
 'use client'
-import React,{useEffect, useState} from 'react'
-import { TeamStatus } from '../Components/TeamStatus/TeamStatus'
-import InputForm from "../InputForm/inputForm"
+import {useEffect, useState} from 'react';
+import { TeamStatus } from '../Components/TeamStatus/TeamStatus';
+import InputForm from "../InputForm/inputForm";
 import axios from 'axios';
 import { signOut, useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
 import { toast } from 'react-hot-toast';
 import EventButton from '../Components/Buttons/eventButton';
 
@@ -18,13 +17,21 @@ const Profile = () => {
   });
   const [team,setTeam] = useState([]);
   const {data:session} = useSession();
-  const router = useRouter();
   
   useEffect(() => {
+    if(!session) return ;
     const fetchUser = async () => {
       try {
-        const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/getUser`);
-        const teams = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/getUserTeams`);
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/getUser`,{
+          validateStatus: (status) => status >= 200 && status <= 500,
+        });
+        const teams = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/getUserTeams`,{
+          validateStatus: (status) => status >= 200 && status <= 500,
+        });
+
+        if(response.error || teams.error){
+          return;
+        }
         setTeam(teams.data.team);
         setuser({
           _id: response.data._id,
@@ -78,4 +85,4 @@ const Profile = () => {
   )
 }
 
-export default Profile
+export default Profile;

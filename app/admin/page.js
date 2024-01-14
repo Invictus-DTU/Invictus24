@@ -47,7 +47,9 @@ const EventForm = () => {
       if(e.target.files){
           file= e.target.files[0];
       }
-          const base64= await Base64(file);
+
+      const base64= await Base64(file);
+
       if(e.target.files && e.target.files[0]){
           setFormData({...formData, image: base64});
       }

@@ -14,7 +14,6 @@ const InputForm = ({user}) => {
     college: '',
     phone: 0,
   });
-  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,6 +22,7 @@ const InputForm = ({user}) => {
       [name]: value,
     });
   };
+
   useEffect(()=>{
     setFormData({
       username: user?.username || '',
@@ -48,12 +48,11 @@ const InputForm = ({user}) => {
   
 
   return (
-    <div className='InputForm' w-100>
+    <div className='InputForm w-100'>
       <Toaster position="top-center" reverseOrder={false} />
       <h1 id='ourProfile' className='w-100'>Our Profile</h1>
 
       <form onSubmit={handleSubmit}>
-
         <label htmlFor="name">Name</label>
         <input
           type="text"
@@ -62,15 +61,17 @@ const InputForm = ({user}) => {
           value={formData.username}
           onChange={handleChange}
         />
-        <label for="email">Email Address</label>
+
+        <label htmlFor="email">Email Address</label>
         <input
-          type="email"
+          type="text"
           id="email"
           name="email"
           value={formData.email}
-          readOnly= "true"
+          readOnly={true}
         />
-        <label for="phone">Phone No.</label>
+
+        <label htmlFor="phone">Phone No.</label>
         <input
           type="Number"
           id="phone"
@@ -78,7 +79,8 @@ const InputForm = ({user}) => {
           value={formData.phone}
           onChange={handleChange}
         />
-        <label for="college">College Name</label>
+
+        <label htmlFor="college">College Name</label>
         <input
           type="text"
           id="college"
@@ -86,6 +88,7 @@ const InputForm = ({user}) => {
           value={formData.college}
           onChange={handleChange}
         />
+
         <div className='flex justify-center items-center'>
             <EventButton action={handleSubmit} title="Save Info"/>
         </div>

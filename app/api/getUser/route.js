@@ -10,12 +10,16 @@ export async function GET() {
     try{
         const cookieStore = cookies();
         const token = cookieStore.get('token');
+        
+        if(!token){
+            return NextResponse.json({error: "User not exist"},{status: 400});
+        }
 
         const user = jwt.verify(token.value, process.env.SECRET);
 
         if (!user || !user.id) {
           console.error('Invalid user data');
-          return NextResponse.error('Unauthorized', { status: 400 });
+          return NextResponse.json({error: 'Unauthorized'}, { status: 400 });
         }
 
         

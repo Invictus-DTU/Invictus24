@@ -26,6 +26,9 @@ export const userRegister = async (formData) => {
 
 export const checkUser = async (email) => {
   try {
+    if(!email){
+      return {error: "email not present"};
+    }
     const response = await axios.post(
       `${process.env.NEXT_PUBLIC_BASE_URL}/checkUser`,
       { email: email },
@@ -65,7 +68,9 @@ export const getEvents = async () => {
 export const getUserTeams = async () => {
   try {
     const { response } = await axios.get(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/getUserTeams`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/getUserTeams`,{
+        validateStatus: (status) => status >= 200 && status <= 500,
+      },
     );
     const res = await response.json();
     if (response.status === 500) {
@@ -80,7 +85,9 @@ export const getUserTeams = async () => {
 export const getRegisteredEvents = async () => {
   try {
     const { response } = await axios.get(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/society-events/registered-events`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/society-events/registered-events`,{
+        validateStatus: (status) => status >= 200 && status <= 500,
+      },
     );
     const res = await response.json();
     if (response.status === 500) {
@@ -95,7 +102,9 @@ export const getRegisteredEvents = async () => {
 export const getRegisteredUsers = async () => {
   try {
     const { response } = await axios.get(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/society-events/registered-users?Id=${id}`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/society-events/registered-users?Id=${id}`,{
+        validateStatus: (status) => status >= 200 && status <= 500,
+      },
     );
     const res = await response.json();
     if (response.status === 500) {
