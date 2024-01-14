@@ -6,6 +6,20 @@ import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 const WorkshopCard = (props) => {
   const { data: session } = useSession();
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dev",
+  ];
   const router = useRouter();
 
   function redirect(id) {
@@ -61,7 +75,13 @@ const WorkshopCard = (props) => {
           {/* //! Location */}
           <div className="flex flex-col justify-center items-center max-[768px]:flex-row max-[768px]:justify-between max-[768px]:w-full max-[768px]:my-3">
             <div className="date font-retrog text-nowrap">
-              {props.data.date.substring(0, 10)}
+              {/* Date */}
+              {props.data?.date.substring(0, 10).split("-")[2] + " "}
+              {/* Month */}
+              {months[props.data?.date.substring(0, 10).split("-")[1] - 1] +
+                " "}
+              {/* Year */}
+              {props.data?.date.substring(0, 10).split("-")[0]}
             </div>
             <div className="venue font-retrog">
               {props.data.venue || "DTU"}, {props.data.time || "time"}
