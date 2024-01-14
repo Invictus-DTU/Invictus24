@@ -12,7 +12,12 @@ export default function Protection(){
     const role = segments[1];
     
     useEffect(() => {
-        if(!session || !session?.user) return;
+        if(!session || !session?.user){
+            if(role === "admin"){
+                router.push('/');
+            }
+            return;
+        }
         async function auth(){
             const res = await checkUser(session?.user?.email);
             if(res.error || res.message === "Doesn't exist"){
