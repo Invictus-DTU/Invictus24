@@ -15,3 +15,23 @@ height: 400px;
 display: block;
 width: 100%;
 }
+@media screen and (max-width:500px) {
+    .hidesms{
+        display: none;
+    }
+}
+@media screen and (min-width:500px) {
+    .showsms{
+        display: none;
+    }
+}
+@media screen and (min-width:768px  ) {
+    .cardhomeimage{
+        height:auto;
+    }
+}
+@media screen and (min-width:853px  ) {
+    .cardhomeimage{
+        height:100%;
+    }
+}

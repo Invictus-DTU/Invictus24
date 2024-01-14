@@ -13,7 +13,7 @@ const Events = () => {
     search: "",
     sort: "",
   });
-  
+
   useEffect(() => {
     async function get() {
       try {
@@ -108,7 +108,14 @@ const Events = () => {
       setEvent(temp.filter((data) => data.participationStatus === value));
     } else {
       const temp = arr.slice();
-      setEvent(temp.filter((event) => event.name.startsWith(value)));
+      setEvent(
+        temp.filter((event) => {
+          return (
+            event.name.toLowerCase().includes(value.toLowerCase()) ||
+            event.description.toLowerCase().includes(value.toLowerCase())
+          );
+        })
+      );
     }
   };
 
@@ -125,7 +132,7 @@ const Events = () => {
         {/* Buttons and SearchBar */}
         <div className="flex h-fit md:justify-between max-[768px]: justify-center w-[90%] max-[640px]: flex-wrap ">
           {/* Filter and Sort buttons */}
-          <div className="flex h-fit md:w-fit max-[768px]: w-[80%] max-[480px]:w-fit md:justify-normal sm:justify-center max-[640px]: justify-between">
+          <div className="flex h-fit md:w-fit max-[768px]:w-[80%] max-[480px]:w-fit md:justify-normal sm:justify-center max-[640px]: justify-between">
             {/* <Butt title="Filter" /> */}
             {/* <Butt title="Sort" /> */}
             <select
@@ -133,7 +140,7 @@ const Events = () => {
               id="filter"
               value={filter.filter}
               onChange={handleChange}
-              className="event-button bg-transparent w-fit h-fit flex justify-center items-center font-ticketing max-[320px]:text-[6vw] max-[768px]:text-[5vw] md:text-[3vw] lg:text-[2vw]  px-5 py-1 my-1 mx-2 text-center"
+              className="event-button bg-transparent w-[50%] text-center h-fit flex justify-center items-center font-ticketing max-[320px]:text-[6vw] max-[768px]:text-[4vw] md:text-[2vw] lg:text-[1.5vw]  px-5 py-2 my-1 mx-2"
             >
               <option value="">Filter</option>
               <option value="participated">Registered</option>
@@ -147,7 +154,7 @@ const Events = () => {
               id="sort"
               value={filter.sort}
               onChange={handleChange}
-              className="event-button bg-transparent w-fit h-fit flex justify-center items-center font-ticketing max-[320px]:text-[6vw] max-[768px]:text-[5vw] md:text-[3vw] lg:text-[2vw]  px-5 py-1 my-1 mx-2"
+              className="event-button bg-transparent w-[50%] text-center h-fit flex justify-center items-center font-ticketing max-[320px]:text-[6vw] max-[768px]:text-[4vw] md:text-[2vw] lg:text-[1.5vw]  px-5 py-2 my-1 mx-2"
             >
               <option value="">Sort By</option>
               <option value="date">Date</option>
@@ -158,17 +165,17 @@ const Events = () => {
             {/* <Butt title="Sort" /> */}
           </div>
           {/* Search Bar */}
-          <div className="md: h-10 sm:h-full lg:w-100 md:w-80 sm:w-60 flex items-center bg-white m-0 max-[768px]:mt-4 p-2 rounded-full">
-            <div className="h-8 w-8">
-              <img src="/Search.png" alt="search" className="w-8 h-8" />
+          <div className="gap-1 flex items-center bg-white w-full h-10 md:w-[30%] max-[768px]:mt-4 p-2 rounded-full">
+            <div className="h-6 w-6 ">
+              <img src="/Search.png" alt="search" />
             </div>
             <input
-              className="flex shrink h-[80%] w-[85%] font-retrog border-0 focus:outline-none self-center p-0 m-0"
+              className="h-[80%] w-[85%] rounded-none flex justify-center items-center  font-retrog outline-none"
               placeholder="Search for Events"
               name="search"
               onChange={handleChange}
               value={filter.search}
-            ></input>
+            />
           </div>
         </div>
 

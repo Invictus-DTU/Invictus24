@@ -17,10 +17,11 @@ export const userRegister = async (formData) => {
       return { error: "Some error occurred" };
     } else {
       return { success: true, message: "Registered successfully!" };
-    }}
-    catch (error) {
-        return { error: "error" };
     }
+  }
+  catch (error) {
+    return { error: "error" };
+  }
 };
 
 export const checkUser = async (email) => {

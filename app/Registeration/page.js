@@ -18,7 +18,7 @@ const Registration = () => {
   const validatePhoneNumber = (phoneNumber) => {
     // Regex pattern for 10 digits
     const phoneRegex = /^\d{10}$/;
-    return phoneRegex.test(phoneNumber);;
+    return phoneRegex.test(phoneNumber);
   };
 
   const handleChange = (e) => {
@@ -144,14 +144,8 @@ const Registration = () => {
                 required
               />
             </div>
-            <button>
-              <div className="flex flex-col items-center relative register-box">
-                <div className="  h-6 bg-white  relative box-1"></div>
-                <div className=" w-4/6 h-12 bg-white relative box-2 text-center text-2xl  font-retrog pt-2">
-                  Register Now
-                </div>
-                <div className=" w-3/5 h-20 bg-white text-black box-3"></div>
-              </div>
+            <button className="event-button transition-all duration-200 sm:h-20 max-sm:h-16 flex justify-center items-center font-ticketing w-1/2 min-w-fit text-3xl  px-5 py-1 my-1 mx-auto">
+              Register Now
             </button>
           </form>
         </div>
