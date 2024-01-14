@@ -8,6 +8,7 @@ const EventForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     societyName: '',
+    location: '',
     description: '',
     date: '',
     time: '',
@@ -39,7 +40,6 @@ const EventForm = () => {
         console.error('Error sending data:', error.response.data.error,error.response.status);
         toast.error(error.response.data.error);
       });
-    console.log(formData);
   };
 
   async function handleFileUpload(e) {
@@ -75,6 +75,17 @@ const EventForm = () => {
             type="text"
             name="societyName"
             value={formData.societyName}
+            onChange={handleChange}
+            className="block w-full border-gray-300 rounded-md mt-1 focus:ring-indigo-500 focus:border-indigo-500"
+          />
+        </label>
+
+        <label className="block mb-4">
+          Google Map Location:
+          <input
+            type="text"
+            name="location"
+            value={formData.location}
             onChange={handleChange}
             className="block w-full border-gray-300 rounded-md mt-1 focus:ring-indigo-500 focus:border-indigo-500"
           />

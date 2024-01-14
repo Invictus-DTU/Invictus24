@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import EventCard from "./EventCard";
 import { Toaster, toast } from "react-hot-toast";
 import { submitTeam, getEvents } from "../helper/index";
+import { Loader } from "../Loader/Loader";
 
 const Events = () => {
   const [event, setEvent] = useState([]);
@@ -113,6 +114,8 @@ const Events = () => {
 
   return (
     <>
+      {arr.length === 0? <Loader />
+      :
       <div className="flex flex-col items-center w-full Events pb-[60px] ">
         <Toaster position="top-center" reverseOrder={false} />
         <h1 className="font-retrog xl:text-7xl lg:text-7xl md:text-6xl sm:text-5xl max-[640px]:text-5xl flex justify-center mt-32 mb-6 text-white">
@@ -177,8 +180,8 @@ const Events = () => {
                 key={i}
                 handleTeamSubmit={handleTeamSubmit}
               />
-            );
-          })}
+          );
+        })}
 
         {/* Pagination component with Next and Previous buttons */}
         <div className="pagination font-ticketing">
@@ -203,7 +206,7 @@ const Events = () => {
             Next
           </button>
         </div>
-      </div>
+      </div>}
     </>
   );
 };

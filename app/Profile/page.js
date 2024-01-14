@@ -25,7 +25,6 @@ const Profile = () => {
       try {
         const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/getUser`);
         const teams = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/getUserTeams`);
-        console.log(teams);
         setTeam(teams.data.team);
         setuser({
           _id: response.data._id,
@@ -34,14 +33,12 @@ const Profile = () => {
           college: response.data.college,
           phone: response.data.phone,
         });
-        console.log(response.data); 
-        console.log(user); 
       } catch (error) {
         console.error('Error fetching user:', error);
       }
     };
     fetchUser();
-  }, [ ]);
+  }, [session]);
 
   async function deleteSession() {
     try {

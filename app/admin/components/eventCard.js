@@ -17,6 +17,7 @@ const EventCard = ({ event, onUpdate, onDelete }) => {
   const {
     name,
     societyName,
+    location,
     description,
     date,
     teamSizeMIN,
@@ -105,6 +106,16 @@ const EventCard = ({ event, onUpdate, onDelete }) => {
               />
             ) : (
               prize
+            )}</p>
+            <p className="text-gray-700 mt-4">Location: {editMode ? (
+              <input
+                type="text"
+                className="text-gray-700 border rounded-md p-2 w-full"
+                value={updatedEvent.location}
+                onChange={(e) => setUpdatedEvent({ ...updatedEvent, location: e.target.value })}
+              />
+            ) : (
+              location
             )}</p>
           <p className="text-gray-700 mt-4">Venue: {editMode ? (
               <input

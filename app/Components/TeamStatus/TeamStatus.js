@@ -4,12 +4,11 @@ import "./TeamStatus.css"
 import TeamCard from "./TeamCard";
 
 export const TeamStatus = ({teams}) => {
-    const [team,setTeam] = useState(teams);
-    useEffect(()=>{
-        
-        setTeam(teams);
-        console.log("hi:",team);
-    },[teams])
+  const [team,setTeam] = useState(teams);
+  useEffect(()=>{
+    setTeam(teams);
+  },[teams])
+  
   return (
     <div className="TeamStatus">
         <div className='heading'>Events Status:</div>
