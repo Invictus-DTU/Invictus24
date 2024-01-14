@@ -120,7 +120,7 @@ const Navbar = () => {
                                             children={<Profile />}
                                         >
                                             <img
-                                                src="/profile.png"
+                                                src="/Profile.png"
                                                 alt="profile"
                                                 className="h-10 w-10"
                                             />
@@ -204,7 +204,7 @@ const Navbar = () => {
                                 <li className="mx-6 mt-6 hover:text-white active:text-white">
                                     <Link href="/Profile">
                                         <img
-                                            src="/profile.png"
+                                            src="/Profile.png"
                                             alt="profile"
                                             className="h-10 w-10"
                                         />
