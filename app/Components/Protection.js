@@ -14,26 +14,26 @@ export default function Protection(){
     useEffect(() => {
         if(!session || !session?.user) return;
         async function auth(){
-        const res = await checkUser(session?.user?.email);
-        if(res.error || res.message === "Doesn't exist"){
-            if(role !== "Registeration"){
-               await signOut();
-               window.location.href= "/Registeration";
+            const res = await checkUser(session?.user?.email);
+            if(res.error || res.message === "Doesn't exist"){
+                if(role !== "Registeration"){
+                    await signOut();
+                    window.location.href= "/Registeration";
+                }
             }
-        }
-        else if(res.isAdmin){
-            if(role === "admin"){
-                return;
+            else if(res.isAdmin){
+                if(role === "admin"){
+                    return;
+                }
+                router.push('/admin');
             }
-            router.push('/admin');
-        }
-        else if(role === "admin"){
-            router.push('/');
-        }
+            else if(role === "admin"){
+                router.push('/');
+            }
         }
         auth();
     }, [session]);
     return (
         <></>
-    )
+        )
 }

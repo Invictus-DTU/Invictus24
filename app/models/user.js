@@ -3,7 +3,7 @@ const userSchema = new mongoose.Schema({
     username:{
         type : String,
         required:[true,"please enter the name"],
-        unique: true,
+        // unique: true,
     },
     email:{
         type : String,
@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
     phone:{
         type : Number,
         required:[true,"please enter the name"],
-        unique: true,
+        // unique: true,
     },
     status:{
         type: String,
