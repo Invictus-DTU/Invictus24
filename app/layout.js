@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <title>Invictus DTU</title>
-            <meta name='description' content='Annual TechFest DTU 2024' />
+            <meta name='description' content='india Largest Annual TechFest, Delhi Technological University 2024' />
             <link rel="icon" type="image/x-icon" href="static/favicon.ico"></link>
             <body className={inter.className}>
                 <SessionProvider>
