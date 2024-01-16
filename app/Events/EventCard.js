@@ -8,7 +8,8 @@ import { useRouter } from "next/navigation";
 
 const EventCard = (props) => {
   const { data: session } = useSession();
-  const month = [
+
+  const months = [
     "Jan",
     "Feb",
     "Mar",
@@ -29,8 +30,8 @@ const EventCard = (props) => {
     return;
   }
 
-  function Location(){
-    window.open(props.data.location, '_blank');
+  function Location() {
+    window.open(props.data.location, "_blank");
     return;
   }
 
@@ -43,8 +44,8 @@ const EventCard = (props) => {
           src={props.data.image || "/Card-Robo.png"}
           alt="event image"
           width={50}
-          height={50} 
-        /> 
+          height={50}
+        />
 
         {/* About */}
         <div className="w-3/5 lg:w-90 md:w-90  max-[768px]:w-[90%] self-start">
@@ -82,10 +83,10 @@ const EventCard = (props) => {
             <div className="flex flex-col justify-center items-center">
               <div className="date font-retrog w-fit text-nowrap">
                 {/* Date */}
-                {props.data?.date.substring(0, 10).split("-")[2]} {/* Month */}
-                {
-                  month[props.data?.date.substring(0, 10).split("-")[1] - 1]
-                }{" "}
+                {props.data?.date.substring(0, 10).split("-")[2] + " "}{" "}
+                {/* Month */}
+                {months[props.data?.date.substring(0, 10).split("-")[1] - 1] +
+                  " "}
                 {/* Year */}
                 {props.data?.date.substring(0, 10).split("-")[0]}
               </div>
@@ -95,7 +96,7 @@ const EventCard = (props) => {
             </div>
           </div>
 
-          <Butt title="Location" action={Location}/>
+          <Butt title="Location" action={Location} />
 
           {session ? (
             props.data.status === "closed" ? (
