@@ -22,6 +22,11 @@ const WorkshopCard = (props) => {
   ];
   const router = useRouter();
 
+  function Location() {
+    window.open(props.data.location, "_blank");
+    return;
+  }
+
   function redirect(id) {
     router.push(`/InputForm?event=${id}&prev=${"Workshops"}`);
     return;
@@ -33,8 +38,8 @@ const WorkshopCard = (props) => {
         // className="main-box"
       >
         <img
-          className="  bg-no-repeat  shrink-0 xl:w-[25rem] lg:w-80 md:w-60 sm:w-[25rem] w-[100%] md:mr-3 rounded-3xl max-[768px]:justify-center"
-          src={props.data?.image && !props.data?.image.startsWith("https://drive.google.com") ? props.data?.image : "/Card-Robo.png"}
+          className="  bg-no-repeat shrink-0 xl:w-[25rem] lg:w-80 md:w-60 sm:w-[25rem] w-[100%] md:mr-3 rounded-3xl max-[768px]:justify-center"
+          src={props.data.image || "/Card-Robo.png"}
           alt="event image"
           width={50}
           height={50}
@@ -87,7 +92,9 @@ const WorkshopCard = (props) => {
               {props.data.venue || "DTU"}, {props.data.time || "time"}
             </div>
           </div>
-          {/* //* Registration */}
+
+          <Butt title="Location" action={Location} />
+
           {session ? (
             props.data.status === "closed" ? (
               <Butt title="closed" />

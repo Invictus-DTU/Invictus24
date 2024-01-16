@@ -32,11 +32,13 @@ const EventCard = ({ event, onUpdate, onDelete }) => {
   return (
     <div className="bg-white rounded-lg shadow-md p-6 mb-4 mx-4">
       <div className="flex-col items-center justify-between">
-        {image && (
-          <div className="w-full mr-6 mb-4">
-            <img src={image} alt={name} className="w-full rounded-md" />
-          </div>
-        )}
+        <img
+          className="bg-no-repeat  shrink-0 xl:w-[25rem] lg:w-80 md:w-60 sm:w-[25rem] w-[100%] md:mr-3 rounded-3xl"
+          src={image || "/Card-Robo.png"}
+          alt="event image"
+          width={50}
+          height={50}
+        />
         <div className="flex-1">
           <h2 className="text-2xl font-semibold">{name}</h2>
           <p className="text-gray-600">{societyName}</p>

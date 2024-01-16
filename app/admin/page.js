@@ -30,7 +30,8 @@ const EventForm = () => {
 
   const imageUpload = (e) =>{
     const { name, value } = e.target;
-    const url = "https://drive.google.com/thumbnail?id=" + value.match(/\/d\/([^\/]+)\/view/)[1]
+    const id = value.match(/\/d\/([^\/]+)\/view/);
+    const url = id?"https://lh3.googleusercontent.com/d/" + id[1] + "=s220" :"";
     setFormData({
       ...formData,
       image: url
