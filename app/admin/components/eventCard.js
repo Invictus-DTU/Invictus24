@@ -33,9 +33,11 @@ const EventCard = ({ event, onUpdate, onDelete }) => {
     <div className="bg-white rounded-lg shadow-md p-6 mb-4 mx-4">
       <div className="flex-col items-center justify-between">
         {image && (
-          <div className="w-full mr-6 mb-4">
-            <img src={image} alt={name} className="w-full rounded-md" />
-          </div>
+          <img
+            className="w-full rounded-md"
+            src={image}
+            alt={name}
+          /> 
         )}
         <div className="flex-1">
           <h2 className="text-2xl font-semibold">{name}</h2>
