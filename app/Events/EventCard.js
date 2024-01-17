@@ -71,7 +71,7 @@ const EventCard = (props) => {
             {props.data?.description}
           </div>
           <div className="w-56 text-2">
-           <Butt title="Read More" action={readMore} />
+           <a className="font-bold text-xl" href={props.data.readmore} target="_blank" referrerPolicy="no-referrer">Read More</a>
           </div>
         </div>
 
