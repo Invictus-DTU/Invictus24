@@ -45,7 +45,7 @@ const Registration = () => {
         ...formData,
         email: session?.user?.email,
       });
-      console.log(session.user.email, result.success);
+
       if (result.success) {
         alert(result.message);
         setRegistered(true);

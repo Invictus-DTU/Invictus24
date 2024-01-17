@@ -12,7 +12,6 @@ export async function POST(req) {
   try {
     const reqBody = await req.json();
     const { name, email, college, phone } = reqBody.formData;
-    console.log(name);
     const user = await User.findOne({ email: email });
     if (user) {
       return NextResponse.json({ error: "Already exist" }, { status: 400 });

@@ -129,7 +129,7 @@ const WorkshopCard = (props) => {
             )
           ) : (
             <Butt
-              title="Register"
+              title="Book Now"
               action={() => {
                 toast.error("Please SignIn or Register");
               }}

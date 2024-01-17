@@ -22,7 +22,6 @@ export async function POST(req) {
         const teamLeader = tokenData.id;
         const team = await Team.findOne({ teamId });
         const event = await Event.findOne({ _id: eventName });
-        console.log(teamname);
         if (team) {
             return NextResponse.json({ error: "Team already exists" }, { status: 400 });
         } else if (!user) {

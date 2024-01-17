@@ -12,7 +12,6 @@ const EventTeamsPage = () => {
 
     const handleEventSubmit = async (e) => {
         e.preventDefault();
-        // console.log(e.target)
         try {
             setLoading(true);
             const response = await axios.post(
@@ -22,7 +21,6 @@ const EventTeamsPage = () => {
                     validateStatus: (status) => status >= 200 && status <= 500,
                 }
             );
-            // console.log(response)
             setTeams(response.data);
             setLoading(false);
         } catch (error) {
