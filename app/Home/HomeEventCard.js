@@ -47,7 +47,7 @@ const EventCard = (props) => {
             height="100%"
           />
           <div className="text-2xl max-md:text-xl font-retrog">
-            {props.data?.prize || 0}
+            {props.data?.prize.toString().substring(0,2) + "K" || 0}
           </div>
         </div>
         <div className="flex items-center gap-2 xl:hidden">

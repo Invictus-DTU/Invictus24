@@ -85,7 +85,7 @@ const EventCard = (props) => {
                 alt="Trophy"
                 height="100%"
               />
-              <div className="text-2xl font-retrog">{props.data?.prize}</div>
+              <div className="text-2xl font-retrog">{props.data?.prize.toString().substring(0,2) + "K"}</div>
             </div>
 
             <div className="flex flex-col justify-center items-center">
