@@ -7,7 +7,7 @@ export async function POST(req) {
     try{
         const reqBody= await req.json();
 
-        const {name,time,societyName,location,description,date,teamSizeMIN,teamSizeMax,prize,venue,registrationEndDate,image,type} = reqBody;
+        const {name,time,societyName,location,description,date,teamSizeMIN,teamSizeMax,prize,venue,registrationEndDate,image,type,readmore} = reqBody;
         
         const event = await Event.findOne({name});
 
@@ -15,9 +15,8 @@ export async function POST(req) {
             return NextResponse.json({error: "Event already exist"},{status: 400});
         }
         else{
-            const newEvent = new Event({name,time,societyName,location,description,date,teamSizeMIN,teamSizeMax,prize,venue,registrationEndDate,image,type});
+            const newEvent = new Event({name,time,societyName,location,description,date,teamSizeMIN,teamSizeMax,prize,venue,registrationEndDate,image,type,readmore});
             await newEvent.save();
-            console.log(typeof(reqBody.type));
             return NextResponse.json({
                 message: "Event created successafully"
             });

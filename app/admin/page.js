@@ -17,7 +17,8 @@ const EventForm = () => {
     venue: '',
     registrationEndDate: '',
     image: '',
-    type: ''
+    type: '',
+    readmore:''
   });
 
   const handleChange = (e) => {
@@ -43,7 +44,22 @@ const EventForm = () => {
     axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/society-events/registration`, formData)
       .then((response) => {
         toast.success('Event registered successfully');
-        window.location.reload();
+        setFormData({
+          name: '',
+          societyName: '',
+          location: '',
+          description: '',
+          date: '',
+          time: '',
+          teamSizeMIN: 1,
+          teamSizeMax: 1,
+          prize: 0,
+          venue: '',
+          registrationEndDate: '',
+          image: '',
+          type: '',
+          readmore:''
+        })
       })
       .catch((error) => {
         console.error('Error sending data:', error.response.data.error,error.response.status);
@@ -217,6 +233,17 @@ const EventForm = () => {
           name="image"
           value={formData.image}
           onChange={imageUpload}
+          className="block w-full border-gray-300 rounded-md mt-1 focus:ring-indigo-500 focus:border-indigo-500"
+        />
+        </label>
+
+        <label htmlFor="profileImage" className="block mb-4">
+          Read More
+        <input
+          type="text"
+          name="readmore"
+          value={formData.readmore}
+          onChange={handleChange}
           className="block w-full border-gray-300 rounded-md mt-1 focus:ring-indigo-500 focus:border-indigo-500"
         />
         </label>

@@ -49,6 +49,9 @@ const eventSchema = new mongoose.Schema({
     },
     image: {
         type: String,
+    },
+    readmore:{
+        type: String,
     }
 });
 

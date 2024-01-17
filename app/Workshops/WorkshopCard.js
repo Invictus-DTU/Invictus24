@@ -31,6 +31,12 @@ const WorkshopCard = (props) => {
     router.push(`/InputForm?event=${id}&prev=${"Workshops"}`);
     return;
   }
+
+  function readMore() {
+    window.open(props.data.readmore, "_blank");
+    return;
+  }
+  
   return (
     <>
       <div
@@ -62,6 +68,9 @@ const WorkshopCard = (props) => {
           </div>
           <div className=" font-ticketing xl:text-lg sm:text-sm max-[640px]:text-base">
             {props.data.description}
+          </div>
+          <div className="w-56 text-2">
+           <Butt title="Read More" action={readMore} />
           </div>
         </div>
 

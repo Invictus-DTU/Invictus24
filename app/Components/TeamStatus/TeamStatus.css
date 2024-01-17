@@ -1,5 +1,5 @@
 .TeamStatus{
-    max-height: 500px;
+    height: 800px;
     overflow: auto; /* Use 'auto' instead of 'scroll' to hide the scrollbar when not needed */
     border-radius: 29px;
     background: #000;
