@@ -116,7 +116,7 @@ const Events = () => {
       {arr.length === 0 ? (
         <Loader />
       ) : (
-        <div className="flex flex-col items-center w-full Events pb-[60px] ">
+        <div className="flex flex-col items-center w-full pb-[60px] bg-[url('/Events.png')] min-h-[100vh] bg-center bg-scroll bg-cover bg-no-repeat">
           <Toaster position="top-center" reverseOrder={false} />
           <h1 className="font-retrog xl:text-7xl lg:text-7xl md:text-6xl sm:text-5xl max-[640px]:text-5xl flex justify-center mt-32 mb-6 text-white">
             Events

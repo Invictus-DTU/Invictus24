@@ -50,12 +50,9 @@ const Home = () => {
 
   return (
     <main className="w-full sm:h-[400vh] overflow-auto max-sm:h-[300vh]">
-      <div className="bg-[#05063F] absolute z-[-1] w-full h-full"></div>
-      <div className="w-full h-screen top-0 left-0 flex flex-col justify-center items-center">
-        <img
-          src="/bg.png"
-          className=" w-full absolute h-full top-0 left-0 shrink-0 object-cover opacity-50 z-2"
-        />
+      <div className="bg-[#05063F]/50 absolute w-full h-full"></div>
+
+      <div className="w-full h-screen top-0 left-0 flex flex-col justify-center items-center bg-[url('/bg.png')] bg-cover bg-center bg-no-repeat bg-opacity-50 bg-[#05063F]">
         {/* //! Home Page */}
         <div className="z-1 mt-10 flex flex-col py-24 h-screen absolute top-0 items-center justify-center">
           {/*  justify around->center*/}
@@ -81,12 +78,8 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="bg-[#05063F] absolute z-[-10] h-[100vh] w-full"></div>
-      <div className="w-full sm:h-[300vh] top-0 left-0 flex flex-col max-sm:h-[200vh]">
-        <img
-          src="/bg2.png"
-          className=" w-full absolute sm:h-[300vh] top-[100vh] max-sm:h-[200vh] left-0 shrink-0 object-cover opacity-30 z-2 "
-        />
+      <div className="bg-[#05063F]/70 absolute  sm:h-[300vh] top-[100vh] max-sm:h-[200vh] w-full"></div>
+      <div className="w-full sm:h-[300vh] top-0 left-0 flex flex-col max-sm:h-[200vh] bg-[url('/bg2.png')] bg-center bg-no-repeat bg-cover bg-opacity-30">
         <div className="z-1 h-[100vh] flex flex-col justify-evenly absolute top-[100vh] items-center text-white">
           <div className="font-retrog max-[640px]:text-[10vw] text-[6vw]">
             About
