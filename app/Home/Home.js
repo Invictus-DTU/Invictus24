@@ -53,7 +53,7 @@ const Home = () => {
       <div className="bg-[#05063F] absolute z-[-1] w-full h-full"></div>
       <div className="w-full h-screen top-0 left-0 flex flex-col justify-center items-center">
         <img
-          src="/bg.png"
+          src="/bg_c.webp"
           className=" w-full absolute h-full top-0 left-0 shrink-0 object-cover opacity-50 z-2"
         />
         {/* //! Home Page */}
