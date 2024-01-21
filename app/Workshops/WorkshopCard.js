@@ -69,9 +69,8 @@ const WorkshopCard = (props) => {
           <div className=" font-ticketing xl:text-lg sm:text-sm max-[640px]:text-base">
             {props.data.description}
           </div>
-          <div className="w-56 text-2">
-           <Butt title="Read More" action={readMore} />
-          </div>
+          {console.log(props.data.readmore)}
+          <a className="font-bold text-xl px-2" href={props.data.readmore} target="_blank" referrerPolicy="no-referrer">Read More</a>
         </div>
 
         {/* //! Register Box */}

@@ -19,7 +19,7 @@ const EventCard = (props) => {
   return (
     <>
       <div
-        className="bg-[#0000004d] h-full flex text-[#f0f8ff] justify-center items-center backdrop-blur rounded-[25px] shadow-[0px_0px_20px_#8f8f8f8f] flex-col lg:w-[100%]  "
+        className="bg-[#0000004d] h-full flex text-[#f0f8ff] justify-center items-center backdrop-blur rounded-[25px] shadow-[0px_0px_20px_#8f8f8f8f] flex-col lg:w-[100%] overflow-hidden overflow-y-scroll hidescroolhomecard  "
         // className="main-box"
       >
         <div className=" h-1/2 flex justify-center items-center mb-2 w-auto">
@@ -47,7 +47,7 @@ const EventCard = (props) => {
             height="100%"
           />
           <div className="text-2xl max-md:text-xl font-retrog">
-            {props.data?.prize || 0}
+            {props.data?.prize.toString().substring(0,2) + "K" || 0}
           </div>
         </div>
         <div className="flex items-center gap-2 xl:hidden">
@@ -63,7 +63,7 @@ const EventCard = (props) => {
         </div>
 
         <div className="location text-center max-md:text-sm ">
-          <div className="date font-retrog w-fit text-nowrap">
+          <div className="date font-retrog text-nowrap text-center w-full">
             {/* Date */}
             {props.data?.date.substring(0, 10).split("-")[2] + " "}{" "}
             {/* Month */}
@@ -72,7 +72,7 @@ const EventCard = (props) => {
             {props.data?.date.substring(0, 10).split("-")[0]}
           </div>
           <div className="venue font-retrog">
-            {props.data?.venue || "DTU"}, {props.data?.time || "time"}
+              {props.data?.venue || "DTU"} {props.data?.time || ""}
           </div>
         </div>
 

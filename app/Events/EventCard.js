@@ -55,7 +55,7 @@ const EventCard = (props) => {
 
         {/* About */}
         <div className="w-3/5 lg:w-90 md:w-90  max-[768px]:w-[90%] self-start">
-          <div className="font-retrog lg:text-3xl  md:text-3xl sm:text-3xl text-4xl mt-0 max-[640px]:my-2 max-[640px]:flex justify-center">
+          <div className="font-retrog text-center md:text-left lg:text-3xl  md:text-3xl sm:text-3xl text-4xl mt-0 max-[640px]:my-2 max-[640px]:flex justify-center">
             {props.data?.name}
           </div>
           <div className="font-ticketing">
@@ -72,7 +72,7 @@ const EventCard = (props) => {
             {props.data?.description}
           </div>
           <div className="w-56 text-2">
-           <Butt title="Read More" action={readMore} />
+           <a className="font-bold text-xl" href={props.data.readmore} target="_blank" referrerPolicy="no-referrer">Read More</a>
           </div>
         </div>
 
@@ -86,10 +86,10 @@ const EventCard = (props) => {
                 alt="Trophy"
                 height="100%"
               />
-              <div className="text-2xl font-retrog">{props.data?.prize}</div>
+              <div className="text-2xl font-retrog">{props.data?.prize.toString().substring(0,2) + "K"}</div>
             </div>
 
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex max-[400px]:text-[11px] flex-col justify-center items-center">
               <div className="date font-retrog w-fit text-nowrap">
                 {/* Date */}
                 {props.data?.date.substring(0, 10).split("-")[2] + " "}{" "}
