@@ -50,7 +50,7 @@ const EventForm = () => {
           location: '',
           description: '',
           date: '',
-          time: '',
+          unstop: '',
           teamSizeMIN: 1,
           teamSizeMax: 1,
           prize: 0,
@@ -128,11 +128,11 @@ const EventForm = () => {
         </label>
 
         <label className="block mb-4">
-          Time:
+          Unstop Registeration Link:
           <input
-            type="time"
-            name="time"
-            value={formData.time}
+            type="text"
+            name="unstop"
+            value={formData.unstop}
             onChange={handleChange}
             className="block w-full border-gray-300 rounded-md mt-1 focus:ring-indigo-500 focus:border-indigo-500"
           />

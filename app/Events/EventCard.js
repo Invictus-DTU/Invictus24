@@ -26,7 +26,8 @@ const EventCard = (props) => {
   const router = useRouter();
 
   function redirect(id) {
-    router.push(`/InputForm?event=${id}&prev=${"Events"}`);
+    if(props.data.unstop) router.push(props.data.unstop);
+    else router.push(`/InputForm?event=${id}&prev=${"Events"}`);
     return;
   }
 
@@ -99,7 +100,7 @@ const EventCard = (props) => {
                 {props.data?.date.substring(0, 10).split("-")[0]}
               </div>
               <div className="venue font-retrog">
-                {props.data?.venue || "DTU"}, {props.data?.time || "time"}
+                {props.data?.venue || "DTU"}
               </div>
             </div>
           </div>

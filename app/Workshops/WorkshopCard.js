@@ -98,7 +98,7 @@ const WorkshopCard = (props) => {
               {props.data?.date.substring(0, 10).split("-")[0]}
             </div>
             <div className="venue font-retrog">
-              {props.data.venue || "DTU"}, {props.data.time || "time"}
+              {props.data.venue || "DTU"}
             </div>
           </div>
 

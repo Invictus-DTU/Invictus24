@@ -21,9 +21,8 @@ const eventSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    time: {
+    unstop: {
         type: String,
-        required: true
     },
     teamSizeMIN: {
         type: Number,
