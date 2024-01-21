@@ -56,12 +56,12 @@ const TeamPage = () => {
   };
 
   return (
-    <main className="w-full overflow-auto">
+    <main className="w-full overflow-auto h-screen">
       <Toaster position="top-center" reverseOrder={false} />
-      <div className="w-full h-full top-0 left-0 flex justify-center items-center bg-[#05063F]" style={{ overflow: 'hidden' }}>
+      <div className="w-full h-full flex justify-center items-center bg-[#05063F]" style={{ overflow: 'hidden' }}>
         <img
           src="/bg.png"
-          className=" w-full absolute h-full top-0 left-0 shrink-0 object-cover opacity-50 z-2"
+          className=" w-full absolute h-full top-0 left-0 shrink-0 object-cover opacity-50"
         />
         <div className="z-1 flex flex-col py-24 justify-center h-full relative top-0 items-center" style={{ top: '50px' }}>
           <br></br>
@@ -85,12 +85,8 @@ const TeamPage = () => {
                   required
                 />
               </div>
-              <button>
-                <div className='flex flex-col items-center relative register-box' style={{ top: '-40px' }}>
-                  <div className='  h-6 bg-white box-1'></div>
-                  <div className=' w-4/6 h-12 bg-white relative box-2 text-center text-2xl  font-retrog pt-2'>Join</div>
-                  <div className=' w-3/5 h-20 bg-white text-black box-3'></div>
-                </div>
+              <button className="event-button bg-transparent w-4/6 h-20 flex justify-center items-center font-retrog text-2xl  px-5 py-1 my-1 mx-auto">
+                Join
               </button>
             </form>
 
@@ -111,12 +107,8 @@ const TeamPage = () => {
                   required
                 />
               </div>
-              <button>
-                <div className='flex flex-col items-center relative register-box' style={{ top: '-70px' }}>
-                  <div className='  h-6 bg-white box-1'></div>
-                  <div className=' w-4/6 h-12 bg-white relative box-2 text-center text-2xl  font-retrog pt-2'>Create</div>
-                  <div className=' w-3/5 h-20 bg-white text-black box-3'></div>
-                </div>
+              <button className="event-button bg-transparent w-4/6 h-20 flex justify-center items-center font-retrog text-2xl  px-5 py-1 my-1 mx-auto">
+                Create
               </button>
             </form>
           </div>
