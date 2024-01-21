@@ -19,7 +19,7 @@ const EventCard = (props) => {
   return (
     <>
       <div
-        className="bg-[#0000004d] h-full flex text-[#f0f8ff] justify-center items-center backdrop-blur rounded-[25px] shadow-[0px_0px_20px_#8f8f8f8f] flex-col lg:w-[100%]  "
+        className="bg-[#0000004d] h-full flex text-[#f0f8ff] justify-center items-center backdrop-blur rounded-[25px] shadow-[0px_0px_20px_#8f8f8f8f] flex-col lg:w-[100%] overflow-hidden overflow-y-scroll hidescroolhomecard  "
         // className="main-box"
       >
         <div className=" h-1/2 flex justify-center items-center mb-2 w-auto">
