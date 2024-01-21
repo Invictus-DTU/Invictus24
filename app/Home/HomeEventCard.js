@@ -63,7 +63,7 @@ const EventCard = (props) => {
         </div>
 
         <div className="location text-center max-md:text-sm ">
-          <div className="date font-retrog w-fit text-nowrap">
+          <div className="date font-retrog text-nowrap text-center w-full">
             {/* Date */}
             {props.data?.date.substring(0, 10).split("-")[2] + " "}{" "}
             {/* Month */}
@@ -72,7 +72,7 @@ const EventCard = (props) => {
             {props.data?.date.substring(0, 10).split("-")[0]}
           </div>
           <div className="venue font-retrog">
-            {props.data?.venue || "DTU"}, {props.data?.time || "time"}
+              {props.data?.venue || "DTU"} {props.data?.time || ""}
           </div>
         </div>
 
