@@ -1,5 +1,6 @@
 .form-box{
     background-image: url('/bg3.png');
+    background-color: rgb(4, 4, 48);
     background-size: cover;
     filter: blue(8px);
     top:-50px;

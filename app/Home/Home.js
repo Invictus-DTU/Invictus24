@@ -49,15 +49,14 @@ const Home = () => {
   }
 
   return (
-    <main className="w-full sm:h-[400vh] overflow-auto max-sm:h-[300vh]">
-      <div className="bg-[#05063F] absolute z-[-1] w-full h-full"></div>
-      <div className="w-full h-screen top-0 left-0 flex flex-col justify-center items-center">
+    <main className="w-full sm:h-[400vh] overflow-auto max-sm:h-[300vh] bg-[#05063F]">
+      <div className="w-full h-screen flex flex-col justify-center items-center">
         <img
           src="/bg_c.webp"
-          className=" w-full absolute h-full top-0 left-0 shrink-0 object-cover opacity-50 z-2"
+          className=" w-full absolute h-[105vh] top-0 left-0 shrink-0 object-cover opacity-50"
         />
         {/* //! Home Page */}
-        <div className="z-1 mt-10 flex flex-col py-24 h-screen absolute top-0 items-center justify-center">
+        <div className="mt-10 flex flex-col py-24 h-screen items-center justify-center z-20">
           {/*  justify around->center*/}
           {/* //! invictus */}
           <div className="w-fit flex flex-col gap-0 lg:mb-20 max-[1024px]:mb-10">
@@ -81,13 +80,8 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="bg-[#05063F] absolute z-[-10] h-[100vh] w-full"></div>
-      <div className="w-full sm:h-[300vh] top-0 left-0 flex flex-col max-sm:h-[200vh]">
-        <img
-          src="/bg2.png"
-          className=" w-full absolute sm:h-[300vh] top-[100vh] max-sm:h-[200vh] left-0 shrink-0 object-cover opacity-30 z-2 "
-        />
-        <div className="z-1 h-[100vh] flex flex-col justify-evenly absolute top-[100vh] items-center text-white">
+      <div className="w-full m-0 sm:h-[300vh] flex flex-col max-sm:h-[200vh] bg-[url('/bg3.png')] bg-center bg-no-repeat shrink-0 bg-cover">
+        <div className="h-[100vh] flex flex-col justify-evenly items-center text-white">
           <div className="font-retrog max-[640px]:text-[10vw] text-[6vw]">
             About
           </div>
@@ -140,8 +134,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="z-1 w-full h-[100vh] sm:h-[100vh] flex flex-col justify-center absolute top-[200vh] items-center text-white max-md:top-[200vh] max-sm:top-[200vh]">
-          <div className="bg-[#05063F]  absolute z-[-10] h-[100vh] w-full"></div>
+        <div className="z-1 w-full h-[100vh] sm:h-[100vh] flex flex-col justify-center items-center text-white max-md:top-[200vh] max-sm:top-[200vh]">
           <div className="font-retrog max-[640px]:text-[10vw] text-[6vw]">
             Events
           </div>
@@ -287,8 +280,8 @@ const Home = () => {
           <HomeButton buttonText="Go To Events" action={GoToEvents} />
         </div>
 
-        <div className="z-1 w-full  flex flex-col justify-center absolute top-[310vh] items-center text-white sm:h-[80vh] max-sm:hidden">
-          <div className="bg-[#05063F]  absolute z-[-10] h-[100vh] max-sm:h-[80vh] w-full"></div>
+        <div className="z-1 w-full  flex flex-col justify-center items-center text-white sm:h-[80vh] max-sm:hidden">
+          {/* <div className="bg-[#05063F]  absolute z-[-10] h-[100vh] max-sm:h-[80vh] w-full"></div> */}
           <h2 className=" h-1/4 font-retrog max-[640px]:text-[10vw] text-[6vw] flex justify-center items-center">
             Gallery
           </h2>
