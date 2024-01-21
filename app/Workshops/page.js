@@ -65,7 +65,7 @@ const Workshop = () => {
         return;
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
       toast.error("some error occured");
     }
   };

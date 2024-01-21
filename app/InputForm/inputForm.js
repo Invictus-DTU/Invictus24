@@ -50,7 +50,7 @@ const InputForm = ({user}) => {
   return (
     <div className='InputForm w-100'>
       <Toaster position="top-center" reverseOrder={false} />
-      <h1 id='ourProfile' className='w-100'>Our Profile</h1>
+      <h1 id='ourProfile' className='w-100'>Your Profile</h1>
 
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name</label>

@@ -11,7 +11,6 @@ const TeamPage = () => {
   const router = useRouter();
   const eventName = params.get("event");
   const prev = params.get("prev");
-  console.log("prev", prev);
   const [joinTeamId, setJoinTeamId] = useState('');
   const [teamName, setTeamName] = useState("");
 
@@ -25,7 +24,6 @@ const TeamPage = () => {
       else {
         toast.success(res.message);
         setJoinTeamId("");
-        console.log(prev);
         router.push(prev);
       }
     }
@@ -39,9 +37,9 @@ const TeamPage = () => {
     
     try {
       const newTeamId = uuidv4();
-      console.log('Creating a new team with ID:', newTeamId);
+
       const res = await createTeam({ teamname: teamName, teamId: newTeamId, eventName: eventName });
-      console.log(res.error);
+
       if (res.error) {
         toast.error(res.error);
         setTeamName("");

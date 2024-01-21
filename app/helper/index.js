@@ -49,7 +49,7 @@ export const getEvents = async () => {
       { validateStatus: (status) => status >= 200 && status <= 500 },
     );
     const res = response.data.event;
-    console.log(res);
+
     if (response.status === 500) {
       return { error: "some error occured" };
     }
