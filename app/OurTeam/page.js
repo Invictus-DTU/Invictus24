@@ -3,12 +3,12 @@ import React from "react";
 import CouncilCard from "./CouncilCard";
 const Council = () => {
   const Council = [
-    { name: "Shashank Jha", postion: "General Secretary, TC", pic: "/shashank.jpg" },
-    { name: "Om Shankar Sahay", postion: "Joint Secretary, TC" },
-    { name: "Aman Gupta", postion: "Joint Secretary, TC" },
-    { name: "Dheeresh Chandra", postion: "Joint Secretary, TC" },
-    { name: "Akarsh Rai", postion: "Treasurer, TC" },
-    { name: "Ashish Chotani", postion: "Joint Treasurer, TC" },
+    { name: "Shashank Jha", postion: "General Secretary, TC", pic: "./shashank.jpg" },
+    { name: "Om Shankar Sahay", postion: "Joint Secretary, TC", pic: "./om.jpg"},
+    { name: "Aman Gupta", postion: "Joint Secretary, TC", pic:"./aman.jpeg" },
+    { name: "Dheeresh Chandra", postion: "Joint Secretary, TC", pic: "./dheeredh.jpg"},
+    { name: "Akarsh Rai", postion: "Treasurer, TC" , pic: "./akarsh.jpg"},
+    { name: "Ashish Chotani", postion: "Joint Treasurer, TC", pic:"./ashish.jpg"},
   ];
   // const Heads = {
   //   Logistics: ["Nikhil Kumar", "Prashant"],
