@@ -47,6 +47,7 @@ const Council = () => {
             <CouncilCard
               name={councilMember.name}
               postion={councilMember.postion}
+              pic= {councilMember.pic}
               index={index}
             />
           ))}
