@@ -86,16 +86,8 @@ const Home = () => {
             About
           </div>
           <p className="font-ticketing sm:max-[800px]:text-[3vw] sm:text-[2vw] lg:text-[1.5vw] px-[10vw] text-center">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-            Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
-            aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,
-            imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede
-            mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum
-            semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula,
-            porttitor eu, consequat vitae, eleifend
+            Welcome to the forefront of innovation and knowledge at Delhi Technological University ! We are thrilled to present the annual techfest with series of extraordinary events that seamlessly blends education with excitement. Join us in exploring the latest advancements in technology, fostering collaboration among brilliant minds, and unlocking the potential of tomorrow's leaders. Our event promises a dynamic platform to dive into the realms of cutting-edge developments and collaborative learning. Step into a world where innovation meets education, and let's embark on a journey of discovery together!
+
           </p>
           <div className="flex gap-[8vw]">
             <figure>
