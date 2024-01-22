@@ -3,7 +3,7 @@ import React from "react";
 import CouncilCard from "./CouncilCard";
 const Council = () => {
   const Council = [
-    { name: "NShashank Jha", postion: "General Secretary, TC" },
+    { name: "Shashank Jha", postion: "General Secretary, TC", pic: "/shashank.jpg" },
     { name: "Om Shankar Sahay", postion: "Joint Secretary, TC" },
     { name: "Aman Gupta", postion: "Joint Secretary, TC" },
     { name: "Dheeresh Chandra", postion: "Joint Secretary, TC" },
