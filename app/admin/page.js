@@ -32,7 +32,7 @@ const EventForm = () => {
   const imageUpload = (e) =>{
     const { name, value } = e.target;
     const id = value.match(/\/d\/([^\/]+)\/view/);
-    const url = id?"https://lh3.googleusercontent.com/d/" + id[1] + "=s220" :"";
+    const url = id?"https://lh3.googleusercontent.com/d/" + id[1] :"";
     setFormData({
       ...formData,
       image: url
