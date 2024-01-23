@@ -34,11 +34,11 @@ export async function GET() {
       if(getTeam){
         plainObject=  {...plainObject, role: "team leader"};
         plainObject=  {...plainObject, teamId: getTeam.teamId};
-        if(getTeam.status === "not-Submitted"){
-          plainObject=  {...plainObject, teamStatus: "not-Submitted"};
+        if(getTeam.status === "not-submitted"){
+          plainObject=  {...plainObject, teamStatus: "not-submitted"};
         }
         else{
-          plainObject=  {...plainObject, teamStatus: "Submitted"};
+          plainObject=  {...plainObject, teamStatus: "submitted"};
         }
       }
       else{

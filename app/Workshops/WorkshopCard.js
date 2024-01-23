@@ -110,7 +110,7 @@ const WorkshopCard = (props) => {
               <Butt title="Register " action={() => redirect(props.data._id)} />
             ) : props.data.role === "member" ? (
               <Butt title="participated" />
-            ) : props.data.teamStatus === "not-Submitted" ? (
+            ) : props.data.teamStatus === "not-submitted" ? (
               <>
                 <Butt
                   title="Submit team"
@@ -124,7 +124,7 @@ const WorkshopCard = (props) => {
                 />
               </>
             ) : (
-              <Butt title="Submitted" />
+              <Butt title="submitted" />
             )
           ) : (
             <Butt
