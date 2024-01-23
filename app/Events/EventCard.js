@@ -131,7 +131,7 @@ const EventCard = (props) => {
                 />
               </>
             ) : (
-              <Butt title="submitted" />
+              <Butt title="Submitted" />
             )
           ) : (
             <Butt
