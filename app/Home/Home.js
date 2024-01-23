@@ -48,6 +48,11 @@ const Home = () => {
     return;
   }
 
+  function WhatsappGC() {
+    router.push("https://chat.whatsapp.com/JB5qXk4wxMpLh3EuhUhjjH")
+    return;
+  }
+
   return (
     <main className="w-full sm:h-[400vh] overflow-auto max-sm:h-[300vh] bg-[#05063F]">
       <div className="w-full h-screen flex flex-col justify-center items-center">
@@ -72,11 +77,14 @@ const Home = () => {
               Life in a Pixelated Era
             </div>
           </div>
-          {session ? (
-            <></>
-          ) : (
-            <HomeButton buttonText="Register Now" action={redirect} />
-          )}
+          <div className="flex gap-10 flex-wrap">
+            {session ? (
+              <></>
+            ) : (
+              <HomeButton buttonText="Register Now" action={redirect} />
+            )}
+            <HomeButton buttonText="Join Group" action={WhatsappGC} />
+          </div>
         </div>
       </div>
 
