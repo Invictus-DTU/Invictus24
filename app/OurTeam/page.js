@@ -4,7 +4,7 @@ import CouncilCard from "./CouncilCard";
 const Council = () => {
   const Council = [
     { name: "Shashank Jha", postion: "General Secretary, TC", pic: "/shashank.jpg" },
-    { name: "Akarsh Rai", postion: "Treasurer, TC" , pic: "/akarsh.jpg"},
+    { name: "Akarsh Rai", postion: "Treasurer, TC" , pic: "/akarsh3.jpeg"},
     { name: "Om Shanker Sahay", postion: "Joint Secretary, TC", pic: "/om3.jpeg"},
     { name: "Aman Gupta", postion: "Joint Secretary, TC", pic:"/aman.jpeg" },
     { name: "Dheeresh Chandra", postion: "Joint Secretary, TC", pic: "/dheeresh.jpg"},
