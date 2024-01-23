@@ -41,25 +41,6 @@ const EventCard = (props) => {
     return;
   }
 
-    if (navigator.clipboard) {
-    navigator.clipboard.writeText(teamIdText)
-      .then(() => {
-        console.log('Text copied to clipboard:', teamIdText);
-      })
-      .catch((err) => {
-        console.error('Unable to copy to clipboard', err);
-      });
-  } else {
-    // Fallback for browsers that don't support the Clipboard API
-    const textArea = document.createElement('textarea');
-    textArea.value = teamIdText;
-    document.body.appendChild(textArea);
-    textArea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textArea);
-    console.log('Text copied to clipboard:', teamIdText);
-  }
-
   return (
     <>
       {/* !Main-box */}
@@ -82,7 +63,7 @@ const EventCard = (props) => {
             props.status !== "closed" &&
             props.data?.participationStatus === "participated" &&
             props.data?.role !== "member" ? (
-              <p>TeamId: <button onClick={copyToClipboard}>{props.data?.teamId}</button> </p>
+              <p>TeamId: {props.data?.teamId} </p>
             ) : (
               <></>
             )}
