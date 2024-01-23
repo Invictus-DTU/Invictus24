@@ -124,7 +124,7 @@ const WorkshopCard = (props) => {
                 />
               </>
             ) : (
-              <Butt title="submitted" />
+              <Butt title="Submitted" />
             )
           ) : (
             <Butt
