@@ -106,6 +106,7 @@ const Workshop = () => {
       setEvent(temp.filter((data) => data.participationStatus === value));
     } else {
       const temp = arr.slice();
+      setCurrentPage(1);
       setEvent(
         temp.filter((event) => {
           return (
