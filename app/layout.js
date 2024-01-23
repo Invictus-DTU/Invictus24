@@ -8,6 +8,7 @@ import SessionProvider from "./Components/SessionProvider";
 import Protection from "./Components/Protection";
 import { Suspense } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import {Analytics} from '@vercel/analytics/react'
 
 export default function RootLayout({ children }) {
   return (
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
           {children}
           <Footer />
         </SessionProvider>
+        <Analytics />
       </body>
     </html>
   );
