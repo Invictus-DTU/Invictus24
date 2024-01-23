@@ -41,7 +41,7 @@ const EventCard = (props) => {
         </div>
         <div className="flex items-center gap-2 max-xl:hidden">
           <img
-            className="h-10 max-md:h-10 max-sm:h-6"
+            className="h-10 max-md:h-10 max-sm:h-6 w-auto  "
             src="./Trophy.png"
             alt="Trophy"
             height="100%"
