@@ -17,7 +17,7 @@ const Footer = () => {
       </div>
       <div className="w-1 bg-white h-[50%] rounded-full  hidden min-[844px]:inline"></div>
       <div className="text-white font-retrog border-b-2 pb-2  min-[844px]:border-b-0 text-[8px] min-[321px]:text-[12px]  min-[927px]:text-xl text-center ">
-        @Designed and Developed by ❤️ Invictus Team
+        @Designed and Developed with ❤️ by Invictus Team
       </div>
       <div className="w-1 bg-white h-[50%] rounded-full  hidden min-[844px]:inline"></div>
       <div className="flex flex-col items-center gap-1 pt-2  min-[844px]:pt-0 ">
