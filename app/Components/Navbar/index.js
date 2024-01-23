@@ -102,14 +102,14 @@ const Navbar = () => {
                                 <li className="mx-6 hover:text-white active:text-white">
                                     <Link href="/Workshops">WORKSHOPS</Link>
                                 </li>
-                                <li className="mx-6 hover:text-white active:text-white">
+                                {/* <li className="mx-6 hover:text-white active:text-white">
                                     <Link
                                         href="/Sponsors"
                                         children={<Sponsors />}
                                     >
                                         SPONSORS
                                     </Link>
-                                </li>
+                                </li> */}
                                 <li className="mx-6 hover:text-white active:text-white">
                                     <Link href="/OurTeam">OUR TEAM</Link>
                                 </li>
