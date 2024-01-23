@@ -39,7 +39,7 @@ const EventCard = (props) => {
             {props.data?.name}
           </div>
         </div>
-        <div className="flex items-center gap-2 max-xl:hidden">
+{/*<div className="flex items-center gap-2 max-xl:hidden">
           <img
             className="h-10 max-md:h-10 max-sm:h-6 w-auto  "
             src="./Trophy.png"
@@ -51,16 +51,16 @@ const EventCard = (props) => {
           </div>
         </div>
         <div className="flex items-center gap-2 xl:hidden">
-            {/*<img
+            <img
             className="h-12 max-md:h-10 max-sm:h-8"
             src="./Trophy.png"
             alt="Trophy"
             height="100%"
-          />*/}
+          />
           <div className="text-2xl max-md:text-xl font-retrog">
             {props.data?.prize || 0}
           </div>
-        </div>
+        </div>*/}
 
         <div className="location text-center max-md:text-sm ">
           <div className="date font-retrog text-nowrap text-center w-full">
