@@ -41,8 +41,8 @@ export async function POST(req) {
             else if(event.teamSizeMax<=team.member.length){
                 return NextResponse.json({ error: "Team limit exceed" }, { status: 400 });
             }
-            else if(team.status === "submitted"){
-                return NextResponse.json({ error: "Team already submitted" }, { status: 400 });
+            else if(team.status === "Submitted"){
+                return NextResponse.json({ error: "Team already Submitted" }, { status: 400 });
             }
             else{
                 team.member.push(user._id);

@@ -12,8 +12,8 @@ export async function POST(req) {
         if(!team){
             return NextResponse.json({error: "Team not present"},{status: 400});
         }
-        else if(team.status === "submitted"){
-            return NextResponse.json({error: "Team already submitted"},{status: 400});
+        else if(team.status === "Submitted"){
+            return NextResponse.json({error: "Team already Submitted"},{status: 400});
         }
         else{
             if(team.member.length < teamSizeMIN){
@@ -23,8 +23,8 @@ export async function POST(req) {
                 return NextResponse.json({error: "Members are more than maximum"},{status: 400});
             }
             else{
-                const team = await Team.findOneAndUpdate({teamId: teamId},{status: "submitted"});
-                return NextResponse.json({message: "Team submitted successfully"});
+                const team = await Team.findOneAndUpdate({teamId: teamId},{status: "Submitted"});
+                return NextResponse.json({message: "Team Submitted successfully"});
             }
         }
     }

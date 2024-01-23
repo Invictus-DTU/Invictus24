@@ -51,7 +51,7 @@ const Events = () => {
         setEvent(
           event.map((val) => {
             if (val.teamId === props.teamId) {
-              val.teamStatus = "submitted";
+              val.teamStatus = "Submitted";
             }
             return val;
           })

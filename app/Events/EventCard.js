@@ -117,7 +117,7 @@ const EventCard = (props) => {
               />
             ) : props.data?.role === "member" ? (
               <Butt title="participated" />
-            ) : props.data?.teamStatus === "not-submitted" ? (
+            ) : props.data?.teamStatus === "not-Submitted" ? (
               <>
                 <Butt
                   title="Submit team"
@@ -131,7 +131,7 @@ const EventCard = (props) => {
                 />
               </>
             ) : (
-              <Butt title="submitted" />
+              <Butt title="Submitted" />
             )
           ) : (
             <Butt

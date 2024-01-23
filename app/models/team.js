@@ -18,7 +18,7 @@ const teamSchema = new mongoose.Schema({
     },
     status:{
         type:String,
-        default: "not-submitted",
+        default: "not-Submitted",
     },
     member: [
         {type: mongoose.Schema.Types.ObjectId,
