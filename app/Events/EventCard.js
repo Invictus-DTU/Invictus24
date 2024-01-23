@@ -72,7 +72,7 @@ const EventCard = (props) => {
             {props.data?.description}
           </div>
           <div className="w-56 text-2">
-           <a className="font-bold text-xl" href={props.data.readmore} target="_blank" referrerPolicy="no-referrer">Read More</a>
+           <a className="font-bold text-xl underline text-yellow-400" href={props.data.readmore} target="_blank" referrerPolicy="no-referrer">Rule Book</a>
           </div>
         </div>
 
