@@ -20,8 +20,8 @@ export async function POST(req) {
                 return NextResponse.json({error: "Members are more than maximum"},{status: 400});
             }
             else{
-                const team = await Team.findOneAndUpdate({teamId: teamId},{status: "Submitted"});
-                return NextResponse.json({message: "Team Submitted successfully"});
+                const team = await Team.findOneAndUpdate({teamId: teamId},{status: "submitted"});
+                return NextResponse.json({message: "Team submitted successfully"});
             }
         }
     }

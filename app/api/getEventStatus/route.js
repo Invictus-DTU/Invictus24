@@ -38,7 +38,7 @@ export async function GET() {
           plainObject=  {...plainObject, teamStatus: "not-submitted"};
         }
         else{
-          plainObject=  {...plainObject, teamStatus: "Submitted"};
+          plainObject=  {...plainObject, teamStatus: "submitted"};
         }
       }
       else{

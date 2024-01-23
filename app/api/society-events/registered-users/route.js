@@ -15,7 +15,7 @@ export async function POST(req) {
             return NextResponse.json({error: "Event not exist"},{status: 400});
         }
         else{
-            const teams = await Team.find({eventName: event._id, status:'Submitted'}).populate('teamLeader').populate('eventName').populate('member');
+            const teams = await Team.find({eventName: event._id, status:'submitted'}).populate('teamLeader').populate('eventName').populate('member');
             return NextResponse.json(teams);
         }
     }

@@ -57,7 +57,7 @@ const Workshop = () => {
         setEvent(
           event.map((val) => {
             if (val.teamId === props.teamId) {
-              val.teamStatus = "Submitted";
+              val.teamStatus = "submitted";
             }
             return val;
           })
