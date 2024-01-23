@@ -29,7 +29,7 @@ const Events = () => {
     get();
   }, []);
 
-  const itemsPerPage = 4;
+  const itemsPerPage = 8;
 
   const [currentPage, setCurrentPage] = useState(1);
 
