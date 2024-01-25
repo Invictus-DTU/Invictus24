@@ -52,7 +52,7 @@ const eventSchema = new mongoose.Schema({
     readmore:{
         type: String,
     }
-});
+}, { timestamps: true });
 
 const Event = mongoose.models.Event || mongoose.model('Event', eventSchema);
 
