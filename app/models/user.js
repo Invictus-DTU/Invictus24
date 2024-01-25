@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
   eventList: [
     { type: mongoose.Schema.Types.ObjectId, ref: "Event" },
   ],
-});
+}, { timestamps: true });
 
 const User = mongoose.models.User || mongoose.model("User", userSchema);
 export default User;
