@@ -81,7 +81,7 @@ const Home = () => {
             {session ? (
               <></>
             ) : (
-              <HomeButton buttonText="Register Now" action={redirect} />
+              <HomeButton buttonText="Sign Up" action={redirect} />
             )}
             <HomeButton buttonText="Join Group" action={WhatsappGC} />
           </div>

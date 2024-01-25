@@ -26,7 +26,7 @@ const EventCard = (props) => {
   const router = useRouter();
 
   function redirect(id) {
-    if(props.data.unstop) router.push(props.data.unstop);
+    if (props.data.unstop) router.push(props.data.unstop);
     else router.push(`/InputForm?event=${id}&prev=${"Events"}`);
     return;
   }
@@ -72,7 +72,14 @@ const EventCard = (props) => {
             {props.data?.description}
           </div>
           <div className="w-56 text-2">
-           <a className="font-bold text-xl underline text-yellow-400" href={props.data.readmore} target="_blank" referrerPolicy="no-referrer">Rule Book</a>
+            <a
+              className="font-bold text-xl underline text-yellow-400"
+              href={props.data.readmore}
+              target="_blank"
+              referrerPolicy="no-referrer"
+            >
+              Rule Book
+            </a>
           </div>
         </div>
 
@@ -86,7 +93,9 @@ const EventCard = (props) => {
                 alt="Trophy"
                 height="100%"
               />
-              <div className="text-2xl font-retrog">{props.data?.prize.toString().substring(0,2) + "K"}</div>
+              <div className="text-2xl font-retrog">
+                {props.data?.prize.toString().substring(0, 2) + "K"}
+              </div>
             </div>
 
             <div className="flex max-[400px]:text-[11px] flex-col justify-center items-center">
@@ -111,10 +120,7 @@ const EventCard = (props) => {
             props.data.status === "closed" ? (
               <Butt title="closed" />
             ) : props.data?.participationStatus === "not participated" ? (
-              <Butt
-                title="Register "
-                action={() => redirect(props.data?._id)}
-              />
+              <Butt title="Register" action={() => redirect(props.data?._id)} />
             ) : props.data?.role === "member" ? (
               <Butt title="participated" />
             ) : props.data?.teamStatus === "not-submitted" ? (
@@ -122,11 +128,16 @@ const EventCard = (props) => {
                 <Butt
                   title="Submit team"
                   action={async () => {
-                    await props.handleTeamSubmit({
-                      teamId: props.data.teamId,
-                      teamSizeMIN: props.data.teamSizeMIN,
-                      teamSizeMax: props.data.teamSizeMax,
-                    });
+                    const confirm = window.confirm(
+                      "Are you sure to Submit your Team?"
+                    );
+                    if (confirm) {
+                      await props.handleTeamSubmit({
+                        teamId: props.data.teamId,
+                        teamSizeMIN: props.data.teamSizeMIN,
+                        teamSizeMax: props.data.teamSizeMax,
+                      });
+                    }
                   }}
                 />
               </>
