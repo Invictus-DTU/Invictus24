@@ -7,10 +7,8 @@ const Sponsors = () => {
       <p className="font-retrog xl:text-7xl lg:text-7xl md:text-6xl sm:text-5xl max-[640px]:text-4xl flex justify-center mt-20 text-white">
         Sponsors
       </p>
-      <div className="flex justify-center mt-10">
-
-
-        <div className="w-52 h-52 flex justify-center rounded-3xl bg-black/[0.3] drop-shadow-[4px_0px_40px_rgba(255,255,255,0.33)] items-center mx-10 my-4">
+      <div className="flex justify-center flex-wrap mt-10">
+      <div className="w-52 h-52 flex justify-center rounded-3xl bg-black/[0.3] drop-shadow-[4px_0px_40px_rgba(255,255,255,0.33)] items-center mx-10 my-4">
           <Link href="https://adobe.com/" target="_blank" >
             <div className="w-48 h-48 flex justify-center rounded-3xl bg-white items-center">
               <img className="h-46 flex" src="/adobe.png" alt="logo" />
@@ -25,6 +23,11 @@ const Sponsors = () => {
           </Link>
         </div>
       </div>
+      {/* <div className="flex justify-center mt-10"> */}
+
+
+        
+      {/* </div> */}
       {/* <p className="font-retrog xl:text-4xl lg:text-4xl md:text-3xl sm:text-3xl max-[640px]:text-2xl text-yellow-500 flex justify-center mt-20">
         Gold Sponsor
       </p>
