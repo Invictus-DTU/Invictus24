@@ -49,7 +49,7 @@ const Home = () => {
   }
 
   function WhatsappGC() {
-    router.push("https://chat.whatsapp.com/JB5qXk4wxMpLh3EuhUhjjH")
+    router.push("https://chat.whatsapp.com/HQ2UJt789hyH2p3M5sD5g1");
     return;
   }
 
@@ -77,13 +77,16 @@ const Home = () => {
               Life in a Pixelated Era
             </div>
           </div>
-          <div className="flex gap-10 flex-wrap">
-            {session ? (
-              <></>
-            ) : (
-              <HomeButton buttonText="Sign Up" action={redirect} />
-            )}
-            <HomeButton buttonText="Join Group" action={WhatsappGC} />
+          <div className="flex gap-10 items-center max-sm:flex-col">
+            <div className="flex gap-10 justify-center">
+              {session ? (
+                <></>
+              ) : (
+                <HomeButton buttonText="Sign Up" action={redirect} />
+              )}
+              <HomeButton buttonText="Join Group" action={WhatsappGC} />
+            </div>
+            <HomeButton buttonText="Go To Events" action={GoToEvents} />
           </div>
         </div>
       </div>
@@ -94,8 +97,16 @@ const Home = () => {
             About
           </div>
           <p className="font-ticketing sm:max-[800px]:text-[3vw] sm:text-[2vw] lg:text-[1.5vw] px-[10vw] text-center">
-            Welcome to the forefront of innovation and knowledge at Delhi Technological University ! We are thrilled to present the annual techfest with series of extraordinary events that seamlessly blends education with excitement. Join us in exploring the latest advancements in technology, fostering collaboration among brilliant minds, and unlocking the potential of tomorrow's leaders. Our event promises a dynamic platform to dive into the realms of cutting-edge developments and collaborative learning. Step into a world where innovation meets education, and let's embark on a journey of discovery together!
-
+            Welcome to the forefront of innovation and knowledge at Delhi
+            Technological University ! We are thrilled to present the annual
+            techfest with series of extraordinary events that seamlessly blends
+            education with excitement. Join us in exploring the latest
+            advancements in technology, fostering collaboration among brilliant
+            minds, and unlocking the potential of tomorrow's leaders. Our event
+            promises a dynamic platform to dive into the realms of cutting-edge
+            developments and collaborative learning. Step into a world where
+            innovation meets education, and let's embark on a journey of
+            discovery together!
           </p>
           <div className="flex gap-[8vw]">
             <figure>
