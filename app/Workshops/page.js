@@ -5,7 +5,7 @@ import { getEvents } from "../helper/index";
 import { Toaster, toast } from "react-hot-toast";
 import { submitTeam } from "../helper";
 import { Loader } from "../Loader/Loader";
-
+import { useSearchParams } from 'next/navigation'
 const Workshop = () => {
   const itemsPerPage = 4;
   const [event, setEvent] = useState([]);
@@ -16,20 +16,32 @@ const Workshop = () => {
     sort: "",
   });
 
+  const searchParams = useSearchParams()
+  const [search, setSearch] = useState(searchParams.get('name'))
   useEffect(() => {
     async function get() {
       try {
         const arr = await getEvents();
-        setEvent(
+        search ? setEvent(
           arr?.filter((val) => {
-            return val.type === "Workshops";
+            return (val.type === "Workshops" && val.name.toLowerCase().includes(search.toLowerCase()));
           })
-        );
-        setArr(
+        )
+          :
+          setEvent(
+            arr?.filter((val) => {
+              return val.type === "Workshops";
+            })
+          );
+        search ? setArr(
           arr?.filter((val) => {
-            return val.type === "Workshops";
+            return (val.type === "Workshops" && val.name.toLowerCase().includes(search.toLowerCase()));
           })
-        );
+        )
+          :
+          arr?.filter((val) => {
+            return (val.type === "Workshops");
+          });
       } catch (error) {
         console.error("Error fetching events:", error.message);
       }
