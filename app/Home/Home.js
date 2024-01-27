@@ -87,6 +87,7 @@ const Home = () => {
                 <HomeButton buttonText="Sign Up" action={redirect} />
               )}
               <HomeButton buttonText="Join Group" action={WhatsappGC} />
+            </div>
           </div>
         </div>
       </div>
