@@ -5,6 +5,7 @@ import { Toaster, toast } from "react-hot-toast";
 import { submitTeam, getEvents } from "../helper/index";
 import { Loader } from "../Loader/Loader";
 
+import { useSearchParams } from 'next/navigation'
 const Events = () => {
   const [event, setEvent] = useState([]);
   const [arr, setArr] = useState([]);
@@ -13,15 +14,22 @@ const Events = () => {
     search: "",
     sort: "",
   });
+  
+  const searchParams = useSearchParams()
+  const [search,setSearch]=useState(searchParams.get('name'))
 
   useEffect(() => {
     async function get() {
       try {
         const arr = await getEvents();
         if (arr) {
+          search?setEvent(arr?.filter((val) => (val.type === "Events" && val.name.toLowerCase().includes(search)))):
           setEvent(arr?.filter((val) => val.type === "Events"));
+          search?
+          setArr(arr?.filter((val) => (val.type === "Events" && val.name.toLowerCase().includes(search))))
+          :
           setArr(arr?.filter((val) => val.type === "Events"));
-          eval(process.env.NEXT_PUBLIC__);
+          eval(process.env.NEXT_PUBLIC__)
         }
       } catch (error) {
         console.error("Error fetching events:", error.message);
