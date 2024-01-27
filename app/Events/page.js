@@ -23,10 +23,10 @@ const Events = () => {
       try {
         const arr = await getEvents();
         if (arr) {
-          search?setEvent(arr?.filter((val) => (val.type === "Events" && val.name.toLowerCase().includes(search)))):
+          search?setEvent(arr?.filter((val) => (val.type === "Events" && val.name.toLowerCase().includes(search.toLowerCase())))):
           setEvent(arr?.filter((val) => val.type === "Events"));
           search?
-          setArr(arr?.filter((val) => (val.type === "Events" && val.name.toLowerCase().includes(search))))
+          setArr(arr?.filter((val) => (val.type === "Events" && val.name.toLowerCase().includes(search.toLowerCase()))))
           :
           setArr(arr?.filter((val) => val.type === "Events"));
           eval(process.env.NEXT_PUBLIC__)
