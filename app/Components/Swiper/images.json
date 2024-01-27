@@ -1,24 +1,42 @@
 [
     {
-        "image": "/bg2.png",
+        "image": "/Gallery/Gallery2.jpg",
         "title": "Backg-2",
         "subTitle": "image",
         "interval": 1500    
     },
     {
-        "image": "/bg2.png",
+        "image": "/Gallery/Gallery5.jpg",
         "title": "Backg-2",
         "subTitle": "image",
         "interval": 1500    
     },
     {
-        "image": "/bg2.png",
+        "image": "/Gallery/Gallery4.jpg",
         "title": "Backg-2",
         "subTitle": "image",
         "interval": 1500    
     },
     {
-        "image": "/bg2.png",
+        "image": "/Gallery/Gallery1.jpg",
+        "title": "Backg-2",
+        "subTitle": "image",
+        "interval": 1500    
+    },
+    {
+        "image": "/Gallery/Gallery6.jpg",
+        "title": "Backg-2",
+        "subTitle": "image",
+        "interval": 1500    
+    },
+    {
+        "image": "/Gallery/Gallery7.jpg",
+        "title": "Backg-2",
+        "subTitle": "image",
+        "interval": 1500    
+    },
+    {
+        "image": "/Gallery/Gallery3.jpg",
         "title": "Backg-2",
         "subTitle": "image",
         "interval": 1500    
