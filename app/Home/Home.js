@@ -80,13 +80,13 @@ const Home = () => {
           <div className="flex gap-10 items-center max-sm:flex-col">
             <div className="flex gap-10 justify-center">
               {session ? (
-                <></>
+                <>
+                  <HomeButton buttonText="Go To Events" action={GoToEvents} />
+                </>
               ) : (
                 <HomeButton buttonText="Sign Up" action={redirect} />
               )}
               <HomeButton buttonText="Join Group" action={WhatsappGC} />
-            </div>
-            <HomeButton buttonText="Go To Events" action={GoToEvents} />
           </div>
         </div>
       </div>
