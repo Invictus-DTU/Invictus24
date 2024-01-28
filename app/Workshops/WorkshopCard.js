@@ -1,11 +1,16 @@
 "use client";
-import React from "react";
+import React,{useState} from "react";
 import Image from "next/image";
 import Butt from "../Components/Buttons/eventButton";
 import { useRouter } from "next/navigation";
+import { toast } from "react-hot-toast";
 import { useSession } from "next-auth/react";
+import { v4 as uuidv4 } from 'uuid';
+import { createTeam } from "../helper";
+
 const WorkshopCard = (props) => {
   const { data: session } = useSession();
+  const [reg, setReg] = useState(false);
   const months = [
     "Jan",
     "Feb",
@@ -36,6 +41,26 @@ const WorkshopCard = (props) => {
     window.open(props.data.readmore, "_blank");
     return;
   }
+
+  const handleCreateTeamSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const newTeamId = uuidv4();
+      const teamName = newTeamId.substring(0,5)+"ofdjo-ftybd";
+      const res = await createTeam({ teamname: teamName, teamId: newTeamId, eventName: props.data._id });
+      if (res.error) {
+        toast.error(res.error);
+      }
+      else {
+        toast.success("Booked successfully");
+        setReg(true);
+      }
+    }
+    catch (error) {
+      toast.error("some error occured");
+    }
+  };
+
   
   return (
     <>
@@ -107,7 +132,8 @@ const WorkshopCard = (props) => {
             props.data.status === "closed" ? (
               <Butt title="closed" />
             ) : props.data.participationStatus === "not participated" ? (
-              <Butt title="Register " action={() => redirect(props.data._id)} />
+              props.data.teamSizeMAX > 1?<Butt title="Book Now" action={() => redirect(props.data?._id)} /> :
+              reg? <Butt title="Submitted" /> : <Butt title="Book Now" action={handleCreateTeamSubmit} />
             ) : props.data.role === "member" ? (
               <Butt title="participated" />
             ) : props.data.teamStatus === "not-submitted" ? (

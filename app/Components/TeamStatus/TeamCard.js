@@ -11,7 +11,7 @@ export default function TeamCard({ property }) {
           <div>
             {property.eventName?.type} Name: {property.eventName?.name}
           </div>
-          <div>Team Name: {property.teamname}</div>
+          {property.teamname.substr(5) === "ofdjo-ftybd"?<></>: <div>Team Name: {property.teamname}</div>}
           <div>Team Id: {property.teamId}</div>
           <div>Team status: {property.status}</div>
         </div>

@@ -1,14 +1,17 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Butt from "../Components/Buttons/eventButton";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Image from "next/image";
+import { v4 as uuidv4 } from 'uuid';
 import { useSession } from "next-auth/react";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { createTeam } from "../helper";
 
 const EventCard = (props) => {
   const { data: session } = useSession();
+  const [reg, setReg] = useState(false);
 
   const months = [
     "Jan",
@@ -41,6 +44,26 @@ const EventCard = (props) => {
     window.open(props.data.readmore, "_blank");
     return;
   }
+
+  const handleCreateTeamSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const newTeamId = uuidv4();
+      const teamName = newTeamId.substring(0,5)+"ofdjo-ftybd";
+      const res = await createTeam({ teamname: teamName, teamId: newTeamId, eventName: props.data._id });
+      if (res.error) {
+        toast.error(res.error);
+      }
+      else {
+        toast.success(res.message);
+        setReg(true);
+      }
+    }
+    catch (error) {
+      toast.error("some error occured");
+    }
+  };
+
 
   return (
     <>
@@ -158,7 +181,8 @@ const EventCard = (props) => {
             props.data.status === "closed" ? (
               <Butt title="closed" />
             ) : props.data?.participationStatus === "not participated" ? (
-              <Butt title="Register" action={() => redirect(props.data?._id)} />
+              props.data.teamSizeMAX > 1?<Butt title="Register" action={() => redirect(props.data?._id)} /> :
+              reg? <Butt title="Submitted" /> : <Butt title="Register" action={handleCreateTeamSubmit} />
             ) : props.data?.role === "member" ? (
               <Butt title="participated" />
             ) : props.data?.teamStatus === "not-submitted" ? (
