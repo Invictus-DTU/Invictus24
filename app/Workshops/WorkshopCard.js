@@ -81,7 +81,7 @@ const WorkshopCard = (props) => {
           <div className="font-retrog lg:text-3xl  max-[768px]:my-2 md:text-3xl sm:text-3xl text-4xl max-[768px]:flex justify-center">
             {props.data.name}
           </div>
-          <div className="font-ticketing">
+          {/* <div className="font-ticketing">
             {session &&
             props.status !== "closed" &&
             props.data.participationStatus === "participated" &&
@@ -90,13 +90,19 @@ const WorkshopCard = (props) => {
             ) : (
               <></>
             )}
-          </div>
+          </div> */}
           <div className=" font-ticketing xl:text-lg sm:text-sm max-[640px]:text-base">
             {props.data.description}
           </div>
-          {console.log(props.data.readmore)}
-          <a className="font-bold text-xl px-2" href={props.data.readmore} target="_blank" referrerPolicy="no-referrer">Read More</a>
-        </div>
+            <a
+              className="font-bold text-xl underline text-yellow-400"
+              href={props.data.readmore}
+              target="_blank"
+              referrerPolicy="no-referrer"
+            >
+              Read more
+            </a>
+          </div>
 
         {/* //! Register Box */}
         <div className="xl:w-1/5 lg:w-90 md:w-100  max-[768px]:w-[100%] flex flex-col items-center  justify-center m-2.5 ">
@@ -131,9 +137,12 @@ const WorkshopCard = (props) => {
           {session ? (
             props.data.status === "closed" ? (
               <Butt title="closed" />
-            ) : props.data.participationStatus === "not participated" ? (
-              props.data.teamSizeMAX > 1?<Butt title="Book Now" action={() => redirect(props.data?._id)} /> :
-              reg? <Butt title="Submitted" /> : <Butt title="Book Now" action={handleCreateTeamSubmit} />
+            ) : props.data?.participationStatus === "not participated" ? (
+              props.data.teamSizeMax > 1 ? (
+                <Butt title="Register" action={() => redirect(props.data?._id)} />
+              ) : (
+                reg ? <Butt title="Submitted" /> : <Butt title="Register" action={handleCreateTeamSubmit} />
+              )
             ) : props.data.role === "member" ? (
               <Butt title="participated" />
             ) : props.data.teamStatus === "not-submitted" ? (

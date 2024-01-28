@@ -181,10 +181,11 @@ const EventCard = (props) => {
             props.data.status === "closed" ? (
               <Butt title="closed" />
             ) : props.data?.participationStatus === "not participated" ? (
-              props.data.teamSizeMAX > 1?<Butt title="Register" action={() => redirect(props.data?._id)} /> :
-              reg? <Butt title="Submitted" /> : <Butt title="Register" action={handleCreateTeamSubmit} />
-            ) : props.data?.role === "member" ? (
-              <Butt title="participated" />
+              props.data.teamSizeMax > 1 ? (
+                <Butt title="Register" action={() => redirect(props.data?._id)} />
+              ) : (
+                reg ? <Butt title="Submitted" /> : <Butt title="Register" action={handleCreateTeamSubmit} />
+              )
             ) : props.data?.teamStatus === "not-submitted" ? (
               <>
                 <Butt
