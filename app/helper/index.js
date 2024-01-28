@@ -154,7 +154,6 @@ export const joinTeam = async (teamId, type, event) => {
 };
 
 export const createTeam = async (formData) => {
-  console.log(formData)
   try {
     const response = await axios.post(
       `${process.env.NEXT_PUBLIC_BASE_URL}/team/create`,
