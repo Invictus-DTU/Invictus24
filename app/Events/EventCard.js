@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import Butt from "../Components/Buttons/eventButton";
-import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { toast } from "react-hot-toast";
@@ -59,55 +58,19 @@ const EventCard = (props) => {
           <div className="font-retrog text-center md:text-left lg:text-3xl  md:text-3xl sm:text-3xl text-4xl mt-0 max-[640px]:my-2 max-[640px]:flex justify-center">
             {props.data?.name}
           </div>
-          
-          {session &&
-          props.status !== "closed" &&
-          props.data?.participationStatus === "participated" &&
-          props.data?.role !== "member" ? (
-          <div className="flex font-bold xl:text-lg sm:text-sm space-x-1">
-            <p>TeamId: </p>
-            <CopyToClipboard text={props.data?.teamId}>
-              <span
-                className="text-yellow-400 cursor-pointer"
-                onClick={() => toast.success('Copied to clipboard!')}
-              >
-                {props.data?.teamId}
-              </span>
-            </CopyToClipboard>
-            <img
-              src="/copy.png"
-              alt="Copy to Clipboard"
-              className="cursor-pointer w-10"
-              onClick={() => {
-                navigator.clipboard.writeText(props.data?.teamId);
-                toast.success('Copied to clipboard!');
-              }}
-            />
-          </div>
-          ) : (
-            <></>
-          )}
-
-          {props.data.teamSize? (
-          <>
-          <div className="font-bold xl:text-lg sm:text-sm max-[640px]:text-base flex space-x-1">
-            <p>Members: {"("+props.data.teamSize + "/" + props.data.teamSizeMax+")"}</p>
-            <img
-              src={props.data.teamSize>=props.data.teamSizeMIN? "/green.png" : "/red.png"}
-              alt="Copy to Clipboard"
-              className="cursor-pointer w-5"
-              onClick={() => {
-                navigator.clipboard.writeText(props.data?.teamId);
-                toast.success('Copied to clipboard!');
-              }}
-            />
+          <div className="font-ticketing">
+            {session &&
+            props.status !== "closed" &&
+            props.data?.participationStatus === "participated" &&
+            props.data?.role !== "member" ? (
+              <p>TeamId: {props.data?.teamId} </p>
+            ) : (
+              <></>
+            )}
           </div>
           <div className=" font-ticketing xl:text-lg sm:text-sm max-[640px]:text-base">
             {props.data?.description}
           </div>
-          </>
-          ) : <></>}
-
           <div className="w-56 text-2">
             <a
               className="font-bold text-xl underline text-yellow-400"
