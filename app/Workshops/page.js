@@ -21,6 +21,7 @@ const Workshop = () => {
   useEffect(() => {
     async function get() {
       try {
+        console.log("hbjk")
         const arr = await getEvents();
         search ? setEvent(
           arr?.filter((val) => {
@@ -39,9 +40,12 @@ const Workshop = () => {
           })
         )
           :
-          arr?.filter((val) => {
-            return (val.type === "Workshops");
-          });
+          setArr(
+            arr?.filter((val) => {
+              return (val.type === "Workshops");
+            }
+            )
+          );
       } catch (error) {
         console.error("Error fetching events:", error.message);
       }
@@ -53,6 +57,7 @@ const Workshop = () => {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  console.log(";;;;;", event);
   const currentItems = event.slice(indexOfFirstItem, indexOfLastItem);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
