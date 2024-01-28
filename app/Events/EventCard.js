@@ -100,7 +100,7 @@ const EventCard = (props) => {
             <img
               src="/copy.png"
               alt="Copy to Clipboard"
-              className="cursor-pointer w-6 h-6"
+              className="cursor-pointer w-4 h-4"
               onClick={() => {
                 navigator.clipboard.writeText(props.data?.teamId);
                 toast.success('Copied to clipboard!');
