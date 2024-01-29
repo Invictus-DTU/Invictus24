@@ -65,11 +65,11 @@ const Navbar = () => {
                                         Registration
                                     </Link>
                                 </li>
-                                <li className="mx-6 hover:text-white active:text-white">
+                         {/* <li className="mx-6 hover:text-white active:text-white">
                                     <Link href="/admin/registeredEvents">
                                         Registered Events
                                     </Link>
-                                </li>
+                                </li> */}
                                 <li className="mx-6 hover:text-white active:text-white">
                                     <Link href="/admin/registeredUsers">
                                         Registered Users
@@ -156,11 +156,11 @@ const Navbar = () => {
                                     Registration
                                 </Link>
                             </li>
-                            <li className="mx-6 mt-8 hover:text-white active:text-white">
-                                <Link href="/admin/registeredEvents">
-                                    Registered Events
-                                </Link>
-                            </li>
+                           // <li className="mx-6 mt-8 hover:text-white active:text-white">
+                           //      <Link href="/admin/registeredEvents">
+                           //          Registered Events
+                           //      </Link>
+                           //  </li> 
                             <li className="mx-6 mt-8 hover:text-white active:text-white">
                                 <Link href="/admin/registeredUsers">
                                     Registered Users
