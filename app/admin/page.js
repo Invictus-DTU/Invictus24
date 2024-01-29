@@ -256,7 +256,15 @@ const EventForm = () => {
         </button>
       </form>
     </div>*/
-    <>Admin</>
+    <>
+    <div className='w-[100%] h-auto'>
+      <img src="https://imgk.timesnownews.com/story/Jai_Shri_Ram_1.jpg" className='w-[100%] mt-20'/>
+      <img src="https://www.jaipurstuff.com/wp-content/uploads/2020/08/Ram-Temple-at-Ayodhya.jpg" className='w-[100%]'/>
+      <img src="https://img.jagrantv.com/article/rc1048660/1704301182-ayodhya-ram-mandir-architecture.jpg" className='w-[100%]'/>
+    </div>
+
+
+    </>
   );
 };
 
