@@ -128,7 +128,7 @@ const EventCard = (props) => {
           </>
           ) : <></>}
 
-          <div className=" font-ticketing xl:text-xl sm:text-sm max-[640px]:text-base">
+          <div className=" font-ticketing xl:text-xl sm:text-md max-[640px]:text-md">
             {props.data?.description}
           </div>
 
