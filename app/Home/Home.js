@@ -49,7 +49,7 @@ const Home = () => {
   }
 
   function WhatsappGC() {
-    router.push("https://chat.whatsapp.com/HQ2UJt789hyH2p3M5sD5g1");
+    router.push("https://chat.whatsapp.com/CApRHLA0cgx82Ea4hKcUiX");
     return;
   }
 
