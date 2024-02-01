@@ -11,8 +11,6 @@ import { createTeam } from "../helper";
 
 const EventCard = (props) => {
 
-  props.data.description=' Hello <b>Hello Hello</b> hello hello hello ';
-
   const { data: session } = useSession();
   const [reg, setReg] = useState(false);
 
