@@ -191,7 +191,7 @@ const EventCard = (props) => {
             </div>
 
             <div className="flex max-[400px]:text-[11px] flex-col justify-center items-center">
-              <div className="date font-retrog w-fit text-nowrap">
+              <div className="date font-retrog w-fit text-wrap">
                 {/* Date */}
                 {props.data?.date.substring(0, 10).split("-")[2] + " "}{" "}
                 {/* Month */}
