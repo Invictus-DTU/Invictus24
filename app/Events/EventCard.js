@@ -10,6 +10,9 @@ import { useRouter } from "next/navigation";
 import { createTeam } from "../helper";
 
 const EventCard = (props) => {
+
+  props.data.description=' Hello <b>Hello Hello</b> hello hello hello ';
+
   const { data: session } = useSession();
   const [reg, setReg] = useState(false);
 
@@ -199,9 +202,9 @@ const EventCard = (props) => {
                   " "}
                 {/* Year */}
                 {props.data?.date.substring(0, 10).split("-")[0]}
-                {", "}
+                {/* {", "} */}
                 {/* Time */}
-                {props.data?.time}
+                {/* {props.data?.time} */}
               </div>
               <div className="venue font-retrog">
                 {props.data?.venue || "DTU"}

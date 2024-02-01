@@ -68,7 +68,7 @@ const EventForm = () => {
   };
 
   return (
-    /*
+    
     <div className="flex justify-center items-center min-h-screen bg-slate-500">
       <Toaster position="top-center" reverseOrder={false} />
       <form onSubmit={handleSubmit} className="max-w-lg w-full bg-white p-6 rounded-md shadow-md mt-[7rem]">
@@ -255,16 +255,16 @@ const EventForm = () => {
           Submit
         </button>
       </form>
-    </div>*/
-    <>
-    <div className='w-[100%] h-auto'>
-      <img src="https://imgk.timesnownews.com/story/Jai_Shri_Ram_1.jpg" className='w-[100%] mt-20'/>
-      <img src="https://www.jaipurstuff.com/wp-content/uploads/2020/08/Ram-Temple-at-Ayodhya.jpg" className='w-[100%]'/>
-      <img src="https://img.jagrantv.com/article/rc1048660/1704301182-ayodhya-ram-mandir-architecture.jpg" className='w-[100%]'/>
     </div>
+    // <>
+    // {/* <div className='w-[100%] h-auto'>
+    //   <img src="https://imgk.timesnownews.com/story/Jai_Shri_Ram_1.jpg" className='w-[100%] mt-20'/>
+    //   <img src="https://www.jaipurstuff.com/wp-content/uploads/2020/08/Ram-Temple-at-Ayodhya.jpg" className='w-[100%]'/>
+    //   <img src="https://img.jagrantv.com/article/rc1048660/1704301182-ayodhya-ram-mandir-architecture.jpg" className='w-[100%]'/>
+    // </div> */}
 
 
-    </>
+    // </>
   );
 };
 
