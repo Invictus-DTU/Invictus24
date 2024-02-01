@@ -168,7 +168,7 @@ const EventCard = (props) => {
                   " "}
                 {/* Year */}
                 {props.data?.date.substring(0, 10).split("-")[0]}
-              </div>
+              </div> {, props.data?.time}
               <div className="venue font-retrog">
                 {props.data?.venue || "DTU"}
               </div>
