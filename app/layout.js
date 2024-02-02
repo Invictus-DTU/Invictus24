@@ -10,6 +10,7 @@ import { Suspense } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import {Analytics} from '@vercel/analytics/react'
 import { useEffect } from 'react';
+import Popup from "./Components/Popup";
 
 export default function RootLayout({ children }) {
   
@@ -25,7 +26,8 @@ export default function RootLayout({ children }) {
         <SessionProvider>
           <Protection />
           <Suspense fallback={<div>Loading...</div>}>
-            <Navbar />
+          {/* <Popup />  handle krlio navbar ke niche dikhega ya upar fixed dalio and high z-index absolute na krio */} 
+          <Navbar />
           </Suspense>
           <SpeedInsights />
           {children}
