@@ -20,6 +20,11 @@ export default function RootLayout({ children }) {
       />
       <link rel="icon" type="image/x-icon" href="static/favicon.ico"></link>
       <body className={inter.className}>
+        <script>
+          if (navigator.userAgent.includes("Instagram")) {
+            window.location.href = "https://www.invictusdtu.in";
+          }
+        </script>
         <SessionProvider>
           <Protection />
           <Suspense fallback={<div>Loading...</div>}>
