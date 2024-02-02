@@ -9,8 +9,15 @@ import Protection from "./Components/Protection";
 import { Suspense } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import {Analytics} from '@vercel/analytics/react'
+import { useEffect } from 'react';
 
 export default function RootLayout({ children }) {
+  useEffect(() => {
+    if (navigator.userAgent.includes('Instagram')) {
+      window.location.href = 'https://www.invictusdtu.in';
+    }
+  }, []);
+  
   return (
     <html lang="en">
       <title>Invictus DTU</title>
@@ -20,11 +27,6 @@ export default function RootLayout({ children }) {
       />
       <link rel="icon" type="image/x-icon" href="static/favicon.ico"></link>
       <body className={inter.className}>
-        <script>
-          if (navigator.userAgent.includes("Instagram")) {
-            window.location.href = "https://www.invictusdtu.in";
-          }
-        </script>
         <SessionProvider>
           <Protection />
           <Suspense fallback={<div>Loading...</div>}>
