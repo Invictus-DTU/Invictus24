@@ -12,11 +12,6 @@ import {Analytics} from '@vercel/analytics/react'
 import { useEffect } from 'react';
 
 export default function RootLayout({ children }) {
-  useEffect(() => {
-    if (navigator.userAgent.includes('Instagram')) {
-      window.location.href = 'https://www.invictusdtu.in';
-    }
-  }, []);
   
   return (
     <html lang="en">
