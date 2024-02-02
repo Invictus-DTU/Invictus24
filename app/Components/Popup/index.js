@@ -17,7 +17,7 @@ const Popup = () => {
                 </div>
             </div>
             <div>
-
+    {/* YAHA PE ADD KRO TIMER */}
             </div>
         </div>
     </>
