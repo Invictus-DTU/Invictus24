@@ -31,7 +31,7 @@ const EventCard = (props) => {
   const router = useRouter();
 
   function redirect(id) {
-    if (props.data.unstop) router.push(props.data.unstop);
+    if (props.data.unstop !== undefined && props.data.unstop !== "") router.push(props.data.unstop);
     else router.push(`/InputForm?event=${id}&prev=${"Events"}`);
     return;
   }
