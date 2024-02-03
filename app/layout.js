@@ -19,14 +19,14 @@ export default function RootLayout({ children }) {
       <title>Invictus DTU</title>
       <meta
         name="description"
-        content="india Largest Annual TechFest, Delhi Technological University 2024"
+        content="India's Largest Annual TechFest, Delhi Technological University 2024"
       />
       <link rel="icon" type="image/x-icon" href="static/favicon.ico"></link>
       <body className={inter.className}>
         <SessionProvider>
           <Protection />
           <Suspense fallback={<div>Loading...</div>}>
-          {/* <Popup />  handle krlio navbar ke niche dikhega ya upar fixed dalio and high z-index absolute na krio */} 
+            
           <Navbar />
           </Suspense>
           <SpeedInsights />

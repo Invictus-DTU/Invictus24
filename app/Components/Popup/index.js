@@ -42,21 +42,25 @@ const Popup = () => {
 
   return (
     <>
-    <div className='h-[250px]'>
-        {/* spacing */}
+    {showPopup? (
+    <div className='w-full h-screen flex justify-center items-center absolute top-0 left-0 z-30 bg-[rgba(0,0,0,0.5)]'>
+        <div className=' h-[50vh] w-11/12 sm:w-9/12 md:w-6/12 lg:w-4/12 flex flex-col border-2 border-white m-auto rounded-3xl  shadow-[0px_0px_20px_#8f8f8f8f] Popup'>
+            <div className="flex flex-col h-2/6 justify-center items-center w-full ">
+                <div className="text-white px-2 text-3xl flex flex-col items-end w-full h-fit " onClick={()=>{
+                    closePopup();
+                }}>
+                    <RxCross2 />
+                </div>
+                <div className=' font-retrog text-white text-center w-full p-2 text-4xl xl:text-5xl font-extrabold'>
+                    INVICTUS'24
+                </div>  
+            </div>
+            <div className='text-white w-full flex justify-center items-center h-5/6 text-6xl font-ticketing font-extrabold'>
+                {countDown}
+            </div>
+        </div> 
     </div>
-        <div>
-        {showPopup? (<div className="h-[200px] w-[200px] flex border-2 border-white">
-            <div className=' font-retrog text-white text-center w-full p-2'>
-                INVICTUS'24 {countDown}
-            </div>
-            <div className="text-white p-2" onClick={()=>{
-                closePopup();
-            }}>
-                <RxCross2 />
-            </div>
-        </div>):<></>}
-        </div>
+    ):<></>}
     </>
   )
 }
