@@ -56,7 +56,7 @@ const Home = () => {
 
   return (
     <main className="w-full sm:h-[400vh] overflow-auto max-sm:h-[300vh] bg-[#05063F]">
-        {/* <Popup /> */}
+        <Popup />
       <div className="w-full h-screen flex flex-col justify-center items-center">
         <img
           src="/bg_c.webp"
