@@ -91,9 +91,20 @@ const WorkshopCard = (props) => {
               <></>
             )}
           </div> */}
-          <div className=" font-ticketing xl:text-lg sm:text-sm max-[640px]:text-base">
-            {props.data.description}
+          
+
+  <div className=" font-ticketing xl:text-xl sm:text-md max-[640px]:text-md">
+            {/* {props.data?.description} */}
+            {props.data ? (
+              <div
+                className=""
+                dangerouslySetInnerHTML={{ __html: props.data.description }}
+              ></div>
+            ) : (
+              <></>
+            )}
           </div>
+            
             <a
               className="font-bold text-xl underline text-yellow-400"
               href={props.data.readmore}
