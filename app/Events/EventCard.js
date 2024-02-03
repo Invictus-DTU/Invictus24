@@ -10,7 +10,6 @@ import { useRouter } from "next/navigation";
 import { createTeam } from "../helper";
 
 const EventCard = (props) => {
-
   const { data: session } = useSession();
   const [reg, setReg] = useState(false);
 
@@ -31,7 +30,8 @@ const EventCard = (props) => {
   const router = useRouter();
 
   function redirect(id) {
-    if (props.data.unstop !== undefined && props.data.unstop !== "") router.push(props.data.unstop);
+    if (props.data.unstop !== undefined && props.data.unstop !== "")
+      router.push(props.data.unstop);
     else router.push(`/InputForm?event=${id}&prev=${"Events"}`);
     return;
   }
@@ -46,7 +46,7 @@ const EventCard = (props) => {
     return;
   }
 
-  function openlink(){
+  function openlink() {
     window.open(props.data.unstop, "_blank");
     return;
   }
@@ -54,7 +54,7 @@ const EventCard = (props) => {
   const handleCreateTeamSubmit = async (e) => {
     e.preventDefault();
     try {
-      if(props.data?.unstop!=""){
+      if (props.data?.unstop != "") {
         openlink();
         return;
       }
@@ -75,6 +75,8 @@ const EventCard = (props) => {
       toast.error("some error occured");
     }
   };
+
+  props.data.whatsapp = "https://chat.whatsapp.com/CApRHLA0cgx82Ea4hKcUiX";
 
   return (
     <>
@@ -164,15 +166,34 @@ const EventCard = (props) => {
             )}
           </div>
 
-          <div className="w-56 text-2">
-            <a
-              className="font-bold text-xl underline text-yellow-400"
-              href={props.data.readmore}
-              target="_blank"
-              referrerPolicy="no-referrer"
-            >
-              Rule Book
-            </a>
+          <br/>
+          <div className="flex w-full justify-between md:justify-start items-center">
+            <div className="w-fit text-2">
+              <a
+                className="font-bold text-xl underline text-yellow-400 pr-5 "
+                href={props.data.readmore}
+                target="_blank"
+                referrerPolicy="no-referrer"
+              >
+                Rule Book
+              </a>
+            </div>
+
+            <span className="font-bold text-xl hidden md:flex underline text-yellow-400">
+              |
+            </span>
+
+            <div className="text-2 pl-5 ">
+              <a
+                className="font-bold flex text-xl underline text-yellow-400"
+                href={props.data.whatsapp}
+                target="_blank"
+                referrerPolicy="no-referrer"
+              >
+                <span className="underline pr-2">Whatsapp</span>
+                <Image src={"/whatsapp.png"} width={28} height={25} />
+              </a>
+            </div>
           </div>
         </div>
 
