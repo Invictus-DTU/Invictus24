@@ -37,6 +37,16 @@
   padding: 5px;
   border-image: url(../public/border.png) 49% round;
 }
+
+.Popup{
+    background-image: url("../public/bg4.png");
+    /* position: absolute; */
+    background-attachment: scroll;
+    background-size: 100% 100% ;
+    background-repeat: repeat-y;
+    
+}
+
 .Workshop{
     background-image: url("../public/Workshop.png");
     /* position: absolute; */

@@ -18,6 +18,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";
 import "./swiper.css";
 import EventButton from "../Components/Buttons/eventButton";
+import Popup from "../Components/Popup";
 
 const Home = () => {
   const { data: session } = useSession();
@@ -55,6 +56,7 @@ const Home = () => {
 
   return (
     <main className="w-full sm:h-[400vh] overflow-auto max-sm:h-[300vh] bg-[#05063F]">
+        {/* <Popup /> */}
       <div className="w-full h-screen flex flex-col justify-center items-center">
         <img
           src="/bg_c.webp"
