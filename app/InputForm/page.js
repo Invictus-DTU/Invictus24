@@ -37,8 +37,9 @@ const TeamPage = () => {
     
     try {
       const newTeamId = uuidv4();
+      const trimmedTeamName = teamName.replace(/^\s+|\s+$/g, '');  // Remove leading and trailing spaces
+      const res = await createTeam({ teamname: trimmedTeamName, teamId: newTeamId, eventName: eventName });
 
-      const res = await createTeam({ teamname: teamName, teamId: newTeamId, eventName: eventName });
 
       if (res.error) {
         toast.error(res.error);
