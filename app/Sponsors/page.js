@@ -22,6 +22,15 @@ const Sponsors = () => {
             </div>
           </Link>
         </div>
+
+        <div className="w-52 h-52 flex justify-center rounded-3xl bg-black/[0.3] drop-shadow-[4px_0px_40px_rgba(255,255,255,0.33)] items-center mx-10 my-4">
+          <Link href="https://www.geeksforgeeks.org/" target="_blank" >
+            <div className="w-48 h-48 flex justify-center rounded-3xl bg-white items-center">
+              <img className="h-44 flex" src="/Sponsors/gfg.jpeg" alt="logo" />
+            </div>
+          </Link>
+        </div>
+
         <div className="w-52 h-52 flex justify-center rounded-3xl bg-black/[0.3] drop-shadow-[4px_0px_40px_rgba(255,255,255,0.33)] items-center mx-10 my-4">
           <Link href="https://www.revoltmotors.com/" target="_blank" >
             <div className="w-48 h-48 flex justify-center rounded-3xl bg-white items-center">
@@ -62,18 +71,50 @@ const Sponsors = () => {
         
         <div className="w-52 h-52 flex justify-center rounded-3xl bg-black/[0.3] drop-shadow-[4px_0px_40px_rgba(255,255,255,0.33)] items-center mx-10 my-4">
           <Link href="https://www.stockgro.club/" target="_blank" >
-            <div className="w-48 h-48 flex justify-center rounded-3xl bg-black items-center">
-              <img className="h-40 flex" src="/Sponsors/stockgro.png" alt="logo" />
+            <div className="w-48 h-48 flex justify-center rounded-3xl bg-white items-center">
+              <img className="h-46 flex" src="/Sponsors/stockgro.png" alt="logo" />
             </div>
           </Link>
         </div>
 
         <div className="w-52 h-52 flex justify-center rounded-3xl bg-black/[0.3] drop-shadow-[4px_0px_40px_rgba(255,255,255,0.33)] items-center mx-10 my-4">
           <Link href="https://www.fresources.tech/" target="_blank" >
-            <div className="w-48 h-48 flex justify-center rounded-3xl bg-black items-center">
+            <div className="w-48 h-48 flex justify-center rounded-3xl bg-white items-center">
               <img className="h-44 flex" src="/Sponsors/Fresources.png" alt="logo" />
             </div>
           </Link>
+        </div>
+
+        <div className="w-52 h-52 flex justify-center rounded-3xl bg-black/[0.3] drop-shadow-[4px_0px_40px_rgba(255,255,255,0.33)] items-center mx-10 my-4">
+          <Link href="https://www.easemytrip.com/" target="_blank" >
+            <div className="w-48 h-48 flex justify-center rounded-3xl bg-white items-center">
+              <img className="h-16 flex" src="/Sponsors/EMT.svg" alt="logo" />
+            </div>
+          </Link>
+        </div>
+        
+        <div className="w-52 h-52 flex justify-center rounded-3xl bg-black/[0.3] drop-shadow-[4px_0px_40px_rgba(255,255,255,0.33)] items-center mx-10 my-4">
+          <Link href="https://www.ayouthveda.com/" target="_blank" >
+            <div className="w-48 h-48 flex justify-center rounded-3xl bg-white items-center">
+              <img className="h-44 flex" src="/Sponsors/ayouth.jpg" alt="logo" />
+            </div>
+          </Link>
+        </div>
+
+        <div className="w-52 h-52 flex justify-center rounded-3xl bg-black/[0.3] drop-shadow-[4px_0px_40px_rgba(255,255,255,0.33)] items-center mx-10 my-4">
+          <Link href="https://www.chess.com/" target="_blank" >
+            <div className="w-48 h-48 flex justify-center rounded-3xl bg-white items-center">
+              <img className="h-46 flex" src="/Sponsors/chess.png" alt="logo" />
+            </div>
+          </Link>
+        </div>
+
+        <div className="w-52 h-52 flex justify-center rounded-3xl bg-black/[0.3] drop-shadow-[4px_0px_40px_rgba(255,255,255,0.33)] items-center mx-10 my-4">
+          {/* <Link href="/" target="_blank" > */}
+            <div className="w-48 h-48 flex justify-center rounded-3xl bg-white items-center">
+              <img className="h-46 flex" src="/Sponsors/campusf.png" alt="logo" />
+            </div>
+          {/* </Link> */}
         </div>
 
       </div>
