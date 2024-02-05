@@ -55,7 +55,7 @@ const Sponsors = () => {
         <div className="w-52 h-52 flex justify-center rounded-3xl bg-black/[0.3] drop-shadow-[4px_0px_40px_rgba(255,255,255,0.33)] items-center mx-10 my-4">
           <Link href="https://hive.io/" target="_blank" >
             <div className="w-48 h-48 flex justify-center rounded-3xl bg-white items-center">
-              <img className="h-46 flex" src="/Sponsors/hive.png" alt="logo" />
+              <img className="h-44 flex" src="/Sponsors/hive.png" alt="logo" />
             </div>
           </Link>
         </div>
