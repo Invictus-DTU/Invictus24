@@ -11,38 +11,71 @@ const Sponsors = () => {
       <div className="w-52 h-52 flex justify-center rounded-3xl bg-black/[0.3] drop-shadow-[4px_0px_40px_rgba(255,255,255,0.33)] items-center mx-10 my-4">
           <Link href="https://adobe.com/" target="_blank" >
             <div className="w-48 h-48 flex justify-center rounded-3xl bg-white items-center">
-              <img className="h-46 flex" src="/adobe.png" alt="logo" />
+              <img className="h-46 flex" src="/Sponsors/adobe.png" alt="logo" />
             </div>
           </Link>
         </div>
         <div className="w-52 h-52 flex justify-center rounded-3xl bg-black/[0.3] drop-shadow-[4px_0px_40px_rgba(255,255,255,0.33)] items-center mx-10 my-4">
           <Link href="https://gtechlearn.com" target="_blank" >
             <div className="w-48 h-48 flex justify-center rounded-3xl bg-white items-center">
-              <img className="h-46 flex" src="/gtech.jpeg" alt="logo" />
+              <img className="h-46 flex" src="/Sponsors/gtech.jpeg" alt="logo" />
             </div>
           </Link>
         </div>
         <div className="w-52 h-52 flex justify-center rounded-3xl bg-black/[0.3] drop-shadow-[4px_0px_40px_rgba(255,255,255,0.33)] items-center mx-10 my-4">
           <Link href="https://www.revoltmotors.com/" target="_blank" >
             <div className="w-48 h-48 flex justify-center rounded-3xl bg-white items-center">
-              <img className="h-46 flex" src="/revolt.png" alt="logo" />
+              <img className="h-46 flex" src="/Sponsors/revolt.png" alt="logo" />
             </div>
           </Link>
         </div>
         <div className="w-52 h-52 flex justify-center rounded-3xl bg-black/[0.3] drop-shadow-[4px_0px_40px_rgba(255,255,255,0.33)] items-center mx-10 my-4">
           <Link href="https://www.microsoft.com/en-in" target="_blank" >
             <div className="w-48 h-48 flex justify-center rounded-3xl bg-white items-center">
-              <img className="h-46 flex" src="/ms.webp" alt="logo" />
+              <img className="h-46 flex" src="/Sponsors/ms.webp" alt="logo" />
             </div>
           </Link>
         </div>
         <div className="w-52 h-52 flex justify-center rounded-3xl bg-black/[0.3] drop-shadow-[4px_0px_40px_rgba(255,255,255,0.33)] items-center mx-10 my-4">
           <Link href="https://ieee-collabratec.ieee.org/" target="_blank" >
             <div className="w-48 h-48 flex justify-center rounded-3xl bg-white items-center">
-              <img className="h-46 flex" src="/collaboratec.png" alt="logo" />
+              <img className="h-46 flex" src="/Sponsors/collaboratec.png" alt="logo" />
             </div>
           </Link>
         </div>
+
+        <div className="w-52 h-52 flex justify-center rounded-3xl bg-black/[0.3] drop-shadow-[4px_0px_40px_rgba(255,255,255,0.33)] items-center mx-10 my-4">
+          <Link href="https://www.eatmy.news/" target="_blank" >
+            <div className="w-48 h-48 flex justify-center rounded-3xl bg-white items-center">
+              <img className="h-46 flex" src="/Sponsors/eatmynews.jpeg" alt="logo" />
+            </div>
+          </Link>
+        </div>
+
+        <div className="w-52 h-52 flex justify-center rounded-3xl bg-black/[0.3] drop-shadow-[4px_0px_40px_rgba(255,255,255,0.33)] items-center mx-10 my-4">
+          <Link href="https://hive.com/" target="_blank" >
+            <div className="w-48 h-48 flex justify-center rounded-3xl bg-white items-center">
+              <img className="h-46 flex" src="/Sponsors/hive.webp" alt="logo" />
+            </div>
+          </Link>
+        </div>
+        
+        <div className="w-52 h-52 flex justify-center rounded-3xl bg-black/[0.3] drop-shadow-[4px_0px_40px_rgba(255,255,255,0.33)] items-center mx-10 my-4">
+          <Link href="https://www.stockgro.club/" target="_blank" >
+            <div className="w-48 h-48 flex justify-center rounded-3xl bg-black items-center">
+              <img className="h-40 flex" src="/Sponsors/stockgro.png" alt="logo" />
+            </div>
+          </Link>
+        </div>
+
+        <div className="w-52 h-52 flex justify-center rounded-3xl bg-black/[0.3] drop-shadow-[4px_0px_40px_rgba(255,255,255,0.33)] items-center mx-10 my-4">
+          <Link href="https://www.fresources.tech/" target="_blank" >
+            <div className="w-48 h-48 flex justify-center rounded-3xl bg-black items-center">
+              <img className="h-44 flex" src="/Sponsors/Fresources.png" alt="logo" />
+            </div>
+          </Link>
+        </div>
+
       </div>
       {/* <div className="flex justify-center mt-10"> */}
 
