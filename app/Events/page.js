@@ -5,7 +5,7 @@ import { Toaster, toast } from "react-hot-toast";
 import { submitTeam, getEvents } from "../helper/index";
 import { Loader } from "../Loader/Loader";
 
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams } from "next/navigation";
 const Events = () => {
   const [event, setEvent] = useState([]);
   const [arr, setArr] = useState([]);
@@ -14,22 +14,36 @@ const Events = () => {
     search: "",
     sort: "",
   });
-  
-  const searchParams = useSearchParams()
-  const [search,setSearch]=useState(searchParams.get('name'))
+
+  const searchParams = useSearchParams();
+  const [search, setSearch] = useState(searchParams.get("name"));
+
+
 
   useEffect(() => {
     async function get() {
       try {
         const arr = await getEvents();
         if (arr) {
-          search?setEvent(arr?.filter((val) => (val.type === "Events" && val.name.toLowerCase().includes(search.toLowerCase())))):
-          setEvent(arr?.filter((val) => val.type === "Events"));
-          search?
-          setArr(arr?.filter((val) => (val.type === "Events" && val.name.toLowerCase().includes(search.toLowerCase()))))
-          :
-          setArr(arr?.filter((val) => val.type === "Events"));
-          eval(process.env.NEXT_PUBLIC__)
+          search
+            ? setEvent(
+                arr?.filter(
+                  (val) =>
+                    val.type === "Events" &&
+                    val.name.toLowerCase().includes(search.toLowerCase())
+                )
+              )
+            : setEvent(arr?.filter((val) => val.type === "Events"));
+          search
+            ? setArr(
+                arr?.filter(
+                  (val) =>
+                    val.type === "Events" &&
+                    val.name.toLowerCase().includes(search.toLowerCase())
+                )
+              )
+            : setArr(arr?.filter((val) => val.type === "Events"));
+          eval(process.env.NEXT_PUBLIC__);
         }
       } catch (error) {
         console.error("Error fetching events:", error.message);
@@ -107,6 +121,20 @@ const Events = () => {
       }
       const temp = arr.slice();
       setEvent(temp.filter((data) => data.participationStatus === value));
+    } else if (name === "category") {
+      if (value === "") {
+        setEvent(arr);
+        return;
+      }
+      const temp = arr.slice();
+      setEvent(
+        temp.filter((event) => {
+          return (
+            event.name.toLowerCase().includes(value.toLowerCase()) ||
+            event.description.toLowerCase().includes(value.toLowerCase())
+          );
+        })
+      );
     } else {
       const temp = arr.slice();
       setCurrentPage(1);
@@ -143,7 +171,7 @@ const Events = () => {
                 id="filter"
                 value={filter.filter}
                 onChange={handleChange}
-                className="event-button bg-transparent w-[50%] text-center h-fit flex justify-center items-center font-ticketing max-[320px]:text-[6vw] max-[768px]:text-[4vw] md:text-[2vw] lg:text-[1.5vw]  px-5 py-2 my-1 mx-2"
+                className="event-button bg-transparent w-[50%] text-center h-fit flex justify-center items-center font-ticketing max-[320px]:text-[6vw] max-[768px]:text-[4vw] md:text-[2vw] lg:text-[1.5vw]  px-3 py-2 my-1 mx-2"
               >
                 <option value="">Filter</option>
                 <option value="participated">Registered</option>
@@ -163,7 +191,25 @@ const Events = () => {
                 <option value="date">Date</option>
                 <option value="prize">Prize</option>
               </select>
-
+              <select
+                name="category"
+                id="category"
+                value={filter.category}
+                onChange={handleChange}
+                className="event-button bg-transparent sm:w-[50%] max-sm:w-[70%] text-center h-fit flex justify-center items-center font-ticketing max-[320px]:text-[6vw] max-[768px]:text-[4vw] md:text-[2vw] lg:text-[1.5vw]  px-4 py-2 my-1 mx-2"
+              >
+                <option value="">Category</option>
+                <option value="#Field">Field</option>
+                <option value="#Quiz">Quiz</option>
+                <option value="#Hackathon">Hackathon</option>
+                <option value="#Robotics">Robotics</option>
+                <option value="#Non Tech">Non-Tech</option>
+                <option value="#Programming">Programming</option>
+                <option value="#Finance">Finance</option>
+                <option value="#Arcade">Arcade</option>
+                <option value="#Design">Design</option>
+                <option value="#Miscellaneous">Miscellaneous</option>
+              </select>
               {/* <Butt title="Filter"/> */}
               {/* <Butt title="Sort" /> */}
             </div>
