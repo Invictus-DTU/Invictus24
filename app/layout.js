@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
       <title>Invictus DTU</title>
       <meta
         name="description"
-        content="India's Largest Annual TechFest, Delhi Technological University 2024"
+        content="India's Largest Annual TechFest at Delhi Technological University 2024"
       />
       <link rel="icon" type="image/x-icon" href="static/favicon.ico"></link>
       <body className={inter.className}>
