@@ -30,7 +30,6 @@ export default function RootLayout({ children }) {
           <Navbar />
           </Suspense>
           <SpeedInsights />
-          {children}
           <Footer />
         </SessionProvider>
         <Analytics />
